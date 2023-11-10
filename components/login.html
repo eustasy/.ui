@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="../assets/main.css">
 
+<!-- Remember that labels "for" attribute maps to "id"s, not "name"s. -->
 <label for="email">e-mail</label>
 <input name="email" id="email" type="email" aria-required="true" required>
 
@@ -12,7 +13,7 @@
 
 <input type="submit" value="Login">
 
-<!-- Form validation should add aria-invalid="true" to the input in question, as well as aria-describedby for the ID of the error message.
+<!-- Form validation should add aria-invalid="true" to the input in question, as well as aria-describedby for the "id" of the error message.
 	Add the "alert" role or consider aria-live="assertive" to the alert to interrupt current reading, and return focus to the field that generated the Alert. -->
 <div id="emailAlert" class="form-alert" role="alert">
 	<p>That email is not registered with us. Are you sure you typed it correctly?</p>
