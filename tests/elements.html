@@ -18,7 +18,7 @@ Content sectioning elements allow you to organize the document content into logi
 &lt;section>	Represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.
 &lt;search>	Represents a part that contains a set of form controls or other content related to performing a search or filtering operation.
 
-<h2 id="text-content">Text content</<h2>
+<h2 id="text-content">Text content</h2>
 Use HTML text content elements to organize blocks or sections of content placed between the opening &lt;body> and closing &lt;/body> tags. Important for accessibility and SEO, these elements identify the purpose or structure of that content.
 
 &lt;blockquote>	Indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation. A URL for the source of the quotation may be given using the cite attribute, while a text representation of the source can be given using the &lt;cite> element.
@@ -36,7 +36,7 @@ Use HTML text content elements to organize blocks or sections of content placed 
 &lt;pre>	Represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or monospaced, font. Whitespace inside this element is displayed as written.
 &lt;ul>	Represents an unordered list of items, typically rendered as a bulleted list.
   
-<h2 id="inline-text-semantics">Inline text semantics</<h2>
+<h2 id="inline-text-semantics">Inline text semantics</h2>
 Use the HTML inline text semantic to define the meaning, structure, or style of a word, line, or any arbitrary piece of text.
 
 &lt;a>	Together with its href attribute, creates a hyperlink to web pages, files, email addresses, locations within the current page, or anything else a URL can address.
@@ -69,7 +69,7 @@ Use the HTML inline text semantic to define the meaning, structure, or style of 
 &lt;var>	Represents the name of a variable in a mathematical expression or a programming context. It's typically presented using an italicized version of the current typeface, although that behavior is browser-dependent.
 &lt;wbr>	Represents a word break opportunity—a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location.
 
-<h2 id="image-and-multimedia">Image and multimedia</<h2>
+<h2 id="image-and-multimedia">Image and multimedia</h2>
 HTML supports various multimedia resources such as images, audio, and video.
 
 &lt;area>	Defines an area inside an image map that has predefined clickable areas. An image map allows geometric areas on an image to be associated with hyperlink.
@@ -79,7 +79,7 @@ HTML supports various multimedia resources such as images, audio, and video.
 &lt;track>	Used as a child of the media elements, audio and video. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in WebVTT format (.vtt files)—Web Video Text Tracks.
 &lt;video>	Embeds a media player which supports video playback into the document. You can also use &lt;video> for audio content, but the audio element may provide a more appropriate user experience.
 
-<h2 id="embedded-content">Embedded content</<h2>
+<h2 id="embedded-content">Embedded content</h2>
 In addition to regular multimedia content, HTML can include a variety of other content, even if it's not always easy to interact with.
 
 &lt;embed>	Embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
@@ -89,24 +89,24 @@ In addition to regular multimedia content, HTML can include a variety of other c
 &lt;portal>	Enables the embedding of another HTML page into the current one to enable smoother navigation into new pages.
 &lt;source>	Specifies multiple media resources for the picture, the audio element, or the video element. It is a void element, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for image file formats and media file formats.
 
-<h2 id="svg-and-mathml">SVG and MathML</<h2>
+<h2 id="svg-and-mathml">SVG and MathML</h2>
 You can embed SVG and MathML content directly into HTML documents, using the &lt;svg> and &lt;math> elements.
 
 &lt;svg>	Container defining a new coordinate system and viewport. It is used as the outermost element of SVG documents, but it can also be used to embed an SVG fragment inside an SVG or HTML document.
 &lt;math>	The top-level element in MathML. Every valid MathML instance must be wrapped in it. In addition, you must not nest a second &lt;math> element in another, but you can have an arbitrary number of other child elements in it.
 
-<h2 id="scripting">Scripting</<h2>
+<h2 id="scripting">Scripting</h2>
 To create dynamic content and Web applications, HTML supports the use of scripting languages, most prominently JavaScript. Certain elements support this capability.
 
 &lt;canvas>	Container element to use with either the canvas scripting API or the WebGL API to draw graphics and animations.
 
-<h2 id="demarcating-edits">Demarcating edits</<h2>
+<h2 id="demarcating-edits">Demarcating edits</h2>
 These elements let you provide indications that specific parts of the text have been altered.
 
 &lt;del>	Represents a range of text that has been deleted from a document. This can be used when rendering "track changes" or source code diff information, for example. The &lt;ins> element can be used for the opposite purpose: to indicate text that has been added to the document.
 &lt;ins>	Represents a range of text that has been added to a document. You can use the &lt;del> element to similarly represent a range of text that has been deleted from the document.
 
-<h2 id="table-content">Table content</<h2>
+<h2 id="table-content">Table content</h2>
 The elements here are used to create and handle tabular data.
 
 &lt;caption>	Specifies the caption (or title) of a table.
@@ -120,7 +120,7 @@ The elements here are used to create and handle tabular data.
 &lt;thead>	Defines a set of rows defining the head of the columns of the table.
 &lt;tr>	Defines a row of cells in a table. The row's cells can then be established using a mix of &lt;td> (data cell) and &lt;th> (header cell) elements.
 
-<h2 id="forms">Forms</<h2>
+<h2 id="forms">Forms</h2>
 HTML provides several elements that can be used together to create forms that the user can fill out and submit to the website or application. Further information about this available in the HTML forms guide.
 
 &lt;button>	An interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it performs an action, such as submitting a form or opening a dialog.
@@ -138,14 +138,14 @@ HTML provides several elements that can be used together to create forms that th
 &lt;select>	Represents a control that provides a menu of options.
 &lt;textarea>	Represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example, a comment on a review or feedback form.
 
-<h2 id="interactive-elements">Interactive elements</<h2>
+<h2 id="interactive-elements">Interactive elements</h2>
 HTML offers a selection of elements that help to create interactive user interface objects.
 
 &lt;details>	Creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the &lt;summary> element.
 &lt;dialog>	Represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.
 &lt;summary>	Specifies a summary, caption, or legend for a details element's disclosure box. Clicking the &lt;summary> element toggles the state of the parent &lt;details> element open and closed.
 
-<h2 id="web-components">Web Components</<h2>
+<h2 id="web-components">Web Components</h2>
 Web Components is an HTML-related technology that makes it possible to, essentially, create and use custom elements as if it were regular HTML. In addition, you can create custom versions of standard HTML elements.
 
 &lt;slot>	Part of the Web Components technology suite, this element is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
