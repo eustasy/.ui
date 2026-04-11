@@ -76,6 +76,10 @@ components/
   textarea.css                ← auto-resizing textarea
   user-menu.css               ← avatar dropdown for user account actions
 js/
+  alert.js                    ← dismiss .alert on .alert-dismiss click
+  combobox.js                 ← filter, keyboard nav, aria-activedescendant
+  dialog.js                   ← open/close native <dialog> via data attributes
+  dropdown.js                 ← toggle .dropdown menus; click-outside + Escape
   theme-toggle.js             ← dark/light toggle with localStorage persistence
   user-menu.js                ← user menu open/close behaviour
 layouts/
