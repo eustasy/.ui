@@ -46,14 +46,18 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   // Dropdown toggles
-  document.querySelectorAll("[aria-controls='dd-menu'], [aria-controls='dd-menu-end']").forEach((btn) => {
-    btn.addEventListener("click", function () {
-      const menu = document.getElementById(this.getAttribute("aria-controls"))
-      const open = menu.hidden
-      menu.hidden = !open
-      this.setAttribute("aria-expanded", open)
+  document
+    .querySelectorAll(
+      "[aria-controls='dd-menu'], [aria-controls='dd-menu-end']"
+    )
+    .forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const menu = document.getElementById(this.getAttribute("aria-controls"))
+        const open = menu.hidden
+        menu.hidden = !open
+        this.setAttribute("aria-expanded", open)
+      })
     })
-  })
 
   // Textarea character count
   const bioTextarea = document.getElementById("ta-bio")
