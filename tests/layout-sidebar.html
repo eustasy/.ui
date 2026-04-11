@@ -26,6 +26,31 @@
       }
       .demo-stat {
         padding: var(--space-5);
+        border-block-start-width: 3px;
+        border-block-start-style: solid;
+        border-block-start-color: var(--stat-accent, var(--color-border));
+      }
+      .demo-stat-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-block-end: var(--space-3);
+      }
+      .demo-stat-icon {
+        width: 2rem;
+        height: 2rem;
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--stat-accent-bg, var(--color-bg-tertiary));
+        color: var(--stat-accent, var(--color-text-secondary));
+        flex-shrink: 0;
+      }
+      .demo-stat-icon svg {
+        width: 1rem;
+        height: 1rem;
+        fill: var(--stat-accent, currentColor);
       }
       .demo-stat-value {
         font-size: var(--font-size-3xl);
@@ -36,7 +61,91 @@
       .demo-stat-label {
         font-size: var(--font-size-sm);
         color: var(--color-text-secondary);
+        margin: 0 0 var(--space-3);
+      }
+      .demo-stat-trend {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-1);
+        font-size: var(--font-size-xs);
+        font-weight: var(--font-weight-medium);
+        color: var(--stat-accent, var(--color-text-secondary));
+      }
+      .demo-stat-trend svg {
+        width: 0.875rem;
+        height: 0.875rem;
+      }
+
+      /* User menu popover */
+      .user-menu-wrap {
+        position: relative;
+        width: 100%;
+      }
+      .user-menu {
+        position: absolute;
+        inset-block-end: calc(100% + var(--space-2));
+        inset-inline-start: var(--space-2);
+        inset-inline-end: var(--space-2);
+        background-color: var(--color-surface);
+        border: var(--border-width) solid var(--color-border);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+        z-index: 100;
+        display: none;
+      }
+      .user-menu.is-open {
+        display: block;
+      }
+      .user-menu ul {
+        list-style: none;
         margin: 0;
+        padding: var(--space-1-5);
+      }
+      .user-menu li + li {
+        margin-block-start: var(--space-px);
+      }
+      .user-menu a,
+      .user-menu button.user-menu-item {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        width: 100%;
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--font-size-sm);
+        color: var(--color-text);
+        text-decoration: none;
+        border-radius: var(--radius-lg);
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-align: start;
+        transition: background-color var(--duration-fast) var(--easing);
+      }
+      .user-menu a:hover,
+      .user-menu button.user-menu-item:hover {
+        background-color: var(--color-bg-secondary);
+      }
+      .user-menu-icon {
+        width: 1rem;
+        height: 1rem;
+        flex-shrink: 0;
+        opacity: 0.6;
+      }
+      .user-menu-sep {
+        border: none;
+        border-block-start: var(--border-width) solid var(--color-border);
+        margin: var(--space-1-5) 0;
+      }
+      .user-menu-signout {
+        color: var(--color-danger) !important;
+      }
+      .user-menu-signout .user-menu-icon {
+        opacity: 1;
+        color: var(--color-danger);
+      }
+      .sidebar-user[aria-expanded="true"] {
+        background-color: var(--color-bg-tertiary);
       }
       .demo-table-row {
         display: flex;
@@ -205,25 +314,154 @@
 
         <!-- Footer: user account -->
         <div class="sidebar-footer">
-          <button class="sidebar-user" type="button">
-            <img
-              class="sidebar-user-avatar"
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' rx='16' fill='%235E409D'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3EAB%3C/text%3E%3C/svg%3E"
-              alt="Alex Blake"
-            />
-            <span class="sidebar-user-info">
-              <span class="sidebar-user-name">Alex Blake</span>
-              <span class="sidebar-user-meta">alex@example.com</span>
-            </span>
-            <button
-              data-theme-toggle
-              aria-label="Toggle dark mode"
-              class="btn btn-ghost btn-sm"
-              style="margin-inline-start: auto; flex-shrink: 0"
+          <div class="user-menu-wrap">
+            <!-- User menu popover (opens upward) -->
+            <div
+              class="user-menu"
+              id="user-menu"
+              role="menu"
+              aria-label="User menu"
             >
-              🌓
+              <ul>
+                <li role="none">
+                  <a href="#" role="menuitem">
+                    <svg
+                      class="user-menu-icon"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-7 9a7 7 0 1 1 14 0H3z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    My profile
+                  </a>
+                </li>
+                <li role="none">
+                  <a href="#" role="menuitem">
+                    <svg
+                      class="user-menu-icon"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 0 1-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 0 1 .947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 0 1 2.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 0 1 2.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 0 1 .947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 0 1-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 0 1-2.287-.947zM10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Settings
+                  </a>
+                </li>
+              </ul>
+              <hr class="user-menu-sep" />
+              <ul>
+                <li role="none">
+                  <a href="#" role="menuitem">
+                    <svg
+                      class="user-menu-icon"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M2.166 4.999A11.954 11.954 0 0 0 10 1.944 11.954 11.954 0 0 0 17.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 0 0-1.414-1.414L9 10.586 7.707 9.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Privacy policy
+                  </a>
+                </li>
+                <li role="none">
+                  <a href="#" role="menuitem">
+                    <svg
+                      class="user-menu-icon"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0zm-8-3a1 1 0 0 0-.867.5 1 1 0 1 1-1.731-1A3 3 0 0 1 13 8a3.001 3.001 0 0 1-2 2.83V11a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1 1 1 0 1 0 0-2zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Share feedback
+                  </a>
+                </li>
+              </ul>
+              <hr class="user-menu-sep" />
+              <ul>
+                <li role="none">
+                  <button
+                    class="user-menu-item user-menu-signout"
+                    role="menuitem"
+                    type="button"
+                  >
+                    <svg
+                      class="user-menu-icon"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3 3a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h6a1 1 0 1 0 0-2H4V5h5a1 1 0 1 0 0-2H3zm11.293 4.293a1 1 0 0 1 1.414 0l3 3a1 1 0 0 1 0 1.414l-3 3a1 1 0 0 1-1.414-1.414L15.586 11H9a1 1 0 1 1 0-2h6.586l-1.293-1.293a1 1 0 0 1 0-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Sign out
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- User button -->
+            <button
+              class="sidebar-user"
+              type="button"
+              id="user-menu-trigger"
+              aria-haspopup="menu"
+              aria-controls="user-menu"
+              aria-expanded="false"
+            >
+              <img
+                class="sidebar-user-avatar"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' rx='16' fill='%235E409D'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3EAB%3C/text%3E%3C/svg%3E"
+                alt="Alex Blake"
+              />
+              <span class="sidebar-user-info">
+                <span class="sidebar-user-name">Alex Blake</span>
+                <span class="sidebar-user-meta">alex@example.com</span>
+              </span>
+              <!-- Chevron -->
+              <svg
+                id="user-menu-chevron"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+                style="
+                  width: 1rem;
+                  height: 1rem;
+                  flex-shrink: 0;
+                  margin-inline-start: auto;
+                  opacity: 0.5;
+                  transition: transform var(--duration-fast) var(--easing);
+                "
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M14.707 12.707a1 1 0 0 1-1.414 0L10 9.414l-3.293 3.293a1 1 0 0 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
             </button>
-          </button>
+          </div>
         </div>
       </aside>
 
@@ -267,21 +505,135 @@
         <div class="sidebar-main-body">
           <!-- Stats row -->
           <div class="demo-grid">
-            <div class="demo-block demo-stat">
+            <!-- Users — blue -->
+            <div
+              class="demo-block demo-stat"
+              style="
+                --stat-accent: var(--flexoki-blue-600);
+                --stat-accent-bg: var(--flexoki-blue-50);
+              "
+            >
+              <div class="demo-stat-header">
+                <div class="demo-stat-icon">
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M10 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-7 9a7 7 0 1 1 14 0H3z"
+                    />
+                  </svg>
+                </div>
+              </div>
               <p class="demo-stat-value">1,284</p>
               <p class="demo-stat-label">Total users</p>
+              <span class="demo-stat-trend">
+                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path d="M8 3l5 5H3l5-5z" />
+                </svg>
+                +12% this month
+              </span>
             </div>
-            <div class="demo-block demo-stat">
+
+            <!-- Revenue — green -->
+            <div
+              class="demo-block demo-stat"
+              style="
+                --stat-accent: var(--flexoki-green-600);
+                --stat-accent-bg: var(--flexoki-green-50);
+              "
+            >
+              <div class="demo-stat-header">
+                <div class="demo-stat-icon">
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M10 2a8 8 0 1 0 0 16A8 8 0 0 0 10 2zm.75 4.5v.94c1.03.18 1.75.82 1.75 1.81 0 .88-.56 1.44-1.46 1.71l-.29.09v1.94c.52-.1.91-.36 1.1-.7l1.3.75C12.7 13.6 11.8 14 10.75 14v.5h-1.5V14c-1.2-.2-2-1-2-2.06 0-.93.6-1.52 1.52-1.78l.48-.14V8.1c-.41.1-.73.33-.88.65L7.1 8.03C7.44 7.14 8.22 6.6 9.25 6.44V5.5h1.5z"
+                    />
+                  </svg>
+                </div>
+              </div>
               <p class="demo-stat-value">$48,295</p>
               <p class="demo-stat-label">Revenue (MTD)</p>
+              <span class="demo-stat-trend">
+                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path d="M8 3l5 5H3l5-5z" />
+                </svg>
+                +8.3% vs last month
+              </span>
             </div>
-            <div class="demo-block demo-stat">
+
+            <!-- Uptime — cyan -->
+            <div
+              class="demo-block demo-stat"
+              style="
+                --stat-accent: var(--flexoki-cyan-600);
+                --stat-accent-bg: var(--flexoki-cyan-50);
+              "
+            >
+              <div class="demo-stat-header">
+                <div class="demo-stat-icon">
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
               <p class="demo-stat-value">98.1%</p>
               <p class="demo-stat-label">Uptime</p>
+              <span class="demo-stat-trend">
+                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path d="M8 3l5 5H3l5-5z" />
+                </svg>
+                0.4 pp above SLA
+              </span>
             </div>
-            <div class="demo-block demo-stat">
+
+            <!-- Open issues — orange -->
+            <div
+              class="demo-block demo-stat"
+              style="
+                --stat-accent: var(--flexoki-orange-600);
+                --stat-accent-bg: var(--flexoki-orange-50);
+              "
+            >
+              <div class="demo-stat-header">
+                <div class="demo-stat-icon">
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 10 5zm0 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
               <p class="demo-stat-value">12</p>
               <p class="demo-stat-label">Open issues</p>
+              <span
+                class="demo-stat-trend"
+                style="color: var(--flexoki-red-600)"
+              >
+                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path d="M8 13L3 8h10l-5 5z" />
+                </svg>
+                +3 since yesterday
+              </span>
             </div>
           </div>
 
@@ -402,8 +754,45 @@
       overlay.addEventListener("click", closeSidebar)
 
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeSidebar()
+        if (e.key === "Escape") {
+          closeSidebar()
+          closeUserMenu()
+        }
       })
+
+      // User menu
+      const userTrigger = document.getElementById("user-menu-trigger")
+      const userMenu = document.getElementById("user-menu")
+      const userChevron = document.getElementById("user-menu-chevron")
+
+      function openUserMenu() {
+        userMenu.classList.add("is-open")
+        userTrigger.setAttribute("aria-expanded", "true")
+        userChevron.style.transform = "rotate(180deg)"
+      }
+
+      function closeUserMenu() {
+        userMenu.classList.remove("is-open")
+        userTrigger.setAttribute("aria-expanded", "false")
+        userChevron.style.transform = ""
+      }
+
+      userTrigger.addEventListener("click", (e) => {
+        e.stopPropagation()
+        userMenu.classList.contains("is-open")
+          ? closeUserMenu()
+          : openUserMenu()
+      })
+
+      // Close when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!userMenu.contains(e.target) && e.target !== userTrigger) {
+          closeUserMenu()
+        }
+      })
+
+      // Close when a menu item is activated
+      userMenu.addEventListener("click", () => closeUserMenu())
     </script>
   </body>
 </html>

@@ -135,7 +135,6 @@
 /* Grouped nav section with a label */
 .sidebar-nav-group {
   margin-block-start: var(--space-4);
-  padding-inline: var(--space-3);
 }
 
 .sidebar-nav-group-label {
