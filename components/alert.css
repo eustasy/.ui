@@ -4,7 +4,6 @@
 
 .alert {
   padding: var(--space-3) var(--space-4);
-  border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-lg);
   font-size: var(--font-size-sm);
   line-height: var(--line-height-normal);

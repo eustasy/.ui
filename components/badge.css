@@ -12,7 +12,6 @@
   line-height: var(--line-height-normal);
   border-radius: var(--radius-full);
   white-space: nowrap;
-  border: var(--border-width) solid var(--color-border);
   background-color: var(--color-surface-raised);
   color: var(--color-text-secondary);
 }
