@@ -40,29 +40,53 @@ npm run dev      # → watch mode
 
 ```
 assets/
-  main.css                ← source entry point (imports everything)
+  main.css                    ← source entry point (imports everything)
   themes/
-    flexoki.css           ← Flexoki 2.0 palette + semantic tokens + light/dark
+    flexoki.css               ← Flexoki 2.0 palette + semantic tokens + light/dark
 base/
-  reset.css               ← modern CSS reset
-  typography.css           ← headings, prose, lists, code, links
-  forms.css               ← inputs, selects, checkboxes, validation states
-  tables.css              ← striped rows, responsive wrapper
-  media.css               ← images, details, progress, dialog
+  reset.css                   ← modern CSS reset
+  typography.css              ← headings, prose, lists, code, links
+  forms.css                   ← shared form styles, validation states
+  tables.css                  ← striped rows, responsive wrapper
+  media.css                   ← images, details, progress, dialog
 components/
-  button.css              ← primary, secondary, outline, ghost, danger, sizes
-  card.css                ← header/body/footer, image variant, compact
-  alert.css               ← info, success, warning, danger, dismissible
-  badge.css               ← color variants for all 8 accent colors
-  navbar.css              ← responsive nav with mobile toggle
-  login.html              ← example login form component
+  alert.css                   ← info, success, warning, danger, dismissible
+  avatar.css                  ← image and initials variants
+  badge.css                   ← color variants for all accent colors
+  button.css                  ← primary, secondary, outline, ghost, danger, sizes
+  card.css                    ← header/body/footer, image variant, compact
+  checkbox.css                ← styled checkbox with indeterminate state
+  combobox.css                ← searchable select with listbox
+  description-list.css        ← horizontal and vertical term/definition pairs
+  dialog.css                  ← modal and non-modal dialog
+  divider.css                 ← horizontal and vertical separators
+  dropdown.css                ← trigger + floating menu
+  fieldset.css                ← grouped form controls with legend
+  heading.css                 ← display and section headings
+  input.css                   ← text, number, date, and other input types
+  listbox.css                 ← single and multi-select listbox
+  navbar.css                  ← responsive nav with mobile toggle
+  pagination.css              ← page navigation controls
+  radio.css                   ← radio button group
+  select.css                  ← native and custom select
+  sidebar.css                 ← collapsible sidebar component
+  switch.css                  ← toggle switch (checkbox variant)
+  table.css                   ← striped, bordered, and compact variants
+  text.css                    ← inline text elements
+  textarea.css                ← auto-resizing textarea
+  user-menu.css               ← avatar dropdown for user account actions
 js/
-  theme-toggle.js         ← dark/light toggle with localStorage persistence
+  theme-toggle.js             ← dark/light toggle with localStorage persistence
+  user-menu.js                ← user menu open/close behaviour
+layouts/
+  auth.html / auth.css        ← centred authentication layout
+  sidebar.html / sidebar.css  ← sidebar + main content layout
+  stacked.html / stacked.css  ← stacked (app shell) layout
 tests/
-  elements.html           ← living reference of all styled HTML elements
-  components.html         ← preview of all components
+  elements.html               ← living reference of all styled HTML elements
+  components.html             ← preview of all components
 dist/
-  ui.css                  ← built output (gitignored)
+  ui.css                      ← built output (gitignored)
 ```
 
 ## Theming
