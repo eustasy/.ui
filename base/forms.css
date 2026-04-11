@@ -1,0 +1,229 @@
+/* ==========================================================================
+   Forms — Inputs, textareas, selects, checkboxes, radios, buttons
+   WCAG 2.2 AA: visible focus, sufficient contrast, labels
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Shared input styles
+   -------------------------------------------------------------------------- */
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="color"]):not([type="submit"]):not([type="reset"]):not([type="button"]),
+textarea,
+select {
+  display: block;
+  width: 100%;
+  max-width: var(--width-input);
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--duration-fast) var(--easing),
+    box-shadow var(--duration-fast) var(--easing);
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="color"]):not([type="submit"]):not([type="reset"]):not([type="button"]):hover,
+textarea:hover,
+select:hover {
+  border-color: var(--color-border-hover);
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="color"]):not([type="submit"]):not([type="reset"]):not([type="button"]):focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  border-color: var(--color-action);
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: calc(-1 * var(--focus-ring-width));
+}
+
+/* Placeholder */
+::placeholder {
+  color: var(--color-text-disabled);
+  opacity: 1;
+}
+
+/* Disabled */
+input:disabled,
+textarea:disabled,
+select:disabled,
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   Labels
+   -------------------------------------------------------------------------- */
+
+label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-block-end: var(--space-1);
+}
+
+label + input,
+label + textarea,
+label + select {
+  margin-block-end: var(--space-4);
+}
+
+/* --------------------------------------------------------------------------
+   Select
+   -------------------------------------------------------------------------- */
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%236F6E69' d='M4.5 6l3.5 4 3.5-4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-2) center;
+  padding-inline-end: var(--space-8);
+}
+
+/* --------------------------------------------------------------------------
+   Checkbox & Radio
+   -------------------------------------------------------------------------- */
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: var(--space-4);
+  height: var(--space-4);
+  accent-color: var(--color-action);
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  border-radius: var(--radius-full);
+}
+
+/* Inline label pattern */
+label:has(> input[type="checkbox"]),
+label:has(> input[type="radio"]) {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
+  cursor: pointer;
+  margin-block-end: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   Range
+   -------------------------------------------------------------------------- */
+
+input[type="range"] {
+  width: 100%;
+  max-width: var(--width-input);
+  accent-color: var(--color-action);
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   File input
+   -------------------------------------------------------------------------- */
+
+input[type="file"] {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-1-5) var(--space-3);
+  color: var(--color-text);
+  background-color: var(--color-surface-raised);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin-inline-end: var(--space-3);
+  transition:
+    background-color var(--duration-fast) var(--easing),
+    border-color var(--duration-fast) var(--easing);
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: var(--color-surface-overlay);
+  border-color: var(--color-border-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Color input
+   -------------------------------------------------------------------------- */
+
+input[type="color"] {
+  width: var(--space-10);
+  height: var(--space-8);
+  padding: var(--space-0-5);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   Textarea
+   -------------------------------------------------------------------------- */
+
+textarea {
+  min-height: 6em;
+}
+
+/* --------------------------------------------------------------------------
+   Fieldset & Legend
+   -------------------------------------------------------------------------- */
+
+fieldset {
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-block: var(--space-4);
+}
+
+legend {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  padding-inline: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   Validation states
+   -------------------------------------------------------------------------- */
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+input[aria-invalid="true"]:focus-visible,
+textarea[aria-invalid="true"]:focus-visible,
+select[aria-invalid="true"]:focus-visible {
+  outline-color: var(--color-danger);
+}
+
+/* Error message */
+.form-error {
+  font-size: var(--font-size-sm);
+  color: var(--color-danger);
+  margin-block-start: var(--space-1);
+}
+
+/* --------------------------------------------------------------------------
+   Submit / Reset / Button inputs — defer to button styles
+   -------------------------------------------------------------------------- */
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  cursor: pointer;
+}

@@ -1,12 +1,91 @@
 # [eustasy/.ui](https://github.com/eustasy/.ui)
 
-Open, accessible, customizable web components written as vanilla as possible.
+Open, accessible, themable web components — vanilla HTML, CSS, and minimal JavaScript.
 
-### Languages
-- HTML, CSS, absolutely minimal JavaScript.
-- Use only vanilla, modern, and widely-supported elements across all languages.
+## Philosophy
 
-### Considerations
-- Nuclearity: Do one thing well, and very little else.
-- Customization: Themeable colors, borders, and spacing should persist across all elements. Make frequent use of CSS variables. Dropping a component onto a page should just work.
-- Accessibility: All components should play well with accessibility add-ons such as screen-readers, navigating with a keyboard instead of a mouse, or using voice commands. [WCAG 2.2 AA](https://www.w3.org/WAI/WCAG22/quickref/) should be taken as a general standard.
+- **Vanilla first.** HTML, CSS, absolutely minimal JavaScript. No frameworks.
+- **Themable.** Every color, font, spacing value, border radius, and shadow is a CSS custom property. Swap the theme file to restyle everything.
+- **Accessible.** [WCAG 2.2 AA](https://www.w3.org/WAI/WCAG22/quickref/) as baseline. Keyboard navigation, focus-visible rings, screen-reader support, `prefers-reduced-motion`, and `prefers-color-scheme` are built in.
+- **Drop-in.** Each component works independently. Copy the HTML, link the CSS, done.
+
+## Quick Start
+
+```html
+<!-- Option A: Link the built single-file (recommended) -->
+<link rel="stylesheet" href="dist/ui.css">
+
+<!-- Option B: Link the source entry (uses @import, fine for dev) -->
+<link rel="stylesheet" href="assets/main.css">
+```
+
+For dark/light mode toggling, add the script and a toggle button:
+
+```html
+<script src="js/theme-toggle.js"></script>
+<button data-theme-toggle aria-label="Toggle dark mode">🌓</button>
+```
+
+## Building
+
+Lightning CSS is the sole build dependency — it bundles `@import`s, applies CSS nesting, and minifies.
+
+```bash
+npm install
+npm run build    # → dist/ui.css (bundled + minified)
+npm run dev      # → watch mode
+```
+
+## Structure
+
+```
+assets/
+  main.css                ← source entry point (imports everything)
+  themes/
+    flexoki.css           ← Flexoki 2.0 palette + semantic tokens + light/dark
+base/
+  reset.css               ← modern CSS reset
+  typography.css           ← headings, prose, lists, code, links
+  forms.css               ← inputs, selects, checkboxes, validation states
+  tables.css              ← striped rows, responsive wrapper
+  media.css               ← images, details, progress, dialog
+components/
+  button.css              ← primary, secondary, outline, ghost, danger, sizes
+  card.css                ← header/body/footer, image variant, compact
+  alert.css               ← info, success, warning, danger, dismissible
+  badge.css               ← color variants for all 8 accent colors
+  navbar.css              ← responsive nav with mobile toggle
+  login.html              ← example login form component
+js/
+  theme-toggle.js         ← dark/light toggle with localStorage persistence
+tests/
+  elements.html           ← living reference of all styled HTML elements
+  components.html         ← preview of all components
+dist/
+  ui.css                  ← built output (gitignored)
+```
+
+## Theming
+
+The theme system has three layers:
+
+1. **Raw palette** (`--flexoki-red-600`, etc.) — Flexoki 2.0's full extended palette.
+2. **Design tokens** (`--space-4`, `--radius-md`, `--font-size-base`) — spacing, typography, borders.
+3. **Semantic tokens** (`--color-danger`, `--color-action`, `--color-surface`) — what components actually use.
+
+Light/dark mode is automatic via `prefers-color-scheme`. Override with `.theme-light` or `.theme-dark` on `<html>`.
+
+To create a new theme, define the same semantic token variables in a new CSS file and swap the import.
+
+## Accessibility
+
+- Focus rings via `:focus-visible` (keyboard only, not mouse clicks)
+- `aria-invalid`, `aria-required`, `aria-describedby` patterns on forms
+- `role="alert"` and `aria-live` for dynamic messages
+- `prefers-reduced-motion` disables all animation/transitions
+- `color-scheme` declaration for native form control theming
+- Semantic HTML throughout: `<nav>`, `<main>`, `<article>`, `<dialog>`, `<details>`
+
+## Credits
+
+Color palette: [Flexoki](https://stephango.com/flexoki) by Steph Ango (MIT License).

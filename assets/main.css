@@ -1,2 +1,23 @@
-@import url("normalize.min.css");
+/* ==========================================================================
+   eustasy/.ui — Main Entry Point
+   Import order matters: theme → reset → base → components
+   ========================================================================== */
+
+/* Theme & design tokens */
 @import url("themes/flexoki.css");
+
+/* Reset */
+@import url("../base/reset.css");
+
+/* Base element styles */
+@import url("../base/typography.css");
+@import url("../base/forms.css");
+@import url("../base/tables.css");
+@import url("../base/media.css");
+
+/* Components */
+@import url("../components/button.css");
+@import url("../components/card.css");
+@import url("../components/alert.css");
+@import url("../components/badge.css");
+@import url("../components/navbar.css");
