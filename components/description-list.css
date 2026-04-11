@@ -42,6 +42,7 @@
   color: var(--color-text-secondary);
   background-color: var(--color-bg-secondary);
   border-inline-end: var(--border-width) solid var(--color-border);
+  margin-block-start: 0;
 }
 
 .dl-description {
