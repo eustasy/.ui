@@ -392,27 +392,22 @@
             id="cb-input"
             type="text"
             role="combobox"
-            aria-expanded="true"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-controls="cb-popup"
             aria-autocomplete="list"
             autocomplete="off"
             placeholder="Type to search…"
-            value="CSS"
           />
           <ul
             class="combobox-listbox"
             id="cb-popup"
             role="listbox"
             aria-label="Frameworks"
+            hidden
           >
             <li class="combobox-group-label">Languages</li>
-            <li
-              class="combobox-option"
-              role="option"
-              aria-selected="true"
-              data-active
-            >
+            <li class="combobox-option" role="option" aria-selected="false">
               CSS
             </li>
             <li class="combobox-option" role="option" aria-selected="false">
@@ -431,17 +426,6 @@
           </ul>
         </div>
       </div>
-
-      <p
-        style="
-          margin-block-start: var(--space-3);
-          font-size: var(--font-size-sm);
-          color: var(--color-text-secondary);
-        "
-      >
-        Shown with listbox open. Wire up keyboard navigation with JS using
-        <code>aria-activedescendant</code>.
-      </p>
     </section>
 
     <!-- ================================================================== -->
@@ -1306,6 +1290,7 @@ Cannot edit this field.</textarea
       </div>
     </section>
     <script src="../js/alert.js"></script>
+    <script src="../js/combobox.js"></script>
     <script src="../js/dialog.js"></script>
     <script src="../js/dropdown.js"></script>
     <script src="components.js"></script>
