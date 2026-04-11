@@ -821,12 +821,7 @@
           tabindex="0"
         >
           <li class="listbox-group-label">Europe</li>
-          <li
-            class="listbox-option"
-            role="option"
-            aria-selected="true"
-            data-active
-          >
+          <li class="listbox-option" role="option" aria-selected="true">
             Europe/London
           </li>
           <li class="listbox-option" role="option" aria-selected="false">
@@ -852,6 +847,55 @@
             America/Sao_Paulo (unavailable)
           </li>
         </ul>
+      </div>
+
+      <h3>Multi select</h3>
+      <div style="max-width: var(--width-input)">
+        <p
+          id="lb-multi-label"
+          style="
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-secondary);
+            margin-block-end: var(--space-1);
+          "
+        >
+          Preferred technologies
+        </p>
+        <ul
+          class="listbox"
+          role="listbox"
+          aria-multiselectable="true"
+          aria-labelledby="lb-multi-label"
+          aria-describedby="lb-multi-status"
+          tabindex="0"
+        >
+          <li class="listbox-option" role="option" aria-selected="true">CSS</li>
+          <li class="listbox-option" role="option" aria-selected="true">
+            HTML
+          </li>
+          <li class="listbox-option" role="option" aria-selected="false">
+            JavaScript
+          </li>
+          <li class="listbox-option" role="option" aria-selected="false">
+            TypeScript
+          </li>
+          <li class="listbox-option" role="option" aria-selected="false">
+            Python
+          </li>
+          <li class="listbox-option" role="option" aria-selected="false">
+            Rust
+          </li>
+          <li
+            class="listbox-option"
+            role="option"
+            aria-selected="false"
+            aria-disabled="true"
+          >
+            COBOL (unavailable)
+          </li>
+        </ul>
+        <p class="listbox-status" id="lb-multi-status" aria-live="polite"></p>
       </div>
     </section>
 
@@ -1293,6 +1337,7 @@ Cannot edit this field.</textarea
     <script src="../js/combobox.js"></script>
     <script src="../js/dialog.js"></script>
     <script src="../js/dropdown.js"></script>
+    <script src="../js/listbox.js"></script>
     <script src="components.js"></script>
   </body>
 </html>

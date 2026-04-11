@@ -91,3 +91,40 @@
   background-color: var(--color-border);
   margin-block: var(--space-1);
 }
+
+/* Multi-select — checkbox indicator via ::before */
+[aria-multiselectable="true"] .listbox-option::before {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--radius-sm);
+  border: var(--border-width) solid var(--color-border);
+  background-color: var(--color-surface);
+  transition:
+    background-color var(--duration-fast) var(--easing),
+    border-color var(--duration-fast) var(--easing);
+}
+
+[aria-multiselectable="true"] .listbox-option[aria-selected="true"] {
+  background-color: var(--color-surface-raised);
+  color: var(--color-text);
+  font-weight: var(--font-weight-normal);
+}
+
+[aria-multiselectable="true"] .listbox-option[aria-selected="true"]::before {
+  background-color: var(--color-action);
+  border-color: var(--color-action);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l3 3 5-5' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-size: 0.625rem 0.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Live region status */
+.listbox-status {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-block-start: var(--space-1);
+}
