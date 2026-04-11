@@ -17,13 +17,15 @@
  */
 document.addEventListener("DOMContentLoaded", () => {
   function closeAll(except = null) {
-    document.querySelectorAll(".dropdown [aria-haspopup]").forEach((trigger) => {
-      if (trigger === except) return
-      const menuId = trigger.getAttribute("aria-controls")
-      const menu = menuId ? document.getElementById(menuId) : null
-      trigger.setAttribute("aria-expanded", "false")
-      if (menu) menu.hidden = true
-    })
+    document
+      .querySelectorAll(".dropdown [aria-haspopup]")
+      .forEach((trigger) => {
+        if (trigger === except) return
+        const menuId = trigger.getAttribute("aria-controls")
+        const menu = menuId ? document.getElementById(menuId) : null
+        trigger.setAttribute("aria-expanded", "false")
+        if (menu) menu.hidden = true
+      })
   }
 
   // Toggle on trigger click
