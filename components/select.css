@@ -1,0 +1,75 @@
+/* ==========================================================================
+   Select
+   Component wrapper for <select> elements. Base element styles are in
+   base/forms.css. This file adds grouping patterns with labels and
+   validation messages, mirroring the input component conventions.
+
+   WCAG: <select> must have an associated <label>. Hint and error text
+         must be linked via aria-describedby. Set aria-invalid="true" on
+         the <select> when in an error state.
+
+   Example markup:
+     <div class="select-group">
+       <label class="select-label" for="country">Country</label>
+       <select class="select-field" id="country">
+         <option value="">Choose…</option>
+         <option value="gb">United Kingdom</option>
+       </select>
+       <p class="select-hint" id="country-hint">
+         Select your billing country.
+       </p>
+     </div>
+   ========================================================================== */
+
+.select-group {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	margin-block-end: var(--space-4);
+}
+
+.select-label {
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	color: var(--color-text-secondary);
+	margin: 0;
+}
+
+.select-label-required::after {
+	content: " *";
+	color: var(--color-danger);
+}
+
+/* Override base margin */
+.select-field {
+	margin-block-end: 0 !important;
+}
+
+.select-hint {
+	font-size: var(--font-size-sm);
+	color: var(--color-text-secondary);
+	margin: 0;
+}
+
+.select-message {
+	font-size: var(--font-size-sm);
+	margin: 0;
+}
+
+/* Error state */
+.select-error .select-label {
+	color: var(--color-danger);
+}
+
+.select-error .select-field {
+	border-color: var(--color-danger);
+}
+
+.select-error .select-field:focus-visible {
+	border-color: var(--color-danger);
+	outline-color: var(--color-danger);
+}
+
+.select-error .select-message {
+	color: var(--color-danger);
+}

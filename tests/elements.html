@@ -1,285 +1,482 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Element Tests — eustasy/.ui</title>
-  <link rel="stylesheet" href="../assets/main.css">
-  <script src="../js/theme-toggle.js"></script>
-  <style>
-    body { padding: var(--space-6) var(--space-4); max-width: var(--width-wide); margin-inline: auto; }
-    .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: var(--space-2); margin-block: var(--space-4); }
-    .swatch { padding: var(--space-4) var(--space-2); border-radius: var(--radius-md); text-align: center; font-size: var(--font-size-xs); font-family: var(--font-mono); }
-    section { margin-block: var(--space-10); }
-    .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
-    @media (max-width: 600px) { .cols-2 { grid-template-columns: 1fr; } }
-  </style>
-</head>
-<body>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Element Tests — eustasy/.ui</title>
+		<link rel="stylesheet" href="../assets/main.css" />
+		<script src="../js/theme-toggle.js"></script>
+		<style>
+			body {
+				padding: var(--space-6) var(--space-4);
+				max-width: var(--width-wide);
+				margin-inline: auto;
+			}
+			.swatch-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+				gap: var(--space-2);
+				margin-block: var(--space-4);
+			}
+			.swatch {
+				padding: var(--space-4) var(--space-2);
+				border-radius: var(--radius-md);
+				text-align: center;
+				font-size: var(--font-size-xs);
+				font-family: var(--font-mono);
+			}
+			section {
+				margin-block: var(--space-10);
+			}
+			.cols-2 {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: var(--space-6);
+			}
+			@media (max-width: 600px) {
+				.cols-2 {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header
+			style="
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-block-end: var(--space-8);
+			"
+		>
+			<h1>Element Tests</h1>
+			<button
+				data-theme-toggle
+				aria-label="Toggle dark mode"
+				class="btn btn-ghost"
+			>
+				🌓 Theme
+			</button>
+		</header>
 
-  <header style="display: flex; justify-content: space-between; align-items: center; margin-block-end: var(--space-8);">
-    <h1>Element Tests</h1>
-    <button data-theme-toggle aria-label="Toggle dark mode" class="btn btn-ghost">🌓 Theme</button>
-  </header>
+		<!-- ================================================================== -->
+		<section id="colors" aria-labelledby="colors-heading">
+			<h2 id="colors-heading">Color Palette</h2>
+			<p>Semantic color tokens that adapt to light/dark mode.</p>
 
-  <!-- ================================================================== -->
-  <section id="colors" aria-labelledby="colors-heading">
-    <h2 id="colors-heading">Color Palette</h2>
-    <p>Semantic color tokens that adapt to light/dark mode.</p>
+			<h3>Backgrounds &amp; Surfaces</h3>
+			<div class="swatch-grid">
+				<div
+					class="swatch"
+					style="
+						background: var(--color-bg);
+						border: 1px solid var(--color-border);
+					"
+				>
+					bg
+				</div>
+				<div class="swatch" style="background: var(--color-bg-secondary)">
+					bg-secondary
+				</div>
+				<div class="swatch" style="background: var(--color-bg-tertiary)">
+					bg-tertiary
+				</div>
+				<div class="swatch" style="background: var(--color-surface-raised)">
+					surface-raised
+				</div>
+				<div class="swatch" style="background: var(--color-surface-overlay)">
+					surface-overlay
+				</div>
+			</div>
 
-    <h3>Backgrounds &amp; Surfaces</h3>
-    <div class="swatch-grid">
-      <div class="swatch" style="background: var(--color-bg); border: 1px solid var(--color-border);">bg</div>
-      <div class="swatch" style="background: var(--color-bg-secondary);">bg-secondary</div>
-      <div class="swatch" style="background: var(--color-bg-tertiary);">bg-tertiary</div>
-      <div class="swatch" style="background: var(--color-surface-raised);">surface-raised</div>
-      <div class="swatch" style="background: var(--color-surface-overlay);">surface-overlay</div>
-    </div>
+			<h3>Accent Colors</h3>
+			<div class="swatch-grid">
+				<div class="swatch" style="background: var(--color-red); color: white">
+					red
+				</div>
+				<div
+					class="swatch"
+					style="background: var(--color-orange); color: white"
+				>
+					orange
+				</div>
+				<div
+					class="swatch"
+					style="background: var(--color-yellow); color: white"
+				>
+					yellow
+				</div>
+				<div
+					class="swatch"
+					style="background: var(--color-green); color: white"
+				>
+					green
+				</div>
+				<div class="swatch" style="background: var(--color-cyan); color: white">
+					cyan
+				</div>
+				<div class="swatch" style="background: var(--color-blue); color: white">
+					blue
+				</div>
+				<div
+					class="swatch"
+					style="background: var(--color-purple); color: white"
+				>
+					purple
+				</div>
+				<div
+					class="swatch"
+					style="background: var(--color-magenta); color: white"
+				>
+					magenta
+				</div>
+			</div>
+		</section>
 
-    <h3>Accent Colors</h3>
-    <div class="swatch-grid">
-      <div class="swatch" style="background: var(--color-red); color: white;">red</div>
-      <div class="swatch" style="background: var(--color-orange); color: white;">orange</div>
-      <div class="swatch" style="background: var(--color-yellow); color: white;">yellow</div>
-      <div class="swatch" style="background: var(--color-green); color: white;">green</div>
-      <div class="swatch" style="background: var(--color-cyan); color: white;">cyan</div>
-      <div class="swatch" style="background: var(--color-blue); color: white;">blue</div>
-      <div class="swatch" style="background: var(--color-purple); color: white;">purple</div>
-      <div class="swatch" style="background: var(--color-magenta); color: white;">magenta</div>
-    </div>
-  </section>
+		<!-- ================================================================== -->
+		<section id="typography" aria-labelledby="typography-heading">
+			<h2 id="typography-heading">Typography</h2>
 
-  <!-- ================================================================== -->
-  <section id="typography" aria-labelledby="typography-heading">
-    <h2 id="typography-heading">Typography</h2>
+			<h1>Heading Level 1</h1>
+			<h2>Heading Level 2</h2>
+			<h3>Heading Level 3</h3>
+			<h4>Heading Level 4</h4>
+			<h5>Heading Level 5</h5>
+			<h6>Heading Level 6</h6>
 
-    <h1>Heading Level 1</h1>
-    <h2>Heading Level 2</h2>
-    <h3>Heading Level 3</h3>
-    <h4>Heading Level 4</h4>
-    <h5>Heading Level 5</h5>
-    <h6>Heading Level 6</h6>
+			<h3>Paragraph &amp; Inline Elements</h3>
+			<p>
+				<a href="#">Link</a> · <strong>Bold</strong> · <em>Italic</em> ·
+				<code>inline code</code> · <kbd>Ctrl+K</kbd> ·
+				<mark>highlighted</mark> ·
+				<abbr title="Cascading Style Sheets">CSS</abbr> · <small>small</small> ·
+				X<sub>2</sub> · X<sup>2</sup> · <s>strikethrough</s> ·
+				<u>underlined</u>
+			</p>
 
-    <h3>Paragraph &amp; Inline Elements</h3>
-    <p>
-      <a href="#">Link</a> ·
-      <strong>Bold</strong> ·
-      <em>Italic</em> ·
-      <code>inline code</code> ·
-      <kbd>Ctrl+K</kbd> ·
-      <mark>highlighted</mark> ·
-      <abbr title="Cascading Style Sheets">CSS</abbr> ·
-      <small>small</small> ·
-      X<sub>2</sub> ·
-      X<sup>2</sup> ·
-      <s>strikethrough</s> ·
-      <u>underlined</u>
-    </p>
+			<h3>Blockquote</h3>
+			<blockquote>
+				Flexoki is an inky color scheme for prose and code.
+				<cite>— Steph Ango</cite>
+			</blockquote>
 
-    <h3>Blockquote</h3>
-    <blockquote>
-      Flexoki is an inky color scheme for prose and code.
-      <cite>— Steph Ango</cite>
-    </blockquote>
+			<h3>Lists</h3>
+			<div class="cols-2">
+				<div>
+					<h4>Unordered</h4>
+					<ul>
+						<li>First item</li>
+						<li>
+							Second item
+							<ul>
+								<li>Nested item</li>
+								<li>Another nested item</li>
+							</ul>
+						</li>
+						<li>Third item</li>
+					</ul>
+				</div>
+				<div>
+					<h4>Ordered</h4>
+					<ol>
+						<li>First step</li>
+						<li>
+							Second step
+							<ol>
+								<li>Sub-step A</li>
+								<li>Sub-step B</li>
+							</ol>
+						</li>
+						<li>Third step</li>
+					</ol>
+				</div>
+			</div>
 
-    <h3>Lists</h3>
-    <div class="cols-2">
-      <div>
-        <h4>Unordered</h4>
-        <ul>
-          <li>First item</li>
-          <li>Second item
-            <ul>
-              <li>Nested item</li>
-              <li>Another nested item</li>
-            </ul>
-          </li>
-          <li>Third item</li>
-        </ul>
-      </div>
-      <div>
-        <h4>Ordered</h4>
-        <ol>
-          <li>First step</li>
-          <li>Second step
-            <ol>
-              <li>Sub-step A</li>
-              <li>Sub-step B</li>
-            </ol>
-          </li>
-          <li>Third step</li>
-        </ol>
-      </div>
-    </div>
+			<h4>Description List</h4>
+			<dl>
+				<dt>Term</dt>
+				<dd>Definition or description.</dd>
+				<dt>Another term</dt>
+				<dd>Another definition.</dd>
+			</dl>
 
-    <h4>Description List</h4>
-    <dl>
-      <dt>Term</dt>
-      <dd>Definition or description.</dd>
-      <dt>Another term</dt>
-      <dd>Another definition.</dd>
-    </dl>
-
-    <h3>Preformatted Code</h3>
-    <pre><code>function greet(name) {
+			<h3>Preformatted Code</h3>
+			<pre><code>function greet(name) {
   console.log(`Hello, ${name}!`);
 }
 
 greet("Flexoki");</code></pre>
 
-    <h3>Horizontal Rule</h3>
-    <hr>
-  </section>
+			<h3>Horizontal Rule</h3>
+			<hr />
+		</section>
 
-  <!-- ================================================================== -->
-  <section id="forms" aria-labelledby="forms-heading">
-    <h2 id="forms-heading">Forms</h2>
+		<!-- ================================================================== -->
+		<section id="forms" aria-labelledby="forms-heading">
+			<h2 id="forms-heading">Forms</h2>
 
-    <form onsubmit="return false;">
-      <label for="text-input">Text Input</label>
-      <input id="text-input" type="text" placeholder="Type something…">
+			<form onsubmit="return false;">
+				<label for="text-input">Text Input</label>
+				<input id="text-input" type="text" placeholder="Type something…" />
 
-      <label for="email-input">Email</label>
-      <input id="email-input" type="email" placeholder="name@example.com">
+				<label for="email-input">Email</label>
+				<input id="email-input" type="email" placeholder="name@example.com" />
 
-      <label for="password-input">Password</label>
-      <input id="password-input" type="password" placeholder="••••••••">
+				<label for="password-input">Password</label>
+				<input id="password-input" type="password" placeholder="••••••••" />
 
-      <label for="url-input">URL</label>
-      <input id="url-input" type="url" placeholder="https://example.com">
+				<label for="url-input">URL</label>
+				<input id="url-input" type="url" placeholder="https://example.com" />
 
-      <label for="search-input">Search</label>
-      <input id="search-input" type="search" placeholder="Search…">
+				<label for="search-input">Search</label>
+				<input id="search-input" type="search" placeholder="Search…" />
 
-      <label for="number-input">Number</label>
-      <input id="number-input" type="number" placeholder="0" min="0" max="100">
+				<label for="number-input">Number</label>
+				<input
+					id="number-input"
+					type="number"
+					placeholder="0"
+					min="0"
+					max="100"
+				/>
 
-      <label for="date-input">Date</label>
-      <input id="date-input" type="date">
+				<label for="date-input">Date</label>
+				<input id="date-input" type="date" />
 
-      <label for="textarea-input">Textarea</label>
-      <textarea id="textarea-input" placeholder="Write something longer…"></textarea>
+				<label for="textarea-input">Textarea</label>
+				<textarea
+					id="textarea-input"
+					placeholder="Write something longer…"
+				></textarea>
 
-      <label for="select-input">Select</label>
-      <select id="select-input">
-        <option value="">Choose an option…</option>
-        <option>Option One</option>
-        <option>Option Two</option>
-        <option>Option Three</option>
-      </select>
+				<label for="select-input">Select</label>
+				<select id="select-input">
+					<option value="">Choose an option…</option>
+					<option>Option One</option>
+					<option>Option Two</option>
+					<option>Option Three</option>
+				</select>
 
-      <fieldset>
-        <legend>Checkboxes</legend>
-        <label><input type="checkbox" checked> Option A</label>
-        <label><input type="checkbox"> Option B</label>
-        <label><input type="checkbox"> Option C</label>
-      </fieldset>
+				<fieldset>
+					<legend>Checkboxes</legend>
+					<label><input type="checkbox" checked /> Option A</label>
+					<label><input type="checkbox" /> Option B</label>
+					<label><input type="checkbox" /> Option C</label>
+				</fieldset>
 
-      <fieldset>
-        <legend>Radio Buttons</legend>
-        <label><input type="radio" name="radio-group" value="1" checked> Choice 1</label>
-        <label><input type="radio" name="radio-group" value="2"> Choice 2</label>
-        <label><input type="radio" name="radio-group" value="3"> Choice 3</label>
-      </fieldset>
+				<fieldset>
+					<legend>Radio Buttons</legend>
+					<label
+						><input type="radio" name="radio-group" value="1" checked /> Choice
+						1</label
+					>
+					<label
+						><input type="radio" name="radio-group" value="2" /> Choice 2</label
+					>
+					<label
+						><input type="radio" name="radio-group" value="3" /> Choice 3</label
+					>
+				</fieldset>
 
-      <label for="range-input">Range</label>
-      <input id="range-input" type="range" min="0" max="100" value="50">
+				<label for="range-input">Range</label>
+				<input id="range-input" type="range" min="0" max="100" value="50" />
 
-      <label for="color-input">Color</label>
-      <input id="color-input" type="color" value="#24837B">
+				<label for="color-input">Color</label>
+				<input id="color-input" type="color" value="#24837B" />
 
-      <label for="file-input">File Upload</label>
-      <input id="file-input" type="file">
+				<label for="file-input">File Upload</label>
+				<input id="file-input" type="file" />
 
-      <h3>Validation States</h3>
-      <label for="invalid-input">Invalid Input</label>
-      <input id="invalid-input" type="email" value="not-an-email" aria-invalid="true" aria-describedby="invalid-error">
-      <div id="invalid-error" class="form-error">Please enter a valid email address.</div>
+				<h3>Validation States</h3>
+				<label for="invalid-input">Invalid Input</label>
+				<input
+					id="invalid-input"
+					type="email"
+					value="not-an-email"
+					aria-invalid="true"
+					aria-describedby="invalid-error"
+				/>
+				<div id="invalid-error" class="form-error">
+					Please enter a valid email address.
+				</div>
 
-      <label for="disabled-input">Disabled Input</label>
-      <input id="disabled-input" type="text" value="Cannot edit" disabled>
+				<label for="disabled-input">Disabled Input</label>
+				<input id="disabled-input" type="text" value="Cannot edit" disabled />
 
-      <div style="margin-block-start: var(--space-6); display: flex; gap: var(--space-3);">
-        <input type="submit" value="Submit" class="btn btn-primary">
-        <input type="reset" value="Reset" class="btn btn-secondary">
-      </div>
-    </form>
-  </section>
+				<div
+					style="
+						margin-block-start: var(--space-6);
+						display: flex;
+						gap: var(--space-3);
+					"
+				>
+					<input type="submit" value="Submit" class="btn btn-primary" />
+					<input type="reset" value="Reset" class="btn btn-secondary" />
+				</div>
+			</form>
+		</section>
 
-  <!-- ================================================================== -->
-  <section id="tables" aria-labelledby="tables-heading">
-    <h2 id="tables-heading">Tables</h2>
+		<!-- ================================================================== -->
+		<section id="tables" aria-labelledby="tables-heading">
+			<h2 id="tables-heading">Tables</h2>
 
-    <div class="table-wrap">
-      <table>
-        <caption>Sample data table with striped rows</caption>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Color</th>
-            <th>Hex</th>
-            <th>Usage</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Red</td><td><span class="badge badge-red">red</span></td><td><code>#AF3029</code></td><td>Errors, danger</td></tr>
-          <tr><td>Orange</td><td><span class="badge badge-orange">orange</span></td><td><code>#BC5215</code></td><td>Warnings</td></tr>
-          <tr><td>Yellow</td><td><span class="badge badge-yellow">yellow</span></td><td><code>#AD8301</code></td><td>Highlights</td></tr>
-          <tr><td>Green</td><td><span class="badge badge-green">green</span></td><td><code>#66800B</code></td><td>Success</td></tr>
-          <tr><td>Cyan</td><td><span class="badge badge-cyan">cyan</span></td><td><code>#24837B</code></td><td>Links, actions</td></tr>
-          <tr><td>Blue</td><td><span class="badge badge-blue">blue</span></td><td><code>#205EA6</code></td><td>Information</td></tr>
-          <tr><td>Purple</td><td><span class="badge badge-purple">purple</span></td><td><code>#5E409D</code></td><td>Decorative</td></tr>
-          <tr><td>Magenta</td><td><span class="badge badge-magenta">magenta</span></td><td><code>#A02F6F</code></td><td>Decorative</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+			<div class="table-wrap">
+				<table>
+					<caption>
+						Sample data table with striped rows
+					</caption>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Color</th>
+							<th>Hex</th>
+							<th>Usage</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Red</td>
+							<td><span class="badge badge-red">red</span></td>
+							<td><code>#AF3029</code></td>
+							<td>Errors, danger</td>
+						</tr>
+						<tr>
+							<td>Orange</td>
+							<td><span class="badge badge-orange">orange</span></td>
+							<td><code>#BC5215</code></td>
+							<td>Warnings</td>
+						</tr>
+						<tr>
+							<td>Yellow</td>
+							<td><span class="badge badge-yellow">yellow</span></td>
+							<td><code>#AD8301</code></td>
+							<td>Highlights</td>
+						</tr>
+						<tr>
+							<td>Green</td>
+							<td><span class="badge badge-green">green</span></td>
+							<td><code>#66800B</code></td>
+							<td>Success</td>
+						</tr>
+						<tr>
+							<td>Cyan</td>
+							<td><span class="badge badge-cyan">cyan</span></td>
+							<td><code>#24837B</code></td>
+							<td>Links, actions</td>
+						</tr>
+						<tr>
+							<td>Blue</td>
+							<td><span class="badge badge-blue">blue</span></td>
+							<td><code>#205EA6</code></td>
+							<td>Information</td>
+						</tr>
+						<tr>
+							<td>Purple</td>
+							<td><span class="badge badge-purple">purple</span></td>
+							<td><code>#5E409D</code></td>
+							<td>Decorative</td>
+						</tr>
+						<tr>
+							<td>Magenta</td>
+							<td><span class="badge badge-magenta">magenta</span></td>
+							<td><code>#A02F6F</code></td>
+							<td>Decorative</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
 
-  <!-- ================================================================== -->
-  <section id="interactive" aria-labelledby="interactive-heading">
-    <h2 id="interactive-heading">Interactive Elements</h2>
+		<!-- ================================================================== -->
+		<section id="interactive" aria-labelledby="interactive-heading">
+			<h2 id="interactive-heading">Interactive Elements</h2>
 
-    <h3>Details / Summary</h3>
-    <details>
-      <summary>Click to expand</summary>
-      <p>This is the expanded content inside a <code>&lt;details&gt;</code> element. No JavaScript required.</p>
-    </details>
+			<h3>Details / Summary</h3>
+			<details>
+				<summary>Click to expand</summary>
+				<p>
+					This is the expanded content inside a
+					<code>&lt;details&gt;</code> element. No JavaScript required.
+				</p>
+			</details>
 
-    <details>
-      <summary>Another collapsible section</summary>
-      <p>Additional content here.</p>
-    </details>
+			<details>
+				<summary>Another collapsible section</summary>
+				<p>Additional content here.</p>
+			</details>
 
-    <h3>Progress</h3>
-    <label for="progress-demo">Upload progress:</label>
-    <progress id="progress-demo" value="65" max="100">65%</progress>
+			<h3>Progress</h3>
+			<label for="progress-demo">Upload progress:</label>
+			<progress id="progress-demo" value="65" max="100">65%</progress>
 
-    <h3>Meter</h3>
-    <label for="meter-demo">Disk usage:</label>
-    <meter id="meter-demo" min="0" max="100" low="33" high="66" optimum="20" value="72">72%</meter>
+			<h3>Meter</h3>
+			<label for="meter-demo">Disk usage:</label>
+			<meter
+				id="meter-demo"
+				min="0"
+				max="100"
+				low="33"
+				high="66"
+				optimum="20"
+				value="72"
+			>
+				72%
+			</meter>
 
-    <h3>Dialog (native)</h3>
-    <button class="btn btn-secondary" onclick="document.getElementById('demo-dialog').showModal()">Open Dialog</button>
-    <dialog id="demo-dialog">
-      <h3>Dialog Title</h3>
-      <p>This is a native <code>&lt;dialog&gt;</code> element. It supports backdrop, focus trapping, and Escape to close — all built into the browser.</p>
-      <div style="margin-block-start: var(--space-4); display: flex; gap: var(--space-3); justify-content: flex-end;">
-        <button class="btn btn-ghost" onclick="document.getElementById('demo-dialog').close()">Cancel</button>
-        <button class="btn btn-primary" onclick="document.getElementById('demo-dialog').close()">Confirm</button>
-      </div>
-    </dialog>
-  </section>
+			<h3>Dialog (native)</h3>
+			<button
+				class="btn btn-secondary"
+				onclick="document.getElementById('demo-dialog').showModal()"
+			>
+				Open Dialog
+			</button>
+			<dialog id="demo-dialog">
+				<h3>Dialog Title</h3>
+				<p>
+					This is a native <code>&lt;dialog&gt;</code> element. It supports
+					backdrop, focus trapping, and Escape to close — all built into the
+					browser.
+				</p>
+				<div
+					style="
+						margin-block-start: var(--space-4);
+						display: flex;
+						gap: var(--space-3);
+						justify-content: flex-end;
+					"
+				>
+					<button
+						class="btn btn-ghost"
+						onclick="document.getElementById('demo-dialog').close()"
+					>
+						Cancel
+					</button>
+					<button
+						class="btn btn-primary"
+						onclick="document.getElementById('demo-dialog').close()"
+					>
+						Confirm
+					</button>
+				</div>
+			</dialog>
+		</section>
 
-  <!-- ================================================================== -->
-  <section id="media" aria-labelledby="media-heading">
-    <h2 id="media-heading">Media</h2>
+		<!-- ================================================================== -->
+		<section id="media" aria-labelledby="media-heading">
+			<h2 id="media-heading">Media</h2>
 
-    <h3>Figure with Caption</h3>
-    <figure>
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300' fill='%23F2F0E5'%3E%3Crect width='600' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23878580' font-family='sans-serif' font-size='18'%3E600 × 300 placeholder%3C/text%3E%3C/svg%3E" alt="Placeholder image" width="600" height="300">
-      <figcaption>A placeholder image demonstrating figure and figcaption styling.</figcaption>
-    </figure>
-  </section>
-
-</body>
+			<h3>Figure with Caption</h3>
+			<figure>
+				<img
+					src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300' fill='%23F2F0E5'%3E%3Crect width='600' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23878580' font-family='sans-serif' font-size='18'%3E600 × 300 placeholder%3C/text%3E%3C/svg%3E"
+					alt="Placeholder image"
+					width="600"
+					height="300"
+				/>
+				<figcaption>
+					A placeholder image demonstrating figure and figcaption styling.
+				</figcaption>
+			</figure>
+		</section>
+	</body>
 </html>

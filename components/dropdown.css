@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Dropdown Menu
+   WCAG: The trigger button must have aria-haspopup="menu" and aria-expanded.
+         The menu must have role="menu"; items role="menuitem".
+         Keyboard: Arrow keys navigate items; Escape closes; Enter/Space activate.
+         Focus returns to the trigger on close.
+
+   Example markup:
+     <div class="dropdown">
+       <button class="btn btn-secondary" aria-haspopup="menu"
+               aria-expanded="false" aria-controls="menu-id">
+         Options
+       </button>
+       <ul class="dropdown-menu" id="menu-id" role="menu" hidden>
+         <li role="none">
+           <a class="dropdown-item" href="#" role="menuitem">Edit</a>
+         </li>
+         <li class="dropdown-divider" role="none" aria-hidden="true"></li>
+         <li role="none">
+           <button class="dropdown-item dropdown-item-danger"
+                   role="menuitem">Delete</button>
+         </li>
+       </ul>
+     </div>
+   ========================================================================== */
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+/* Menu panel */
+.dropdown-menu {
+	position: absolute;
+	inset-block-start: calc(100% + var(--space-1));
+	inset-inline-start: 0;
+	z-index: 200;
+	min-width: 10rem;
+	margin: 0;
+	padding: var(--space-1) 0;
+	list-style: none;
+	background-color: var(--color-surface);
+	border: var(--border-width) solid var(--color-border);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-md);
+	animation: dropdown-enter var(--duration-fast) var(--easing);
+}
+
+@keyframes dropdown-enter {
+	from {
+		opacity: 0;
+		transform: translateY(-0.25rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Hide when closed */
+.dropdown-menu[hidden],
+[aria-expanded="false"] + .dropdown-menu {
+	display: none;
+}
+
+/* Align to end (right-side menus) */
+.dropdown-menu-end {
+	inset-inline-start: auto;
+	inset-inline-end: 0;
+}
+
+/* Menu item — works for <a> and <button> */
+.dropdown-item {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+	width: 100%;
+	padding: var(--space-2) var(--space-3);
+	font-size: var(--font-size-sm);
+	color: var(--color-text);
+	text-decoration: none;
+	background: none;
+	border: none;
+	text-align: start;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: background-color var(--duration-fast) var(--easing);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus-visible {
+	background-color: var(--color-surface-raised);
+	outline: none;
+}
+
+.dropdown-item:focus-visible {
+	outline: var(--focus-ring-width) solid var(--color-focus-ring);
+	outline-offset: calc(-1 * var(--focus-ring-width));
+}
+
+.dropdown-item[aria-disabled="true"],
+.dropdown-item:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+/* Danger variant */
+.dropdown-item-danger {
+	color: var(--color-danger);
+}
+
+.dropdown-item-danger:hover {
+	background-color: var(--color-danger-bg);
+}
+
+/* Section label */
+.dropdown-label {
+	display: block;
+	padding: var(--space-1) var(--space-3);
+	font-size: var(--font-size-xs);
+	font-weight: var(--font-weight-medium);
+	color: var(--color-text-secondary);
+	text-transform: uppercase;
+	letter-spacing: var(--letter-spacing-wide);
+	pointer-events: none;
+}
+
+/* Divider within menu */
+.dropdown-divider {
+	height: var(--border-width);
+	background-color: var(--color-border);
+	margin-block: var(--space-1);
+}

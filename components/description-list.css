@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Description List
+   WCAG: Use semantic <dl>, <dt>, <dd> elements. A <dl> group that describes
+         one item should use <div> wrappers only to aid styling — this is
+         permitted in HTML spec.
+
+   Example markup:
+     <dl class="dl">
+       <div class="dl-row">
+         <dt class="dl-term">Label</dt>
+         <dd class="dl-description">Value</dd>
+       </div>
+     </dl>
+   ========================================================================== */
+
+.dl {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0;
+	margin: 0;
+	padding: 0;
+	border: var(--border-width) solid var(--color-border);
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+}
+
+.dl-row {
+	display: grid;
+	grid-template-columns: minmax(8rem, 30%) 1fr;
+	gap: 0;
+	border-block-end: var(--border-width) solid var(--color-border);
+}
+
+.dl-row:last-child {
+	border-block-end: none;
+}
+
+.dl-term {
+	padding: var(--space-3) var(--space-4);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	color: var(--color-text-secondary);
+	background-color: var(--color-bg-secondary);
+	border-inline-end: var(--border-width) solid var(--color-border);
+}
+
+.dl-description {
+	padding: var(--space-3) var(--space-4);
+	font-size: var(--font-size-sm);
+	color: var(--color-text);
+	margin: 0;
+	word-break: break-word;
+}
+
+/* Stacked layout (single column) */
+.dl-stacked .dl-row {
+	grid-template-columns: 1fr;
+}
+
+.dl-stacked .dl-term {
+	border-inline-end: none;
+	border-block-end: var(--border-width) solid var(--color-border);
+	padding-block-end: var(--space-1);
+}
+
+.dl-stacked .dl-description {
+	padding-block-start: var(--space-1);
+}
+
+/* Flush (no border) variant */
+.dl-flush {
+	border: none;
+	border-radius: 0;
+}
+
+.dl-flush .dl-row {
+	border-block-end-color: transparent;
+}
+
+.dl-flush .dl-term {
+	background-color: transparent;
+	border-inline-end: none;
+	padding-inline-start: 0;
+}
+
+.dl-flush .dl-description {
+	padding-inline-start: 0;
+}

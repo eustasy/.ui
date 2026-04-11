@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Switch (Toggle)
+   Implemented as a styled <input type="checkbox"> with a custom track/thumb.
+   The hidden native checkbox preserves keyboard access and form participation.
+
+   WCAG: Use role="switch" on the <input> and ensure it has an accessible
+         name via <label> or aria-label. aria-checked is communicated
+         natively by the checkbox checked state. Do NOT suppress focus.
+
+   Example markup:
+     <label class="switch">
+       <input type="checkbox" role="switch" />
+       <span class="switch-track" aria-hidden="true">
+         <span class="switch-thumb"></span>
+       </span>
+       <span class="switch-label">Enable notifications</span>
+     </label>
+   ========================================================================== */
+
+.switch {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-3);
+	cursor: pointer;
+	user-select: none;
+}
+
+/* Visually hide the native checkbox while keeping it in the tab order */
+.switch input[type="checkbox"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* Track */
+.switch-track {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	width: 2.75rem;
+	height: 1.5rem;
+	border-radius: var(--radius-full);
+	background-color: var(--color-border-active);
+	border: var(--border-width) solid transparent;
+	flex-shrink: 0;
+	transition: background-color var(--duration-fast) var(--easing);
+}
+
+/* Thumb */
+.switch-thumb {
+	position: absolute;
+	inset-inline-start: 0.2rem;
+	width: 1rem;
+	height: 1rem;
+	border-radius: var(--radius-full);
+	background-color: var(--color-surface);
+	box-shadow: var(--shadow-sm);
+	transition: transform var(--duration-fast) var(--easing);
+}
+
+/* Checked state */
+.switch input[type="checkbox"]:checked ~ .switch-track,
+.switch input[type="checkbox"]:checked + .switch-track {
+	background-color: var(--color-action);
+}
+
+.switch input[type="checkbox"]:checked ~ .switch-track .switch-thumb,
+.switch input[type="checkbox"]:checked + .switch-track .switch-thumb {
+	transform: translateX(1.25rem);
+}
+
+/* Focus ring on the visual track when the hidden input is focused */
+.switch input[type="checkbox"]:focus-visible ~ .switch-track,
+.switch input[type="checkbox"]:focus-visible + .switch-track {
+	outline: var(--focus-ring-width) solid var(--color-focus-ring);
+	outline-offset: var(--focus-ring-offset);
+}
+
+/* Label text */
+.switch-label {
+	font-size: var(--font-size-sm);
+	color: var(--color-text);
+	line-height: var(--line-height-normal);
+}
+
+/* Disabled */
+.switch:has(input[type="checkbox"]:disabled) {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.switch:has(input[type="checkbox"]:disabled) .switch-track {
+	cursor: not-allowed;
+}

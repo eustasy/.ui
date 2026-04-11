@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Fieldset
+   WCAG: Use the native <fieldset> + <legend> elements to group related
+         inputs. The legend is announced by screen readers as the group name.
+         Do not nest fieldsets with conflicting purposes.
+
+   Example markup:
+     <fieldset class="fieldset">
+       <legend class="fieldset-legend">Shipping address</legend>
+       <p class="fieldset-hint">All fields are required.</p>
+       <!-- form fields -->
+     </fieldset>
+   ========================================================================== */
+
+.fieldset {
+	border: var(--border-width) solid var(--color-border);
+	border-radius: var(--radius-lg);
+	padding: var(--space-4) var(--space-5);
+	margin: 0;
+	margin-block: var(--space-4);
+}
+
+.fieldset-legend {
+	padding-inline: var(--space-2);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	color: var(--color-text);
+	line-height: var(--line-height-normal);
+}
+
+.fieldset-hint {
+	font-size: var(--font-size-sm);
+	color: var(--color-text-secondary);
+	margin-block: 0 var(--space-4);
+}
+
+/* Flush variant — no visible border box */
+.fieldset-flush {
+	border: none;
+	border-radius: 0;
+	padding: 0;
+}
+
+.fieldset-flush .fieldset-legend {
+	padding-inline: 0;
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-bold);
+	margin-block-end: var(--space-3);
+}
+
+/* Disabled fieldset */
+.fieldset:disabled,
+fieldset:disabled .fieldset-legend {
+	opacity: 0.5;
+}

@@ -1,0 +1,140 @@
+/* ==========================================================================
+   Text
+   Utility classes for controlling text appearance. Complements base/
+   typography.css which styles elements directly.
+
+   These classes can be applied to any element.
+   ========================================================================== */
+
+/* Size */
+.text-xs {
+	font-size: var(--font-size-xs) !important;
+}
+.text-sm {
+	font-size: var(--font-size-sm) !important;
+}
+.text-base {
+	font-size: var(--font-size-base) !important;
+}
+.text-lg {
+	font-size: var(--font-size-lg) !important;
+}
+.text-xl {
+	font-size: var(--font-size-xl) !important;
+}
+
+/* Weight */
+.text-normal {
+	font-weight: var(--font-weight-normal) !important;
+}
+.text-medium {
+	font-weight: var(--font-weight-medium) !important;
+}
+.text-bold {
+	font-weight: var(--font-weight-bold) !important;
+}
+
+/* Color */
+.text-default {
+	color: var(--color-text) !important;
+}
+.text-muted {
+	color: var(--color-text-secondary) !important;
+}
+.text-subtle {
+	color: var(--color-text-tertiary) !important;
+}
+.text-disabled {
+	color: var(--color-text-disabled) !important;
+}
+.text-danger {
+	color: var(--color-danger) !important;
+}
+.text-success {
+	color: var(--color-success) !important;
+}
+.text-warning {
+	color: var(--color-warning) !important;
+}
+.text-info {
+	color: var(--color-info) !important;
+}
+
+/* Alignment */
+.text-start {
+	text-align: start !important;
+}
+.text-center {
+	text-align: center !important;
+}
+.text-end {
+	text-align: end !important;
+}
+
+/* Transform */
+.text-uppercase {
+	text-transform: uppercase !important;
+}
+.text-lowercase {
+	text-transform: lowercase !important;
+}
+.text-capitalize {
+	text-transform: capitalize !important;
+}
+
+/* Wrapping / overflow */
+.text-nowrap {
+	white-space: nowrap !important;
+}
+.text-truncate {
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+	white-space: nowrap !important;
+}
+.text-wrap {
+	white-space: normal !important;
+}
+.text-break {
+	overflow-wrap: break-word !important;
+	word-break: break-word !important;
+}
+
+/* Decoration */
+.text-underline {
+	text-decoration: underline !important;
+}
+.text-no-underline {
+	text-decoration: none !important;
+}
+.text-strikethrough {
+	text-decoration: line-through !important;
+}
+
+/* Leading */
+.text-leading-tight {
+	line-height: var(--line-height-tight) !important;
+}
+.text-leading-normal {
+	line-height: var(--line-height-normal) !important;
+}
+.text-leading-loose {
+	line-height: var(--line-height-loose) !important;
+}
+
+/* Mono */
+.text-mono {
+	font-family: var(--font-mono) !important;
+}
+
+/* Visually hidden (screen-reader only) — does not truncate */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+	border: 0;
+}

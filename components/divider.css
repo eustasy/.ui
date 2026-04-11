@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Divider / Separator
+   WCAG: Decorative dividers use aria-hidden="true". If the divider
+         conveys a section boundary meaningful to screen readers, use
+         role="separator" with an aria-label.
+
+   Example markup — decorative:
+     <hr class="divider" aria-hidden="true" />
+
+   Example markup — labelled:
+     <div class="divider divider-label" role="separator" aria-label="Or">
+       <span>Or</span>
+     </div>
+   ========================================================================== */
+
+/* Base — replaces browser default <hr> */
+.divider {
+	border: none;
+	border-block-start: var(--border-width) solid var(--color-border);
+	margin-block: var(--space-6);
+}
+
+/* Labelled divider — text centred on the line */
+.divider-label {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	border: none;
+	margin-block: var(--space-6);
+	color: var(--color-text-secondary);
+	font-size: var(--font-size-sm);
+}
+
+.divider-label::before,
+.divider-label::after {
+	content: "";
+	flex: 1;
+	border-block-start: var(--border-width) solid var(--color-border);
+}
+
+/* Orientation */
+.divider-vertical {
+	border: none;
+	border-inline-start: var(--border-width) solid var(--color-border);
+	margin-inline: var(--space-4);
+	align-self: stretch;
+	height: auto;
+	display: inline-block;
+}
+
+/* Weight variants */
+.divider-thick {
+	border-block-start-width: var(--border-width-2);
+}

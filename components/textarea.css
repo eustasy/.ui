@@ -1,0 +1,103 @@
+/* ==========================================================================
+   Textarea
+   Component wrapper for <textarea> elements. Base element styles are in
+   base/forms.css. This file adds grouping patterns with labels, hints,
+   character counts, and validation messages.
+
+   WCAG: <textarea> must have an associated <label>. Hint and character
+         count must be linked via aria-describedby. Set aria-invalid="true"
+         when in an error state. Provide rows or a min-height so the control
+         is not a zero-height collapsed box.
+
+   Example markup:
+     <div class="textarea-group">
+       <label class="textarea-label" for="bio">Bio</label>
+       <textarea class="textarea-field" id="bio" rows="4"
+                 aria-describedby="bio-hint bio-count"
+                 maxlength="200"></textarea>
+       <div class="textarea-footer">
+         <p class="textarea-hint" id="bio-hint">Keep it under 200 characters.</p>
+         <span class="textarea-count" id="bio-count" aria-live="polite">0 / 200</span>
+       </div>
+     </div>
+   ========================================================================== */
+
+.textarea-group {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	margin-block-end: var(--space-4);
+}
+
+.textarea-label {
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	color: var(--color-text-secondary);
+	margin: 0;
+}
+
+.textarea-label-required::after {
+	content: " *";
+	color: var(--color-danger);
+}
+
+/* Override base margin */
+.textarea-field {
+	resize: vertical;
+	min-height: 6rem;
+	margin-block-end: 0 !important;
+}
+
+.textarea-hint {
+	font-size: var(--font-size-sm);
+	color: var(--color-text-secondary);
+	margin: 0;
+}
+
+.textarea-message {
+	font-size: var(--font-size-sm);
+	margin: 0;
+}
+
+/* Footer row: hint on the left, character count on the right */
+.textarea-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-3);
+}
+
+.textarea-count {
+	font-size: var(--font-size-xs);
+	color: var(--color-text-secondary);
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+/* Near-limit warning */
+.textarea-count-warning {
+	color: var(--color-warning);
+}
+
+/* At-limit error */
+.textarea-count-error {
+	color: var(--color-danger);
+}
+
+/* Error state */
+.textarea-error .textarea-label {
+	color: var(--color-danger);
+}
+
+.textarea-error .textarea-field {
+	border-color: var(--color-danger);
+}
+
+.textarea-error .textarea-field:focus-visible {
+	border-color: var(--color-danger);
+	outline-color: var(--color-danger);
+}
+
+.textarea-error .textarea-message {
+	color: var(--color-danger);
+}

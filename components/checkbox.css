@@ -1,0 +1,60 @@
+/* ==========================================================================
+   Checkbox
+   WCAG: Each checkbox input must have an associated <label> via for/id or
+         by wrapping. The .checkbox class is a layout wrapper only.
+         Custom styling relies on accent-color; native focus is preserved.
+   ========================================================================== */
+
+/* Single checkbox with label */
+.checkbox {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--space-2);
+	cursor: pointer;
+}
+
+.checkbox input[type="checkbox"] {
+	flex-shrink: 0;
+	margin: 0;
+	margin-block-start: 0.15em; /* optical alignment with first line of label */
+	cursor: pointer;
+}
+
+.checkbox-label {
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-normal);
+	color: var(--color-text);
+	line-height: var(--line-height-normal);
+}
+
+.checkbox-description {
+	display: block;
+	font-size: var(--font-size-sm);
+	color: var(--color-text-secondary);
+	margin-block-start: var(--space-0-5);
+}
+
+/* Disabled */
+.checkbox:has(input[type="checkbox"]:disabled) {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.checkbox:has(input[type="checkbox"]:disabled) * {
+	cursor: not-allowed;
+}
+
+/* Group of checkboxes */
+.checkbox-group {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.checkbox-group-label {
+	display: block;
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	color: var(--color-text-secondary);
+	margin-block-end: var(--space-2);
+}

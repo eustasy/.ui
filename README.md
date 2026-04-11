@@ -13,10 +13,10 @@ Open, accessible, themable web components — vanilla HTML, CSS, and minimal Jav
 
 ```html
 <!-- Option A: Link the built single-file (recommended) -->
-<link rel="stylesheet" href="dist/ui.css">
+<link rel="stylesheet" href="dist/ui.css" />
 
 <!-- Option B: Link the source entry (uses @import, fine for dev) -->
-<link rel="stylesheet" href="assets/main.css">
+<link rel="stylesheet" href="assets/main.css" />
 ```
 
 For dark/light mode toggling, add the script and a toggle button:

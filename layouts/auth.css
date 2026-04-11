@@ -1,0 +1,168 @@
+/* ==========================================================================
+   Layout: Auth — Vertically and horizontally centered authentication pages.
+
+   HTML structure:
+     <div class="layout-auth">                  <!-- or .layout-auth-tinted -->
+       <a class="auth-brand" href="/">
+         <svg class="auth-brand-mark">...</svg>
+         Brand
+       </a>
+       <div class="auth-card">
+         <div class="auth-card-header">
+           <h1>Sign in to your account</h1>
+           <p class="auth-card-subheading">Welcome back!</p>
+         </div>
+         <div class="auth-card-body">
+           <form>...</form>
+         </div>
+         <div class="auth-card-footer">
+           Don't have an account? <a href="/register">Sign up</a>
+         </div>
+       </div>
+     </div>
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Outer wrapper
+   -------------------------------------------------------------------------- */
+
+.layout-auth {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: var(--space-6) var(--space-4);
+	background-color: var(--color-bg);
+}
+
+/* Subtle tinted background variant */
+.layout-auth-tinted {
+	background-color: var(--color-bg-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Brand / logo above the card
+   -------------------------------------------------------------------------- */
+
+.auth-brand {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2-5);
+	margin-block-end: var(--space-8);
+	font-weight: var(--font-weight-bold);
+	font-size: var(--font-size-xl);
+	color: var(--color-text);
+	text-decoration: none;
+}
+
+.auth-brand:hover {
+	color: var(--color-text);
+}
+
+.auth-brand-mark {
+	width: 2.25rem;
+	height: 2.25rem;
+	flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Card
+   -------------------------------------------------------------------------- */
+
+.auth-card {
+	width: 100%;
+	max-width: 24rem;
+	background-color: var(--color-surface);
+	border: var(--border-width) solid var(--color-border);
+	border-radius: var(--radius-xl);
+	box-shadow: var(--shadow-sm);
+	overflow: hidden;
+}
+
+.auth-card-header {
+	padding: var(--space-6) var(--space-6) var(--space-4);
+	text-align: center;
+}
+
+.auth-card-header h1,
+.auth-card-header h2 {
+	font-size: var(--font-size-2xl);
+	font-weight: var(--font-weight-bold);
+	margin: 0 0 var(--space-1);
+}
+
+.auth-card-subheading {
+	font-size: var(--font-size-sm);
+	color: var(--color-text-secondary);
+	margin: 0;
+}
+
+.auth-card-body {
+	padding: var(--space-4) var(--space-6) var(--space-6);
+}
+
+/* Consistent vertical rhythm for form fields inside the card */
+.auth-card-body form > * + * {
+	margin-block-start: var(--space-4);
+}
+
+.auth-card-footer {
+	padding: var(--space-4) var(--space-6);
+	border-block-start: var(--border-width) solid var(--color-border);
+	background-color: var(--color-bg-secondary);
+	text-align: center;
+	font-size: var(--font-size-sm);
+	color: var(--color-text-secondary);
+}
+
+.auth-card-footer a {
+	font-weight: var(--font-weight-medium);
+	color: var(--color-link);
+	text-decoration: none;
+}
+
+.auth-card-footer a:hover {
+	color: var(--color-link-hover);
+	text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Helpers
+   -------------------------------------------------------------------------- */
+
+/* "or continue with" divider */
+.auth-divider {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	margin-block: var(--space-5);
+	font-size: var(--font-size-xs);
+	color: var(--color-text-tertiary);
+}
+
+.auth-divider::before,
+.auth-divider::after {
+	content: "";
+	flex: 1;
+	border-block-start: var(--border-width) solid var(--color-border);
+}
+
+/* Inline row: e.g. "remember me" checkbox + "forgot password?" link */
+.auth-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-3);
+	font-size: var(--font-size-sm);
+}
+
+.auth-row a {
+	color: var(--color-link);
+	text-decoration: none;
+}
+
+.auth-row a:hover {
+	color: var(--color-link-hover);
+	text-decoration: underline;
+}

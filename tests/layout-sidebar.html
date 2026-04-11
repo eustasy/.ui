@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Sidebar Layout — eustasy/.ui</title>
+		<link rel="stylesheet" href="../assets/main.css" />
+		<script src="../js/theme-toggle.js"></script>
+		<style>
+			/* Demo-only: make the body fill the viewport without extra margin */
+			body {
+				margin: 0;
+			}
+
+			/* Placeholder content blocks */
+			.demo-block {
+				border-radius: var(--radius-xl);
+				background-color: var(--color-bg-secondary);
+				border: var(--border-width) solid var(--color-border);
+			}
+			.demo-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				gap: var(--space-4);
+				margin-block: var(--space-6);
+			}
+			.demo-stat {
+				padding: var(--space-5);
+			}
+			.demo-stat-value {
+				font-size: var(--font-size-3xl);
+				font-weight: var(--font-weight-bold);
+				color: var(--color-text);
+				margin-block-end: var(--space-1);
+			}
+			.demo-stat-label {
+				font-size: var(--font-size-sm);
+				color: var(--color-text-secondary);
+				margin: 0;
+			}
+			.demo-table-row {
+				display: flex;
+				align-items: center;
+				gap: var(--space-4);
+				padding: var(--space-3) var(--space-4);
+				border-block-end: var(--border-width) solid var(--color-border);
+				font-size: var(--font-size-sm);
+			}
+			.demo-table-row:last-child {
+				border-block-end: none;
+			}
+			.demo-dot {
+				width: 0.5rem;
+				height: 0.5rem;
+				border-radius: var(--radius-full);
+				flex-shrink: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- =====================================================================
+     Sidebar layout
+     ===================================================================== -->
+		<div class="layout-sidebar">
+			<!-- ------------------------------------------------------------------ -->
+			<!-- Sidebar                                                              -->
+			<!-- ------------------------------------------------------------------ -->
+			<aside class="sidebar" id="sidebar" aria-label="Main navigation">
+				<!-- Brand -->
+				<a class="sidebar-brand" href="#">
+					<svg
+						class="sidebar-brand-mark"
+						viewBox="0 0 28 28"
+						fill="none"
+						aria-hidden="true"
+					>
+						<rect width="28" height="28" rx="6" fill="var(--color-action)" />
+						<path
+							d="M8 14h12M14 8v12"
+							stroke="var(--color-action-text)"
+							stroke-width="2.5"
+							stroke-linecap="round"
+						/>
+					</svg>
+					eustasy/.ui
+				</a>
+
+				<!-- Primary nav -->
+				<nav style="flex: 1; overflow-y: auto">
+					<ul class="sidebar-nav" style="flex: initial">
+						<li>
+							<a href="#" aria-current="page">
+								<svg
+									class="sidebar-nav-icon"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									aria-hidden="true"
+								>
+									<path
+										d="M10.707 2.293a1 1 0 0 0-1.414 0l-7 7A1 1 0 0 0 3 11h1v6a1 1 0 0 0 1 1h4v-4h2v4h4a1 1 0 0 0 1-1v-6h1a1 1 0 0 0 .707-1.707l-7-7z"
+									/>
+								</svg>
+								Home
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<svg
+									class="sidebar-nav-icon"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									aria-hidden="true"
+								>
+									<path
+										fill-rule="evenodd"
+										d="M2 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5zm3 1h10v1H5V6zm0 3h10v1H5V9zm0 3h6v1H5v-1z"
+										clip-rule="evenodd"
+									/>
+								</svg>
+								Inbox
+								<span class="sidebar-nav-badge">4</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<svg
+									class="sidebar-nav-icon"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									aria-hidden="true"
+								>
+									<path
+										d="M2 10a8 8 0 1 1 16 0 8 8 0 0 1-16 0zm8-3a1 1 0 0 0 0 2h2a1 1 0 1 0 0-2H10zm0 4a1 1 0 0 0 0 2h2a1 1 0 1 0 0-2H10z"
+									/>
+								</svg>
+								Reports
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<svg
+									class="sidebar-nav-icon"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									aria-hidden="true"
+								>
+									<path
+										d="M13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM18 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM6 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"
+									/>
+									<path
+										fill-rule="evenodd"
+										d="M2 15c0-2.761 3.582-5 8-5s8 2.239 8 5H2z"
+										clip-rule="evenodd"
+									/>
+								</svg>
+								Team
+							</a>
+						</li>
+					</ul>
+
+					<!-- Secondary nav group -->
+					<div class="sidebar-nav-group">
+						<p class="sidebar-nav-group-label">Manage</p>
+						<ul
+							class="sidebar-nav"
+							style="flex: initial; padding-block-start: 0"
+						>
+							<li>
+								<a href="#">
+									<svg
+										class="sidebar-nav-icon"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											fill-rule="evenodd"
+											d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 0 1-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 0 1 .947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 0 1 2.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 0 1 2.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 0 1 .947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 0 1-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 0 1-2.287-.947zM10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+											clip-rule="evenodd"
+										/>
+									</svg>
+									Settings
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<svg
+										class="sidebar-nav-icon"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											fill-rule="evenodd"
+											d="M18 8a6 6 0 0 1-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1 1 18 8zm-6-4a1 1 0 1 0 0 2 2 2 0 0 1 2 2 1 1 0 1 0 2 0 4 4 0 0 0-4-4z"
+											clip-rule="evenodd"
+										/>
+									</svg>
+									API Keys
+								</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+
+				<!-- Footer: user account -->
+				<div class="sidebar-footer">
+					<button class="sidebar-user" type="button">
+						<img
+							class="sidebar-user-avatar"
+							src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' rx='16' fill='%235E409D'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3EAB%3C/text%3E%3C/svg%3E"
+							alt="Alex Blake"
+						/>
+						<span class="sidebar-user-info">
+							<span class="sidebar-user-name">Alex Blake</span>
+							<span class="sidebar-user-meta">alex@example.com</span>
+						</span>
+						<button
+							data-theme-toggle
+							aria-label="Toggle dark mode"
+							class="btn btn-ghost btn-sm"
+							style="margin-inline-start: auto; flex-shrink: 0"
+						>
+							🌓
+						</button>
+					</button>
+				</div>
+			</aside>
+
+			<!-- Mobile backdrop -->
+			<div
+				class="sidebar-overlay"
+				id="sidebar-overlay"
+				aria-hidden="true"
+			></div>
+
+			<!-- ------------------------------------------------------------------ -->
+			<!-- Main content                                                         -->
+			<!-- ------------------------------------------------------------------ -->
+			<main class="sidebar-main">
+				<header class="sidebar-main-header">
+					<!-- Mobile toggle -->
+					<button
+						class="sidebar-toggle"
+						type="button"
+						id="sidebar-toggle"
+						aria-expanded="false"
+						aria-controls="sidebar"
+						aria-label="Open navigation"
+					>
+						<svg
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							aria-hidden="true"
+						>
+							<line x1="3" y1="6" x2="21" y2="6" />
+							<line x1="3" y1="12" x2="21" y2="12" />
+							<line x1="3" y1="18" x2="21" y2="18" />
+						</svg>
+					</button>
+					<h1>Home</h1>
+				</header>
+
+				<div class="sidebar-main-body">
+					<!-- Stats row -->
+					<div class="demo-grid">
+						<div class="demo-block demo-stat">
+							<p class="demo-stat-value">1,284</p>
+							<p class="demo-stat-label">Total users</p>
+						</div>
+						<div class="demo-block demo-stat">
+							<p class="demo-stat-value">$48,295</p>
+							<p class="demo-stat-label">Revenue (MTD)</p>
+						</div>
+						<div class="demo-block demo-stat">
+							<p class="demo-stat-value">98.1%</p>
+							<p class="demo-stat-label">Uptime</p>
+						</div>
+						<div class="demo-block demo-stat">
+							<p class="demo-stat-value">12</p>
+							<p class="demo-stat-label">Open issues</p>
+						</div>
+					</div>
+
+					<!-- Recent activity -->
+					<h2 style="margin-block: var(--space-6) var(--space-3)">
+						Recent activity
+					</h2>
+					<div class="demo-block">
+						<div class="demo-table-row">
+							<span
+								class="demo-dot"
+								style="background: var(--color-success)"
+							></span>
+							<span style="flex: 1"
+								>Deployment <strong>v2.4.1</strong> completed</span
+							>
+							<span
+								style="
+									color: var(--color-text-secondary);
+									font-size: var(--font-size-xs);
+								"
+								>2 min ago</span
+							>
+						</div>
+						<div class="demo-table-row">
+							<span
+								class="demo-dot"
+								style="background: var(--color-action)"
+							></span>
+							<span style="flex: 1"
+								>User <strong>emma@example.com</strong> signed up</span
+							>
+							<span
+								style="
+									color: var(--color-text-secondary);
+									font-size: var(--font-size-xs);
+								"
+								>14 min ago</span
+							>
+						</div>
+						<div class="demo-table-row">
+							<span
+								class="demo-dot"
+								style="background: var(--color-warning)"
+							></span>
+							<span style="flex: 1"
+								>High memory usage on <strong>worker-03</strong></span
+							>
+							<span
+								style="
+									color: var(--color-text-secondary);
+									font-size: var(--font-size-xs);
+								"
+								>1 hr ago</span
+							>
+						</div>
+						<div class="demo-table-row">
+							<span
+								class="demo-dot"
+								style="background: var(--color-danger)"
+							></span>
+							<span style="flex: 1"
+								>Payment gateway <strong>timeout</strong> resolved</span
+							>
+							<span
+								style="
+									color: var(--color-text-secondary);
+									font-size: var(--font-size-xs);
+								"
+								>3 hr ago</span
+							>
+						</div>
+						<div class="demo-table-row">
+							<span
+								class="demo-dot"
+								style="background: var(--color-success)"
+							></span>
+							<span style="flex: 1"
+								>Backup <strong>db-primary</strong> completed</span
+							>
+							<span
+								style="
+									color: var(--color-text-secondary);
+									font-size: var(--font-size-xs);
+								"
+								>6 hr ago</span
+							>
+						</div>
+					</div>
+				</div>
+				<!-- /.sidebar-main-body -->
+			</main>
+		</div>
+		<!-- /.layout-sidebar -->
+
+		<script>
+			// Sidebar toggle (mobile)
+			const toggle = document.getElementById("sidebar-toggle");
+			const sidebar = document.getElementById("sidebar");
+			const overlay = document.getElementById("sidebar-overlay");
+
+			function openSidebar() {
+				sidebar.classList.add("is-open");
+				overlay.classList.add("is-open");
+				toggle.setAttribute("aria-expanded", "true");
+			}
+
+			function closeSidebar() {
+				sidebar.classList.remove("is-open");
+				overlay.classList.remove("is-open");
+				toggle.setAttribute("aria-expanded", "false");
+			}
+
+			toggle.addEventListener("click", () => {
+				sidebar.classList.contains("is-open") ? closeSidebar() : openSidebar();
+			});
+
+			overlay.addEventListener("click", closeSidebar);
+
+			document.addEventListener("keydown", (e) => {
+				if (e.key === "Escape") closeSidebar();
+			});
+		</script>
+	</body>
+</html>

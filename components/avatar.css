@@ -1,0 +1,97 @@
+/* ==========================================================================
+   Avatar
+   WCAG: <img> inside must have descriptive alt text. Initials text nodes
+         are aria-hidden implicitly via context; add aria-label to .avatar
+         when used without an <img> to convey identity to screen readers.
+   ========================================================================== */
+
+.avatar {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--radius-full);
+	overflow: hidden;
+	background-color: var(--color-surface-raised);
+	color: var(--color-text-secondary);
+	font-weight: var(--font-weight-medium);
+	font-size: var(--font-size-sm);
+	flex-shrink: 0;
+	width: 2.5rem;
+	height: 2.5rem;
+	border: var(--border-width) solid var(--color-border);
+	user-select: none;
+}
+
+.avatar img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: inherit;
+}
+
+/* Sizes */
+.avatar-xs {
+	width: 1.5rem;
+	height: 1.5rem;
+	font-size: var(--font-size-xs);
+}
+.avatar-sm {
+	width: 2rem;
+	height: 2rem;
+	font-size: var(--font-size-xs);
+}
+.avatar-lg {
+	width: 3.5rem;
+	height: 3.5rem;
+	font-size: var(--font-size-lg);
+}
+.avatar-xl {
+	width: 5rem;
+	height: 5rem;
+	font-size: var(--font-size-2xl);
+}
+
+/* Status indicator — wrap .avatar in .avatar-wrapper to show a status dot */
+.avatar-wrapper {
+	display: inline-grid;
+	position: relative;
+}
+
+.avatar-status {
+	position: absolute;
+	inset-block-end: 0;
+	inset-inline-end: 0;
+	width: 0.625rem;
+	height: 0.625rem;
+	border-radius: var(--radius-full);
+	border: var(--border-width-2) solid var(--color-bg);
+	background-color: var(--color-text-disabled);
+}
+
+.avatar-status-online {
+	background-color: var(--color-success);
+}
+.avatar-status-away {
+	background-color: var(--color-warning);
+}
+.avatar-status-busy {
+	background-color: var(--color-danger);
+}
+.avatar-status-offline {
+	background-color: var(--color-text-disabled);
+}
+
+/* Avatar group — overlapping stack */
+.avatar-group {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.avatar-group .avatar {
+	margin-inline-start: -0.5rem;
+	border: var(--border-width-2) solid var(--color-bg);
+}
+
+.avatar-group .avatar:last-child {
+	margin-inline-start: 0;
+}

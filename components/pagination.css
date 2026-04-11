@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Pagination
+   WCAG: The <nav> must have aria-label="Pagination". The current page link
+         must have aria-current="page". Previous/Next must be keyboard
+         accessible; label them with aria-label when using icon-only buttons.
+
+   Example markup:
+     <nav class="pagination" aria-label="Pagination">
+       <a class="pagination-item" href="/page/1" aria-label="Previous page">‹</a>
+       <a class="pagination-item" href="/page/1">1</a>
+       <a class="pagination-item" href="/page/2" aria-current="page">2</a>
+       <a class="pagination-item" href="/page/3">3</a>
+       <span class="pagination-ellipsis" aria-hidden="true">…</span>
+       <a class="pagination-item" href="/page/10">10</a>
+       <a class="pagination-item" href="/page/3" aria-label="Next page">›</a>
+     </nav>
+   ========================================================================== */
+
+.pagination {
+	display: flex;
+	align-items: center;
+	gap: var(--space-1);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	flex-wrap: wrap;
+}
+
+.pagination-item {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.25rem;
+	height: 2.25rem;
+	padding-inline: var(--space-2);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+	color: var(--color-text-secondary);
+	text-decoration: none;
+	background-color: transparent;
+	border: var(--border-width) solid transparent;
+	border-radius: var(--radius-md);
+	cursor: pointer;
+	user-select: none;
+	transition:
+		background-color var(--duration-fast) var(--easing),
+		border-color var(--duration-fast) var(--easing),
+		color var(--duration-fast) var(--easing);
+}
+
+.pagination-item:hover {
+	background-color: var(--color-surface-raised);
+	border-color: var(--color-border);
+	color: var(--color-text);
+}
+
+.pagination-item:focus-visible {
+	outline: var(--focus-ring-width) solid var(--color-focus-ring);
+	outline-offset: var(--focus-ring-offset);
+}
+
+/* Current page */
+.pagination-item[aria-current="page"] {
+	background-color: var(--color-action);
+	border-color: var(--color-action);
+	color: var(--color-action-text);
+	cursor: default;
+}
+
+.pagination-item[aria-current="page"]:hover {
+	background-color: var(--color-action-hover);
+	border-color: var(--color-action-hover);
+}
+
+/* Disabled (prev on first page, next on last page) */
+.pagination-item[aria-disabled="true"],
+.pagination-item:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+/* Ellipsis */
+.pagination-ellipsis {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.25rem;
+	height: 2.25rem;
+	font-size: var(--font-size-sm);
+	color: var(--color-text-secondary);
+	pointer-events: none;
+	user-select: none;
+}
+
+/* Compact: smaller gaps on mobile */
+@media (max-width: 480px) {
+	.pagination {
+		gap: 0;
+	}
+
+	.pagination-item {
+		min-width: 2rem;
+		height: 2rem;
+		font-size: var(--font-size-xs);
+	}
+}
