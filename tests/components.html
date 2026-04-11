@@ -5,30 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Component Tests — eustasy/.ui</title>
     <link rel="stylesheet" href="../assets/main.css" />
+    <link rel="stylesheet" href="components.demo.css" />
     <script src="../js/theme-toggle.js"></script>
-    <style>
-      body {
-        padding: var(--space-6) var(--space-4);
-        max-width: var(--width-wide);
-        margin-inline: auto;
-      }
-      section {
-        margin-block: var(--space-10);
-      }
-      .demo-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-3);
-        align-items: center;
-        margin-block: var(--space-4);
-      }
-      .card-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: var(--space-4);
-        margin-block: var(--space-4);
-      }
-    </style>
   </head>
   <body>
     <header
@@ -98,11 +76,6 @@
           aria-expanded="false"
           aria-controls="nav-demo"
           aria-label="Toggle menu"
-          onclick="
-            var nav = document.getElementById('nav-demo')
-            var open = nav.classList.toggle('is-open')
-            this.setAttribute('aria-expanded', open)
-          "
         >
           <svg
             viewBox="0 0 24 24"
@@ -227,13 +200,7 @@
 
       <div class="alert alert-danger" role="alert">
         <strong>Error:</strong> Something went wrong. Please try again.
-        <button
-          class="alert-dismiss"
-          aria-label="Dismiss alert"
-          onclick="this.parentElement.hidden = true"
-        >
-          ×
-        </button>
+        <button class="alert-dismiss" aria-label="Dismiss alert">×</button>
       </div>
     </section>
 
@@ -263,7 +230,7 @@
           <h3>Sign In</h3>
         </div>
         <div class="card-body">
-          <form onsubmit="return false">
+          <form>
             <label for="login-email">Email</label>
             <input
               id="login-email"
@@ -521,16 +488,10 @@
       <h2 id="dialog-heading">Dialog</h2>
 
       <div class="demo-row">
-        <button
-          class="btn btn-primary"
-          onclick="document.getElementById('demo-dialog').showModal()"
-        >
+        <button class="btn btn-primary" data-dialog-open="demo-dialog">
           Open dialog
         </button>
-        <button
-          class="btn btn-secondary"
-          onclick="document.getElementById('demo-dialog-sm').showModal()"
-        >
+        <button class="btn btn-secondary" data-dialog-open="demo-dialog-sm">
           Small dialog
         </button>
       </div>
@@ -545,13 +506,7 @@
         <div class="dialog-panel">
           <header class="dialog-header">
             <h2 class="dialog-title" id="demo-dialog-title">Confirm action</h2>
-            <button
-              class="dialog-close"
-              aria-label="Close dialog"
-              onclick="document.getElementById('demo-dialog').close()"
-            >
-              ✕
-            </button>
+            <button class="dialog-close" aria-label="Close dialog">✕</button>
           </header>
           <div class="dialog-body" id="demo-dialog-body">
             <p>
@@ -560,18 +515,8 @@
             </p>
           </div>
           <footer class="dialog-footer">
-            <button
-              class="btn btn-secondary"
-              onclick="document.getElementById('demo-dialog').close()"
-            >
-              Cancel
-            </button>
-            <button
-              class="btn btn-danger"
-              onclick="document.getElementById('demo-dialog').close()"
-            >
-              Delete
-            </button>
+            <button class="btn btn-secondary" data-dialog-close>Cancel</button>
+            <button class="btn btn-danger" data-dialog-close>Delete</button>
           </footer>
         </div>
       </dialog>
@@ -585,24 +530,13 @@
         <div class="dialog-panel">
           <header class="dialog-header">
             <h2 class="dialog-title" id="demo-dialog-sm-title">Notice</h2>
-            <button
-              class="dialog-close"
-              aria-label="Close dialog"
-              onclick="document.getElementById('demo-dialog-sm').close()"
-            >
-              ✕
-            </button>
+            <button class="dialog-close" aria-label="Close dialog">✕</button>
           </header>
           <div class="dialog-body">
             <p>Your session will expire in 5 minutes.</p>
           </div>
           <footer class="dialog-footer">
-            <button
-              class="btn btn-primary"
-              onclick="document.getElementById('demo-dialog-sm').close()"
-            >
-              OK
-            </button>
+            <button class="btn btn-primary" data-dialog-close>OK</button>
           </footer>
         </div>
       </dialog>
@@ -650,12 +584,6 @@
             aria-haspopup="menu"
             aria-expanded="false"
             aria-controls="dd-menu"
-            onclick="
-              var m = document.getElementById('dd-menu')
-              var open = m.hidden
-              m.hidden = !open
-              this.setAttribute('aria-expanded', open)
-            "
           >
             Options ▾
           </button>
@@ -688,12 +616,6 @@
             aria-haspopup="menu"
             aria-expanded="false"
             aria-controls="dd-menu-end"
-            onclick="
-              var m = document.getElementById('dd-menu-end')
-              var open = m.hidden
-              m.hidden = !open
-              this.setAttribute('aria-expanded', open)
-            "
           >
             Align end ▾
           </button>
@@ -1336,10 +1258,6 @@
           aria-describedby="ta-bio-footer"
           maxlength="200"
           placeholder="Tell us about yourself…"
-          oninput="
-            document.getElementById('ta-bio-count').textContent =
-              this.value.length + ' / ' + this.maxLength
-          "
         ></textarea>
         <div class="textarea-footer" id="ta-bio-footer">
           <p class="textarea-hint">Keep it concise.</p>
@@ -1387,5 +1305,6 @@ Cannot edit this field.</textarea
         >
       </div>
     </section>
+    <script src="components.js"></script>
   </body>
 </html>

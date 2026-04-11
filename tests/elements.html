@@ -5,40 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Element Tests — eustasy/.ui</title>
     <link rel="stylesheet" href="../assets/main.css" />
+    <link rel="stylesheet" href="elements.demo.css" />
     <script src="../js/theme-toggle.js"></script>
-    <style>
-      body {
-        padding: var(--space-6) var(--space-4);
-        max-width: var(--width-wide);
-        margin-inline: auto;
-      }
-      .swatch-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: var(--space-2);
-        margin-block: var(--space-4);
-      }
-      .swatch {
-        padding: var(--space-4) var(--space-2);
-        border-radius: var(--radius-md);
-        text-align: center;
-        font-size: var(--font-size-xs);
-        font-family: var(--font-mono);
-      }
-      section {
-        margin-block: var(--space-10);
-      }
-      .cols-2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-6);
-      }
-      @media (max-width: 600px) {
-        .cols-2 {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
   </head>
   <body>
     <header
@@ -215,7 +183,7 @@ greet("Flexoki");</code></pre>
     <section id="forms" aria-labelledby="forms-heading">
       <h2 id="forms-heading">Forms</h2>
 
-      <form onsubmit="return false">
+      <form>
         <label for="text-input">Text Input</label>
         <input id="text-input" type="text" placeholder="Type something…" />
 
@@ -424,10 +392,7 @@ greet("Flexoki");</code></pre>
       </meter>
 
       <h3>Dialog (native)</h3>
-      <button
-        class="btn btn-secondary"
-        onclick="document.getElementById('demo-dialog').showModal()"
-      >
+      <button class="btn btn-secondary" data-dialog-open="demo-dialog">
         Open Dialog
       </button>
       <dialog id="demo-dialog">
@@ -445,18 +410,8 @@ greet("Flexoki");</code></pre>
             justify-content: flex-end;
           "
         >
-          <button
-            class="btn btn-ghost"
-            onclick="document.getElementById('demo-dialog').close()"
-          >
-            Cancel
-          </button>
-          <button
-            class="btn btn-primary"
-            onclick="document.getElementById('demo-dialog').close()"
-          >
-            Confirm
-          </button>
+          <button class="btn btn-ghost" data-dialog-close>Cancel</button>
+          <button class="btn btn-primary" data-dialog-close>Confirm</button>
         </div>
       </dialog>
     </section>
@@ -478,5 +433,6 @@ greet("Flexoki");</code></pre>
         </figcaption>
       </figure>
     </section>
+    <script src="elements.js"></script>
   </body>
 </html>

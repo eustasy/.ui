@@ -1,0 +1,21 @@
+body {
+  padding: var(--space-6) var(--space-4);
+  max-width: var(--width-wide);
+  margin-inline: auto;
+}
+section {
+  margin-block: var(--space-10);
+}
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  margin-block: var(--space-4);
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-4);
+  margin-block: var(--space-4);
+}

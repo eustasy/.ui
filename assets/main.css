@@ -40,8 +40,4 @@
 @import url("../components/table.css");
 @import url("../components/text.css");
 @import url("../components/textarea.css");
-
-/* Layouts */
-@import url("../layouts/sidebar.css");
-@import url("../layouts/stacked.css");
-@import url("../layouts/auth.css");
+@import url("../components/user-menu.css");
