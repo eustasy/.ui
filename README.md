@@ -80,6 +80,7 @@ js/
   combobox.js                 ← filter, keyboard nav, aria-activedescendant
   dialog.js                   ← open/close native <dialog> via data attributes
   dropdown.js                 ← toggle .dropdown menus; click-outside + Escape
+  listbox.js                  ← single and multi-select keyboard nav + live region
   theme-toggle.js             ← dark/light toggle with localStorage persistence
   user-menu.js                ← user menu open/close behaviour
 layouts/
