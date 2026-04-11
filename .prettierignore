@@ -1,1 +1,4 @@
+**/*.min.js
+**/*.min.css
+worker-configuration.d.ts
 dist
