@@ -16,6 +16,7 @@
         list-style: none;
         margin: 0;
         padding: 0;
+        max-width: none;
       }
       .inbox-item {
         display: flex;
@@ -25,6 +26,7 @@
         border-block-end: var(--border-width) solid var(--color-border);
         cursor: pointer;
         transition: background-color var(--duration-fast) var(--easing);
+        margin-block: 0;
       }
       .inbox-item:last-child {
         border-block-end: none;
@@ -66,7 +68,8 @@
       .inbox-subject {
         font-size: var(--font-size-sm);
         color: var(--color-text);
-        margin-block-end: var(--space-0-5);
+        margin-block: 0 var(--space-0-5);
+        max-width: none;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -74,6 +77,8 @@
       .inbox-preview {
         font-size: var(--font-size-sm);
         color: var(--color-text-secondary);
+        margin-block: 0;
+        max-width: none;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -208,10 +213,7 @@
           <h1>Inbox</h1>
         </div>
 
-        <div
-          class="stacked-main-body"
-          style="padding-inline: var(--space-8); padding-block: var(--space-6)"
-        >
+        <div class="stacked-main-body">
           <article
             style="
               border: var(--border-width) solid var(--color-border);
