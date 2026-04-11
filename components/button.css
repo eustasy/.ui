@@ -51,12 +51,10 @@
 .btn-secondary {
   background-color: var(--color-surface-raised);
   color: var(--color-text);
-  border-color: var(--color-border);
 }
 
 .btn-secondary:hover {
   background-color: var(--color-surface-overlay);
-  border-color: var(--color-border-hover);
 }
 
 /* Outline / Ghost */
