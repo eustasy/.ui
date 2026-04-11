@@ -30,109 +30,109 @@
    ========================================================================== */
 
 .input-group {
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-1);
-	margin-block-end: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-block-end: var(--space-4);
 }
 
 .input-label {
-	font-size: var(--font-size-sm);
-	font-weight: var(--font-weight-medium);
-	color: var(--color-text-secondary);
-	margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin: 0;
 }
 
 .input-label-required::after {
-	content: " *";
-	color: var(--color-danger);
-	aria-hidden: "true";
+  content: " *";
+  color: var(--color-danger);
+  aria-hidden: "true";
 }
 
 /* Override base margin on the input element */
 .input-field {
-	margin-block-end: 0 !important;
+  margin-block-end: 0 !important;
 }
 
 .input-hint {
-	font-size: var(--font-size-sm);
-	color: var(--color-text-secondary);
-	margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
 }
 
 .input-message {
-	font-size: var(--font-size-sm);
-	margin: 0;
+  font-size: var(--font-size-sm);
+  margin: 0;
 }
 
 /* Error state */
 .input-error .input-label {
-	color: var(--color-danger);
+  color: var(--color-danger);
 }
 
 .input-error .input-field {
-	border-color: var(--color-danger);
+  border-color: var(--color-danger);
 }
 
 .input-error .input-field:focus-visible {
-	border-color: var(--color-danger);
-	outline-color: var(--color-danger);
+  border-color: var(--color-danger);
+  outline-color: var(--color-danger);
 }
 
 .input-error .input-message {
-	color: var(--color-danger);
+  color: var(--color-danger);
 }
 
 /* Success state */
 .input-success .input-field {
-	border-color: var(--color-success);
+  border-color: var(--color-success);
 }
 
 .input-success .input-message {
-	color: var(--color-success);
+  color: var(--color-success);
 }
 
 /* Inline input with prefix/suffix */
 .input-addon-group {
-	display: flex;
-	align-items: stretch;
+  display: flex;
+  align-items: stretch;
 }
 
 .input-addon-group .input-field {
-	flex: 1;
-	min-width: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 .input-addon-group .input-field:not(:first-child) {
-	border-start-start-radius: 0;
-	border-end-start-radius: 0;
-	border-inline-start: none;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+  border-inline-start: none;
 }
 
 .input-addon-group .input-field:not(:last-child) {
-	border-start-end-radius: 0;
-	border-end-end-radius: 0;
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
 }
 
 .input-addon {
-	display: inline-flex;
-	align-items: center;
-	padding-inline: var(--space-3);
-	font-size: var(--font-size-sm);
-	color: var(--color-text-secondary);
-	background-color: var(--color-bg-secondary);
-	border: var(--border-width) solid var(--color-border);
-	white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  padding-inline: var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-secondary);
+  border: var(--border-width) solid var(--color-border);
+  white-space: nowrap;
 }
 
 .input-addon:first-child {
-	border-start-start-radius: var(--radius-md);
-	border-end-start-radius: var(--radius-md);
-	border-inline-end: none;
+  border-start-start-radius: var(--radius-md);
+  border-end-start-radius: var(--radius-md);
+  border-inline-end: none;
 }
 
 .input-addon:last-child {
-	border-start-end-radius: var(--radius-md);
-	border-end-end-radius: var(--radius-md);
-	border-inline-start: none;
+  border-start-end-radius: var(--radius-md);
+  border-end-end-radius: var(--radius-md);
+  border-inline-start: none;
 }

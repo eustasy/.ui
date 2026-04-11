@@ -24,68 +24,68 @@
 
 /* Group container */
 .radio-group {
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-2);
-	border: none;
-	padding: 0;
-	margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 .radio-group-legend {
-	display: block;
-	font-size: var(--font-size-sm);
-	font-weight: var(--font-weight-medium);
-	color: var(--color-text-secondary);
-	margin-block-end: var(--space-2);
-	padding: 0;
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-block-end: var(--space-2);
+  padding: 0;
 }
 
 /* Horizontal layout variant */
 .radio-group-inline {
-	flex-direction: row;
-	flex-wrap: wrap;
-	gap: var(--space-4);
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-4);
 }
 
 /* Single radio + label pair */
 .radio {
-	display: flex;
-	align-items: flex-start;
-	gap: var(--space-2);
-	cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  cursor: pointer;
 }
 
 .radio input[type="radio"] {
-	flex-shrink: 0;
-	margin: 0;
-	margin-block-start: 0.15em; /* optical alignment */
-	cursor: pointer;
+  flex-shrink: 0;
+  margin: 0;
+  margin-block-start: 0.15em; /* optical alignment */
+  cursor: pointer;
 }
 
 .radio-label {
-	display: flex;
-	flex-direction: column;
-	font-size: var(--font-size-sm);
-	font-weight: var(--font-weight-normal);
-	color: var(--color-text);
-	line-height: var(--line-height-normal);
-	cursor: pointer;
-	margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
+  line-height: var(--line-height-normal);
+  cursor: pointer;
+  margin: 0;
 }
 
 .radio-description {
-	font-size: var(--font-size-sm);
-	color: var(--color-text-secondary);
-	margin-block-start: var(--space-0-5);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-block-start: var(--space-0-5);
 }
 
 /* Disabled */
 .radio:has(input[type="radio"]:disabled) {
-	opacity: 0.5;
-	cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .radio:has(input[type="radio"]:disabled) * {
-	cursor: not-allowed;
+  cursor: not-allowed;
 }

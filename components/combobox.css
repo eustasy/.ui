@@ -18,72 +18,72 @@
    ========================================================================== */
 
 .combobox {
-	position: relative;
-	display: inline-block;
-	width: 100%;
-	max-width: var(--width-input);
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: var(--width-input);
 }
 
 /* The listbox popup */
 .combobox-listbox {
-	position: absolute;
-	inset-block-start: calc(100% + var(--space-1));
-	inset-inline-start: 0;
-	inset-inline-end: 0;
-	z-index: 100;
-	margin: 0;
-	padding: var(--space-1) 0;
-	list-style: none;
-	background-color: var(--color-surface);
-	border: var(--border-width) solid var(--color-border);
-	border-radius: var(--radius-lg);
-	box-shadow: var(--shadow-md);
-	max-height: 16rem;
-	overflow-y: auto;
-	overscroll-behavior: contain;
+  position: absolute;
+  inset-block-start: calc(100% + var(--space-1));
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  z-index: 100;
+  margin: 0;
+  padding: var(--space-1) 0;
+  list-style: none;
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  max-height: 16rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 /* Hide when collapsed — toggled via aria-expanded or hidden attribute */
 .combobox-listbox[hidden],
 [aria-expanded="false"] ~ .combobox-listbox {
-	display: none;
+  display: none;
 }
 
 /* Individual option */
 .combobox-option {
-	padding: var(--space-2) var(--space-3);
-	font-size: var(--font-size-sm);
-	color: var(--color-text);
-	cursor: pointer;
-	transition: background-color var(--duration-fast) var(--easing);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--easing);
 }
 
 .combobox-option:hover,
 .combobox-option[aria-selected="true"] {
-	background-color: var(--color-surface-raised);
+  background-color: var(--color-surface-raised);
 }
 
 /* Active / keyboard-highlighted option */
 .combobox-option[data-active],
 .combobox-option:focus {
-	background-color: var(--color-surface-overlay);
-	outline: none;
+  background-color: var(--color-surface-overlay);
+  outline: none;
 }
 
 /* Empty state */
 .combobox-empty {
-	padding: var(--space-2) var(--space-3);
-	font-size: var(--font-size-sm);
-	color: var(--color-text-secondary);
-	text-align: center;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-align: center;
 }
 
 /* Optional group heading within listbox */
 .combobox-group-label {
-	padding: var(--space-1) var(--space-3);
-	font-size: var(--font-size-xs);
-	font-weight: var(--font-weight-medium);
-	color: var(--color-text-secondary);
-	text-transform: uppercase;
-	letter-spacing: var(--letter-spacing-wide);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
 }

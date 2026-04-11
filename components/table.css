@@ -24,42 +24,42 @@
 /* Bordered — all-sides borders on every cell */
 .table-bordered th,
 .table-bordered td {
-	border: var(--border-width) solid var(--color-border);
+  border: var(--border-width) solid var(--color-border);
 }
 
 .table-bordered thead th {
-	border-block-end-width: var(--border-width-2);
+  border-block-end-width: var(--border-width-2);
 }
 
 /* Compact — tighter cell padding */
 .table-compact th,
 .table-compact td {
-	padding: var(--space-1) var(--space-2);
+  padding: var(--space-1) var(--space-2);
 }
 
 /* Plain — no stripes, no hover */
 .table-plain tbody tr:nth-child(even) {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 .table-plain tbody tr:hover {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 /* Align helpers for <th> or <td> */
 .table-col-numeric {
-	text-align: end;
-	font-variant-numeric: tabular-nums;
+  text-align: end;
+  font-variant-numeric: tabular-nums;
 }
 
 .table-col-center {
-	text-align: center;
+  text-align: center;
 }
 
 /* Sticky header */
 .table-sticky-head thead th {
-	position: sticky;
-	inset-block-start: 0;
-	z-index: 1;
-	background-color: var(--color-bg-secondary);
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+  background-color: var(--color-bg-secondary);
 }

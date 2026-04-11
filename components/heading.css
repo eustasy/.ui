@@ -14,81 +14,81 @@
 
 /* Mirror typography.css heading sizes as classes */
 .h1 {
-	font-family: var(--font-heading);
-	font-size: var(--font-size-4xl);
-	font-weight: var(--font-weight-bold);
-	line-height: var(--line-height-tight);
-	letter-spacing: var(--letter-spacing-tight);
-	color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text);
 }
 
 .h2 {
-	font-family: var(--font-heading);
-	font-size: var(--font-size-3xl);
-	font-weight: var(--font-weight-bold);
-	line-height: var(--line-height-tight);
-	letter-spacing: var(--letter-spacing-tight);
-	color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text);
 }
 
 .h3 {
-	font-family: var(--font-heading);
-	font-size: var(--font-size-2xl);
-	font-weight: var(--font-weight-bold);
-	line-height: var(--line-height-tight);
-	color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
 }
 
 .h4 {
-	font-family: var(--font-heading);
-	font-size: var(--font-size-xl);
-	font-weight: var(--font-weight-bold);
-	line-height: var(--line-height-tight);
-	color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
 }
 
 .h5 {
-	font-family: var(--font-heading);
-	font-size: var(--font-size-lg);
-	font-weight: var(--font-weight-bold);
-	line-height: var(--line-height-tight);
-	color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
 }
 
 .h6 {
-	font-family: var(--font-heading);
-	font-size: var(--font-size-base);
-	font-weight: var(--font-weight-bold);
-	line-height: var(--line-height-tight);
-	color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
 }
 
 /* Display — extra-large hero text above h1 */
 .heading-display {
-	font-family: var(--font-heading);
-	font-size: clamp(2.5rem, 6vw, 4rem);
-	font-weight: var(--font-weight-bold);
-	line-height: var(--line-height-tight);
-	letter-spacing: var(--letter-spacing-tight);
-	color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text);
 }
 
 /* Subtitle — supporting text below a heading */
 .heading-subtitle {
-	font-size: var(--font-size-lg);
-	font-weight: var(--font-weight-normal);
-	color: var(--color-text-secondary);
-	line-height: var(--line-height-normal);
-	margin-block-start: var(--space-2);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+  margin-block-start: var(--space-2);
 }
 
 /* Eyebrow — small label above a heading */
 .heading-eyebrow {
-	display: block;
-	font-size: var(--font-size-sm);
-	font-weight: var(--font-weight-medium);
-	color: var(--color-text-secondary);
-	text-transform: uppercase;
-	letter-spacing: var(--letter-spacing-wide);
-	margin-block-end: var(--space-2);
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  margin-block-end: var(--space-2);
 }

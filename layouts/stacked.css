@@ -29,10 +29,10 @@
    -------------------------------------------------------------------------- */
 
 .layout-stacked {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg);
 }
 
 /* --------------------------------------------------------------------------
@@ -40,188 +40,188 @@
    -------------------------------------------------------------------------- */
 
 .stacked-topbar {
-	display: flex;
-	align-items: center;
-	gap: var(--space-3);
-	padding: 0 var(--space-6);
-	height: 3.5rem;
-	background-color: var(--color-bg);
-	border-block-end: var(--border-width) solid var(--color-border);
-	position: sticky;
-	top: 0;
-	z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0 var(--space-6);
+  height: 3.5rem;
+  background-color: var(--color-bg);
+  border-block-end: var(--border-width) solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 /* Brand / logo */
 .stacked-brand {
-	font-weight: var(--font-weight-bold);
-	font-size: var(--font-size-lg);
-	color: var(--color-text);
-	text-decoration: none;
-	flex-shrink: 0;
-	margin-inline-end: var(--space-2);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  text-decoration: none;
+  flex-shrink: 0;
+  margin-inline-end: var(--space-2);
 }
 
 .stacked-brand:hover {
-	color: var(--color-text);
+  color: var(--color-text);
 }
 
 .stacked-brand-mark {
-	width: 1.75rem;
-	height: 1.75rem;
-	flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
 }
 
 /* Navigation links */
 .stacked-nav {
-	display: flex;
-	align-items: center;
-	gap: var(--space-1);
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
 }
 
 .stacked-nav a {
-	display: flex;
-	align-items: center;
-	gap: var(--space-2);
-	padding: var(--space-1-5) var(--space-3);
-	font-size: var(--font-size-sm);
-	font-weight: var(--font-weight-medium);
-	color: var(--color-text-secondary);
-	text-decoration: none;
-	border-radius: var(--radius-lg);
-	white-space: nowrap;
-	transition:
-		background-color var(--duration-fast) var(--easing),
-		color var(--duration-fast) var(--easing);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1-5) var(--space-3);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  white-space: nowrap;
+  transition:
+    background-color var(--duration-fast) var(--easing),
+    color var(--duration-fast) var(--easing);
 }
 
 .stacked-nav a:hover {
-	background-color: var(--color-bg-secondary);
-	color: var(--color-text);
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
 }
 
 .stacked-nav a[aria-current="page"],
 .stacked-nav a.is-active {
-	background-color: var(--color-bg-secondary);
-	color: var(--color-text);
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
 }
 
 .stacked-nav-icon {
-	width: 1rem;
-	height: 1rem;
-	flex-shrink: 0;
-	opacity: 0.6;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  opacity: 0.6;
 }
 
 .stacked-nav a:hover .stacked-nav-icon,
 .stacked-nav a[aria-current="page"] .stacked-nav-icon,
 .stacked-nav a.is-active .stacked-nav-icon {
-	opacity: 1;
+  opacity: 1;
 }
 
 /* Right-side actions slot */
 .stacked-actions {
-	display: flex;
-	align-items: center;
-	gap: var(--space-2);
-	flex-shrink: 0;
-	margin-inline-start: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+  margin-inline-start: auto;
 }
 
 /* Keyboard-shortcut search hint */
 .stacked-search {
-	display: flex;
-	align-items: center;
-	gap: var(--space-2);
-	padding: var(--space-1-5) var(--space-3);
-	background-color: var(--color-bg-secondary);
-	border: var(--border-width) solid var(--color-border);
-	border-radius: var(--radius-lg);
-	font-size: var(--font-size-sm);
-	color: var(--color-text-secondary);
-	cursor: pointer;
-	min-width: 10rem;
-	transition: border-color var(--duration-fast) var(--easing);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1-5) var(--space-3);
+  background-color: var(--color-bg-secondary);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  min-width: 10rem;
+  transition: border-color var(--duration-fast) var(--easing);
 }
 
 .stacked-search:hover {
-	border-color: var(--color-border-hover);
-	color: var(--color-text);
+  border-color: var(--color-border-hover);
+  color: var(--color-text);
 }
 
 .stacked-search svg {
-	width: 1rem;
-	height: 1rem;
-	opacity: 0.6;
-	flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.6;
+  flex-shrink: 0;
 }
 
 .stacked-search-hint {
-	margin-inline-start: auto;
-	font-size: var(--font-size-xs);
-	color: var(--color-text-tertiary);
-	background-color: var(--color-bg-tertiary);
-	border-radius: var(--radius-sm);
-	padding: 0 var(--space-1);
+  margin-inline-start: auto;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  background-color: var(--color-bg-tertiary);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-1);
 }
 
 /* Avatar / profile button */
 .stacked-avatar {
-	width: 2rem;
-	height: 2rem;
-	border-radius: var(--radius-full);
-	background-color: var(--color-bg-tertiary);
-	border: var(--border-width) solid var(--color-border);
-	cursor: pointer;
-	object-fit: cover;
-	flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-tertiary);
+  border: var(--border-width) solid var(--color-border);
+  cursor: pointer;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 /* Icon button in actions (notifications, etc.) */
 .stacked-action-btn {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 2rem;
-	height: 2rem;
-	border-radius: var(--radius-lg);
-	background: none;
-	border: none;
-	cursor: pointer;
-	color: var(--color-text-secondary);
-	transition:
-		background-color var(--duration-fast) var(--easing),
-		color var(--duration-fast) var(--easing);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-lg);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition:
+    background-color var(--duration-fast) var(--easing),
+    color var(--duration-fast) var(--easing);
 }
 
 .stacked-action-btn:hover {
-	background-color: var(--color-bg-secondary);
-	color: var(--color-text);
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
 }
 
 .stacked-action-btn svg {
-	width: 1.25rem;
-	height: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 /* Mobile toggle */
 .stacked-toggle {
-	display: none;
-	background: none;
-	border: none;
-	padding: var(--space-1);
-	cursor: pointer;
-	color: var(--color-text);
-	flex-shrink: 0;
+  display: none;
+  background: none;
+  border: none;
+  padding: var(--space-1);
+  cursor: pointer;
+  color: var(--color-text);
+  flex-shrink: 0;
 }
 
 .stacked-toggle svg {
-	width: 1.5rem;
-	height: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -229,27 +229,27 @@
    -------------------------------------------------------------------------- */
 
 .stacked-main {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .stacked-main-header {
-	padding: var(--space-6) var(--space-8);
-	border-block-end: var(--border-width) solid var(--color-border);
+  padding: var(--space-6) var(--space-8);
+  border-block-end: var(--border-width) solid var(--color-border);
 }
 
 .stacked-main-header h1,
 .stacked-main-header h2 {
-	margin: 0;
+  margin: 0;
 }
 
 .stacked-main-body {
-	flex: 1;
-	padding: var(--space-8);
-	max-width: var(--width-wide);
-	width: 100%;
-	margin-inline: auto;
+  flex: 1;
+  padding: var(--space-8);
+  max-width: var(--width-wide);
+  width: 100%;
+  margin-inline: auto;
 }
 
 /* --------------------------------------------------------------------------
@@ -257,47 +257,47 @@
    -------------------------------------------------------------------------- */
 
 @media (max-width: 768px) {
-	.stacked-topbar {
-		padding: 0 var(--space-4);
-		gap: var(--space-2);
-		position: relative;
-	}
+  .stacked-topbar {
+    padding: 0 var(--space-4);
+    gap: var(--space-2);
+    position: relative;
+  }
 
-	.stacked-nav {
-		display: none;
-		flex-direction: column;
-		position: absolute;
-		top: 100%;
-		inset-inline: 0;
-		background-color: var(--color-bg);
-		border-block-end: var(--border-width) solid var(--color-border);
-		padding: var(--space-2) var(--space-3);
-		box-shadow: var(--shadow-md);
-		z-index: 9;
-	}
+  .stacked-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    inset-inline: 0;
+    background-color: var(--color-bg);
+    border-block-end: var(--border-width) solid var(--color-border);
+    padding: var(--space-2) var(--space-3);
+    box-shadow: var(--shadow-md);
+    z-index: 9;
+  }
 
-	.stacked-nav.is-open {
-		display: flex;
-	}
+  .stacked-nav.is-open {
+    display: flex;
+  }
 
-	.stacked-nav a {
-		width: 100%;
-		padding: var(--space-2) var(--space-3);
-	}
+  .stacked-nav a {
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+  }
 
-	.stacked-toggle {
-		display: block;
-	}
+  .stacked-toggle {
+    display: block;
+  }
 
-	.stacked-search {
-		display: none;
-	}
+  .stacked-search {
+    display: none;
+  }
 
-	.stacked-main-header {
-		padding: var(--space-4) var(--space-5);
-	}
+  .stacked-main-header {
+    padding: var(--space-4) var(--space-5);
+  }
 
-	.stacked-main-body {
-		padding: var(--space-5);
-	}
+  .stacked-main-body {
+    padding: var(--space-5);
+  }
 }

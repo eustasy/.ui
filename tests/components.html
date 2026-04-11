@@ -1,1391 +1,1391 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Component Tests — eustasy/.ui</title>
-		<link rel="stylesheet" href="../assets/main.css" />
-		<script src="../js/theme-toggle.js"></script>
-		<style>
-			body {
-				padding: var(--space-6) var(--space-4);
-				max-width: var(--width-wide);
-				margin-inline: auto;
-			}
-			section {
-				margin-block: var(--space-10);
-			}
-			.demo-row {
-				display: flex;
-				flex-wrap: wrap;
-				gap: var(--space-3);
-				align-items: center;
-				margin-block: var(--space-4);
-			}
-			.card-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-				gap: var(--space-4);
-				margin-block: var(--space-4);
-			}
-		</style>
-	</head>
-	<body>
-		<header
-			style="
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				margin-block-end: var(--space-8);
-			"
-		>
-			<h1>Component Tests</h1>
-			<button
-				data-theme-toggle
-				aria-label="Toggle dark mode"
-				class="btn btn-ghost"
-			>
-				🌓 Theme
-			</button>
-		</header>
-
-		<nav aria-label="Component index" style="margin-block-end: var(--space-8)">
-			<ol
-				style="
-					display: flex;
-					flex-wrap: wrap;
-					gap: var(--space-2) var(--space-4);
-					padding: 0;
-					list-style: none;
-					font-size: var(--font-size-sm);
-				"
-			>
-				<li><a href="#alerts">Alert</a></li>
-				<li><a href="#avatars">Avatar</a></li>
-				<li><a href="#badges">Badge</a></li>
-				<li><a href="#buttons">Button</a></li>
-				<li><a href="#cards">Card</a></li>
-				<li><a href="#checkboxes">Checkbox</a></li>
-				<li><a href="#combobox">Combobox</a></li>
-				<li><a href="#description-list">Description list</a></li>
-				<li><a href="#dialog">Dialog</a></li>
-				<li><a href="#divider">Divider</a></li>
-				<li><a href="#dropdown">Dropdown</a></li>
-				<li><a href="#fieldset">Fieldset</a></li>
-				<li><a href="#headings">Heading</a></li>
-				<li><a href="#input">Input</a></li>
-				<li><a href="#listbox">Listbox</a></li>
-				<li><a href="#navbar">Navbar</a></li>
-				<li><a href="#pagination">Pagination</a></li>
-				<li><a href="#radio">Radio button</a></li>
-				<li><a href="#select">Select</a></li>
-				<li><a href="#sidebar">Sidebar</a></li>
-				<li><a href="#switch">Switch</a></li>
-				<li><a href="#table">Table</a></li>
-				<li><a href="#text">Text</a></li>
-				<li><a href="#textarea">Textarea</a></li>
-			</ol>
-		</nav>
-
-		<!-- ================================================================== -->
-		<section id="navbar" aria-labelledby="navbar-heading">
-			<h2 id="navbar-heading">Navbar</h2>
-
-			<nav class="navbar" aria-label="Example navigation">
-				<a href="#" class="navbar-brand">eustasy/.ui</a>
-				<button
-					class="navbar-toggle"
-					aria-expanded="false"
-					aria-controls="nav-demo"
-					aria-label="Toggle menu"
-					onclick="
-						var nav = document.getElementById('nav-demo');
-						var open = nav.classList.toggle('is-open');
-						this.setAttribute('aria-expanded', open);
-					"
-				>
-					<svg
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-					>
-						<line x1="3" y1="6" x2="21" y2="6"></line>
-						<line x1="3" y1="12" x2="21" y2="12"></line>
-						<line x1="3" y1="18" x2="21" y2="18"></line>
-					</svg>
-				</button>
-				<ul id="nav-demo" class="navbar-nav">
-					<li><a href="#" aria-current="page">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Components</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-			</nav>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="buttons" aria-labelledby="buttons-heading">
-			<h2 id="buttons-heading">Buttons</h2>
-
-			<h3>Variants</h3>
-			<div class="demo-row">
-				<button class="btn btn-primary">Primary</button>
-				<button class="btn btn-secondary">Secondary</button>
-				<button class="btn btn-outline">Outline</button>
-				<button class="btn btn-ghost">Ghost</button>
-				<button class="btn btn-danger">Danger</button>
-			</div>
-
-			<h3>Sizes</h3>
-			<div class="demo-row">
-				<button class="btn btn-primary btn-sm">Small</button>
-				<button class="btn btn-primary">Default</button>
-				<button class="btn btn-primary btn-lg">Large</button>
-			</div>
-
-			<h3>States</h3>
-			<div class="demo-row">
-				<button class="btn btn-primary" disabled>Disabled</button>
-				<button class="btn btn-primary btn-loading">Loading</button>
-				<a href="#" class="btn btn-secondary">Link as Button</a>
-			</div>
-
-			<h3>Full Width</h3>
-			<button class="btn btn-primary btn-block">Full Width Button</button>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="cards" aria-labelledby="cards-heading">
-			<h2 id="cards-heading">Cards</h2>
-
-			<div class="card-grid">
-				<article class="card">
-					<div class="card-header">
-						<h3>Basic Card</h3>
-					</div>
-					<div class="card-body">
-						<p>
-							A simple card with header, body, and footer sections. All spacing
-							and borders are theme-aware.
-						</p>
-					</div>
-					<div class="card-footer">
-						<button class="btn btn-sm btn-secondary">Action</button>
-					</div>
-				</article>
-
-				<article class="card">
-					<img
-						class="card-image"
-						src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='225' fill='%23F2F0E5'%3E%3Crect width='400' height='225'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23878580' font-family='sans-serif'%3EImage%3C/text%3E%3C/svg%3E"
-						alt="Placeholder"
-					/>
-					<div class="card-body">
-						<h4>Image Card</h4>
-						<p>A card variant with a hero image at the top.</p>
-					</div>
-				</article>
-
-				<article class="card card-compact">
-					<div class="card-body">
-						<h4>Compact Card</h4>
-						<p>
-							A more compact variant with reduced padding. Good for dense UIs.
-						</p>
-						<div
-							style="
-								margin-block-start: var(--space-3);
-								display: flex;
-								gap: var(--space-2);
-							"
-						>
-							<span class="badge badge-cyan">CSS</span>
-							<span class="badge badge-purple">HTML</span>
-						</div>
-					</div>
-				</article>
-			</div>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="alerts" aria-labelledby="alerts-heading">
-			<h2 id="alerts-heading">Alerts</h2>
-
-			<div class="alert alert-info" role="alert">
-				<strong>Info:</strong> This is an informational message.
-			</div>
-
-			<div class="alert alert-success" role="status">
-				<strong>Success:</strong> Your changes have been saved.
-			</div>
-
-			<div class="alert alert-warning" role="alert">
-				<strong>Warning:</strong> Please review your input before continuing.
-			</div>
-
-			<div class="alert alert-danger" role="alert">
-				<strong>Error:</strong> Something went wrong. Please try again.
-				<button
-					class="alert-dismiss"
-					aria-label="Dismiss alert"
-					onclick="this.parentElement.hidden = true"
-				>
-					×
-				</button>
-			</div>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="badges" aria-labelledby="badges-heading">
-			<h2 id="badges-heading">Badges</h2>
-
-			<div class="demo-row">
-				<span class="badge">Default</span>
-				<span class="badge badge-red">Red</span>
-				<span class="badge badge-orange">Orange</span>
-				<span class="badge badge-yellow">Yellow</span>
-				<span class="badge badge-green">Green</span>
-				<span class="badge badge-cyan">Cyan</span>
-				<span class="badge badge-blue">Blue</span>
-				<span class="badge badge-purple">Purple</span>
-				<span class="badge badge-magenta">Magenta</span>
-			</div>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="login" aria-labelledby="login-heading">
-			<h2 id="login-heading">Login Form</h2>
-
-			<article class="card" style="max-width: 24rem">
-				<div class="card-header">
-					<h3>Sign In</h3>
-				</div>
-				<div class="card-body">
-					<form onsubmit="return false;">
-						<label for="login-email">Email</label>
-						<input
-							id="login-email"
-							name="email"
-							type="email"
-							placeholder="name@example.com"
-							autocomplete="email"
-							aria-required="true"
-							required
-						/>
-
-						<label for="login-password">Password</label>
-						<input
-							id="login-password"
-							name="password"
-							type="password"
-							placeholder="••••••••"
-							autocomplete="current-password"
-							aria-required="true"
-							required
-						/>
-
-						<label><input type="checkbox" name="remember" /> Remember me</label>
-
-						<button
-							type="submit"
-							class="btn btn-primary btn-block"
-							style="margin-block-start: var(--space-4)"
-						>
-							Sign In
-						</button>
-					</form>
-				</div>
-				<div class="card-footer" style="text-align: center">
-					<a href="#">Forgot password?</a>
-				</div>
-			</article>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="avatars" aria-labelledby="avatars-heading">
-			<h2 id="avatars-heading">Avatar</h2>
-
-			<h3>Sizes</h3>
-			<div class="demo-row" style="align-items: center">
-				<span class="avatar avatar-xs" aria-label="User XS">XS</span>
-				<span class="avatar avatar-sm" aria-label="User SM">SM</span>
-				<span class="avatar" aria-label="User default">MD</span>
-				<span class="avatar avatar-lg" aria-label="User LG">LG</span>
-				<span class="avatar avatar-xl" aria-label="User XL">XL</span>
-			</div>
-
-			<h3>With image</h3>
-			<div class="demo-row">
-				<span class="avatar avatar-lg">
-					<img
-						src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Crect width='56' height='56' fill='%2366800B'/%3E%3Ctext x='28' y='33' text-anchor='middle' font-size='22' font-family='sans-serif' fill='%23FFFCF0'%3EAZ%3C/text%3E%3C/svg%3E"
-						alt="Alice Zhang"
-					/>
-				</span>
-			</div>
-
-			<h3>Status indicators</h3>
-			<div class="demo-row" style="align-items: center">
-				<span class="avatar-wrapper">
-					<span class="avatar" aria-label="Online user">AB</span>
-					<span
-						class="avatar-status avatar-status-online"
-						aria-label="Online"
-					></span>
-				</span>
-				<span class="avatar-wrapper">
-					<span class="avatar" aria-label="Away user">CD</span>
-					<span
-						class="avatar-status avatar-status-away"
-						aria-label="Away"
-					></span>
-				</span>
-				<span class="avatar-wrapper">
-					<span class="avatar" aria-label="Busy user">EF</span>
-					<span
-						class="avatar-status avatar-status-busy"
-						aria-label="Busy"
-					></span>
-				</span>
-				<span class="avatar-wrapper">
-					<span class="avatar" aria-label="Offline user">GH</span>
-					<span
-						class="avatar-status avatar-status-offline"
-						aria-label="Offline"
-					></span>
-				</span>
-			</div>
-
-			<h3>Avatar group</h3>
-			<div class="demo-row">
-				<div class="avatar-group" aria-label="3 team members">
-					<span class="avatar avatar-sm" aria-label="User One">A</span>
-					<span class="avatar avatar-sm" aria-label="User Two">B</span>
-					<span class="avatar avatar-sm" aria-label="User Three">C</span>
-					<span class="avatar avatar-sm" aria-label="4 more">+4</span>
-				</div>
-			</div>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="checkboxes" aria-labelledby="checkboxes-heading">
-			<h2 id="checkboxes-heading">Checkbox</h2>
-
-			<h3>Single</h3>
-			<label class="checkbox">
-				<input type="checkbox" id="cb1" checked />
-				<span class="checkbox-label">Checked by default</span>
-			</label>
-
-			<label class="checkbox" style="margin-block-start: var(--space-2)">
-				<input type="checkbox" id="cb2" />
-				<span class="checkbox-label">
-					With description
-					<span class="checkbox-description"
-						>This is supporting text below the label.</span
-					>
-				</span>
-			</label>
-
-			<label class="checkbox" style="margin-block-start: var(--space-2)">
-				<input type="checkbox" id="cb3" disabled />
-				<span class="checkbox-label">Disabled</span>
-			</label>
-
-			<h3>Group</h3>
-			<fieldset class="checkbox-group" aria-labelledby="cb-group-legend">
-				<legend class="checkbox-group-label" id="cb-group-legend">
-					Notification preferences
-				</legend>
-				<label class="checkbox">
-					<input type="checkbox" name="notif" value="email" checked />
-					<span class="checkbox-label">Email</span>
-				</label>
-				<label class="checkbox">
-					<input type="checkbox" name="notif" value="sms" />
-					<span class="checkbox-label">SMS</span>
-				</label>
-				<label class="checkbox">
-					<input type="checkbox" name="notif" value="push" />
-					<span class="checkbox-label">Push notifications</span>
-				</label>
-			</fieldset>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="combobox" aria-labelledby="combobox-heading">
-			<h2 id="combobox-heading">Combobox</h2>
-
-			<div style="max-width: var(--width-input)">
-				<label class="input-label" for="cb-input">Search framework</label>
-				<div class="combobox">
-					<input
-						id="cb-input"
-						type="text"
-						role="combobox"
-						aria-expanded="true"
-						aria-haspopup="listbox"
-						aria-controls="cb-popup"
-						aria-autocomplete="list"
-						autocomplete="off"
-						placeholder="Type to search…"
-						value="CSS"
-					/>
-					<ul
-						class="combobox-listbox"
-						id="cb-popup"
-						role="listbox"
-						aria-label="Frameworks"
-					>
-						<li class="combobox-group-label">Languages</li>
-						<li
-							class="combobox-option"
-							role="option"
-							aria-selected="true"
-							data-active
-						>
-							CSS
-						</li>
-						<li class="combobox-option" role="option" aria-selected="false">
-							HTML
-						</li>
-						<li class="combobox-group-label">Frameworks</li>
-						<li class="combobox-option" role="option" aria-selected="false">
-							React
-						</li>
-						<li class="combobox-option" role="option" aria-selected="false">
-							Svelte
-						</li>
-						<li class="combobox-option" role="option" aria-selected="false">
-							Vue
-						</li>
-					</ul>
-				</div>
-			</div>
-
-			<p
-				style="
-					margin-block-start: var(--space-3);
-					font-size: var(--font-size-sm);
-					color: var(--color-text-secondary);
-				"
-			>
-				Shown with listbox open. Wire up keyboard navigation with JS using
-				<code>aria-activedescendant</code>.
-			</p>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="description-list" aria-labelledby="dl-heading">
-			<h2 id="dl-heading">Description list</h2>
-
-			<h3>Side-by-side (default)</h3>
-			<dl class="dl">
-				<div class="dl-row">
-					<dt class="dl-term">Full name</dt>
-					<dd class="dl-description">Alice Zhang</dd>
-				</div>
-				<div class="dl-row">
-					<dt class="dl-term">Email</dt>
-					<dd class="dl-description">alice@example.com</dd>
-				</div>
-				<div class="dl-row">
-					<dt class="dl-term">Role</dt>
-					<dd class="dl-description">Administrator</dd>
-				</div>
-				<div class="dl-row">
-					<dt class="dl-term">Status</dt>
-					<dd class="dl-description">
-						<span class="badge badge-green">Active</span>
-					</dd>
-				</div>
-			</dl>
-
-			<h3>Stacked</h3>
-			<dl class="dl dl-stacked" style="max-width: 24rem">
-				<div class="dl-row">
-					<dt class="dl-term">Plan</dt>
-					<dd class="dl-description">Pro — £12/month</dd>
-				</div>
-				<div class="dl-row">
-					<dt class="dl-term">Next billing date</dt>
-					<dd class="dl-description">1 May 2026</dd>
-				</div>
-			</dl>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="dialog" aria-labelledby="dialog-heading">
-			<h2 id="dialog-heading">Dialog</h2>
-
-			<div class="demo-row">
-				<button
-					class="btn btn-primary"
-					onclick="document.getElementById('demo-dialog').showModal()"
-				>
-					Open dialog
-				</button>
-				<button
-					class="btn btn-secondary"
-					onclick="document.getElementById('demo-dialog-sm').showModal()"
-				>
-					Small dialog
-				</button>
-			</div>
-
-			<!-- Default dialog -->
-			<dialog
-				class="dialog"
-				id="demo-dialog"
-				aria-labelledby="demo-dialog-title"
-				aria-describedby="demo-dialog-body"
-			>
-				<div class="dialog-panel">
-					<header class="dialog-header">
-						<h2 class="dialog-title" id="demo-dialog-title">Confirm action</h2>
-						<button
-							class="dialog-close"
-							aria-label="Close dialog"
-							onclick="document.getElementById('demo-dialog').close()"
-						>
-							✕
-						</button>
-					</header>
-					<div class="dialog-body" id="demo-dialog-body">
-						<p>
-							Are you sure you want to delete this item? This action cannot be
-							undone.
-						</p>
-					</div>
-					<footer class="dialog-footer">
-						<button
-							class="btn btn-secondary"
-							onclick="document.getElementById('demo-dialog').close()"
-						>
-							Cancel
-						</button>
-						<button
-							class="btn btn-danger"
-							onclick="document.getElementById('demo-dialog').close()"
-						>
-							Delete
-						</button>
-					</footer>
-				</div>
-			</dialog>
-
-			<!-- Small dialog -->
-			<dialog
-				class="dialog dialog-sm"
-				id="demo-dialog-sm"
-				aria-labelledby="demo-dialog-sm-title"
-			>
-				<div class="dialog-panel">
-					<header class="dialog-header">
-						<h2 class="dialog-title" id="demo-dialog-sm-title">Notice</h2>
-						<button
-							class="dialog-close"
-							aria-label="Close dialog"
-							onclick="document.getElementById('demo-dialog-sm').close()"
-						>
-							✕
-						</button>
-					</header>
-					<div class="dialog-body">
-						<p>Your session will expire in 5 minutes.</p>
-					</div>
-					<footer class="dialog-footer">
-						<button
-							class="btn btn-primary"
-							onclick="document.getElementById('demo-dialog-sm').close()"
-						>
-							OK
-						</button>
-					</footer>
-				</div>
-			</dialog>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="divider" aria-labelledby="divider-heading">
-			<h2 id="divider-heading">Divider</h2>
-
-			<h3>Default</h3>
-			<p>Content above the divider.</p>
-			<hr class="divider" aria-hidden="true" />
-			<p>Content below the divider.</p>
-
-			<h3>Labelled</h3>
-			<div
-				class="divider divider-label"
-				role="separator"
-				aria-label="Or continue with"
-			>
-				<span>Or continue with</span>
-			</div>
-
-			<h3>Thick</h3>
-			<hr class="divider divider-thick" aria-hidden="true" />
-
-			<h3>Vertical (inline)</h3>
-			<div class="demo-row" style="height: 2rem">
-				<span>Item one</span>
-				<span class="divider-vertical" aria-hidden="true"></span>
-				<span>Item two</span>
-				<span class="divider-vertical" aria-hidden="true"></span>
-				<span>Item three</span>
-			</div>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="dropdown" aria-labelledby="dropdown-heading">
-			<h2 id="dropdown-heading">Dropdown</h2>
-
-			<div class="demo-row">
-				<div class="dropdown">
-					<button
-						class="btn btn-secondary"
-						aria-haspopup="menu"
-						aria-expanded="false"
-						aria-controls="dd-menu"
-						onclick="
-							var m = document.getElementById('dd-menu');
-							var open = m.hidden;
-							m.hidden = !open;
-							this.setAttribute('aria-expanded', open);
-						"
-					>
-						Options ▾
-					</button>
-					<ul class="dropdown-menu" id="dd-menu" role="menu" hidden>
-						<li role="none">
-							<a class="dropdown-item" href="#" role="menuitem">Edit</a>
-						</li>
-						<li role="none">
-							<a class="dropdown-item" href="#" role="menuitem">Duplicate</a>
-						</li>
-						<li role="none">
-							<a class="dropdown-item" href="#" role="menuitem">Archive</a>
-						</li>
-						<li class="dropdown-divider" role="none" aria-hidden="true"></li>
-						<li class="dropdown-label" role="none">Danger zone</li>
-						<li role="none">
-							<button
-								class="dropdown-item dropdown-item-danger"
-								role="menuitem"
-							>
-								Delete
-							</button>
-						</li>
-					</ul>
-				</div>
-
-				<div class="dropdown">
-					<button
-						class="btn btn-secondary"
-						aria-haspopup="menu"
-						aria-expanded="false"
-						aria-controls="dd-menu-end"
-						onclick="
-							var m = document.getElementById('dd-menu-end');
-							var open = m.hidden;
-							m.hidden = !open;
-							this.setAttribute('aria-expanded', open);
-						"
-					>
-						Align end ▾
-					</button>
-					<ul
-						class="dropdown-menu dropdown-menu-end"
-						id="dd-menu-end"
-						role="menu"
-						hidden
-					>
-						<li role="none">
-							<a class="dropdown-item" href="#" role="menuitem">Profile</a>
-						</li>
-						<li role="none">
-							<a class="dropdown-item" href="#" role="menuitem">Settings</a>
-						</li>
-						<li role="none">
-							<button
-								class="dropdown-item"
-								role="menuitem"
-								disabled
-								aria-disabled="true"
-							>
-								Billing (unavailable)
-							</button>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="fieldset" aria-labelledby="fieldset-heading">
-			<h2 id="fieldset-heading">Fieldset</h2>
-
-			<h3>Bordered</h3>
-			<fieldset class="fieldset">
-				<legend class="fieldset-legend">Shipping address</legend>
-				<p class="fieldset-hint">All fields are required.</p>
-				<div class="input-group">
-					<label class="input-label" for="fs-name">Full name</label>
-					<input
-						class="input-field"
-						type="text"
-						id="fs-name"
-						autocomplete="name"
-					/>
-				</div>
-				<div class="input-group">
-					<label class="input-label" for="fs-city">City</label>
-					<input
-						class="input-field"
-						type="text"
-						id="fs-city"
-						autocomplete="address-level2"
-					/>
-				</div>
-			</fieldset>
-
-			<h3>Flush</h3>
-			<fieldset class="fieldset fieldset-flush">
-				<legend class="fieldset-legend">Personal details</legend>
-				<div class="input-group">
-					<label class="input-label" for="fs-fname">First name</label>
-					<input
-						class="input-field"
-						type="text"
-						id="fs-fname"
-						autocomplete="given-name"
-					/>
-				</div>
-			</fieldset>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="headings" aria-labelledby="headings-section-heading">
-			<h2 id="headings-section-heading">Heading</h2>
-
-			<p class="heading-eyebrow">Component library</p>
-			<p class="heading-display">Display heading</p>
-			<p class="heading-subtitle">
-				A subtitle that supports the heading above with extra context.
-			</p>
-
-			<hr class="divider" aria-hidden="true" />
-
-			<p class="h1">Heading level 1 style</p>
-			<p class="h2">Heading level 2 style</p>
-			<p class="h3">Heading level 3 style</p>
-			<p class="h4">Heading level 4 style</p>
-			<p class="h5">Heading level 5 style</p>
-			<p class="h6">Heading level 6 style</p>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="input" aria-labelledby="input-heading">
-			<h2 id="input-heading">Input</h2>
-
-			<h3>Default</h3>
-			<div class="input-group">
-				<label class="input-label" for="inp-default">Username</label>
-				<input
-					class="input-field"
-					type="text"
-					id="inp-default"
-					placeholder="e.g. alice123"
-					aria-describedby="inp-default-hint"
-				/>
-				<p class="input-hint" id="inp-default-hint">
-					Only letters, numbers, and underscores.
-				</p>
-			</div>
-
-			<h3>Required</h3>
-			<div class="input-group">
-				<label class="input-label input-label-required" for="inp-req"
-					>Email address</label
-				>
-				<input
-					class="input-field"
-					type="email"
-					id="inp-req"
-					autocomplete="email"
-					required
-				/>
-			</div>
-
-			<h3>Error state</h3>
-			<div class="input-group input-error">
-				<label class="input-label" for="inp-err">Email address</label>
-				<input
-					class="input-field"
-					type="email"
-					id="inp-err"
-					value="not-an-email"
-					aria-describedby="inp-err-msg"
-					aria-invalid="true"
-				/>
-				<p class="input-message" id="inp-err-msg" role="alert">
-					Enter a valid email address.
-				</p>
-			</div>
-
-			<h3>Success state</h3>
-			<div class="input-group input-success">
-				<label class="input-label" for="inp-ok">Username</label>
-				<input
-					class="input-field"
-					type="text"
-					id="inp-ok"
-					value="alice123"
-					aria-describedby="inp-ok-msg"
-				/>
-				<p class="input-message" id="inp-ok-msg">Username is available.</p>
-			</div>
-
-			<h3>With addons</h3>
-			<div class="input-group">
-				<label class="input-label" for="inp-url">Website</label>
-				<div class="input-addon-group">
-					<span class="input-addon">https://</span>
-					<input
-						class="input-field"
-						type="text"
-						id="inp-url"
-						placeholder="example.com"
-						autocomplete="url"
-					/>
-				</div>
-			</div>
-
-			<div class="input-group">
-				<label class="input-label" for="inp-amt">Amount</label>
-				<div class="input-addon-group">
-					<span class="input-addon">£</span>
-					<input
-						class="input-field"
-						type="number"
-						id="inp-amt"
-						placeholder="0.00"
-					/>
-					<span class="input-addon">GBP</span>
-				</div>
-			</div>
-
-			<h3>Disabled</h3>
-			<div class="input-group">
-				<label class="input-label" for="inp-dis">Read-only field</label>
-				<input
-					class="input-field"
-					type="text"
-					id="inp-dis"
-					value="Cannot edit this"
-					disabled
-				/>
-			</div>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="listbox" aria-labelledby="listbox-heading">
-			<h2 id="listbox-heading">Listbox</h2>
-
-			<h3>Single select</h3>
-			<div style="max-width: var(--width-input)">
-				<p
-					id="lb-label"
-					style="
-						font-size: var(--font-size-sm);
-						font-weight: var(--font-weight-medium);
-						color: var(--color-text-secondary);
-						margin-block-end: var(--space-1);
-					"
-				>
-					Choose a timezone
-				</p>
-				<ul
-					class="listbox"
-					role="listbox"
-					aria-labelledby="lb-label"
-					tabindex="0"
-				>
-					<li class="listbox-group-label">Europe</li>
-					<li
-						class="listbox-option"
-						role="option"
-						aria-selected="true"
-						data-active
-					>
-						Europe/London
-					</li>
-					<li class="listbox-option" role="option" aria-selected="false">
-						Europe/Paris
-					</li>
-					<li class="listbox-option" role="option" aria-selected="false">
-						Europe/Berlin
-					</li>
-					<li class="listbox-divider" role="none" aria-hidden="true"></li>
-					<li class="listbox-group-label">Americas</li>
-					<li class="listbox-option" role="option" aria-selected="false">
-						America/New_York
-					</li>
-					<li class="listbox-option" role="option" aria-selected="false">
-						America/Los_Angeles
-					</li>
-					<li
-						class="listbox-option"
-						role="option"
-						aria-selected="false"
-						aria-disabled="true"
-					>
-						America/Sao_Paulo (unavailable)
-					</li>
-				</ul>
-			</div>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="pagination" aria-labelledby="pagination-heading">
-			<h2 id="pagination-heading">Pagination</h2>
-
-			<h3>Default</h3>
-			<nav class="pagination" aria-label="Pagination">
-				<a
-					class="pagination-item"
-					href="#"
-					aria-label="Previous page"
-					aria-disabled="true"
-					>‹</a
-				>
-				<a class="pagination-item" href="#" aria-current="page">1</a>
-				<a class="pagination-item" href="#">2</a>
-				<a class="pagination-item" href="#">3</a>
-				<span class="pagination-ellipsis" aria-hidden="true">…</span>
-				<a class="pagination-item" href="#">10</a>
-				<a class="pagination-item" href="#" aria-label="Next page">›</a>
-			</nav>
-
-			<h3>Middle page</h3>
-			<nav class="pagination" aria-label="Pagination">
-				<a class="pagination-item" href="#" aria-label="Previous page">‹</a>
-				<a class="pagination-item" href="#">1</a>
-				<span class="pagination-ellipsis" aria-hidden="true">…</span>
-				<a class="pagination-item" href="#">4</a>
-				<a class="pagination-item" href="#" aria-current="page">5</a>
-				<a class="pagination-item" href="#">6</a>
-				<span class="pagination-ellipsis" aria-hidden="true">…</span>
-				<a class="pagination-item" href="#">10</a>
-				<a class="pagination-item" href="#" aria-label="Next page">›</a>
-			</nav>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="radio" aria-labelledby="radio-heading">
-			<h2 id="radio-heading">Radio button</h2>
-
-			<h3>Vertical group</h3>
-			<fieldset class="radio-group">
-				<legend class="radio-group-legend">Delivery method</legend>
-				<div class="radio">
-					<input
-						type="radio"
-						name="delivery"
-						id="rd-std"
-						value="standard"
-						checked
-					/>
-					<label class="radio-label" for="rd-std">
-						Standard (3–5 days)
-						<span class="radio-description">Free</span>
-					</label>
-				</div>
-				<div class="radio">
-					<input type="radio" name="delivery" id="rd-exp" value="express" />
-					<label class="radio-label" for="rd-exp">
-						Express (next day)
-						<span class="radio-description">£4.99</span>
-					</label>
-				</div>
-				<div class="radio">
-					<input
-						type="radio"
-						name="delivery"
-						id="rd-dis"
-						value="same"
-						disabled
-					/>
-					<label class="radio-label" for="rd-dis"> Same day (disabled) </label>
-				</div>
-			</fieldset>
-
-			<h3>Inline group</h3>
-			<fieldset class="radio-group radio-group-inline">
-				<legend class="radio-group-legend">Size</legend>
-				<div class="radio">
-					<input type="radio" name="size" id="rd-sm" value="sm" />
-					<label class="radio-label" for="rd-sm">S</label>
-				</div>
-				<div class="radio">
-					<input type="radio" name="size" id="rd-md" value="md" checked />
-					<label class="radio-label" for="rd-md">M</label>
-				</div>
-				<div class="radio">
-					<input type="radio" name="size" id="rd-lg" value="lg" />
-					<label class="radio-label" for="rd-lg">L</label>
-				</div>
-			</fieldset>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="select" aria-labelledby="select-heading">
-			<h2 id="select-heading">Select</h2>
-
-			<h3>Default</h3>
-			<div class="select-group">
-				<label class="select-label" for="sel-country">Country</label>
-				<select
-					class="select-field"
-					id="sel-country"
-					aria-describedby="sel-country-hint"
-				>
-					<option value="">Choose…</option>
-					<option value="gb">United Kingdom</option>
-					<option value="us">United States</option>
-					<option value="de">Germany</option>
-					<option value="fr">France</option>
-				</select>
-				<p class="select-hint" id="sel-country-hint">
-					Select your billing country.
-				</p>
-			</div>
-
-			<h3>Error state</h3>
-			<div class="select-group select-error">
-				<label class="select-label" for="sel-err">Role</label>
-				<select
-					class="select-field"
-					id="sel-err"
-					aria-invalid="true"
-					aria-describedby="sel-err-msg"
-				>
-					<option value="">Choose…</option>
-					<option value="admin">Admin</option>
-					<option value="editor">Editor</option>
-				</select>
-				<p class="select-message" id="sel-err-msg" role="alert">
-					Please select a role.
-				</p>
-			</div>
-
-			<h3>Required</h3>
-			<div class="select-group">
-				<label class="select-label select-label-required" for="sel-req"
-					>Plan</label
-				>
-				<select class="select-field" id="sel-req" required>
-					<option value="">Choose…</option>
-					<option value="free">Free</option>
-					<option value="pro">Pro</option>
-					<option value="enterprise">Enterprise</option>
-				</select>
-			</div>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="sidebar" aria-labelledby="sidebar-heading">
-			<h2 id="sidebar-heading">Sidebar</h2>
-
-			<div
-				style="
-					display: flex;
-					height: 20rem;
-					border: var(--border-width) solid var(--color-border);
-					border-radius: var(--radius-xl);
-					overflow: hidden;
-				"
-			>
-				<aside class="sidebar" aria-label="Demo sidebar navigation">
-					<div class="sidebar-header">
-						<a class="sidebar-brand" href="#">Brand</a>
-					</div>
-					<nav class="sidebar-nav">
-						<a class="sidebar-item" href="#" aria-current="page">Dashboard</a>
-						<a class="sidebar-item" href="#">Projects</a>
-						<a class="sidebar-item" href="#">Team</a>
-						<div class="sidebar-divider" aria-hidden="true"></div>
-						<div class="sidebar-section-label">Settings</div>
-						<a class="sidebar-item" href="#">Account</a>
-						<a class="sidebar-item" href="#">Billing</a>
-						<a
-							class="sidebar-item"
-							href="#"
-							aria-disabled="true"
-							style="opacity: 0.5; pointer-events: none"
-							>Integrations</a
-						>
-					</nav>
-					<div class="sidebar-footer">
-						<span class="avatar avatar-sm" aria-label="Logged in user">AZ</span>
-					</div>
-				</aside>
-				<main
-					style="
-						flex: 1;
-						padding: var(--space-5);
-						overflow-y: auto;
-						background-color: var(--color-bg-secondary);
-					"
-				>
-					<p
-						style="
-							color: var(--color-text-secondary);
-							font-size: var(--font-size-sm);
-						"
-					>
-						Main content area
-					</p>
-				</main>
-			</div>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="switch" aria-labelledby="switch-heading">
-			<h2 id="switch-heading">Switch</h2>
-
-			<div style="display: flex; flex-direction: column; gap: var(--space-3)">
-				<label class="switch">
-					<input type="checkbox" role="switch" checked />
-					<span class="switch-track" aria-hidden="true"
-						><span class="switch-thumb"></span
-					></span>
-					<span class="switch-label">Email notifications (on)</span>
-				</label>
-
-				<label class="switch">
-					<input type="checkbox" role="switch" />
-					<span class="switch-track" aria-hidden="true"
-						><span class="switch-thumb"></span
-					></span>
-					<span class="switch-label">SMS notifications (off)</span>
-				</label>
-
-				<label class="switch">
-					<input type="checkbox" role="switch" disabled />
-					<span class="switch-track" aria-hidden="true"
-						><span class="switch-thumb"></span
-					></span>
-					<span class="switch-label">Push notifications (disabled)</span>
-				</label>
-
-				<label class="switch">
-					<input type="checkbox" role="switch" disabled checked />
-					<span class="switch-track" aria-hidden="true"
-						><span class="switch-thumb"></span
-					></span>
-					<span class="switch-label">Beta features (disabled, on)</span>
-				</label>
-			</div>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="table" aria-labelledby="table-heading">
-			<h2 id="table-heading">Table</h2>
-
-			<h3>Default</h3>
-			<div class="table-wrap">
-				<table>
-					<caption>
-						Quarterly revenue
-					</caption>
-					<thead>
-						<tr>
-							<th scope="col">Quarter</th>
-							<th scope="col">Revenue</th>
-							<th scope="col">Growth</th>
-							<th scope="col">Status</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Q1 2026</td>
-							<td class="table-col-numeric">£48,200</td>
-							<td class="table-col-numeric">+12%</td>
-							<td><span class="badge badge-green">On track</span></td>
-						</tr>
-						<tr>
-							<td>Q2 2026</td>
-							<td class="table-col-numeric">£51,800</td>
-							<td class="table-col-numeric">+7%</td>
-							<td><span class="badge badge-yellow">At risk</span></td>
-						</tr>
-						<tr>
-							<td>Q3 2026</td>
-							<td class="table-col-numeric">—</td>
-							<td class="table-col-numeric">—</td>
-							<td><span class="badge">Pending</span></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-			<h3>Bordered + compact</h3>
-			<div class="table-wrap">
-				<table class="table-bordered table-compact">
-					<thead>
-						<tr>
-							<th scope="col">Name</th>
-							<th scope="col">Role</th>
-							<th scope="col">Joined</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Alice Zhang</td>
-							<td>Admin</td>
-							<td>Jan 2024</td>
-						</tr>
-						<tr>
-							<td>Bob Okafor</td>
-							<td>Editor</td>
-							<td>Mar 2024</td>
-						</tr>
-						<tr>
-							<td>Carol Smith</td>
-							<td>Viewer</td>
-							<td>Jul 2024</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="text" aria-labelledby="text-heading">
-			<h2 id="text-heading">Text</h2>
-
-			<h3>Sizes</h3>
-			<div style="display: flex; flex-direction: column; gap: var(--space-1)">
-				<p class="text-xs" style="margin: 0">Extra small – .text-xs</p>
-				<p class="text-sm" style="margin: 0">Small – .text-sm</p>
-				<p class="text-base" style="margin: 0">Base – .text-base</p>
-				<p class="text-lg" style="margin: 0">Large – .text-lg</p>
-				<p class="text-xl" style="margin: 0">Extra large – .text-xl</p>
-			</div>
-
-			<h3>Colour</h3>
-			<div style="display: flex; flex-direction: column; gap: var(--space-1)">
-				<p class="text-default" style="margin: 0">
-					.text-default — primary text colour
-				</p>
-				<p class="text-muted" style="margin: 0">
-					.text-muted — secondary text colour
-				</p>
-				<p class="text-subtle" style="margin: 0">
-					.text-subtle — tertiary text colour
-				</p>
-				<p class="text-disabled" style="margin: 0">
-					.text-disabled — disabled text colour
-				</p>
-				<p class="text-danger" style="margin: 0">.text-danger</p>
-				<p class="text-success" style="margin: 0">.text-success</p>
-				<p class="text-warning" style="margin: 0">.text-warning</p>
-				<p class="text-info" style="margin: 0">.text-info</p>
-			</div>
-
-			<h3>Weight &amp; transform</h3>
-			<div class="demo-row">
-				<span class="text-normal">Normal weight</span>
-				<span class="text-medium">Medium weight</span>
-				<span class="text-bold">Bold weight</span>
-				<span class="text-mono">Monospace</span>
-				<span class="text-uppercase">Uppercase</span>
-				<span class="text-strikethrough">Strikethrough</span>
-			</div>
-
-			<h3>Truncation</h3>
-			<p class="text-truncate" style="max-width: 20rem; margin: 0">
-				This is a very long sentence that will be truncated with an ellipsis
-				when it overflows its container.
-			</p>
-
-			<h3>Screen-reader only</h3>
-			<p style="margin: 0">
-				The next element is visually hidden but available to assistive
-				technology:
-				<span class="sr-only">This text is only for screen readers.</span>
-				<code>.sr-only</code> applied.
-			</p>
-		</section>
-
-		<!-- ================================================================== -->
-		<section id="textarea" aria-labelledby="textarea-heading">
-			<h2 id="textarea-heading">Textarea</h2>
-
-			<h3>Default</h3>
-			<div class="textarea-group">
-				<label class="textarea-label" for="ta-bio">Bio</label>
-				<textarea
-					class="textarea-field"
-					id="ta-bio"
-					rows="4"
-					aria-describedby="ta-bio-footer"
-					maxlength="200"
-					placeholder="Tell us about yourself…"
-					oninput="
-						document.getElementById('ta-bio-count').textContent =
-							this.value.length + ' / ' + this.maxLength
-					"
-				></textarea>
-				<div class="textarea-footer" id="ta-bio-footer">
-					<p class="textarea-hint">Keep it concise.</p>
-					<span class="textarea-count" id="ta-bio-count" aria-live="polite"
-						>0 / 200</span
-					>
-				</div>
-			</div>
-
-			<h3>Required</h3>
-			<div class="textarea-group">
-				<label class="textarea-label textarea-label-required" for="ta-req"
-					>Feedback</label
-				>
-				<textarea
-					class="textarea-field"
-					id="ta-req"
-					rows="3"
-					required
-				></textarea>
-			</div>
-
-			<h3>Error state</h3>
-			<div class="textarea-group textarea-error">
-				<label class="textarea-label" for="ta-err">Message</label>
-				<textarea
-					class="textarea-field"
-					id="ta-err"
-					rows="3"
-					aria-invalid="true"
-					aria-describedby="ta-err-msg"
-				>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Component Tests — eustasy/.ui</title>
+    <link rel="stylesheet" href="../assets/main.css" />
+    <script src="../js/theme-toggle.js"></script>
+    <style>
+      body {
+        padding: var(--space-6) var(--space-4);
+        max-width: var(--width-wide);
+        margin-inline: auto;
+      }
+      section {
+        margin-block: var(--space-10);
+      }
+      .demo-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-3);
+        align-items: center;
+        margin-block: var(--space-4);
+      }
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--space-4);
+        margin-block: var(--space-4);
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-block-end: var(--space-8);
+      "
+    >
+      <h1>Component Tests</h1>
+      <button
+        data-theme-toggle
+        aria-label="Toggle dark mode"
+        class="btn btn-ghost"
+      >
+        🌓 Theme
+      </button>
+    </header>
+
+    <nav aria-label="Component index" style="margin-block-end: var(--space-8)">
+      <ol
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          gap: var(--space-2) var(--space-4);
+          padding: 0;
+          list-style: none;
+          font-size: var(--font-size-sm);
+        "
+      >
+        <li><a href="#alerts">Alert</a></li>
+        <li><a href="#avatars">Avatar</a></li>
+        <li><a href="#badges">Badge</a></li>
+        <li><a href="#buttons">Button</a></li>
+        <li><a href="#cards">Card</a></li>
+        <li><a href="#checkboxes">Checkbox</a></li>
+        <li><a href="#combobox">Combobox</a></li>
+        <li><a href="#description-list">Description list</a></li>
+        <li><a href="#dialog">Dialog</a></li>
+        <li><a href="#divider">Divider</a></li>
+        <li><a href="#dropdown">Dropdown</a></li>
+        <li><a href="#fieldset">Fieldset</a></li>
+        <li><a href="#headings">Heading</a></li>
+        <li><a href="#input">Input</a></li>
+        <li><a href="#listbox">Listbox</a></li>
+        <li><a href="#navbar">Navbar</a></li>
+        <li><a href="#pagination">Pagination</a></li>
+        <li><a href="#radio">Radio button</a></li>
+        <li><a href="#select">Select</a></li>
+        <li><a href="#sidebar">Sidebar</a></li>
+        <li><a href="#switch">Switch</a></li>
+        <li><a href="#table">Table</a></li>
+        <li><a href="#text">Text</a></li>
+        <li><a href="#textarea">Textarea</a></li>
+      </ol>
+    </nav>
+
+    <!-- ================================================================== -->
+    <section id="navbar" aria-labelledby="navbar-heading">
+      <h2 id="navbar-heading">Navbar</h2>
+
+      <nav class="navbar" aria-label="Example navigation">
+        <a href="#" class="navbar-brand">eustasy/.ui</a>
+        <button
+          class="navbar-toggle"
+          aria-expanded="false"
+          aria-controls="nav-demo"
+          aria-label="Toggle menu"
+          onclick="
+            var nav = document.getElementById('nav-demo')
+            var open = nav.classList.toggle('is-open')
+            this.setAttribute('aria-expanded', open)
+          "
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <ul id="nav-demo" class="navbar-nav">
+          <li><a href="#" aria-current="page">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Components</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="buttons" aria-labelledby="buttons-heading">
+      <h2 id="buttons-heading">Buttons</h2>
+
+      <h3>Variants</h3>
+      <div class="demo-row">
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-outline">Outline</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-danger">Danger</button>
+      </div>
+
+      <h3>Sizes</h3>
+      <div class="demo-row">
+        <button class="btn btn-primary btn-sm">Small</button>
+        <button class="btn btn-primary">Default</button>
+        <button class="btn btn-primary btn-lg">Large</button>
+      </div>
+
+      <h3>States</h3>
+      <div class="demo-row">
+        <button class="btn btn-primary" disabled>Disabled</button>
+        <button class="btn btn-primary btn-loading">Loading</button>
+        <a href="#" class="btn btn-secondary">Link as Button</a>
+      </div>
+
+      <h3>Full Width</h3>
+      <button class="btn btn-primary btn-block">Full Width Button</button>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="cards" aria-labelledby="cards-heading">
+      <h2 id="cards-heading">Cards</h2>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-header">
+            <h3>Basic Card</h3>
+          </div>
+          <div class="card-body">
+            <p>
+              A simple card with header, body, and footer sections. All spacing
+              and borders are theme-aware.
+            </p>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-sm btn-secondary">Action</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <img
+            class="card-image"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='225' fill='%23F2F0E5'%3E%3Crect width='400' height='225'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23878580' font-family='sans-serif'%3EImage%3C/text%3E%3C/svg%3E"
+            alt="Placeholder"
+          />
+          <div class="card-body">
+            <h4>Image Card</h4>
+            <p>A card variant with a hero image at the top.</p>
+          </div>
+        </article>
+
+        <article class="card card-compact">
+          <div class="card-body">
+            <h4>Compact Card</h4>
+            <p>
+              A more compact variant with reduced padding. Good for dense UIs.
+            </p>
+            <div
+              style="
+                margin-block-start: var(--space-3);
+                display: flex;
+                gap: var(--space-2);
+              "
+            >
+              <span class="badge badge-cyan">CSS</span>
+              <span class="badge badge-purple">HTML</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="alerts" aria-labelledby="alerts-heading">
+      <h2 id="alerts-heading">Alerts</h2>
+
+      <div class="alert alert-info" role="alert">
+        <strong>Info:</strong> This is an informational message.
+      </div>
+
+      <div class="alert alert-success" role="status">
+        <strong>Success:</strong> Your changes have been saved.
+      </div>
+
+      <div class="alert alert-warning" role="alert">
+        <strong>Warning:</strong> Please review your input before continuing.
+      </div>
+
+      <div class="alert alert-danger" role="alert">
+        <strong>Error:</strong> Something went wrong. Please try again.
+        <button
+          class="alert-dismiss"
+          aria-label="Dismiss alert"
+          onclick="this.parentElement.hidden = true"
+        >
+          ×
+        </button>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="badges" aria-labelledby="badges-heading">
+      <h2 id="badges-heading">Badges</h2>
+
+      <div class="demo-row">
+        <span class="badge">Default</span>
+        <span class="badge badge-red">Red</span>
+        <span class="badge badge-orange">Orange</span>
+        <span class="badge badge-yellow">Yellow</span>
+        <span class="badge badge-green">Green</span>
+        <span class="badge badge-cyan">Cyan</span>
+        <span class="badge badge-blue">Blue</span>
+        <span class="badge badge-purple">Purple</span>
+        <span class="badge badge-magenta">Magenta</span>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="login" aria-labelledby="login-heading">
+      <h2 id="login-heading">Login Form</h2>
+
+      <article class="card" style="max-width: 24rem">
+        <div class="card-header">
+          <h3>Sign In</h3>
+        </div>
+        <div class="card-body">
+          <form onsubmit="return false">
+            <label for="login-email">Email</label>
+            <input
+              id="login-email"
+              name="email"
+              type="email"
+              placeholder="name@example.com"
+              autocomplete="email"
+              aria-required="true"
+              required
+            />
+
+            <label for="login-password">Password</label>
+            <input
+              id="login-password"
+              name="password"
+              type="password"
+              placeholder="••••••••"
+              autocomplete="current-password"
+              aria-required="true"
+              required
+            />
+
+            <label><input type="checkbox" name="remember" /> Remember me</label>
+
+            <button
+              type="submit"
+              class="btn btn-primary btn-block"
+              style="margin-block-start: var(--space-4)"
+            >
+              Sign In
+            </button>
+          </form>
+        </div>
+        <div class="card-footer" style="text-align: center">
+          <a href="#">Forgot password?</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="avatars" aria-labelledby="avatars-heading">
+      <h2 id="avatars-heading">Avatar</h2>
+
+      <h3>Sizes</h3>
+      <div class="demo-row" style="align-items: center">
+        <span class="avatar avatar-xs" aria-label="User XS">XS</span>
+        <span class="avatar avatar-sm" aria-label="User SM">SM</span>
+        <span class="avatar" aria-label="User default">MD</span>
+        <span class="avatar avatar-lg" aria-label="User LG">LG</span>
+        <span class="avatar avatar-xl" aria-label="User XL">XL</span>
+      </div>
+
+      <h3>With image</h3>
+      <div class="demo-row">
+        <span class="avatar avatar-lg">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Crect width='56' height='56' fill='%2366800B'/%3E%3Ctext x='28' y='33' text-anchor='middle' font-size='22' font-family='sans-serif' fill='%23FFFCF0'%3EAZ%3C/text%3E%3C/svg%3E"
+            alt="Alice Zhang"
+          />
+        </span>
+      </div>
+
+      <h3>Status indicators</h3>
+      <div class="demo-row" style="align-items: center">
+        <span class="avatar-wrapper">
+          <span class="avatar" aria-label="Online user">AB</span>
+          <span
+            class="avatar-status avatar-status-online"
+            aria-label="Online"
+          ></span>
+        </span>
+        <span class="avatar-wrapper">
+          <span class="avatar" aria-label="Away user">CD</span>
+          <span
+            class="avatar-status avatar-status-away"
+            aria-label="Away"
+          ></span>
+        </span>
+        <span class="avatar-wrapper">
+          <span class="avatar" aria-label="Busy user">EF</span>
+          <span
+            class="avatar-status avatar-status-busy"
+            aria-label="Busy"
+          ></span>
+        </span>
+        <span class="avatar-wrapper">
+          <span class="avatar" aria-label="Offline user">GH</span>
+          <span
+            class="avatar-status avatar-status-offline"
+            aria-label="Offline"
+          ></span>
+        </span>
+      </div>
+
+      <h3>Avatar group</h3>
+      <div class="demo-row">
+        <div class="avatar-group" aria-label="3 team members">
+          <span class="avatar avatar-sm" aria-label="User One">A</span>
+          <span class="avatar avatar-sm" aria-label="User Two">B</span>
+          <span class="avatar avatar-sm" aria-label="User Three">C</span>
+          <span class="avatar avatar-sm" aria-label="4 more">+4</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="checkboxes" aria-labelledby="checkboxes-heading">
+      <h2 id="checkboxes-heading">Checkbox</h2>
+
+      <h3>Single</h3>
+      <label class="checkbox">
+        <input type="checkbox" id="cb1" checked />
+        <span class="checkbox-label">Checked by default</span>
+      </label>
+
+      <label class="checkbox" style="margin-block-start: var(--space-2)">
+        <input type="checkbox" id="cb2" />
+        <span class="checkbox-label">
+          With description
+          <span class="checkbox-description"
+            >This is supporting text below the label.</span
+          >
+        </span>
+      </label>
+
+      <label class="checkbox" style="margin-block-start: var(--space-2)">
+        <input type="checkbox" id="cb3" disabled />
+        <span class="checkbox-label">Disabled</span>
+      </label>
+
+      <h3>Group</h3>
+      <fieldset class="checkbox-group" aria-labelledby="cb-group-legend">
+        <legend class="checkbox-group-label" id="cb-group-legend">
+          Notification preferences
+        </legend>
+        <label class="checkbox">
+          <input type="checkbox" name="notif" value="email" checked />
+          <span class="checkbox-label">Email</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="notif" value="sms" />
+          <span class="checkbox-label">SMS</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="notif" value="push" />
+          <span class="checkbox-label">Push notifications</span>
+        </label>
+      </fieldset>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="combobox" aria-labelledby="combobox-heading">
+      <h2 id="combobox-heading">Combobox</h2>
+
+      <div style="max-width: var(--width-input)">
+        <label class="input-label" for="cb-input">Search framework</label>
+        <div class="combobox">
+          <input
+            id="cb-input"
+            type="text"
+            role="combobox"
+            aria-expanded="true"
+            aria-haspopup="listbox"
+            aria-controls="cb-popup"
+            aria-autocomplete="list"
+            autocomplete="off"
+            placeholder="Type to search…"
+            value="CSS"
+          />
+          <ul
+            class="combobox-listbox"
+            id="cb-popup"
+            role="listbox"
+            aria-label="Frameworks"
+          >
+            <li class="combobox-group-label">Languages</li>
+            <li
+              class="combobox-option"
+              role="option"
+              aria-selected="true"
+              data-active
+            >
+              CSS
+            </li>
+            <li class="combobox-option" role="option" aria-selected="false">
+              HTML
+            </li>
+            <li class="combobox-group-label">Frameworks</li>
+            <li class="combobox-option" role="option" aria-selected="false">
+              React
+            </li>
+            <li class="combobox-option" role="option" aria-selected="false">
+              Svelte
+            </li>
+            <li class="combobox-option" role="option" aria-selected="false">
+              Vue
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p
+        style="
+          margin-block-start: var(--space-3);
+          font-size: var(--font-size-sm);
+          color: var(--color-text-secondary);
+        "
+      >
+        Shown with listbox open. Wire up keyboard navigation with JS using
+        <code>aria-activedescendant</code>.
+      </p>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="description-list" aria-labelledby="dl-heading">
+      <h2 id="dl-heading">Description list</h2>
+
+      <h3>Side-by-side (default)</h3>
+      <dl class="dl">
+        <div class="dl-row">
+          <dt class="dl-term">Full name</dt>
+          <dd class="dl-description">Alice Zhang</dd>
+        </div>
+        <div class="dl-row">
+          <dt class="dl-term">Email</dt>
+          <dd class="dl-description">alice@example.com</dd>
+        </div>
+        <div class="dl-row">
+          <dt class="dl-term">Role</dt>
+          <dd class="dl-description">Administrator</dd>
+        </div>
+        <div class="dl-row">
+          <dt class="dl-term">Status</dt>
+          <dd class="dl-description">
+            <span class="badge badge-green">Active</span>
+          </dd>
+        </div>
+      </dl>
+
+      <h3>Stacked</h3>
+      <dl class="dl dl-stacked" style="max-width: 24rem">
+        <div class="dl-row">
+          <dt class="dl-term">Plan</dt>
+          <dd class="dl-description">Pro — £12/month</dd>
+        </div>
+        <div class="dl-row">
+          <dt class="dl-term">Next billing date</dt>
+          <dd class="dl-description">1 May 2026</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="dialog" aria-labelledby="dialog-heading">
+      <h2 id="dialog-heading">Dialog</h2>
+
+      <div class="demo-row">
+        <button
+          class="btn btn-primary"
+          onclick="document.getElementById('demo-dialog').showModal()"
+        >
+          Open dialog
+        </button>
+        <button
+          class="btn btn-secondary"
+          onclick="document.getElementById('demo-dialog-sm').showModal()"
+        >
+          Small dialog
+        </button>
+      </div>
+
+      <!-- Default dialog -->
+      <dialog
+        class="dialog"
+        id="demo-dialog"
+        aria-labelledby="demo-dialog-title"
+        aria-describedby="demo-dialog-body"
+      >
+        <div class="dialog-panel">
+          <header class="dialog-header">
+            <h2 class="dialog-title" id="demo-dialog-title">Confirm action</h2>
+            <button
+              class="dialog-close"
+              aria-label="Close dialog"
+              onclick="document.getElementById('demo-dialog').close()"
+            >
+              ✕
+            </button>
+          </header>
+          <div class="dialog-body" id="demo-dialog-body">
+            <p>
+              Are you sure you want to delete this item? This action cannot be
+              undone.
+            </p>
+          </div>
+          <footer class="dialog-footer">
+            <button
+              class="btn btn-secondary"
+              onclick="document.getElementById('demo-dialog').close()"
+            >
+              Cancel
+            </button>
+            <button
+              class="btn btn-danger"
+              onclick="document.getElementById('demo-dialog').close()"
+            >
+              Delete
+            </button>
+          </footer>
+        </div>
+      </dialog>
+
+      <!-- Small dialog -->
+      <dialog
+        class="dialog dialog-sm"
+        id="demo-dialog-sm"
+        aria-labelledby="demo-dialog-sm-title"
+      >
+        <div class="dialog-panel">
+          <header class="dialog-header">
+            <h2 class="dialog-title" id="demo-dialog-sm-title">Notice</h2>
+            <button
+              class="dialog-close"
+              aria-label="Close dialog"
+              onclick="document.getElementById('demo-dialog-sm').close()"
+            >
+              ✕
+            </button>
+          </header>
+          <div class="dialog-body">
+            <p>Your session will expire in 5 minutes.</p>
+          </div>
+          <footer class="dialog-footer">
+            <button
+              class="btn btn-primary"
+              onclick="document.getElementById('demo-dialog-sm').close()"
+            >
+              OK
+            </button>
+          </footer>
+        </div>
+      </dialog>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="divider" aria-labelledby="divider-heading">
+      <h2 id="divider-heading">Divider</h2>
+
+      <h3>Default</h3>
+      <p>Content above the divider.</p>
+      <hr class="divider" aria-hidden="true" />
+      <p>Content below the divider.</p>
+
+      <h3>Labelled</h3>
+      <div
+        class="divider divider-label"
+        role="separator"
+        aria-label="Or continue with"
+      >
+        <span>Or continue with</span>
+      </div>
+
+      <h3>Thick</h3>
+      <hr class="divider divider-thick" aria-hidden="true" />
+
+      <h3>Vertical (inline)</h3>
+      <div class="demo-row" style="height: 2rem">
+        <span>Item one</span>
+        <span class="divider-vertical" aria-hidden="true"></span>
+        <span>Item two</span>
+        <span class="divider-vertical" aria-hidden="true"></span>
+        <span>Item three</span>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="dropdown" aria-labelledby="dropdown-heading">
+      <h2 id="dropdown-heading">Dropdown</h2>
+
+      <div class="demo-row">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="dd-menu"
+            onclick="
+              var m = document.getElementById('dd-menu')
+              var open = m.hidden
+              m.hidden = !open
+              this.setAttribute('aria-expanded', open)
+            "
+          >
+            Options ▾
+          </button>
+          <ul class="dropdown-menu" id="dd-menu" role="menu" hidden>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">Edit</a>
+            </li>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">Duplicate</a>
+            </li>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">Archive</a>
+            </li>
+            <li class="dropdown-divider" role="none" aria-hidden="true"></li>
+            <li class="dropdown-label" role="none">Danger zone</li>
+            <li role="none">
+              <button
+                class="dropdown-item dropdown-item-danger"
+                role="menuitem"
+              >
+                Delete
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="dd-menu-end"
+            onclick="
+              var m = document.getElementById('dd-menu-end')
+              var open = m.hidden
+              m.hidden = !open
+              this.setAttribute('aria-expanded', open)
+            "
+          >
+            Align end ▾
+          </button>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            id="dd-menu-end"
+            role="menu"
+            hidden
+          >
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">Profile</a>
+            </li>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">Settings</a>
+            </li>
+            <li role="none">
+              <button
+                class="dropdown-item"
+                role="menuitem"
+                disabled
+                aria-disabled="true"
+              >
+                Billing (unavailable)
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="fieldset" aria-labelledby="fieldset-heading">
+      <h2 id="fieldset-heading">Fieldset</h2>
+
+      <h3>Bordered</h3>
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend">Shipping address</legend>
+        <p class="fieldset-hint">All fields are required.</p>
+        <div class="input-group">
+          <label class="input-label" for="fs-name">Full name</label>
+          <input
+            class="input-field"
+            type="text"
+            id="fs-name"
+            autocomplete="name"
+          />
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="fs-city">City</label>
+          <input
+            class="input-field"
+            type="text"
+            id="fs-city"
+            autocomplete="address-level2"
+          />
+        </div>
+      </fieldset>
+
+      <h3>Flush</h3>
+      <fieldset class="fieldset fieldset-flush">
+        <legend class="fieldset-legend">Personal details</legend>
+        <div class="input-group">
+          <label class="input-label" for="fs-fname">First name</label>
+          <input
+            class="input-field"
+            type="text"
+            id="fs-fname"
+            autocomplete="given-name"
+          />
+        </div>
+      </fieldset>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="headings" aria-labelledby="headings-section-heading">
+      <h2 id="headings-section-heading">Heading</h2>
+
+      <p class="heading-eyebrow">Component library</p>
+      <p class="heading-display">Display heading</p>
+      <p class="heading-subtitle">
+        A subtitle that supports the heading above with extra context.
+      </p>
+
+      <hr class="divider" aria-hidden="true" />
+
+      <p class="h1">Heading level 1 style</p>
+      <p class="h2">Heading level 2 style</p>
+      <p class="h3">Heading level 3 style</p>
+      <p class="h4">Heading level 4 style</p>
+      <p class="h5">Heading level 5 style</p>
+      <p class="h6">Heading level 6 style</p>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="input" aria-labelledby="input-heading">
+      <h2 id="input-heading">Input</h2>
+
+      <h3>Default</h3>
+      <div class="input-group">
+        <label class="input-label" for="inp-default">Username</label>
+        <input
+          class="input-field"
+          type="text"
+          id="inp-default"
+          placeholder="e.g. alice123"
+          aria-describedby="inp-default-hint"
+        />
+        <p class="input-hint" id="inp-default-hint">
+          Only letters, numbers, and underscores.
+        </p>
+      </div>
+
+      <h3>Required</h3>
+      <div class="input-group">
+        <label class="input-label input-label-required" for="inp-req"
+          >Email address</label
+        >
+        <input
+          class="input-field"
+          type="email"
+          id="inp-req"
+          autocomplete="email"
+          required
+        />
+      </div>
+
+      <h3>Error state</h3>
+      <div class="input-group input-error">
+        <label class="input-label" for="inp-err">Email address</label>
+        <input
+          class="input-field"
+          type="email"
+          id="inp-err"
+          value="not-an-email"
+          aria-describedby="inp-err-msg"
+          aria-invalid="true"
+        />
+        <p class="input-message" id="inp-err-msg" role="alert">
+          Enter a valid email address.
+        </p>
+      </div>
+
+      <h3>Success state</h3>
+      <div class="input-group input-success">
+        <label class="input-label" for="inp-ok">Username</label>
+        <input
+          class="input-field"
+          type="text"
+          id="inp-ok"
+          value="alice123"
+          aria-describedby="inp-ok-msg"
+        />
+        <p class="input-message" id="inp-ok-msg">Username is available.</p>
+      </div>
+
+      <h3>With addons</h3>
+      <div class="input-group">
+        <label class="input-label" for="inp-url">Website</label>
+        <div class="input-addon-group">
+          <span class="input-addon">https://</span>
+          <input
+            class="input-field"
+            type="text"
+            id="inp-url"
+            placeholder="example.com"
+            autocomplete="url"
+          />
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label class="input-label" for="inp-amt">Amount</label>
+        <div class="input-addon-group">
+          <span class="input-addon">£</span>
+          <input
+            class="input-field"
+            type="number"
+            id="inp-amt"
+            placeholder="0.00"
+          />
+          <span class="input-addon">GBP</span>
+        </div>
+      </div>
+
+      <h3>Disabled</h3>
+      <div class="input-group">
+        <label class="input-label" for="inp-dis">Read-only field</label>
+        <input
+          class="input-field"
+          type="text"
+          id="inp-dis"
+          value="Cannot edit this"
+          disabled
+        />
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="listbox" aria-labelledby="listbox-heading">
+      <h2 id="listbox-heading">Listbox</h2>
+
+      <h3>Single select</h3>
+      <div style="max-width: var(--width-input)">
+        <p
+          id="lb-label"
+          style="
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-secondary);
+            margin-block-end: var(--space-1);
+          "
+        >
+          Choose a timezone
+        </p>
+        <ul
+          class="listbox"
+          role="listbox"
+          aria-labelledby="lb-label"
+          tabindex="0"
+        >
+          <li class="listbox-group-label">Europe</li>
+          <li
+            class="listbox-option"
+            role="option"
+            aria-selected="true"
+            data-active
+          >
+            Europe/London
+          </li>
+          <li class="listbox-option" role="option" aria-selected="false">
+            Europe/Paris
+          </li>
+          <li class="listbox-option" role="option" aria-selected="false">
+            Europe/Berlin
+          </li>
+          <li class="listbox-divider" role="none" aria-hidden="true"></li>
+          <li class="listbox-group-label">Americas</li>
+          <li class="listbox-option" role="option" aria-selected="false">
+            America/New_York
+          </li>
+          <li class="listbox-option" role="option" aria-selected="false">
+            America/Los_Angeles
+          </li>
+          <li
+            class="listbox-option"
+            role="option"
+            aria-selected="false"
+            aria-disabled="true"
+          >
+            America/Sao_Paulo (unavailable)
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="pagination" aria-labelledby="pagination-heading">
+      <h2 id="pagination-heading">Pagination</h2>
+
+      <h3>Default</h3>
+      <nav class="pagination" aria-label="Pagination">
+        <a
+          class="pagination-item"
+          href="#"
+          aria-label="Previous page"
+          aria-disabled="true"
+          >‹</a
+        >
+        <a class="pagination-item" href="#" aria-current="page">1</a>
+        <a class="pagination-item" href="#">2</a>
+        <a class="pagination-item" href="#">3</a>
+        <span class="pagination-ellipsis" aria-hidden="true">…</span>
+        <a class="pagination-item" href="#">10</a>
+        <a class="pagination-item" href="#" aria-label="Next page">›</a>
+      </nav>
+
+      <h3>Middle page</h3>
+      <nav class="pagination" aria-label="Pagination">
+        <a class="pagination-item" href="#" aria-label="Previous page">‹</a>
+        <a class="pagination-item" href="#">1</a>
+        <span class="pagination-ellipsis" aria-hidden="true">…</span>
+        <a class="pagination-item" href="#">4</a>
+        <a class="pagination-item" href="#" aria-current="page">5</a>
+        <a class="pagination-item" href="#">6</a>
+        <span class="pagination-ellipsis" aria-hidden="true">…</span>
+        <a class="pagination-item" href="#">10</a>
+        <a class="pagination-item" href="#" aria-label="Next page">›</a>
+      </nav>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="radio" aria-labelledby="radio-heading">
+      <h2 id="radio-heading">Radio button</h2>
+
+      <h3>Vertical group</h3>
+      <fieldset class="radio-group">
+        <legend class="radio-group-legend">Delivery method</legend>
+        <div class="radio">
+          <input
+            type="radio"
+            name="delivery"
+            id="rd-std"
+            value="standard"
+            checked
+          />
+          <label class="radio-label" for="rd-std">
+            Standard (3–5 days)
+            <span class="radio-description">Free</span>
+          </label>
+        </div>
+        <div class="radio">
+          <input type="radio" name="delivery" id="rd-exp" value="express" />
+          <label class="radio-label" for="rd-exp">
+            Express (next day)
+            <span class="radio-description">£4.99</span>
+          </label>
+        </div>
+        <div class="radio">
+          <input
+            type="radio"
+            name="delivery"
+            id="rd-dis"
+            value="same"
+            disabled
+          />
+          <label class="radio-label" for="rd-dis"> Same day (disabled) </label>
+        </div>
+      </fieldset>
+
+      <h3>Inline group</h3>
+      <fieldset class="radio-group radio-group-inline">
+        <legend class="radio-group-legend">Size</legend>
+        <div class="radio">
+          <input type="radio" name="size" id="rd-sm" value="sm" />
+          <label class="radio-label" for="rd-sm">S</label>
+        </div>
+        <div class="radio">
+          <input type="radio" name="size" id="rd-md" value="md" checked />
+          <label class="radio-label" for="rd-md">M</label>
+        </div>
+        <div class="radio">
+          <input type="radio" name="size" id="rd-lg" value="lg" />
+          <label class="radio-label" for="rd-lg">L</label>
+        </div>
+      </fieldset>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="select" aria-labelledby="select-heading">
+      <h2 id="select-heading">Select</h2>
+
+      <h3>Default</h3>
+      <div class="select-group">
+        <label class="select-label" for="sel-country">Country</label>
+        <select
+          class="select-field"
+          id="sel-country"
+          aria-describedby="sel-country-hint"
+        >
+          <option value="">Choose…</option>
+          <option value="gb">United Kingdom</option>
+          <option value="us">United States</option>
+          <option value="de">Germany</option>
+          <option value="fr">France</option>
+        </select>
+        <p class="select-hint" id="sel-country-hint">
+          Select your billing country.
+        </p>
+      </div>
+
+      <h3>Error state</h3>
+      <div class="select-group select-error">
+        <label class="select-label" for="sel-err">Role</label>
+        <select
+          class="select-field"
+          id="sel-err"
+          aria-invalid="true"
+          aria-describedby="sel-err-msg"
+        >
+          <option value="">Choose…</option>
+          <option value="admin">Admin</option>
+          <option value="editor">Editor</option>
+        </select>
+        <p class="select-message" id="sel-err-msg" role="alert">
+          Please select a role.
+        </p>
+      </div>
+
+      <h3>Required</h3>
+      <div class="select-group">
+        <label class="select-label select-label-required" for="sel-req"
+          >Plan</label
+        >
+        <select class="select-field" id="sel-req" required>
+          <option value="">Choose…</option>
+          <option value="free">Free</option>
+          <option value="pro">Pro</option>
+          <option value="enterprise">Enterprise</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="sidebar" aria-labelledby="sidebar-heading">
+      <h2 id="sidebar-heading">Sidebar</h2>
+
+      <div
+        style="
+          display: flex;
+          height: 20rem;
+          border: var(--border-width) solid var(--color-border);
+          border-radius: var(--radius-xl);
+          overflow: hidden;
+        "
+      >
+        <aside class="sidebar" aria-label="Demo sidebar navigation">
+          <div class="sidebar-header">
+            <a class="sidebar-brand" href="#">Brand</a>
+          </div>
+          <nav class="sidebar-nav">
+            <a class="sidebar-item" href="#" aria-current="page">Dashboard</a>
+            <a class="sidebar-item" href="#">Projects</a>
+            <a class="sidebar-item" href="#">Team</a>
+            <div class="sidebar-divider" aria-hidden="true"></div>
+            <div class="sidebar-section-label">Settings</div>
+            <a class="sidebar-item" href="#">Account</a>
+            <a class="sidebar-item" href="#">Billing</a>
+            <a
+              class="sidebar-item"
+              href="#"
+              aria-disabled="true"
+              style="opacity: 0.5; pointer-events: none"
+              >Integrations</a
+            >
+          </nav>
+          <div class="sidebar-footer">
+            <span class="avatar avatar-sm" aria-label="Logged in user">AZ</span>
+          </div>
+        </aside>
+        <main
+          style="
+            flex: 1;
+            padding: var(--space-5);
+            overflow-y: auto;
+            background-color: var(--color-bg-secondary);
+          "
+        >
+          <p
+            style="
+              color: var(--color-text-secondary);
+              font-size: var(--font-size-sm);
+            "
+          >
+            Main content area
+          </p>
+        </main>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="switch" aria-labelledby="switch-heading">
+      <h2 id="switch-heading">Switch</h2>
+
+      <div style="display: flex; flex-direction: column; gap: var(--space-3)">
+        <label class="switch">
+          <input type="checkbox" role="switch" checked />
+          <span class="switch-track" aria-hidden="true"
+            ><span class="switch-thumb"></span
+          ></span>
+          <span class="switch-label">Email notifications (on)</span>
+        </label>
+
+        <label class="switch">
+          <input type="checkbox" role="switch" />
+          <span class="switch-track" aria-hidden="true"
+            ><span class="switch-thumb"></span
+          ></span>
+          <span class="switch-label">SMS notifications (off)</span>
+        </label>
+
+        <label class="switch">
+          <input type="checkbox" role="switch" disabled />
+          <span class="switch-track" aria-hidden="true"
+            ><span class="switch-thumb"></span
+          ></span>
+          <span class="switch-label">Push notifications (disabled)</span>
+        </label>
+
+        <label class="switch">
+          <input type="checkbox" role="switch" disabled checked />
+          <span class="switch-track" aria-hidden="true"
+            ><span class="switch-thumb"></span
+          ></span>
+          <span class="switch-label">Beta features (disabled, on)</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="table" aria-labelledby="table-heading">
+      <h2 id="table-heading">Table</h2>
+
+      <h3>Default</h3>
+      <div class="table-wrap">
+        <table>
+          <caption>
+            Quarterly revenue
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Quarter</th>
+              <th scope="col">Revenue</th>
+              <th scope="col">Growth</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Q1 2026</td>
+              <td class="table-col-numeric">£48,200</td>
+              <td class="table-col-numeric">+12%</td>
+              <td><span class="badge badge-green">On track</span></td>
+            </tr>
+            <tr>
+              <td>Q2 2026</td>
+              <td class="table-col-numeric">£51,800</td>
+              <td class="table-col-numeric">+7%</td>
+              <td><span class="badge badge-yellow">At risk</span></td>
+            </tr>
+            <tr>
+              <td>Q3 2026</td>
+              <td class="table-col-numeric">—</td>
+              <td class="table-col-numeric">—</td>
+              <td><span class="badge">Pending</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Bordered + compact</h3>
+      <div class="table-wrap">
+        <table class="table-bordered table-compact">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Role</th>
+              <th scope="col">Joined</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Alice Zhang</td>
+              <td>Admin</td>
+              <td>Jan 2024</td>
+            </tr>
+            <tr>
+              <td>Bob Okafor</td>
+              <td>Editor</td>
+              <td>Mar 2024</td>
+            </tr>
+            <tr>
+              <td>Carol Smith</td>
+              <td>Viewer</td>
+              <td>Jul 2024</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="text" aria-labelledby="text-heading">
+      <h2 id="text-heading">Text</h2>
+
+      <h3>Sizes</h3>
+      <div style="display: flex; flex-direction: column; gap: var(--space-1)">
+        <p class="text-xs" style="margin: 0">Extra small – .text-xs</p>
+        <p class="text-sm" style="margin: 0">Small – .text-sm</p>
+        <p class="text-base" style="margin: 0">Base – .text-base</p>
+        <p class="text-lg" style="margin: 0">Large – .text-lg</p>
+        <p class="text-xl" style="margin: 0">Extra large – .text-xl</p>
+      </div>
+
+      <h3>Colour</h3>
+      <div style="display: flex; flex-direction: column; gap: var(--space-1)">
+        <p class="text-default" style="margin: 0">
+          .text-default — primary text colour
+        </p>
+        <p class="text-muted" style="margin: 0">
+          .text-muted — secondary text colour
+        </p>
+        <p class="text-subtle" style="margin: 0">
+          .text-subtle — tertiary text colour
+        </p>
+        <p class="text-disabled" style="margin: 0">
+          .text-disabled — disabled text colour
+        </p>
+        <p class="text-danger" style="margin: 0">.text-danger</p>
+        <p class="text-success" style="margin: 0">.text-success</p>
+        <p class="text-warning" style="margin: 0">.text-warning</p>
+        <p class="text-info" style="margin: 0">.text-info</p>
+      </div>
+
+      <h3>Weight &amp; transform</h3>
+      <div class="demo-row">
+        <span class="text-normal">Normal weight</span>
+        <span class="text-medium">Medium weight</span>
+        <span class="text-bold">Bold weight</span>
+        <span class="text-mono">Monospace</span>
+        <span class="text-uppercase">Uppercase</span>
+        <span class="text-strikethrough">Strikethrough</span>
+      </div>
+
+      <h3>Truncation</h3>
+      <p class="text-truncate" style="max-width: 20rem; margin: 0">
+        This is a very long sentence that will be truncated with an ellipsis
+        when it overflows its container.
+      </p>
+
+      <h3>Screen-reader only</h3>
+      <p style="margin: 0">
+        The next element is visually hidden but available to assistive
+        technology:
+        <span class="sr-only">This text is only for screen readers.</span>
+        <code>.sr-only</code> applied.
+      </p>
+    </section>
+
+    <!-- ================================================================== -->
+    <section id="textarea" aria-labelledby="textarea-heading">
+      <h2 id="textarea-heading">Textarea</h2>
+
+      <h3>Default</h3>
+      <div class="textarea-group">
+        <label class="textarea-label" for="ta-bio">Bio</label>
+        <textarea
+          class="textarea-field"
+          id="ta-bio"
+          rows="4"
+          aria-describedby="ta-bio-footer"
+          maxlength="200"
+          placeholder="Tell us about yourself…"
+          oninput="
+            document.getElementById('ta-bio-count').textContent =
+              this.value.length + ' / ' + this.maxLength
+          "
+        ></textarea>
+        <div class="textarea-footer" id="ta-bio-footer">
+          <p class="textarea-hint">Keep it concise.</p>
+          <span class="textarea-count" id="ta-bio-count" aria-live="polite"
+            >0 / 200</span
+          >
+        </div>
+      </div>
+
+      <h3>Required</h3>
+      <div class="textarea-group">
+        <label class="textarea-label textarea-label-required" for="ta-req"
+          >Feedback</label
+        >
+        <textarea
+          class="textarea-field"
+          id="ta-req"
+          rows="3"
+          required
+        ></textarea>
+      </div>
+
+      <h3>Error state</h3>
+      <div class="textarea-group textarea-error">
+        <label class="textarea-label" for="ta-err">Message</label>
+        <textarea
+          class="textarea-field"
+          id="ta-err"
+          rows="3"
+          aria-invalid="true"
+          aria-describedby="ta-err-msg"
+        >
 ab</textarea
-				>
-				<p class="textarea-message" id="ta-err-msg" role="alert">
-					Message must be at least 10 characters.
-				</p>
-			</div>
+        >
+        <p class="textarea-message" id="ta-err-msg" role="alert">
+          Message must be at least 10 characters.
+        </p>
+      </div>
 
-			<h3>Disabled</h3>
-			<div class="textarea-group">
-				<label class="textarea-label" for="ta-dis">Notes (read-only)</label>
-				<textarea class="textarea-field" id="ta-dis" rows="2" disabled>
+      <h3>Disabled</h3>
+      <div class="textarea-group">
+        <label class="textarea-label" for="ta-dis">Notes (read-only)</label>
+        <textarea class="textarea-field" id="ta-dis" rows="2" disabled>
 Cannot edit this field.</textarea
-				>
-			</div>
-		</section>
-	</body>
+        >
+      </div>
+    </section>
+  </body>
 </html>

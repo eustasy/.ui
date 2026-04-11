@@ -3,70 +3,70 @@
    ========================================================================== */
 
 .alert {
-	padding: var(--space-3) var(--space-4);
-	border: var(--border-width) solid var(--color-border);
-	border-radius: var(--radius-lg);
-	font-size: var(--font-size-sm);
-	line-height: var(--line-height-normal);
-	margin-block: var(--space-3);
-	position: relative;
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  margin-block: var(--space-3);
+  position: relative;
 }
 
 .alert > *:first-child {
-	margin-block-start: 0;
+  margin-block-start: 0;
 }
 
 .alert > *:last-child {
-	margin-block-end: 0;
+  margin-block-end: 0;
 }
 
 /* Variants */
 .alert-info {
-	background-color: var(--color-info-bg);
-	border-color: var(--color-info);
-	color: var(--color-info);
+  background-color: var(--color-info-bg);
+  border-color: var(--color-info);
+  color: var(--color-info);
 }
 
 .alert-success {
-	background-color: var(--color-success-bg);
-	border-color: var(--color-success);
-	color: var(--color-success);
+  background-color: var(--color-success-bg);
+  border-color: var(--color-success);
+  color: var(--color-success);
 }
 
 .alert-warning {
-	background-color: var(--color-warning-bg);
-	border-color: var(--color-warning);
-	color: var(--color-warning);
+  background-color: var(--color-warning-bg);
+  border-color: var(--color-warning);
+  color: var(--color-warning);
 }
 
 .alert-danger {
-	background-color: var(--color-danger-bg);
-	border-color: var(--color-danger);
-	color: var(--color-danger);
+  background-color: var(--color-danger-bg);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
 }
 
 /* Dismissible */
 .alert-dismiss {
-	position: absolute;
-	inset-block-start: var(--space-2);
-	inset-inline-end: var(--space-2);
-	background: none;
-	border: none;
-	font-size: var(--font-size-lg);
-	line-height: 1;
-	cursor: pointer;
-	color: inherit;
-	opacity: 0.6;
-	padding: var(--space-1);
-	border-radius: var(--radius-sm);
-	transition: opacity var(--duration-fast) var(--easing);
+  position: absolute;
+  inset-block-start: var(--space-2);
+  inset-inline-end: var(--space-2);
+  background: none;
+  border: none;
+  font-size: var(--font-size-lg);
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.6;
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  transition: opacity var(--duration-fast) var(--easing);
 }
 
 .alert-dismiss:hover {
-	opacity: 1;
+  opacity: 1;
 }
 
 /* Hidden state for JS dismiss */
 .alert[hidden] {
-	display: none;
+  display: none;
 }

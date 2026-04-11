@@ -1,141 +1,141 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Auth Layout — eustasy/.ui</title>
-		<link rel="stylesheet" href="../assets/main.css" />
-		<script src="../js/theme-toggle.js"></script>
-		<style>
-			body {
-				margin: 0;
-			}
-		</style>
-	</head>
-	<body>
-		<!-- =====================================================================
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Auth Layout — eustasy/.ui</title>
+    <link rel="stylesheet" href="../assets/main.css" />
+    <script src="../js/theme-toggle.js"></script>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =====================================================================
      Auth layout — login page demo
      ===================================================================== -->
-		<div class="layout-auth layout-auth-tinted">
-			<!-- Brand above the card -->
-			<a class="auth-brand" href="#">
-				<svg
-					class="auth-brand-mark"
-					viewBox="0 0 36 36"
-					fill="none"
-					aria-hidden="true"
-				>
-					<rect width="36" height="36" rx="8" fill="var(--color-action)" />
-					<path
-						d="M10 18h16M18 10v16"
-						stroke="var(--color-action-text)"
-						stroke-width="2.5"
-						stroke-linecap="round"
-					/>
-				</svg>
-				eustasy/.ui
-			</a>
+    <div class="layout-auth layout-auth-tinted">
+      <!-- Brand above the card -->
+      <a class="auth-brand" href="#">
+        <svg
+          class="auth-brand-mark"
+          viewBox="0 0 36 36"
+          fill="none"
+          aria-hidden="true"
+        >
+          <rect width="36" height="36" rx="8" fill="var(--color-action)" />
+          <path
+            d="M10 18h16M18 10v16"
+            stroke="var(--color-action-text)"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+        </svg>
+        eustasy/.ui
+      </a>
 
-			<!-- Card -->
-			<div class="auth-card">
-				<div class="auth-card-header">
-					<h1>Sign in to your account</h1>
-					<p class="auth-card-subheading">
-						Welcome back — enter your details below.
-					</p>
-				</div>
+      <!-- Card -->
+      <div class="auth-card">
+        <div class="auth-card-header">
+          <h1>Sign in to your account</h1>
+          <p class="auth-card-subheading">
+            Welcome back — enter your details below.
+          </p>
+        </div>
 
-				<div class="auth-card-body">
-					<form method="post" novalidate>
-						<div>
-							<label for="auth-email">Email address</label>
-							<input
-								id="auth-email"
-								name="email"
-								type="email"
-								placeholder="name@example.com"
-								autocomplete="email"
-								aria-required="true"
-								required
-							/>
-						</div>
+        <div class="auth-card-body">
+          <form method="post" novalidate>
+            <div>
+              <label for="auth-email">Email address</label>
+              <input
+                id="auth-email"
+                name="email"
+                type="email"
+                placeholder="name@example.com"
+                autocomplete="email"
+                aria-required="true"
+                required
+              />
+            </div>
 
-						<div>
-							<label for="auth-password">Password</label>
-							<input
-								id="auth-password"
-								name="password"
-								type="password"
-								placeholder="••••••••"
-								autocomplete="current-password"
-								aria-required="true"
-								required
-							/>
-						</div>
+            <div>
+              <label for="auth-password">Password</label>
+              <input
+                id="auth-password"
+                name="password"
+                type="password"
+                placeholder="••••••••"
+                autocomplete="current-password"
+                aria-required="true"
+                required
+              />
+            </div>
 
-						<div class="auth-row">
-							<label
-								style="
-									display: flex;
-									align-items: center;
-									gap: var(--space-2);
-									font-size: var(--font-size-sm);
-									cursor: pointer;
-								"
-							>
-								<input type="checkbox" name="remember" /> Remember me
-							</label>
-							<a href="#">Forgot password?</a>
-						</div>
+            <div class="auth-row">
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: var(--space-2);
+                  font-size: var(--font-size-sm);
+                  cursor: pointer;
+                "
+              >
+                <input type="checkbox" name="remember" /> Remember me
+              </label>
+              <a href="#">Forgot password?</a>
+            </div>
 
-						<button
-							type="submit"
-							class="btn btn-primary btn-block"
-							style="margin-block-start: var(--space-2)"
-						>
-							Sign in
-						</button>
-					</form>
+            <button
+              type="submit"
+              class="btn btn-primary btn-block"
+              style="margin-block-start: var(--space-2)"
+            >
+              Sign in
+            </button>
+          </form>
 
-					<div class="auth-divider">or continue with</div>
+          <div class="auth-divider">or continue with</div>
 
-					<button type="button" class="btn btn-outline btn-block">
-						<!-- GitHub mark -->
-						<svg
-							width="18"
-							height="18"
-							viewBox="0 0 24 24"
-							fill="currentColor"
-							aria-hidden="true"
-						>
-							<path
-								d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-							/>
-						</svg>
-						Continue with GitHub
-					</button>
-				</div>
+          <button type="button" class="btn btn-outline btn-block">
+            <!-- GitHub mark -->
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              />
+            </svg>
+            Continue with GitHub
+          </button>
+        </div>
 
-				<div class="auth-card-footer">
-					Don't have an account?
-					<a href="#">Sign up for free</a>
-				</div>
-			</div>
-			<!-- /.auth-card -->
+        <div class="auth-card-footer">
+          Don't have an account?
+          <a href="#">Sign up for free</a>
+        </div>
+      </div>
+      <!-- /.auth-card -->
 
-			<!-- Theme toggle — positioned separately for demo convenience -->
-			<button
-				data-theme-toggle
-				aria-label="Toggle dark mode"
-				class="btn btn-ghost btn-sm"
-				style="
-					margin-block-start: var(--space-6);
-					color: var(--color-text-secondary);
-				"
-			>
-				🌓 Toggle theme
-			</button>
-		</div>
-		<!-- /.layout-auth -->
-	</body>
+      <!-- Theme toggle — positioned separately for demo convenience -->
+      <button
+        data-theme-toggle
+        aria-label="Toggle dark mode"
+        class="btn btn-ghost btn-sm"
+        style="
+          margin-block-start: var(--space-6);
+          color: var(--color-text-secondary);
+        "
+      >
+        🌓 Toggle theme
+      </button>
+    </div>
+    <!-- /.layout-auth -->
+  </body>
 </html>

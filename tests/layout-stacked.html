@@ -1,353 +1,353 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Stacked Layout — eustasy/.ui</title>
-		<link rel="stylesheet" href="../assets/main.css" />
-		<script src="../js/theme-toggle.js"></script>
-		<style>
-			body {
-				margin: 0;
-			}
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stacked Layout — eustasy/.ui</title>
+    <link rel="stylesheet" href="../assets/main.css" />
+    <script src="../js/theme-toggle.js"></script>
+    <style>
+      body {
+        margin: 0;
+      }
 
-			/* Demo content helpers */
-			.inbox-list {
-				list-style: none;
-				margin: 0;
-				padding: 0;
-			}
-			.inbox-item {
-				display: flex;
-				align-items: flex-start;
-				gap: var(--space-4);
-				padding: var(--space-4) var(--space-5);
-				border-block-end: var(--border-width) solid var(--color-border);
-				cursor: pointer;
-				transition: background-color var(--duration-fast) var(--easing);
-			}
-			.inbox-item:last-child {
-				border-block-end: none;
-			}
-			.inbox-item:hover {
-				background-color: var(--color-bg-secondary);
-			}
-			.inbox-item.is-unread {
-				background-color: var(--color-bg-secondary);
-			}
-			.inbox-avatar {
-				width: 2.25rem;
-				height: 2.25rem;
-				border-radius: var(--radius-full);
-				flex-shrink: 0;
-				object-fit: cover;
-			}
-			.inbox-content {
-				flex: 1;
-				min-width: 0;
-			}
-			.inbox-meta {
-				display: flex;
-				align-items: baseline;
-				gap: var(--space-2);
-				margin-block-end: var(--space-0-5);
-			}
-			.inbox-sender {
-				font-weight: var(--font-weight-medium);
-				font-size: var(--font-size-sm);
-				color: var(--color-text);
-			}
-			.inbox-time {
-				font-size: var(--font-size-xs);
-				color: var(--color-text-tertiary);
-				margin-inline-start: auto;
-				flex-shrink: 0;
-			}
-			.inbox-subject {
-				font-size: var(--font-size-sm);
-				color: var(--color-text);
-				margin-block-end: var(--space-0-5);
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
-			}
-			.inbox-preview {
-				font-size: var(--font-size-sm);
-				color: var(--color-text-secondary);
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
-			}
-			.inbox-unread-dot {
-				width: 0.5rem;
-				height: 0.5rem;
-				border-radius: var(--radius-full);
-				background-color: var(--color-action);
-				flex-shrink: 0;
-				margin-block-start: 0.4rem;
-			}
-		</style>
-	</head>
-	<body>
-		<!-- =====================================================================
+      /* Demo content helpers */
+      .inbox-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .inbox-item {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-4);
+        padding: var(--space-4) var(--space-5);
+        border-block-end: var(--border-width) solid var(--color-border);
+        cursor: pointer;
+        transition: background-color var(--duration-fast) var(--easing);
+      }
+      .inbox-item:last-child {
+        border-block-end: none;
+      }
+      .inbox-item:hover {
+        background-color: var(--color-bg-secondary);
+      }
+      .inbox-item.is-unread {
+        background-color: var(--color-bg-secondary);
+      }
+      .inbox-avatar {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: var(--radius-full);
+        flex-shrink: 0;
+        object-fit: cover;
+      }
+      .inbox-content {
+        flex: 1;
+        min-width: 0;
+      }
+      .inbox-meta {
+        display: flex;
+        align-items: baseline;
+        gap: var(--space-2);
+        margin-block-end: var(--space-0-5);
+      }
+      .inbox-sender {
+        font-weight: var(--font-weight-medium);
+        font-size: var(--font-size-sm);
+        color: var(--color-text);
+      }
+      .inbox-time {
+        font-size: var(--font-size-xs);
+        color: var(--color-text-tertiary);
+        margin-inline-start: auto;
+        flex-shrink: 0;
+      }
+      .inbox-subject {
+        font-size: var(--font-size-sm);
+        color: var(--color-text);
+        margin-block-end: var(--space-0-5);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .inbox-preview {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-secondary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .inbox-unread-dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: var(--radius-full);
+        background-color: var(--color-action);
+        flex-shrink: 0;
+        margin-block-start: 0.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =====================================================================
      Stacked layout
      ===================================================================== -->
-		<div class="layout-stacked">
-			<!-- ------------------------------------------------------------------ -->
-			<!-- Top navigation bar                                                   -->
-			<!-- ------------------------------------------------------------------ -->
-			<header class="stacked-topbar">
-				<!-- Mobile toggle -->
-				<button
-					class="stacked-toggle"
-					type="button"
-					id="stacked-toggle"
-					aria-expanded="false"
-					aria-controls="stacked-nav"
-					aria-label="Open menu"
-				>
-					<svg
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						aria-hidden="true"
-					>
-						<line x1="3" y1="6" x2="21" y2="6" />
-						<line x1="3" y1="12" x2="21" y2="12" />
-						<line x1="3" y1="18" x2="21" y2="18" />
-					</svg>
-				</button>
+    <div class="layout-stacked">
+      <!-- ------------------------------------------------------------------ -->
+      <!-- Top navigation bar                                                   -->
+      <!-- ------------------------------------------------------------------ -->
+      <header class="stacked-topbar">
+        <!-- Mobile toggle -->
+        <button
+          class="stacked-toggle"
+          type="button"
+          id="stacked-toggle"
+          aria-expanded="false"
+          aria-controls="stacked-nav"
+          aria-label="Open menu"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
 
-				<!-- Brand -->
-				<a class="stacked-brand" href="#">
-					<svg
-						class="stacked-brand-mark"
-						viewBox="0 0 28 28"
-						fill="none"
-						aria-hidden="true"
-					>
-						<rect width="28" height="28" rx="6" fill="var(--color-action)" />
-						<path
-							d="M8 14h12M14 8v12"
-							stroke="var(--color-action-text)"
-							stroke-width="2.5"
-							stroke-linecap="round"
-						/>
-					</svg>
-					eustasy/.ui
-				</a>
+        <!-- Brand -->
+        <a class="stacked-brand" href="#">
+          <svg
+            class="stacked-brand-mark"
+            viewBox="0 0 28 28"
+            fill="none"
+            aria-hidden="true"
+          >
+            <rect width="28" height="28" rx="6" fill="var(--color-action)" />
+            <path
+              d="M8 14h12M14 8v12"
+              stroke="var(--color-action-text)"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          eustasy/.ui
+        </a>
 
-				<!-- Primary nav -->
-				<ul class="stacked-nav" id="stacked-nav" role="list">
-					<li><a href="#">Home</a></li>
-					<li><a href="#" aria-current="page">Inbox</a></li>
-					<li><a href="#">Reports</a></li>
-					<li><a href="#">Settings</a></li>
-				</ul>
+        <!-- Primary nav -->
+        <ul class="stacked-nav" id="stacked-nav" role="list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#" aria-current="page">Inbox</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
 
-				<!-- Actions -->
-				<div class="stacked-actions">
-					<!-- Search -->
-					<div
-						class="stacked-search"
-						role="button"
-						tabindex="0"
-						aria-label="Search"
-					>
-						<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-							<path
-								fill-rule="evenodd"
-								d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9z"
-								clip-rule="evenodd"
-							/>
-						</svg>
-						Search…
-						<kbd class="stacked-search-hint">⌘K</kbd>
-					</div>
+        <!-- Actions -->
+        <div class="stacked-actions">
+          <!-- Search -->
+          <div
+            class="stacked-search"
+            role="button"
+            tabindex="0"
+            aria-label="Search"
+          >
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path
+                fill-rule="evenodd"
+                d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Search…
+            <kbd class="stacked-search-hint">⌘K</kbd>
+          </div>
 
-					<!-- Notifications -->
-					<button
-						class="stacked-action-btn"
-						type="button"
-						aria-label="Notifications"
-					>
-						<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-							<path
-								fill-rule="evenodd"
-								d="M10 2a6 6 0 0 0-6 6v3.586l-.707.707A1 1 0 0 0 4 14h12a1 1 0 0 0 .707-1.707L16 11.586V8a6 6 0 0 0-6-6zm0 16a2 2 0 0 1-2-2h4a2 2 0 0 1-2 2z"
-								clip-rule="evenodd"
-							/>
-						</svg>
-					</button>
+          <!-- Notifications -->
+          <button
+            class="stacked-action-btn"
+            type="button"
+            aria-label="Notifications"
+          >
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path
+                fill-rule="evenodd"
+                d="M10 2a6 6 0 0 0-6 6v3.586l-.707.707A1 1 0 0 0 4 14h12a1 1 0 0 0 .707-1.707L16 11.586V8a6 6 0 0 0-6-6zm0 16a2 2 0 0 1-2-2h4a2 2 0 0 1-2 2z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
 
-					<!-- Theme toggle -->
-					<button
-						data-theme-toggle
-						aria-label="Toggle dark mode"
-						class="stacked-action-btn"
-					>
-						🌓
-					</button>
+          <!-- Theme toggle -->
+          <button
+            data-theme-toggle
+            aria-label="Toggle dark mode"
+            class="stacked-action-btn"
+          >
+            🌓
+          </button>
 
-					<!-- Avatar -->
-					<img
-						class="stacked-avatar"
-						src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' rx='16' fill='%235E409D'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3EAB%3C/text%3E%3C/svg%3E"
-						alt="Alex Blake"
-					/>
-				</div>
-			</header>
+          <!-- Avatar -->
+          <img
+            class="stacked-avatar"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' rx='16' fill='%235E409D'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3EAB%3C/text%3E%3C/svg%3E"
+            alt="Alex Blake"
+          />
+        </div>
+      </header>
 
-			<!-- ------------------------------------------------------------------ -->
-			<!-- Main content                                                         -->
-			<!-- ------------------------------------------------------------------ -->
-			<main class="stacked-main">
-				<div class="stacked-main-header">
-					<h1>Inbox</h1>
-				</div>
+      <!-- ------------------------------------------------------------------ -->
+      <!-- Main content                                                         -->
+      <!-- ------------------------------------------------------------------ -->
+      <main class="stacked-main">
+        <div class="stacked-main-header">
+          <h1>Inbox</h1>
+        </div>
 
-				<div
-					class="stacked-main-body"
-					style="padding-inline: var(--space-8); padding-block: var(--space-6)"
-				>
-					<article
-						style="
-							border: var(--border-width) solid var(--color-border);
-							border-radius: var(--radius-xl);
-							overflow: hidden;
-							box-shadow: var(--shadow-sm);
-						"
-					>
-						<ul class="inbox-list" role="list">
-							<li class="inbox-item is-unread">
-								<span class="inbox-unread-dot" aria-label="Unread"></span>
-								<img
-									class="inbox-avatar"
-									src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' rx='18' fill='%23D14D41'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3ESM%3C/text%3E%3C/svg%3E"
-									alt="Sara Miller"
-								/>
-								<div class="inbox-content">
-									<div class="inbox-meta">
-										<span class="inbox-sender">Sara Miller</span>
-										<span class="inbox-time">9:41 AM</span>
-									</div>
-									<p class="inbox-subject">
-										Q2 budget review — action required
-									</p>
-									<p class="inbox-preview">
-										Hi, can you take a look at the attached spreadsheet and
-										confirm the figures before end of day?
-									</p>
-								</div>
-							</li>
+        <div
+          class="stacked-main-body"
+          style="padding-inline: var(--space-8); padding-block: var(--space-6)"
+        >
+          <article
+            style="
+              border: var(--border-width) solid var(--color-border);
+              border-radius: var(--radius-xl);
+              overflow: hidden;
+              box-shadow: var(--shadow-sm);
+            "
+          >
+            <ul class="inbox-list" role="list">
+              <li class="inbox-item is-unread">
+                <span class="inbox-unread-dot" aria-label="Unread"></span>
+                <img
+                  class="inbox-avatar"
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' rx='18' fill='%23D14D41'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3ESM%3C/text%3E%3C/svg%3E"
+                  alt="Sara Miller"
+                />
+                <div class="inbox-content">
+                  <div class="inbox-meta">
+                    <span class="inbox-sender">Sara Miller</span>
+                    <span class="inbox-time">9:41 AM</span>
+                  </div>
+                  <p class="inbox-subject">
+                    Q2 budget review — action required
+                  </p>
+                  <p class="inbox-preview">
+                    Hi, can you take a look at the attached spreadsheet and
+                    confirm the figures before end of day?
+                  </p>
+                </div>
+              </li>
 
-							<li class="inbox-item is-unread">
-								<span class="inbox-unread-dot" aria-label="Unread"></span>
-								<img
-									class="inbox-avatar"
-									src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' rx='18' fill='%23205EA6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3EJK%3C/text%3E%3C/svg%3E"
-									alt="James Kim"
-								/>
-								<div class="inbox-content">
-									<div class="inbox-meta">
-										<span class="inbox-sender">James Kim</span>
-										<span class="inbox-time">Yesterday</span>
-									</div>
-									<p class="inbox-subject">Re: Design handoff for v3</p>
-									<p class="inbox-preview">
-										The Figma link is in the thread below. Let me know if you
-										need export tokens too.
-									</p>
-								</div>
-							</li>
+              <li class="inbox-item is-unread">
+                <span class="inbox-unread-dot" aria-label="Unread"></span>
+                <img
+                  class="inbox-avatar"
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' rx='18' fill='%23205EA6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3EJK%3C/text%3E%3C/svg%3E"
+                  alt="James Kim"
+                />
+                <div class="inbox-content">
+                  <div class="inbox-meta">
+                    <span class="inbox-sender">James Kim</span>
+                    <span class="inbox-time">Yesterday</span>
+                  </div>
+                  <p class="inbox-subject">Re: Design handoff for v3</p>
+                  <p class="inbox-preview">
+                    The Figma link is in the thread below. Let me know if you
+                    need export tokens too.
+                  </p>
+                </div>
+              </li>
 
-							<li class="inbox-item">
-								<span style="width: 0.5rem; flex-shrink: 0"></span>
-								<img
-									class="inbox-avatar"
-									src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' rx='18' fill='%2366800B'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3EPR%3C/text%3E%3C/svg%3E"
-									alt="Priya Rao"
-								/>
-								<div class="inbox-content">
-									<div class="inbox-meta">
-										<span class="inbox-sender">Priya Rao</span>
-										<span class="inbox-time">Mon</span>
-									</div>
-									<p class="inbox-subject">Team offsite — dates confirmed</p>
-									<p class="inbox-preview">
-										We've booked the venue for 14–16 June. Calendar invites
-										going out now.
-									</p>
-								</div>
-							</li>
+              <li class="inbox-item">
+                <span style="width: 0.5rem; flex-shrink: 0"></span>
+                <img
+                  class="inbox-avatar"
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' rx='18' fill='%2366800B'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3EPR%3C/text%3E%3C/svg%3E"
+                  alt="Priya Rao"
+                />
+                <div class="inbox-content">
+                  <div class="inbox-meta">
+                    <span class="inbox-sender">Priya Rao</span>
+                    <span class="inbox-time">Mon</span>
+                  </div>
+                  <p class="inbox-subject">Team offsite — dates confirmed</p>
+                  <p class="inbox-preview">
+                    We've booked the venue for 14–16 June. Calendar invites
+                    going out now.
+                  </p>
+                </div>
+              </li>
 
-							<li class="inbox-item">
-								<span style="width: 0.5rem; flex-shrink: 0"></span>
-								<img
-									class="inbox-avatar"
-									src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' rx='18' fill='%23BC5215'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3ETO%3C/text%3E%3C/svg%3E"
-									alt="Tom Okafor"
-								/>
-								<div class="inbox-content">
-									<div class="inbox-meta">
-										<span class="inbox-sender">Tom Okafor</span>
-										<span class="inbox-time">Sun</span>
-									</div>
-									<p class="inbox-subject">
-										API rate limits — monitoring report
-									</p>
-									<p class="inbox-preview">
-										Attaching last week's rate-limit hit summary. No customer
-										impact observed.
-									</p>
-								</div>
-							</li>
+              <li class="inbox-item">
+                <span style="width: 0.5rem; flex-shrink: 0"></span>
+                <img
+                  class="inbox-avatar"
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' rx='18' fill='%23BC5215'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3ETO%3C/text%3E%3C/svg%3E"
+                  alt="Tom Okafor"
+                />
+                <div class="inbox-content">
+                  <div class="inbox-meta">
+                    <span class="inbox-sender">Tom Okafor</span>
+                    <span class="inbox-time">Sun</span>
+                  </div>
+                  <p class="inbox-subject">
+                    API rate limits — monitoring report
+                  </p>
+                  <p class="inbox-preview">
+                    Attaching last week's rate-limit hit summary. No customer
+                    impact observed.
+                  </p>
+                </div>
+              </li>
 
-							<li class="inbox-item">
-								<span style="width: 0.5rem; flex-shrink: 0"></span>
-								<img
-									class="inbox-avatar"
-									src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' rx='18' fill='%231C6C66'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3ELW%3C/text%3E%3C/svg%3E"
-									alt="Lin Wei"
-								/>
-								<div class="inbox-content">
-									<div class="inbox-meta">
-										<span class="inbox-sender">Lin Wei</span>
-										<span class="inbox-time">Fri</span>
-									</div>
-									<p class="inbox-subject">Welcome to the team!</p>
-									<p class="inbox-preview">
-										So excited to be joining next week. Is there anything I
-										should read before my first day?
-									</p>
-								</div>
-							</li>
-						</ul>
-					</article>
-				</div>
-				<!-- /.stacked-main-body -->
-			</main>
-		</div>
-		<!-- /.layout-stacked -->
+              <li class="inbox-item">
+                <span style="width: 0.5rem; flex-shrink: 0"></span>
+                <img
+                  class="inbox-avatar"
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' rx='18' fill='%231C6C66'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3ELW%3C/text%3E%3C/svg%3E"
+                  alt="Lin Wei"
+                />
+                <div class="inbox-content">
+                  <div class="inbox-meta">
+                    <span class="inbox-sender">Lin Wei</span>
+                    <span class="inbox-time">Fri</span>
+                  </div>
+                  <p class="inbox-subject">Welcome to the team!</p>
+                  <p class="inbox-preview">
+                    So excited to be joining next week. Is there anything I
+                    should read before my first day?
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+        <!-- /.stacked-main-body -->
+      </main>
+    </div>
+    <!-- /.layout-stacked -->
 
-		<script>
-			// Nav toggle (mobile)
-			const toggle = document.getElementById("stacked-toggle");
-			const nav = document.getElementById("stacked-nav");
+    <script>
+      // Nav toggle (mobile)
+      const toggle = document.getElementById("stacked-toggle")
+      const nav = document.getElementById("stacked-nav")
 
-			toggle.addEventListener("click", () => {
-				const open = nav.classList.toggle("is-open");
-				toggle.setAttribute("aria-expanded", String(open));
-			});
+      toggle.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open")
+        toggle.setAttribute("aria-expanded", String(open))
+      })
 
-			document.addEventListener("keydown", (e) => {
-				if (e.key === "Escape") {
-					nav.classList.remove("is-open");
-					toggle.setAttribute("aria-expanded", "false");
-				}
-			});
-		</script>
-	</body>
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          nav.classList.remove("is-open")
+          toggle.setAttribute("aria-expanded", "false")
+        }
+      })
+    </script>
+  </body>
 </html>
