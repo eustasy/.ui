@@ -160,7 +160,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     // Init: activate first selected option (or first enabled option)
-    const initSelected = listbox.querySelector("[role='option'][aria-selected='true']")
+    const initSelected = listbox.querySelector(
+      "[role='option'][aria-selected='true']"
+    )
     const initOpt = initSelected || enabledOpts()[0]
     if (initOpt) {
       setActive(initOpt)
