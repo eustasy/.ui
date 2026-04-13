@@ -13,5 +13,4 @@ document.addEventListener("DOMContentLoaded", () => {
       this.setAttribute("aria-expanded", open)
     })
   }
-
 })
