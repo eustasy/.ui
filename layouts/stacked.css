@@ -139,6 +139,7 @@
 .stacked-nav .nav-indicator {
   position: absolute;
   inset-block-end: 0;
+  inset-inline-start: 0;
   height: 2px;
   background-color: var(--color-action);
   pointer-events: none;

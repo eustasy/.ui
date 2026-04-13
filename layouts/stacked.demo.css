@@ -26,7 +26,7 @@ body {
   background-color: var(--color-bg-secondary);
 }
 .inbox-item.is-unread {
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-bg-tertiary);
 }
 .inbox-avatar {
   width: 2.25rem;

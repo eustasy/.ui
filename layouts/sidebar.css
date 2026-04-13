@@ -141,6 +141,7 @@
 /* Animated sliding indicator (nav-indicator.js) */
 .sidebar-nav .nav-indicator {
   position: absolute;
+  inset-block-start: 0;
   inset-inline-start: 0;
   width: 2px;
   background-color: var(--color-action);
