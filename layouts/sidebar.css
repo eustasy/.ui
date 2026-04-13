@@ -89,6 +89,7 @@
   flex-direction: column;
   gap: var(--space-0-5);
   flex: 1;
+  position: relative; /* anchor for .nav-indicator */
 }
 
 .sidebar-nav a {
@@ -129,6 +130,32 @@
   width: 2px;
   background-color: var(--color-action);
   border-radius: var(--radius-full);
+}
+
+/* nav-indicator.js is active — use the animated span instead */
+.sidebar-nav.has-nav-indicator a[aria-current="page"]::before,
+.sidebar-nav.has-nav-indicator a.is-active::before {
+  display: none;
+}
+
+/* Animated sliding indicator (nav-indicator.js) */
+.sidebar-nav .nav-indicator {
+  position: absolute;
+  inset-inline-start: 0;
+  width: 2px;
+  background-color: var(--color-action);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sidebar-nav .nav-indicator {
+    transition:
+      transform var(--duration-normal) cubic-bezier(0.34, 1.56, 0.64, 1),
+      height var(--duration-normal) cubic-bezier(0.34, 1.56, 0.64, 1),
+      opacity var(--duration-fast) var(--easing);
+  }
 }
 
 .sidebar-nav-icon {

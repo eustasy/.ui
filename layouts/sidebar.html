@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="sidebar.demo.css" />
     <link rel="stylesheet" href="sidebar.css" />
     <script src="../js/theme-toggle.js"></script>
+    <script src="../layouts/nav-indicator.js"></script>
   </head>
   <body>
     <!-- =====================================================================
@@ -39,7 +40,11 @@
 
         <!-- Primary nav -->
         <nav style="flex: 1; overflow-y: auto">
-          <ul class="sidebar-nav" style="flex: initial">
+          <ul
+            class="sidebar-nav"
+            style="flex: initial"
+            data-nav-indicator="vertical"
+          >
             <li>
               <a href="#" aria-current="page">
                 <svg
@@ -116,6 +121,7 @@
             <ul
               class="sidebar-nav"
               style="flex: initial; padding-block-start: 0"
+              data-nav-indicator="vertical"
             >
               <li>
                 <a href="#">

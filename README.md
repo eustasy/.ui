@@ -85,6 +85,7 @@ js/
   user-menu.js                ← user menu open/close behaviour
 layouts/
   auth.html / auth.css        ← centred authentication layout
+  nav-indicator.js            ← animated sliding tab for sidebar/stacked navs
   sidebar.html / sidebar.css  ← sidebar + main content layout (all sidebar classes)
   stacked.html / stacked.css  ← stacked (app shell) layout
 tests/
