@@ -80,6 +80,7 @@ js/
   dialog.js                   ← open/close native <dialog> via data attributes
   dropdown.js                 ← toggle .dropdown menus; click-outside + Escape
   listbox.js                  ← single and multi-select keyboard nav + live region
+  textarea.js                 ← character count for .textarea-field[maxlength]
   theme-toggle.js             ← dark/light toggle with localStorage persistence
   user-menu.js                ← user menu open/close behaviour
 layouts/

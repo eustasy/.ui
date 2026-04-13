@@ -14,12 +14,4 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  // Textarea character count
-  const bioTextarea = document.getElementById("ta-bio")
-  const bioCount = document.getElementById("ta-bio-count")
-  if (bioTextarea && bioCount) {
-    bioTextarea.addEventListener("input", function () {
-      bioCount.textContent = this.value.length + " / " + this.maxLength
-    })
-  }
 })
