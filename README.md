@@ -69,7 +69,6 @@ components/
   pagination.css              ← page navigation controls
   radio.css                   ← radio button group
   select.css                  ← native and custom select
-  sidebar.css                 ← collapsible sidebar component
   switch.css                  ← toggle switch (checkbox variant)
   table.css                   ← striped, bordered, and compact variants
   text.css                    ← inline text elements
@@ -85,7 +84,7 @@ js/
   user-menu.js                ← user menu open/close behaviour
 layouts/
   auth.html / auth.css        ← centred authentication layout
-  sidebar.html / sidebar.css  ← sidebar + main content layout
+  sidebar.html / sidebar.css  ← sidebar + main content layout (all sidebar classes)
   stacked.html / stacked.css  ← stacked (app shell) layout
 tests/
   elements.html               ← living reference of all styled HTML elements

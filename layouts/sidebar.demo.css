@@ -1,12 +1,7 @@
-body {
-  margin: 0;
-}
-
 /* Placeholder content blocks */
 .demo-block {
   border-radius: var(--radius-xl);
   background-color: var(--color-bg-secondary);
-  border: var(--border-width) solid var(--color-border);
 }
 .demo-grid {
   display: grid;
@@ -61,7 +56,6 @@ body {
   align-items: center;
   gap: var(--space-4);
   padding: var(--space-3) var(--space-4);
-  border-block-end: var(--border-width) solid var(--color-border);
   font-size: var(--font-size-sm);
 }
 .demo-table-row:last-child {
