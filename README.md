@@ -13,7 +13,7 @@ Open, accessible, themable web components — vanilla HTML, CSS, and minimal Jav
 
 ```html
 <!-- Option A: Link the built single-file (recommended) -->
-<link rel="stylesheet" href="dist/ui.css" />
+<link rel="stylesheet" href="dist/ui.min.css" />
 
 <!-- Option B: Link the source entry (uses @import, fine for dev) -->
 <link rel="stylesheet" href="assets/main.css" />
@@ -32,7 +32,7 @@ Lightning CSS is the sole build dependency — it bundles `@import`s, applies CS
 
 ```bash
 npm install
-npm run build    # → dist/ui.css (bundled + minified)
+npm run build    # → dist/ui.min.css (bundled + minified)
 npm run dev      # → watch mode
 ```
 
@@ -90,7 +90,7 @@ tests/
   elements.html               ← living reference of all styled HTML elements
   components.html             ← preview of all components
 dist/
-  ui.css                      ← built output (gitignored)
+  ui.min.css                      ← built output (gitignored)
 ```
 
 ## Theming

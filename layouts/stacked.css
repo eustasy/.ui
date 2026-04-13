@@ -48,8 +48,7 @@
   gap: var(--space-3);
   padding: 0 var(--space-6);
   height: 3.5rem;
-  background-color: var(--color-bg);
-  border-block-end: var(--border-width) solid var(--color-border);
+  background-color: transparent;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -100,6 +99,8 @@
   text-decoration: none;
   border-radius: var(--radius-lg);
   white-space: nowrap;
+  align-self: stretch;
+  position: relative;
   transition:
     background-color var(--duration-fast) var(--easing),
     color var(--duration-fast) var(--easing);
@@ -112,8 +113,19 @@
 
 .stacked-nav a[aria-current="page"],
 .stacked-nav a.is-active {
-  background-color: var(--color-bg-secondary);
+  background-color: transparent;
   color: var(--color-text);
+  font-weight: var(--font-weight-bold);
+}
+
+.stacked-nav a[aria-current="page"]::after,
+.stacked-nav a.is-active::after {
+  content: "";
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline: var(--space-3);
+  height: 2px;
+  background-color: var(--color-action);
 }
 
 .stacked-nav-icon {
@@ -263,11 +275,14 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-2xl);
+  margin: 0 var(--space-3) var(--space-3);
+  overflow: hidden;
 }
 
 .stacked-main-header {
   padding: var(--space-6) var(--space-8);
-  border-block-end: var(--border-width) solid var(--color-border);
 }
 
 .stacked-main-header h1,
@@ -289,6 +304,7 @@
     padding: 0 var(--space-4);
     gap: var(--space-2);
     position: relative;
+    background-color: var(--color-bg);
   }
 
   .stacked-nav {
@@ -298,7 +314,6 @@
     top: 100%;
     inset-inline: 0;
     background-color: var(--color-bg);
-    border-block-end: var(--border-width) solid var(--color-border);
     padding: var(--space-2) var(--space-3);
     box-shadow: var(--shadow-md);
     z-index: 9;
@@ -311,6 +326,9 @@
   .stacked-nav a {
     width: 100%;
     padding: var(--space-2) var(--space-3);
+    align-self: auto;
+    border-block-end: none;
+    border-radius: var(--radius-lg);
   }
 
   .stacked-toggle {
@@ -327,5 +345,10 @@
 
   .stacked-main-body {
     padding: var(--space-5);
+  }
+
+  .stacked-main {
+    margin: 0;
+    border-radius: 0;
   }
 }

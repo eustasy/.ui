@@ -8,8 +8,8 @@
     "url": "https://github.com/eustasy/.ui.git"
   },
   "scripts": {
-    "build": "lightningcss --minify --bundle --targets '>= 0.25%' assets/main.css -o dist/ui.css",
-    "dev": "lightningcss --bundle --targets '>= 0.25%' assets/main.css -o dist/ui.css --watch",
+    "build": "lightningcss --minify --bundle --targets '>= 0.25%' assets/main.css -o dist/ui.min.css",
+    "dev": "lightningcss --bundle --targets '>= 0.25%' assets/main.css -o dist/ui.min.css --watch",
     "clean": "rm -rf dist"
   },
   "devDependencies": {
