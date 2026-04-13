@@ -1,7 +1,7 @@
 /* Placeholder content blocks */
 .demo-block {
   border-radius: var(--radius-xl);
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-bg-tertiary);
 }
 .demo-grid {
   display: grid;
@@ -36,7 +36,7 @@
 }
 .demo-stat-label {
   font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  color: var(--color-text-tertiary);
   margin: 0 0 var(--space-3);
 }
 .demo-stat-trend {
@@ -45,7 +45,7 @@
   gap: var(--space-1);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
-  color: var(--stat-accent, var(--color-text-secondary));
+  color: var(--stat-accent, var(--color-text-tertiary));
 }
 .demo-stat-trend svg {
   width: 0.875rem;

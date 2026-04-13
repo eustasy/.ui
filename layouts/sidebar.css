@@ -38,7 +38,7 @@
 .layout-sidebar {
   display: flex;
   min-height: 100vh;
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-bg);
 }
 
 /* --------------------------------------------------------------------------
@@ -238,7 +238,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-secondary);
   border-radius: var(--radius-2xl);
   margin: var(--space-3) var(--space-3) var(--space-3) 0;
   overflow: hidden;
@@ -299,7 +299,7 @@
     inset-block: 0;
     inset-inline-start: 0;
     z-index: 50;
-    background-color: var(--color-bg-secondary);
+    background-color: var(--color-bg);
     transform: translateX(-100%);
     transition: transform var(--duration-normal) var(--easing);
   }
