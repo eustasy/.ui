@@ -2,7 +2,7 @@
  * Alert dismiss — hides the parent .alert when .alert-dismiss is clicked.
  *
  * Usage:
- *   <script src="js/alert.js"></script>
+ *   <script src="js/alert-ext-dismiss.js"></script>
  *   <!-- Inside your alert: -->
  *   <button class="alert-dismiss" aria-label="Dismiss">✕</button>
  */

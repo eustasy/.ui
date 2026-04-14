@@ -3,7 +3,7 @@
  * and maxlength of any .textarea-field[maxlength] within a .textarea-group.
  *
  * Usage:
- *   <script src="js/textarea.js"></script>
+ *   <script src="js/textarea-ext-count.js"></script>
  *
  *   <div class="textarea-group">
  *     <label class="textarea-label" for="bio">Bio</label>

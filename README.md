@@ -22,7 +22,7 @@ Open, accessible, themable web components — vanilla HTML, CSS, and minimal Jav
 For dark/light mode toggling, add the script and a toggle button:
 
 ```html
-<script src="js/theme-toggle.js"></script>
+<script src="js/theme-ext-toggle.js"></script>
 <button data-theme-toggle aria-label="Toggle dark mode">🌓</button>
 ```
 
@@ -75,13 +75,15 @@ components/
   textarea.css                ← auto-resizing textarea
   user-menu.css               ← avatar dropdown for user account actions
 js/
-  alert.js                    ← dismiss .alert on .alert-dismiss click
+  alert-ext-dismiss.js        ← dismiss .alert on .alert-dismiss click
+  checkbox-ext-select-all.js  ← select-all with indeterminate state
   combobox.js                 ← filter, keyboard nav, aria-activedescendant
   dialog.js                   ← open/close native <dialog> via data attributes
   dropdown.js                 ← toggle .dropdown menus; click-outside + Escape
+  input-ext-search.js         ← expand-on-focus search with / shortcut
   listbox.js                  ← single and multi-select keyboard nav + live region
-  textarea.js                 ← character count for .textarea-field[maxlength]
-  theme-toggle.js             ← dark/light toggle with localStorage persistence
+  textarea-ext-count.js       ← character count for .textarea-field[maxlength]
+  theme-ext-toggle.js         ← dark/light toggle with localStorage persistence
   user-menu.js                ← user menu open/close behaviour
 layouts/
   auth.html / auth.css        ← centred authentication layout

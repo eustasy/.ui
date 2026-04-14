@@ -3,7 +3,7 @@
  * Inline this script in <head> to prevent FOUC (flash of unstyled content).
  *
  * Usage:
- *   <script src="js/theme-toggle.js"></script>
+ *   <script src="js/theme-ext-toggle.js"></script>
  *   <button data-theme-toggle aria-label="Toggle dark mode">🌓</button>
  */
 ;(function () {
