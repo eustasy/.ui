@@ -69,6 +69,24 @@
   inset-inline-end: 0;
 }
 
+/* Open upward — place above the trigger */
+.dropdown-menu-up {
+  inset-block-start: auto;
+  inset-block-end: calc(100% + var(--space-1));
+  animation-name: dropdown-enter-up;
+}
+
+@keyframes dropdown-enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Menu item — works for <a> and <button> */
 .dropdown-item {
   display: flex;

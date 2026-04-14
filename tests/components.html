@@ -450,6 +450,7 @@
     <section id="combobox" aria-labelledby="combobox-heading">
       <h2 id="combobox-heading">Combobox</h2>
 
+      <h3>Basic</h3>
       <div style="max-width: var(--width-input)">
         <label class="input-label" for="cb-input">Search framework</label>
         <div class="combobox">
@@ -490,6 +491,228 @@
             </li>
           </ul>
         </div>
+      </div>
+
+      <h3>People</h3>
+      <div style="max-width: var(--width-input)">
+        <label class="input-label" for="cb-people">Assign to</label>
+        <div class="combobox">
+          <input
+            id="cb-people"
+            type="text"
+            role="combobox"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-controls="cb-people-popup"
+            aria-autocomplete="list"
+            autocomplete="off"
+            placeholder="Search people…"
+          />
+          <ul
+            class="combobox-listbox"
+            id="cb-people-popup"
+            role="listbox"
+            aria-label="People"
+            hidden
+          >
+            <li
+              class="combobox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="Alice Zhang"
+            >
+              <span class="combobox-option-body">
+                <span class="avatar avatar-sm" aria-hidden="true">AZ</span>
+                <span>
+                  <span class="combobox-option-label">Alice Zhang</span>
+                  <span class="combobox-option-meta">Product Designer</span>
+                </span>
+              </span>
+            </li>
+            <li
+              class="combobox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="Ben Okafor"
+            >
+              <span class="combobox-option-body">
+                <span class="avatar avatar-sm" aria-hidden="true">BO</span>
+                <span>
+                  <span class="combobox-option-label">Ben Okafor</span>
+                  <span class="combobox-option-meta">Engineering Lead</span>
+                </span>
+              </span>
+            </li>
+            <li
+              class="combobox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="Clara Morin"
+            >
+              <span class="combobox-option-body">
+                <span class="avatar avatar-sm" aria-hidden="true">CM</span>
+                <span>
+                  <span class="combobox-option-label">Clara Morin</span>
+                  <span class="combobox-option-meta">Product Manager</span>
+                </span>
+              </span>
+            </li>
+            <li
+              class="combobox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="David Lim"
+            >
+              <span class="combobox-option-body">
+                <span class="avatar avatar-sm" aria-hidden="true">DL</span>
+                <span>
+                  <span class="combobox-option-label">David Lim</span>
+                  <span class="combobox-option-meta">QA Engineer</span>
+                </span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Countries</h3>
+      <div style="max-width: var(--width-input)">
+        <label class="input-label" for="cb-country">Country</label>
+        <div class="combobox">
+          <input
+            id="cb-country"
+            type="text"
+            role="combobox"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-controls="cb-country-popup"
+            aria-autocomplete="list"
+            autocomplete="off"
+            placeholder="Search countries…"
+          />
+          <ul
+            class="combobox-listbox"
+            id="cb-country-popup"
+            role="listbox"
+            aria-label="Countries"
+            hidden
+          >
+            <li
+              class="combobox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="Germany"
+            >
+              <span class="combobox-option-body">
+                <span aria-hidden="true">🇩🇪</span> Germany
+              </span>
+            </li>
+            <li
+              class="combobox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="France"
+            >
+              <span class="combobox-option-body">
+                <span aria-hidden="true">🇫🇷</span> France
+              </span>
+            </li>
+            <li
+              class="combobox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="Japan"
+            >
+              <span class="combobox-option-body">
+                <span aria-hidden="true">🇯🇵</span> Japan
+              </span>
+            </li>
+            <li
+              class="combobox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="Nigeria"
+            >
+              <span class="combobox-option-body">
+                <span aria-hidden="true">🇳🇬</span> Nigeria
+              </span>
+            </li>
+            <li
+              class="combobox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="Brazil"
+            >
+              <span class="combobox-option-body">
+                <span aria-hidden="true">🇧🇷</span> Brazil
+              </span>
+            </li>
+            <li
+              class="combobox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="United Kingdom"
+            >
+              <span class="combobox-option-body">
+                <span aria-hidden="true">🇬🇧</span> United Kingdom
+              </span>
+            </li>
+            <li
+              class="combobox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="United States"
+            >
+              <span class="combobox-option-body">
+                <span aria-hidden="true">🇺🇸</span> United States
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Error state</h3>
+      <div class="combobox-error" style="max-width: var(--width-input)">
+        <label class="input-label" for="cb-required">Team</label>
+        <div class="combobox">
+          <input
+            id="cb-required"
+            type="text"
+            role="combobox"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-controls="cb-required-popup"
+            aria-autocomplete="list"
+            aria-required="true"
+            aria-invalid="true"
+            aria-describedby="cb-required-err"
+            autocomplete="off"
+            placeholder="Select a team…"
+          />
+          <ul
+            class="combobox-listbox"
+            id="cb-required-popup"
+            role="listbox"
+            aria-label="Teams"
+            hidden
+          >
+            <li class="combobox-option" role="option" aria-selected="false">
+              Design
+            </li>
+            <li class="combobox-option" role="option" aria-selected="false">
+              Engineering
+            </li>
+            <li class="combobox-option" role="option" aria-selected="false">
+              Marketing
+            </li>
+            <li class="combobox-option" role="option" aria-selected="false">
+              Product
+            </li>
+          </ul>
+        </div>
+        <p id="cb-required-err" class="combobox-message" role="alert">
+          A team is required.
+        </p>
       </div>
     </section>
 
@@ -543,6 +766,12 @@
         <button class="btn btn-secondary" data-dialog-open="demo-dialog-sm">
           Small dialog
         </button>
+        <button class="btn btn-secondary" data-dialog-open="demo-dialog-terms">
+          Terms &amp; conditions
+        </button>
+        <button class="btn btn-secondary" data-dialog-open="demo-dialog-form">
+          Add name (autofocus)
+        </button>
       </div>
 
       <!-- Default dialog -->
@@ -589,6 +818,110 @@
           </footer>
         </div>
       </dialog>
+
+      <!-- Scrollable long-content dialog -->
+      <dialog
+        class="dialog"
+        id="demo-dialog-terms"
+        aria-labelledby="demo-dialog-terms-title"
+        aria-describedby="demo-dialog-terms-body"
+      >
+        <div class="dialog-panel">
+          <header class="dialog-header">
+            <h2 class="dialog-title" id="demo-dialog-terms-title">
+              Terms &amp; Conditions
+            </h2>
+            <button class="dialog-close" aria-label="Close dialog">✕</button>
+          </header>
+          <div class="dialog-body" id="demo-dialog-terms-body">
+            <p>Please read these terms carefully before using the service.</p>
+            <h3>1. Acceptance</h3>
+            <p>
+              By accessing or using the service you agree to be bound by these
+              Terms. If you disagree with any part of the terms you may not
+              access the service.
+            </p>
+            <h3>2. Use of the service</h3>
+            <p>
+              You may use the service only for lawful purposes and in accordance
+              with these Terms. You agree not to use the service in any way that
+              violates any applicable national or international law or
+              regulation.
+            </p>
+            <h3>3. Intellectual property</h3>
+            <p>
+              The service and its original content, features, and functionality
+              are and will remain the exclusive property of eustasy and its
+              licensors. The service is protected by copyright, trademark, and
+              other laws of both the United Kingdom and foreign countries.
+            </p>
+            <h3>4. Privacy</h3>
+            <p>
+              Your use of the service is also governed by our Privacy Policy,
+              which is incorporated herein by reference. Please review our
+              Privacy Policy so that you may understand our practices.
+            </p>
+            <h3>5. Termination</h3>
+            <p>
+              We may terminate or suspend access to the service immediately,
+              without prior notice or liability, for any reason whatsoever,
+              including without limitation if you breach the Terms.
+            </p>
+            <h3>6. Limitation of liability</h3>
+            <p>
+              In no event shall eustasy, its directors, employees, partners,
+              agents, suppliers, or affiliates, be liable for any indirect,
+              incidental, special, consequential or punitive damages, including
+              without limitation loss of profits, data, use, goodwill, or other
+              intangible losses.
+            </p>
+            <h3>7. Changes</h3>
+            <p>
+              We reserve the right, at our sole discretion, to modify or replace
+              these Terms at any time. What constitutes a material change will
+              be determined at our sole discretion. By continuing to access or
+              use the service after those revisions become effective, you agree
+              to be bound by the revised terms.
+            </p>
+            <h3>8. Contact</h3>
+            <p>
+              If you have any questions about these Terms, please contact us.
+            </p>
+          </div>
+          <footer class="dialog-footer">
+            <button class="btn btn-secondary" data-dialog-close>Decline</button>
+            <button class="btn btn-primary" data-dialog-close>Accept</button>
+          </footer>
+        </div>
+      </dialog>
+
+      <!-- Autofocus input dialog -->
+      <dialog
+        class="dialog dialog-sm"
+        id="demo-dialog-form"
+        aria-labelledby="demo-dialog-form-title"
+      >
+        <div class="dialog-panel">
+          <header class="dialog-header">
+            <h2 class="dialog-title" id="demo-dialog-form-title">Add name</h2>
+            <button class="dialog-close" aria-label="Close dialog">✕</button>
+          </header>
+          <div class="dialog-body">
+            <label class="input-label" for="dialog-name-input">Full name</label>
+            <input
+              id="dialog-name-input"
+              type="text"
+              placeholder="e.g. Alice Zhang"
+              autocomplete="name"
+              autofocus
+            />
+          </div>
+          <footer class="dialog-footer">
+            <button class="btn btn-secondary" data-dialog-close>Cancel</button>
+            <button class="btn btn-primary" data-dialog-close>Save</button>
+          </footer>
+        </div>
+      </dialog>
     </section>
 
     <!-- ================================================================== -->
@@ -626,15 +959,16 @@
     <section id="dropdown" aria-labelledby="dropdown-heading">
       <h2 id="dropdown-heading">Dropdown</h2>
 
+      <h3>Default</h3>
       <div class="demo-row">
         <div class="dropdown">
           <button
-            class="btn btn-secondary"
+            class="btn btn-primary"
             aria-haspopup="menu"
             aria-expanded="false"
             aria-controls="dd-menu"
           >
-            Options ▾
+            Options &#9662;
           </button>
           <ul class="dropdown-menu" id="dd-menu" role="menu" hidden>
             <li role="none">
@@ -661,12 +995,12 @@
 
         <div class="dropdown">
           <button
-            class="btn btn-secondary"
+            class="btn btn-outline"
             aria-haspopup="menu"
             aria-expanded="false"
             aria-controls="dd-menu-end"
           >
-            Align end ▾
+            Align end &#9662;
           </button>
           <ul
             class="dropdown-menu dropdown-menu-end"
@@ -680,6 +1014,79 @@
             <li role="none">
               <a class="dropdown-item" href="#" role="menuitem">Settings</a>
             </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>With sections</h3>
+      <div class="demo-row">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="dd-sections"
+          >
+            Account &#9662;
+          </button>
+          <ul class="dropdown-menu" id="dd-sections" role="menu" hidden>
+            <li class="dropdown-label" role="none">
+              Signed in as alice@example.com
+            </li>
+            <li class="dropdown-divider" role="none" aria-hidden="true"></li>
+            <li class="dropdown-label" role="none">Account</li>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">Profile</a>
+            </li>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">Settings</a>
+            </li>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">Billing</a>
+            </li>
+            <li class="dropdown-divider" role="none" aria-hidden="true"></li>
+            <li class="dropdown-label" role="none">Team</li>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem"
+                >Invite members</a
+              >
+            </li>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem"
+                >Team settings</a
+              >
+            </li>
+            <li class="dropdown-divider" role="none" aria-hidden="true"></li>
+            <li role="none">
+              <button
+                class="dropdown-item dropdown-item-danger"
+                role="menuitem"
+              >
+                Sign out
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Disabled items</h3>
+      <div class="demo-row">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="dd-disabled"
+          >
+            Plan &#9662;
+          </button>
+          <ul class="dropdown-menu" id="dd-disabled" role="menu" hidden>
+            <li role="none">
+              <button class="dropdown-item" role="menuitem">Free</button>
+            </li>
+            <li role="none">
+              <button class="dropdown-item" role="menuitem">Pro</button>
+            </li>
             <li role="none">
               <button
                 class="dropdown-item"
@@ -687,8 +1094,188 @@
                 disabled
                 aria-disabled="true"
               >
-                Billing (unavailable)
+                Enterprise (contact sales)
               </button>
+            </li>
+            <li role="none">
+              <button
+                class="dropdown-item"
+                role="menuitem"
+                disabled
+                aria-disabled="true"
+              >
+                Custom (unavailable)
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>With icons</h3>
+      <div class="demo-row">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="dd-icons"
+          >
+            Actions &#9662;
+          </button>
+          <ul class="dropdown-menu" id="dd-icons" role="menu" hidden>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                  />
+                  <path
+                    d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                  />
+                </svg>
+                Edit
+              </a>
+            </li>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path
+                    d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                  />
+                </svg>
+                Duplicate
+              </a>
+            </li>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="8 17 12 21 16 17" />
+                  <line x1="12" y1="12" x2="12" y2="21" />
+                  <path
+                    d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"
+                  />
+                </svg>
+                Export
+              </a>
+            </li>
+            <li class="dropdown-divider" role="none" aria-hidden="true"></li>
+            <li role="none">
+              <button
+                class="dropdown-item dropdown-item-danger"
+                role="menuitem"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="3 6 5 6 21 6" />
+                  <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+                  <path d="M10 11v6M14 11v6" />
+                  <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+                </svg>
+                Delete
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Opens upward</h3>
+      <div class="demo-row" style="padding-block-start: 12rem">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="dd-up"
+          >
+            Opens up &#9652;
+          </button>
+          <ul
+            class="dropdown-menu dropdown-menu-up"
+            id="dd-up"
+            role="menu"
+            hidden
+          >
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">Edit</a>
+            </li>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">Duplicate</a>
+            </li>
+            <li class="dropdown-divider" role="none" aria-hidden="true"></li>
+            <li role="none">
+              <button
+                class="dropdown-item dropdown-item-danger"
+                role="menuitem"
+              >
+                Delete
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="dd-up-end"
+          >
+            Up + end &#9652;
+          </button>
+          <ul
+            class="dropdown-menu dropdown-menu-up dropdown-menu-end"
+            id="dd-up-end"
+            role="menu"
+            hidden
+          >
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">Profile</a>
+            </li>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">Settings</a>
+            </li>
+            <li role="none">
+              <a class="dropdown-item" href="#" role="menuitem">Sign out</a>
             </li>
           </ul>
         </div>
@@ -734,6 +1321,118 @@
             id="fs-fname"
             autocomplete="given-name"
           />
+        </div>
+      </fieldset>
+
+      <h3>Inline labels</h3>
+      <fieldset class="fieldset fieldset-inline">
+        <legend class="fieldset-legend">Account settings</legend>
+        <div class="input-group">
+          <label class="input-label" for="fs-il-name">Display name</label>
+          <input
+            class="input-field"
+            type="text"
+            id="fs-il-name"
+            autocomplete="nickname"
+            placeholder="e.g. Alice"
+          />
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="fs-il-email">Email address</label>
+          <input
+            class="input-field"
+            type="email"
+            id="fs-il-email"
+            autocomplete="email"
+            placeholder="name@example.com"
+          />
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="fs-il-bio">Bio</label>
+          <input
+            class="input-field"
+            type="text"
+            id="fs-il-bio"
+            placeholder="A short description"
+            aria-describedby="fs-il-bio-hint"
+          />
+          <p class="input-hint" id="fs-il-bio-hint">
+            Shown on your public profile.
+          </p>
+        </div>
+      </fieldset>
+
+      <h3>Grid layout</h3>
+      <fieldset class="fieldset fieldset-grid">
+        <legend class="fieldset-legend">Billing address</legend>
+        <p class="fieldset-hint">All fields are required.</p>
+        <div class="input-group col-span-2">
+          <label class="input-label" for="fs-g-name">Full name</label>
+          <input
+            class="input-field"
+            type="text"
+            id="fs-g-name"
+            autocomplete="name"
+          />
+        </div>
+        <div class="input-group col-span-2">
+          <label class="input-label" for="fs-g-line1">Address line 1</label>
+          <input
+            class="input-field"
+            type="text"
+            id="fs-g-line1"
+            autocomplete="address-line1"
+          />
+        </div>
+        <div class="input-group col-span-2">
+          <label class="input-label" for="fs-g-line2"
+            >Address line 2
+            <span
+              style="
+                font-weight: var(--font-weight-normal);
+                color: var(--color-text-secondary);
+              "
+              >(optional)</span
+            ></label
+          >
+          <input
+            class="input-field"
+            type="text"
+            id="fs-g-line2"
+            autocomplete="address-line2"
+          />
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="fs-g-city">City</label>
+          <input
+            class="input-field"
+            type="text"
+            id="fs-g-city"
+            autocomplete="address-level2"
+          />
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="fs-g-post">Postcode</label>
+          <input
+            class="input-field"
+            type="text"
+            id="fs-g-post"
+            autocomplete="postal-code"
+          />
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="fs-g-country">Country</label>
+          <select
+            class="input-field"
+            id="fs-g-country"
+            autocomplete="country-name"
+          >
+            <option value="">Select…</option>
+            <option>United Kingdom</option>
+            <option>United States</option>
+            <option>Germany</option>
+            <option>France</option>
+          </select>
         </div>
       </fieldset>
     </section>

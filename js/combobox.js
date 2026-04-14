@@ -33,6 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
     list.querySelectorAll(".combobox-option").forEach((opt) => {
       if (!opt.id) opt.id = `combobox-opt-${++uid}`
       if (!opt.dataset.cbValue) opt.dataset.cbValue = opt.textContent.trim()
+      // Build a searchable string from the primary value + any secondary text
+      const meta = opt.querySelector(".combobox-option-meta")
+      opt.dataset.cbSearch = meta
+        ? `${opt.dataset.cbValue} ${meta.textContent.trim()}`
+        : opt.dataset.cbValue
     })
 
     // Inject an empty-state element if not already present
@@ -92,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let anyVisible = false
 
       allOptions().forEach((opt) => {
-        const match = !q || opt.dataset.cbValue.toLowerCase().includes(q)
+        const match = !q || opt.dataset.cbSearch.toLowerCase().includes(q)
         opt.hidden = !match
         if (match) anyVisible = true
       })

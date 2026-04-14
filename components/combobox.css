@@ -87,3 +87,48 @@
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-wide);
 }
+
+/* Rich option layout — icon/avatar + text stack */
+.combobox-option-body {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.combobox-option-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+.combobox-option-meta {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+/* Hint / error message below the combobox */
+.combobox-message {
+  font-size: var(--font-size-sm);
+  margin-block-start: var(--space-1);
+  margin: 0;
+  margin-block-start: var(--space-1);
+}
+
+/* Error state */
+[role="combobox"][aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+[role="combobox"][aria-invalid="true"]:focus-visible {
+  border-color: var(--color-danger);
+  outline-color: var(--color-danger);
+}
+
+.combobox-error .input-label {
+  color: var(--color-danger);
+}
+
+.combobox-error .combobox-message {
+  color: var(--color-danger);
+}
