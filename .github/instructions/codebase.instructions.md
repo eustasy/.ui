@@ -15,7 +15,8 @@ applyTo: "*" # when provided, instructions will automatically be added to the re
 ## File Conventions
 
 - Component styles → `components/<name>.css`
-- Component behaviour → `js/<name>.js` (one file per component, event-delegated where possible)
+- Component core behaviour → `js/<name>.js` (one file per component, event-delegated where possible)
+- Component optional enhancements → `js/<name>-ext-<feature>.js` (non-essential add-ons, e.g. `checkbox-ext-select-all.js`)
 - Layout styles → `layouts/<name>.css`, layout behaviour → `layouts/<name>.js`
 - Base/reset styles → `base/`
 - Theme tokens → `assets/themes/`
