@@ -1,3 +1,8 @@
+---
+description: Always follow these instructions when working on files in this repository. They cover coding style, accessibility requirements, and other important guidelines to ensure consistency and quality across the project.
+applyTo: "*" # when provided, instructions will automatically be added to the request context when the pattern matches an attached file
+---
+
 # eustasy/.ui — Copilot Instructions
 
 ## Philosophy
