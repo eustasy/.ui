@@ -136,3 +136,85 @@
   border-end-end-radius: var(--radius-md);
   border-inline-start: none;
 }
+
+/* ==========================================================================
+   Search input
+   WCAG: No visible <label> — use aria-label="Search" on the input.
+         The shortcut badge is aria-hidden; announce the shortcut via
+         a visible hint or the input's aria-describedby instead.
+   ========================================================================== */
+
+.input-search {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.input-search-icon {
+  position: absolute;
+  inset-inline-start: var(--space-3);
+  display: flex;
+  align-items: center;
+  color: var(--color-text-secondary);
+  pointer-events: none;
+}
+
+.input-search-shortcut {
+  position: absolute;
+  inset-inline-end: var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  background-color: var(--color-surface-raised);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding-inline: var(--space-1-5);
+  line-height: 1.5rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.input-search-field {
+  /* base/forms.css uses a high-specificity :not() chain — !important needed */
+  max-width: none !important;
+  width: 14rem !important;
+  /* Icon padding on the leading side */
+  padding-inline-start: calc(var(--space-3) + 1rem + var(--space-2)) !important;
+  /* Shortcut badge padding on the trailing side */
+  padding-inline-end: calc(var(--space-2) + 1.5rem + var(--space-2)) !important;
+}
+
+/* Remove browser-native clear/cancel button */
+.input-search-field::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+/* Expanded state — triggered by focus or .is-open (set by JS) */
+.input-search-field:focus,
+.input-search.is-open .input-search-field {
+  width: var(--width-input) !important;
+}
+
+/* Hide shortcut badge when open */
+.input-search-field:focus ~ .input-search-shortcut,
+.input-search.is-open .input-search-shortcut {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* base/forms.css sets transition: border-color, box-shadow with specificity
+     (0,8,1). We must use !important here to also animate width. All three
+     properties are listed so border/shadow transitions are not lost. */
+  .input-search-field {
+    transition:
+      width var(--duration-normal) var(--easing),
+      border-color var(--duration-fast) var(--easing),
+      box-shadow var(--duration-fast) var(--easing) !important;
+  }
+
+  .input-search-shortcut {
+    transition: opacity var(--duration-fast) var(--easing);
+  }
+}

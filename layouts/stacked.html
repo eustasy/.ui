@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="stacked.css" />
     <script src="../js/theme-toggle.js"></script>
     <script src="../layouts/nav-indicator.js"></script>
+    <script src="../js/input-ext-search.js"></script>
   </head>
   <body>
     <!-- =====================================================================
@@ -77,21 +78,31 @@
         <!-- Actions -->
         <div class="stacked-actions">
           <!-- Search -->
-          <div
-            class="stacked-search"
-            role="button"
-            tabindex="0"
-            aria-label="Search"
-          >
-            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path
-                fill-rule="evenodd"
-                d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Search…
-            <kbd class="stacked-search-hint">⌘K</kbd>
+          <div class="input-search stacked-search">
+            <span class="input-search-icon" aria-hidden="true">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </span>
+            <input
+              class="input-search-field"
+              type="search"
+              aria-label="Search"
+              placeholder="Search…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <kbd class="input-search-shortcut" aria-hidden="true">/</kbd>
           </div>
 
           <!-- Notifications -->

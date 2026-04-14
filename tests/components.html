@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="components.demo.css" />
     <script src="../js/theme-toggle.js"></script>
     <script src="../js/checkbox.js"></script>
+    <script src="../js/input-ext-search.js"></script>
   </head>
   <body>
     <header
@@ -1558,6 +1559,43 @@
           value="Cannot edit this"
           disabled
         />
+      </div>
+
+      <h3>Search</h3>
+      <p
+        style="
+          font-size: var(--font-size-sm);
+          color: var(--color-text-secondary);
+          margin-block-end: var(--space-3);
+        "
+      >
+        Press <kbd>/</kbd> to focus the search field from anywhere on the page.
+      </p>
+      <div class="input-search">
+        <span class="input-search-icon" aria-hidden="true">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </span>
+        <input
+          class="input-search-field"
+          type="search"
+          aria-label="Search"
+          placeholder="Search…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <kbd class="input-search-shortcut" aria-hidden="true">/</kbd>
       </div>
     </section>
 
