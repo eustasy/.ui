@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../assets/main.css" />
     <link rel="stylesheet" href="components.demo.css" />
     <script src="../js/theme-toggle.js"></script>
+    <script src="../js/checkbox.js"></script>
   </head>
   <body>
     <header
@@ -411,6 +412,38 @@
           <span class="checkbox-label">Push notifications</span>
         </label>
       </fieldset>
+
+      <h3>Select all (indeterminate)</h3>
+      <div class="checkbox-group" data-checkbox-group>
+        <label class="checkbox">
+          <input type="checkbox" data-select-all />
+          <span
+            class="checkbox-label"
+            style="font-weight: var(--font-weight-medium)"
+            >Select all</span
+          >
+        </label>
+        <div
+          class="checkbox-group"
+          style="
+            padding-inline-start: var(--space-6);
+            border-inline-start: 2px solid var(--color-border);
+          "
+        >
+          <label class="checkbox">
+            <input type="checkbox" name="select-items" value="1" checked />
+            <span class="checkbox-label">Item one</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="select-items" value="2" />
+            <span class="checkbox-label">Item two</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="select-items" value="3" />
+            <span class="checkbox-label">Item three</span>
+          </label>
+        </div>
+      </div>
     </section>
 
     <!-- ================================================================== -->
