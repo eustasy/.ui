@@ -1603,7 +1603,47 @@
     <section id="listbox" aria-labelledby="listbox-heading">
       <h2 id="listbox-heading">Listbox</h2>
 
-      <h3>Single select</h3>
+      <h3>Inline panel</h3>
+      <div style="max-width: var(--width-input)">
+        <p
+          id="lb-inline-label"
+          style="
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-secondary);
+            margin-block-end: var(--space-1);
+          "
+        >
+          Favourite colour
+        </p>
+        <ul
+          class="listbox"
+          role="listbox"
+          aria-labelledby="lb-inline-label"
+          tabindex="0"
+        >
+          <li class="listbox-option" role="option" aria-selected="true">Red</li>
+          <li class="listbox-option" role="option" aria-selected="false">
+            Green
+          </li>
+          <li class="listbox-option" role="option" aria-selected="false">
+            Blue
+          </li>
+          <li
+            class="listbox-option"
+            role="option"
+            aria-selected="false"
+            aria-disabled="true"
+          >
+            Yellow (sold out)
+          </li>
+          <li class="listbox-option" role="option" aria-selected="false">
+            Purple
+          </li>
+        </ul>
+      </div>
+
+      <h3>Single select dropdown</h3>
       <div style="max-width: var(--width-input)">
         <p
           id="lb-label"
