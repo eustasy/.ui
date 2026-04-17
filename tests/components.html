@@ -2366,6 +2366,42 @@
         </div>
       </fieldset>
 
+      <h3>With title and description (Fieldset + Text)</h3>
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend">Notification preferences</legend>
+        <p class="fieldset-hint">
+          Choose how you would like to receive updates about your account.
+        </p>
+        <div class="radio-group">
+          <div class="radio">
+            <input
+              type="radio"
+              name="notify"
+              id="rd-email"
+              value="email"
+              checked
+            />
+            <label class="radio-label" for="rd-email">
+              Email
+              <span class="radio-description"
+                >Receive updates to your inbox</span
+              >
+            </label>
+          </div>
+          <div class="radio">
+            <input type="radio" name="notify" id="rd-sms" value="sms" />
+            <label class="radio-label" for="rd-sms">
+              SMS
+              <span class="radio-description">Text messages to your phone</span>
+            </label>
+          </div>
+          <div class="radio">
+            <input type="radio" name="notify" id="rd-none" value="none" />
+            <label class="radio-label" for="rd-none">None</label>
+          </div>
+        </div>
+      </fieldset>
+
       <h3>Inline group</h3>
       <fieldset class="radio-group radio-group-inline">
         <legend class="radio-group-legend">Size</legend>
