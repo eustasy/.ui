@@ -159,3 +159,7 @@
   color: var(--color-link-hover);
   text-decoration: underline;
 }
+
+button[data-theme-toggle] {
+  margin-block-start: var(--space-6);
+}
