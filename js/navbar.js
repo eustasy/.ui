@@ -10,31 +10,70 @@
  *     <ul class="navbar-nav" id="main-nav">…</ul>
  *   </nav>
  *
- * - Click .navbar-toggle → toggles the linked .navbar-nav via .is-open
- * - Escape → closes all open navs
+ * Overlay support (for drawer-style sidebars):
+ *   <button class="navbar-toggle" aria-controls="sidebar"
+ *           data-overlay="sidebar-overlay" …>…</button>
+ *   <div class="navbar-overlay" id="sidebar-overlay"></div>
+ *
+ * - Click .navbar-toggle → toggles the controlled element via .is-open
+ * - If data-overlay is set, the overlay is toggled in sync
+ * - Click overlay → closes the controlled element
+ * - Escape → closes all open toggles, navs, and overlays
  */
 document.addEventListener("DOMContentLoaded", () => {
+  function openToggle(toggle) {
+    const targetId = toggle.getAttribute("aria-controls")
+    const target = targetId ? document.getElementById(targetId) : null
+    if (target) target.classList.add("is-open")
+    toggle.setAttribute("aria-expanded", "true")
+
+    const overlayId = toggle.dataset.overlay
+    const overlay = overlayId ? document.getElementById(overlayId) : null
+    if (overlay) overlay.classList.add("is-open")
+  }
+
+  function closeToggle(toggle) {
+    const targetId = toggle.getAttribute("aria-controls")
+    const target = targetId ? document.getElementById(targetId) : null
+    if (target) target.classList.remove("is-open")
+    toggle.setAttribute("aria-expanded", "false")
+
+    const overlayId = toggle.dataset.overlay
+    const overlay = overlayId ? document.getElementById(overlayId) : null
+    if (overlay) overlay.classList.remove("is-open")
+  }
+
+  function closeAll() {
+    document
+      .querySelectorAll(".navbar-toggle[aria-expanded='true']")
+      .forEach(closeToggle)
+    if (typeof window.closeUserMenu === "function") {
+      window.closeUserMenu()
+    }
+  }
+
   // Toggle on trigger click (event-delegated)
   document.addEventListener("click", (e) => {
     const toggle = e.target.closest(".navbar-toggle")
     if (!toggle) return
-    const navId = toggle.getAttribute("aria-controls")
-    const nav = navId ? document.getElementById(navId) : null
-    if (!nav) return
-    const open = nav.classList.toggle("is-open")
-    toggle.setAttribute("aria-expanded", String(open))
+    toggle.getAttribute("aria-expanded") === "true"
+      ? closeToggle(toggle)
+      : openToggle(toggle)
   })
 
-  // Escape closes all open navs
-  document.addEventListener("keydown", (e) => {
-    if (e.key !== "Escape") return
+  // Overlay click closes the associated toggle (event-delegated)
+  document.addEventListener("click", (e) => {
+    const overlay = e.target.closest(".navbar-overlay")
+    if (!overlay) return
     document
-      .querySelectorAll(".navbar-toggle[aria-expanded='true']")
-      .forEach((toggle) => {
-        const navId = toggle.getAttribute("aria-controls")
-        const nav = navId ? document.getElementById(navId) : null
-        if (nav) nav.classList.remove("is-open")
-        toggle.setAttribute("aria-expanded", "false")
-      })
+      .querySelectorAll(
+        `.navbar-toggle[data-overlay="${overlay.id}"][aria-expanded="true"]`
+      )
+      .forEach(closeToggle)
+  })
+
+  // Escape closes all open navs and overlays
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAll()
   })
 })

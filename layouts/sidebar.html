@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="sidebar.css" />
     <script src="../js/theme-ext-toggle.js"></script>
     <script src="../js/navbar-ext-indicator.js"></script>
+    <script src="../js/navbar.js"></script>
     <script src="../js/user-menu.js"></script>
   </head>
   <body>
@@ -337,7 +338,7 @@
 
       <!-- Mobile backdrop -->
       <div
-        class="sidebar-overlay"
+        class="navbar-overlay sidebar-overlay"
         id="sidebar-overlay"
         aria-hidden="true"
       ></div>
@@ -349,11 +350,12 @@
         <header class="sidebar-main-header">
           <!-- Mobile toggle -->
           <button
-            class="sidebar-toggle"
+            class="navbar-toggle sidebar-toggle"
             type="button"
             id="sidebar-toggle"
             aria-expanded="false"
             aria-controls="sidebar"
+            data-overlay="sidebar-overlay"
             aria-label="Open navigation"
           >
             <svg
@@ -598,7 +600,5 @@
       </main>
     </div>
     <!-- /.layout-sidebar -->
-
-    <script src="sidebar.js"></script>
   </body>
 </html>

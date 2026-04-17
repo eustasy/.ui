@@ -23,10 +23,11 @@
            <button class="sidebar-user">…</button>
          </div>
        </aside>
-       <div class="sidebar-overlay" id="sidebar-overlay"></div>
+       <div class="navbar-overlay sidebar-overlay" id="sidebar-overlay"></div>
        <main class="sidebar-main">
          <header class="sidebar-main-header">
-           <button class="sidebar-toggle">…</button>
+           <button class="navbar-toggle" aria-controls="sidebar"
+                   data-overlay="sidebar-overlay">…</button>
            <h1>Page Title</h1>
          </header>
          <div class="sidebar-main-body">…</div>
@@ -238,36 +239,8 @@
 }
 
 /* --------------------------------------------------------------------------
-   Mobile: toggle button + slide-in drawer
+   Mobile: slide-in drawer
    -------------------------------------------------------------------------- */
-
-.sidebar-toggle {
-  display: none;
-  background: none;
-  border: none;
-  padding: var(--space-1);
-  cursor: pointer;
-  color: var(--color-text);
-  flex-shrink: 0;
-}
-
-.sidebar-toggle svg {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.sidebar-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.35);
-  z-index: 40;
-  cursor: pointer;
-}
-
-.sidebar-overlay.is-open {
-  display: block;
-}
 
 @media (max-width: 768px) {
   .sidebar {
@@ -291,10 +264,6 @@
 
   .sidebar.is-open {
     transform: translateX(0);
-  }
-
-  .sidebar-toggle {
-    display: block;
   }
 
   .sidebar-main-header {
