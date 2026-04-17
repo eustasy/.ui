@@ -263,12 +263,11 @@
             <button
               type="button"
               id="user-menu-trigger"
-              class="navbar-action-btn"
+              class="navbar-action-btn navbar-action-btn-avatar"
               aria-haspopup="menu"
               aria-controls="user-menu"
               aria-expanded="false"
               aria-label="Open user menu"
-              style="padding: 0; border-radius: var(--radius-full)"
             >
               <img
                 class="navbar-avatar"
@@ -496,13 +495,6 @@
                 viewBox="0 0 20 20"
                 fill="currentColor"
                 aria-hidden="true"
-                style="
-                  width: 1rem;
-                  height: 1rem;
-                  flex-shrink: 0;
-                  margin-inline-start: auto;
-                  opacity: 0.5;
-                "
               >
                 <path
                   fill-rule="evenodd"
@@ -527,14 +519,7 @@
         </div>
 
         <div class="stacked-main-body">
-          <article
-            style="
-              border: var(--border-width) solid var(--color-border);
-              border-radius: var(--radius-xl);
-              overflow: hidden;
-              box-shadow: var(--shadow-sm);
-            "
-          >
+          <article class="inbox-card">
             <ul class="inbox-list" role="list">
               <li class="inbox-item is-unread">
                 <span class="inbox-unread-dot" aria-label="Unread"></span>
@@ -579,7 +564,7 @@
               </li>
 
               <li class="inbox-item">
-                <span style="width: 0.5rem; flex-shrink: 0"></span>
+                <span class="inbox-spacer"></span>
                 <img
                   class="inbox-avatar"
                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' rx='18' fill='%2366800B'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3EPR%3C/text%3E%3C/svg%3E"
@@ -599,7 +584,7 @@
               </li>
 
               <li class="inbox-item">
-                <span style="width: 0.5rem; flex-shrink: 0"></span>
+                <span class="inbox-spacer"></span>
                 <img
                   class="inbox-avatar"
                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' rx='18' fill='%23BC5215'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3ETO%3C/text%3E%3C/svg%3E"
@@ -621,7 +606,7 @@
               </li>
 
               <li class="inbox-item">
-                <span style="width: 0.5rem; flex-shrink: 0"></span>
+                <span class="inbox-spacer"></span>
                 <img
                   class="inbox-avatar"
                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Crect width='36' height='36' rx='18' fill='%231C6C66'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3ELW%3C/text%3E%3C/svg%3E"

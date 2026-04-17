@@ -6,10 +6,99 @@ body {
 section {
   margin-block: var(--space-10);
 }
+.demo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: var(--space-8);
+}
 .demo-row {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
   align-items: center;
   margin-block: var(--space-4);
+}
+.demo-row-short {
+  height: 2rem;
+}
+.demo-row-tall {
+  padding-block-start: 12rem;
+}
+.demo-aside {
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+.demo-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-block-start: 0;
+}
+.demo-input-wrap {
+  max-width: var(--width-input);
+}
+.demo-dl-wrap {
+  max-width: 24rem;
+}
+.demo-badge-row {
+  margin-block-start: var(--space-3);
+  display: flex;
+  gap: var(--space-2);
+}
+.demo-checkbox-spacing + .demo-checkbox-spacing {
+  margin-block-start: var(--space-2);
+}
+.demo-checkbox-nested {
+  padding-inline-start: var(--space-6);
+  border-inline-start: 2px solid var(--color-border);
+}
+.demo-listbox-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-block-end: var(--space-1);
+}
+.demo-navbar-dropdown-btn {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+.demo-vertical-navbar-frame {
+  display: flex;
+  height: 22rem;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+.demo-vertical-navbar-content {
+  flex: 1;
+  padding: var(--space-5);
+  overflow-y: auto;
+  background-color: var(--color-bg-secondary);
+}
+.demo-switch-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.demo-user-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.demo-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.demo-stack > p {
+  margin: 0;
+}
+.demo-truncate-wrap {
+  max-width: 20rem;
+  margin: 0;
+}
+.demo-label-optional {
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-secondary);
 }

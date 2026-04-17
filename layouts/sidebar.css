@@ -72,12 +72,24 @@
   height: 1.75rem;
 }
 
+/* Sidebar primary nav container — scrolls when content overflows */
+.sidebar > nav {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Secondary nav group — suppress top padding and border on inner .sidebar-nav */
+.sidebar-nav-group .sidebar-nav {
+  padding-block-start: 0;
+}
+
 /* Navigation — layout overrides on top of .navbar-nav */
 .sidebar-nav {
   border-block-end: var(--border-width) solid var(--color-border);
   padding: var(--space-3);
   flex-direction: column;
   align-items: stretch;
+  flex: initial;
   gap: var(--space-0-5);
   /* Always visible in sidebar — the drawer handles show/hide */
   display: flex;

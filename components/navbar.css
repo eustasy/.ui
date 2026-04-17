@@ -241,6 +241,12 @@
   height: 1.25rem;
 }
 
+/* Action button wrapping an avatar image */
+.navbar-action-btn-avatar {
+  padding: 0;
+  border-radius: var(--radius-full);
+}
+
 /* Avatar — use inside a .dropdown or standalone */
 .navbar-avatar {
   width: 2rem;

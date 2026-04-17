@@ -41,12 +41,8 @@
         </a>
 
         <!-- Primary nav -->
-        <nav style="flex: 1; overflow-y: auto">
-          <ul
-            class="navbar-nav sidebar-nav"
-            style="flex: initial"
-            data-nav-indicator="vertical"
-          >
+        <nav>
+          <ul class="navbar-nav sidebar-nav" data-nav-indicator="vertical">
             <li>
               <a href="#" aria-current="page">
                 <svg
@@ -120,11 +116,7 @@
           <!-- Secondary nav group -->
           <div class="sidebar-nav-group">
             <p class="navbar-section-label">Manage</p>
-            <ul
-              class="navbar-nav sidebar-nav"
-              style="flex: initial; padding-block-start: 0"
-              data-nav-indicator="vertical"
-            >
+            <ul class="navbar-nav sidebar-nav" data-nav-indicator="vertical">
               <li>
                 <a href="#">
                   <svg
@@ -316,13 +308,6 @@
                 viewBox="0 0 20 20"
                 fill="currentColor"
                 aria-hidden="true"
-                style="
-                  width: 1rem;
-                  height: 1rem;
-                  flex-shrink: 0;
-                  margin-inline-start: auto;
-                  opacity: 0.5;
-                "
               >
                 <path
                   fill-rule="evenodd"
@@ -496,10 +481,7 @@
                 </div>
               </div>
               <p class="demo-stat-label">Open issues</p>
-              <span
-                class="demo-stat-trend"
-                style="color: var(--flexoki-red-600)"
-              >
+              <span class="demo-stat-trend demo-stat-trend-down">
                 <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
                   <path d="M8 13L3 8h10l-5 5z" />
                 </svg>
@@ -509,89 +491,42 @@
           </div>
 
           <!-- Recent activity -->
-          <h2 style="margin-block: var(--space-6) var(--space-3)">
-            Recent activity
-          </h2>
+          <h2 class="demo-activity-heading">Recent activity</h2>
           <div class="demo-block">
             <div class="demo-table-row">
-              <span
-                class="demo-dot"
-                style="background: var(--color-success)"
-              ></span>
-              <span style="flex: 1"
+              <span class="demo-dot demo-dot-success"></span>
+              <span class="demo-table-cell-fill"
                 >Deployment <strong>v2.4.1</strong> completed</span
               >
-              <span
-                style="
-                  color: var(--color-text-secondary);
-                  font-size: var(--font-size-xs);
-                "
-                >2 min ago</span
-              >
+              <span class="text-muted text-xs">2 min ago</span>
             </div>
             <div class="demo-table-row">
-              <span
-                class="demo-dot"
-                style="background: var(--color-action)"
-              ></span>
-              <span style="flex: 1"
+              <span class="demo-dot demo-dot-action"></span>
+              <span class="demo-table-cell-fill"
                 >User <strong>emma@example.com</strong> signed up</span
               >
-              <span
-                style="
-                  color: var(--color-text-secondary);
-                  font-size: var(--font-size-xs);
-                "
-                >14 min ago</span
-              >
+              <span class="text-muted text-xs">14 min ago</span>
             </div>
             <div class="demo-table-row">
-              <span
-                class="demo-dot"
-                style="background: var(--color-warning)"
-              ></span>
-              <span style="flex: 1"
+              <span class="demo-dot demo-dot-warning"></span>
+              <span class="demo-table-cell-fill"
                 >High memory usage on <strong>worker-03</strong></span
               >
-              <span
-                style="
-                  color: var(--color-text-secondary);
-                  font-size: var(--font-size-xs);
-                "
-                >1 hr ago</span
-              >
+              <span class="text-muted text-xs">1 hr ago</span>
             </div>
             <div class="demo-table-row">
-              <span
-                class="demo-dot"
-                style="background: var(--color-danger)"
-              ></span>
-              <span style="flex: 1"
+              <span class="demo-dot demo-dot-danger"></span>
+              <span class="demo-table-cell-fill"
                 >Payment gateway <strong>timeout</strong> resolved</span
               >
-              <span
-                style="
-                  color: var(--color-text-secondary);
-                  font-size: var(--font-size-xs);
-                "
-                >3 hr ago</span
-              >
+              <span class="text-muted text-xs">3 hr ago</span>
             </div>
             <div class="demo-table-row">
-              <span
-                class="demo-dot"
-                style="background: var(--color-success)"
-              ></span>
-              <span style="flex: 1"
+              <span class="demo-dot demo-dot-success"></span>
+              <span class="demo-table-cell-fill"
                 >Backup <strong>db-primary</strong> completed</span
               >
-              <span
-                style="
-                  color: var(--color-text-secondary);
-                  font-size: var(--font-size-xs);
-                "
-                >6 hr ago</span
-              >
+              <span class="text-muted text-xs">6 hr ago</span>
             </div>
           </div>
         </div>

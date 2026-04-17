@@ -76,6 +76,11 @@
 
 /* Chevron rotation when menu is open */
 .user-menu-chevron {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  margin-inline-start: auto;
+  opacity: 0.5;
   transition: transform var(--duration-fast) var(--easing);
 }
 

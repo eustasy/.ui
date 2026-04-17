@@ -9,14 +9,7 @@
     <script src="../js/theme-ext-toggle.js"></script>
   </head>
   <body>
-    <header
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-block-end: var(--space-8);
-      "
-    >
+    <header class="demo-header">
       <h1>Element Tests</h1>
       <button
         data-theme-toggle
@@ -277,13 +270,7 @@ greet("Flexoki");</code></pre>
         <label for="disabled-input">Disabled Input</label>
         <input id="disabled-input" type="text" value="Cannot edit" disabled />
 
-        <div
-          style="
-            margin-block-start: var(--space-6);
-            display: flex;
-            gap: var(--space-3);
-          "
-        >
+        <div class="demo-actions">
           <input type="submit" value="Submit" class="btn btn-primary" />
           <input type="reset" value="Reset" class="btn btn-secondary" />
         </div>
@@ -408,14 +395,7 @@ greet("Flexoki");</code></pre>
           backdrop, focus trapping, and Escape to close — all built into the
           browser.
         </p>
-        <div
-          style="
-            margin-block-start: var(--space-4);
-            display: flex;
-            gap: var(--space-3);
-            justify-content: flex-end;
-          "
-        >
+        <div class="demo-dialog-actions">
           <button class="btn btn-ghost" data-dialog-close>Cancel</button>
           <button class="btn btn-primary" data-dialog-close>Confirm</button>
         </div>

@@ -13,14 +13,7 @@
     <script src="../js/contents-ext-bookmark.js"></script>
   </head>
   <body>
-    <header
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-block-end: var(--space-8);
-      "
-    >
+    <header class="demo-header">
       <h1>Component Tests</h1>
       <button
         data-theme-toggle
@@ -131,14 +124,7 @@
 
           <h3>
             Dismissible
-            <small
-              style="
-                font-weight: var(--font-weight-normal);
-                font-size: var(--font-size-sm);
-                color: var(--color-text-secondary);
-              "
-              >— alert-ext-dismiss.js</small
-            >
+            <small class="demo-aside">— alert-ext-dismiss.js</small>
           </h3>
           <div class="alert alert-danger" role="alert">
             <strong>Error:</strong> Something went wrong. Please try again.
@@ -150,7 +136,7 @@
           <h2 id="avatars-heading">Avatar</h2>
 
           <h3>Sizes</h3>
-          <div class="demo-row" style="align-items: center">
+          <div class="demo-row">
             <span class="avatar avatar-xs" aria-label="User XS">XS</span>
             <span class="avatar avatar-sm" aria-label="User SM">SM</span>
             <span class="avatar" aria-label="User default">MD</span>
@@ -169,7 +155,7 @@
           </div>
 
           <h3>Status indicators</h3>
-          <div class="demo-row" style="align-items: center">
+          <div class="demo-row">
             <span class="avatar-wrapper">
               <span class="avatar" aria-label="Online user">AB</span>
               <span
@@ -327,13 +313,7 @@
                   A more compact variant with reduced padding. Good for dense
                   UIs.
                 </p>
-                <div
-                  style="
-                    margin-block-start: var(--space-3);
-                    display: flex;
-                    gap: var(--space-2);
-                  "
-                >
+                <div class="demo-badge-row">
                   <span class="badge badge-cyan">CSS</span>
                   <span class="badge badge-purple">HTML</span>
                 </div>
@@ -351,7 +331,7 @@
             <span class="checkbox-label">Checked by default</span>
           </label>
 
-          <label class="checkbox" style="margin-block-start: var(--space-2)">
+          <label class="checkbox demo-checkbox-spacing">
             <input type="checkbox" id="cb2" />
             <span class="checkbox-label">
               With description
@@ -361,7 +341,7 @@
             </span>
           </label>
 
-          <label class="checkbox" style="margin-block-start: var(--space-2)">
+          <label class="checkbox demo-checkbox-spacing">
             <input type="checkbox" id="cb3" disabled />
             <span class="checkbox-label">Disabled</span>
           </label>
@@ -419,32 +399,15 @@
 
           <h3>
             Select all
-            <small
-              style="
-                font-weight: var(--font-weight-normal);
-                font-size: var(--font-size-sm);
-                color: var(--color-text-secondary);
-              "
-              >— checkbox-ext-select-all.js</small
-            >
+            <small class="demo-aside">— checkbox-ext-select-all.js</small>
           </h3>
           <fieldset class="checkbox-group" data-checkbox-group>
             <legend class="checkbox-group-label">Items</legend>
             <label class="checkbox">
               <input type="checkbox" data-select-all />
-              <span
-                class="checkbox-label"
-                style="font-weight: var(--font-weight-medium)"
-                >Select all</span
-              >
+              <span class="checkbox-label text-medium">Select all</span>
             </label>
-            <div
-              class="checkbox-group"
-              style="
-                padding-inline-start: var(--space-6);
-                border-inline-start: 2px solid var(--color-border);
-              "
-            >
+            <div class="checkbox-group demo-checkbox-nested">
               <label class="checkbox">
                 <input type="checkbox" name="select-items" value="1" checked />
                 <span class="checkbox-label">Item one</span>
@@ -463,19 +426,13 @@
         <!-- ================================================================== -->
         <section id="combobox" aria-labelledby="combobox-heading">
           <h2 id="combobox-heading">Combobox</h2>
-          <p
-            style="
-              font-size: var(--font-size-sm);
-              color: var(--color-text-secondary);
-              margin-block-start: 0;
-            "
-          >
+          <p class="demo-description">
             Extends <a href="#listbox">Listbox</a> with a search input —
             <code>listbox-ext-combobox.js</code>
           </p>
 
           <h3>Basic</h3>
-          <div style="max-width: var(--width-input)">
+          <div class="demo-input-wrap">
             <label class="input-label" for="cb-input">Search framework</label>
             <div class="combobox">
               <input
@@ -518,7 +475,7 @@
           </div>
 
           <h3>People</h3>
-          <div style="max-width: var(--width-input)">
+          <div class="demo-input-wrap">
             <label class="input-label" for="cb-people">Assign to</label>
             <div class="combobox">
               <input
@@ -600,7 +557,7 @@
           </div>
 
           <h3>Countries</h3>
-          <div style="max-width: var(--width-input)">
+          <div class="demo-input-wrap">
             <label class="input-label" for="cb-country">Country</label>
             <div class="combobox">
               <input
@@ -696,7 +653,7 @@
           </div>
 
           <h3>Error state</h3>
-          <div class="combobox-error" style="max-width: var(--width-input)">
+          <div class="combobox-error demo-input-wrap">
             <label class="input-label" for="cb-required">Team</label>
             <div class="combobox">
               <input
@@ -766,7 +723,7 @@
           </dl>
 
           <h3>Stacked</h3>
-          <dl class="dl dl-stacked" style="max-width: 24rem">
+          <dl class="dl dl-stacked demo-dl-wrap">
             <div class="dl-row">
               <dt class="dl-term">Plan</dt>
               <dd class="dl-description">Pro — £12/month</dd>
@@ -1000,7 +957,7 @@
           <hr class="divider divider-thick" aria-hidden="true" />
 
           <h3>Vertical (inline)</h3>
-          <div class="demo-row" style="height: 2rem">
+          <div class="demo-row demo-row-short">
             <span>Item one</span>
             <span class="divider-vertical" aria-hidden="true"></span>
             <span>Item two</span>
@@ -1294,7 +1251,7 @@
           </div>
 
           <h3>Opens upward</h3>
-          <div class="demo-row" style="padding-block-start: 12rem">
+          <div class="demo-row demo-row-tall">
             <div class="dropdown">
               <button
                 class="btn btn-secondary"
@@ -1467,13 +1424,7 @@
             <div class="input-group col-span-2">
               <label class="input-label" for="fs-g-line2"
                 >Address line 2
-                <span
-                  style="
-                    font-weight: var(--font-weight-normal);
-                    color: var(--color-text-secondary);
-                  "
-                  >(optional)</span
-                ></label
+                <span class="demo-label-optional">(optional)</span></label
               >
               <input
                 class="input-field"
@@ -1643,16 +1594,8 @@
           <h2 id="listbox-heading">Listbox</h2>
 
           <h3>Inline panel</h3>
-          <div style="max-width: var(--width-input)">
-            <p
-              id="lb-inline-label"
-              style="
-                font-size: var(--font-size-sm);
-                font-weight: var(--font-weight-medium);
-                color: var(--color-text-secondary);
-                margin-block-end: var(--space-1);
-              "
-            >
+          <div class="demo-input-wrap">
+            <p id="lb-inline-label" class="demo-listbox-label">
               Favourite colour
             </p>
             <ul
@@ -1685,18 +1628,8 @@
           </div>
 
           <h3>Single select dropdown</h3>
-          <div style="max-width: var(--width-input)">
-            <p
-              id="lb-label"
-              style="
-                font-size: var(--font-size-sm);
-                font-weight: var(--font-weight-medium);
-                color: var(--color-text-secondary);
-                margin-block-end: var(--space-1);
-              "
-            >
-              Choose a timezone
-            </p>
+          <div class="demo-input-wrap">
+            <p id="lb-label" class="demo-listbox-label">Choose a timezone</p>
             <div class="listbox-dropdown">
               <button
                 class="listbox-trigger"
@@ -1746,16 +1679,8 @@
           </div>
 
           <h3>Multi select</h3>
-          <div style="max-width: var(--width-input)">
-            <p
-              id="lb-multi-label"
-              style="
-                font-size: var(--font-size-sm);
-                font-weight: var(--font-weight-medium);
-                color: var(--color-text-secondary);
-                margin-block-end: var(--space-1);
-              "
-            >
+          <div class="demo-input-wrap">
+            <p id="lb-multi-label" class="demo-listbox-label">
               Preferred technologies
             </p>
             <div class="listbox-dropdown">
@@ -1814,18 +1739,8 @@
           </div>
 
           <h3>With avatars</h3>
-          <div style="max-width: var(--width-input)">
-            <p
-              id="lb-people-label"
-              style="
-                font-size: var(--font-size-sm);
-                font-weight: var(--font-weight-medium);
-                color: var(--color-text-secondary);
-                margin-block-end: var(--space-1);
-              "
-            >
-              Team members
-            </p>
+          <div class="demo-input-wrap">
+            <p id="lb-people-label" class="demo-listbox-label">Team members</p>
             <div class="listbox-dropdown">
               <button
                 class="listbox-trigger"
@@ -1876,18 +1791,8 @@
           </div>
 
           <h3>With flags</h3>
-          <div style="max-width: var(--width-input)">
-            <p
-              id="lb-country-label"
-              style="
-                font-size: var(--font-size-sm);
-                font-weight: var(--font-weight-medium);
-                color: var(--color-text-secondary);
-                margin-block-end: var(--space-1);
-              "
-            >
-              Country
-            </p>
+          <div class="demo-input-wrap">
+            <p id="lb-country-label" class="demo-listbox-label">Country</p>
             <div class="listbox-dropdown">
               <button
                 class="listbox-trigger"
@@ -1983,14 +1888,7 @@
 
           <h3>
             With animated active state
-            <small
-              style="
-                font-weight: var(--font-weight-normal);
-                font-size: var(--font-size-sm);
-                color: var(--color-text-secondary);
-              "
-              >— navbar-ext-indicator.js</small
-            >
+            <small class="demo-aside">— navbar-ext-indicator.js</small>
           </h3>
           <nav class="navbar" aria-label="Animated indicator example">
             <a href="#" class="navbar-brand">Brand</a>
@@ -2095,14 +1993,10 @@
               <li>
                 <div class="dropdown">
                   <button
-                    class="btn btn-ghost btn-sm"
+                    class="btn btn-ghost btn-sm demo-navbar-dropdown-btn"
                     aria-haspopup="menu"
                     aria-expanded="false"
                     aria-controls="navbar-dropdown-demo"
-                    style="
-                      font-size: var(--font-size-sm);
-                      color: var(--color-text-secondary);
-                    "
                   >
                     More ▾
                   </button>
@@ -2162,12 +2056,11 @@
               </button>
               <div class="dropdown">
                 <button
-                  class="navbar-action-btn"
+                  class="navbar-action-btn navbar-action-btn-avatar"
                   aria-haspopup="menu"
                   aria-expanded="false"
                   aria-controls="navbar-avatar-menu"
                   aria-label="Open user menu"
-                  style="padding: 0; border-radius: var(--radius-full)"
                 >
                   <img
                     class="navbar-avatar"
@@ -2211,14 +2104,7 @@
 
           <h3>
             With mobile menu &amp; hidden items
-            <small
-              style="
-                font-weight: var(--font-weight-normal);
-                font-size: var(--font-size-sm);
-                color: var(--color-text-secondary);
-              "
-              >— resize to test</small
-            >
+            <small class="demo-aside">— resize to test</small>
           </h3>
           <nav class="navbar" aria-label="Mobile menu example">
             <a href="#" class="navbar-brand">
@@ -2290,12 +2176,11 @@
               </button>
               <div class="dropdown">
                 <button
-                  class="navbar-action-btn"
+                  class="navbar-action-btn navbar-action-btn-avatar"
                   aria-haspopup="menu"
                   aria-expanded="false"
                   aria-controls="navbar-mobile-user-menu"
                   aria-label="Open user menu"
-                  style="padding: 0; border-radius: var(--radius-full)"
                 >
                   <img
                     class="navbar-avatar"
@@ -2343,15 +2228,7 @@
           ></div>
 
           <h3>Vertical orientation</h3>
-          <div
-            style="
-              display: flex;
-              height: 22rem;
-              border: var(--border-width) solid var(--color-border);
-              border-radius: var(--radius-xl);
-              overflow: hidden;
-            "
-          >
+          <div class="demo-vertical-navbar-frame">
             <nav
               class="navbar navbar-vertical"
               aria-label="Vertical navbar example"
@@ -2461,22 +2338,8 @@
                 >
               </div>
             </nav>
-            <main
-              style="
-                flex: 1;
-                padding: var(--space-5);
-                overflow-y: auto;
-                background-color: var(--color-bg-secondary);
-              "
-            >
-              <p
-                style="
-                  color: var(--color-text-secondary);
-                  font-size: var(--font-size-sm);
-                "
-              >
-                Main content area
-              </p>
+            <main class="demo-vertical-navbar-content">
+              <p class="text-sm text-muted">Main content area</p>
             </main>
           </div>
         </section>
@@ -2613,13 +2476,7 @@
         <!-- ================================================================== -->
         <section id="search" aria-labelledby="search-heading">
           <h2 id="search-heading">Search</h2>
-          <p
-            style="
-              font-size: var(--font-size-sm);
-              color: var(--color-text-secondary);
-              margin-block-start: 0;
-            "
-          >
+          <p class="demo-description">
             Extends <a href="#input">Input</a> with expand-on-focus and a
             <kbd>/</kbd> shortcut &mdash;
             <code>input-ext-search.js</code>
@@ -2711,9 +2568,7 @@
 
           <fieldset class="fieldset fieldset-flush">
             <legend class="fieldset-legend">Notification channels</legend>
-            <div
-              style="display: flex; flex-direction: column; gap: var(--space-3)"
-            >
+            <div class="demo-switch-group">
               <label class="switch">
                 <input type="checkbox" role="switch" checked />
                 <span class="switch-track" aria-hidden="true"
@@ -2954,24 +2809,11 @@
               <tbody>
                 <tr>
                   <td>
-                    <div
-                      style="
-                        display: flex;
-                        align-items: center;
-                        gap: var(--space-3);
-                      "
-                    >
+                    <div class="demo-user-cell">
                       <div class="avatar avatar-sm" aria-hidden="true">LA</div>
                       <div>
-                        <div
-                          style="
-                            font-weight: var(--font-weight-medium);
-                            color: var(--color-text);
-                          "
-                        >
-                          Leslie Alexander
-                        </div>
-                        <div style="color: var(--color-text-secondary)">
+                        <div class="text-medium">Leslie Alexander</div>
+                        <div class="text-muted">
                           leslie.alexander@example.com
                         </div>
                       </div>
@@ -2982,26 +2824,11 @@
                 </tr>
                 <tr>
                   <td>
-                    <div
-                      style="
-                        display: flex;
-                        align-items: center;
-                        gap: var(--space-3);
-                      "
-                    >
+                    <div class="demo-user-cell">
                       <div class="avatar avatar-sm" aria-hidden="true">MF</div>
                       <div>
-                        <div
-                          style="
-                            font-weight: var(--font-weight-medium);
-                            color: var(--color-text);
-                          "
-                        >
-                          Michael Foster
-                        </div>
-                        <div style="color: var(--color-text-secondary)">
-                          michael.foster@example.com
-                        </div>
+                        <div class="text-medium">Michael Foster</div>
+                        <div class="text-muted">michael.foster@example.com</div>
                       </div>
                     </div>
                   </td>
@@ -3010,26 +2837,11 @@
                 </tr>
                 <tr>
                   <td>
-                    <div
-                      style="
-                        display: flex;
-                        align-items: center;
-                        gap: var(--space-3);
-                      "
-                    >
+                    <div class="demo-user-cell">
                       <div class="avatar avatar-sm" aria-hidden="true">DV</div>
                       <div>
-                        <div
-                          style="
-                            font-weight: var(--font-weight-medium);
-                            color: var(--color-text);
-                          "
-                        >
-                          Dries Vincent
-                        </div>
-                        <div style="color: var(--color-text-secondary)">
-                          dries.vincent@example.com
-                        </div>
+                        <div class="text-medium">Dries Vincent</div>
+                        <div class="text-muted">dries.vincent@example.com</div>
                       </div>
                     </div>
                   </td>
@@ -3038,26 +2850,11 @@
                 </tr>
                 <tr>
                   <td>
-                    <div
-                      style="
-                        display: flex;
-                        align-items: center;
-                        gap: var(--space-3);
-                      "
-                    >
+                    <div class="demo-user-cell">
                       <div class="avatar avatar-sm" aria-hidden="true">LW</div>
                       <div>
-                        <div
-                          style="
-                            font-weight: var(--font-weight-medium);
-                            color: var(--color-text);
-                          "
-                        >
-                          Lindsay Walton
-                        </div>
-                        <div style="color: var(--color-text-secondary)">
-                          lindsay.walton@example.com
-                        </div>
+                        <div class="text-medium">Lindsay Walton</div>
+                        <div class="text-muted">lindsay.walton@example.com</div>
                       </div>
                     </div>
                   </td>
@@ -3073,36 +2870,24 @@
           <h2 id="text-heading">Text</h2>
 
           <h3>Sizes</h3>
-          <div
-            style="display: flex; flex-direction: column; gap: var(--space-1)"
-          >
-            <p class="text-xs" style="margin: 0">Extra small – .text-xs</p>
-            <p class="text-sm" style="margin: 0">Small – .text-sm</p>
-            <p class="text-base" style="margin: 0">Base – .text-base</p>
-            <p class="text-lg" style="margin: 0">Large – .text-lg</p>
-            <p class="text-xl" style="margin: 0">Extra large – .text-xl</p>
+          <div class="demo-stack">
+            <p class="text-xs">Extra small – .text-xs</p>
+            <p class="text-sm">Small – .text-sm</p>
+            <p class="text-base">Base – .text-base</p>
+            <p class="text-lg">Large – .text-lg</p>
+            <p class="text-xl">Extra large – .text-xl</p>
           </div>
 
           <h3>Colour</h3>
-          <div
-            style="display: flex; flex-direction: column; gap: var(--space-1)"
-          >
-            <p class="text-default" style="margin: 0">
-              .text-default — primary text colour
-            </p>
-            <p class="text-muted" style="margin: 0">
-              .text-muted — secondary text colour
-            </p>
-            <p class="text-subtle" style="margin: 0">
-              .text-subtle — tertiary text colour
-            </p>
-            <p class="text-disabled" style="margin: 0">
-              .text-disabled — disabled text colour
-            </p>
-            <p class="text-danger" style="margin: 0">.text-danger</p>
-            <p class="text-success" style="margin: 0">.text-success</p>
-            <p class="text-warning" style="margin: 0">.text-warning</p>
-            <p class="text-info" style="margin: 0">.text-info</p>
+          <div class="demo-stack">
+            <p class="text-default">.text-default — primary text colour</p>
+            <p class="text-muted">.text-muted — secondary text colour</p>
+            <p class="text-subtle">.text-subtle — tertiary text colour</p>
+            <p class="text-disabled">.text-disabled — disabled text colour</p>
+            <p class="text-danger">.text-danger</p>
+            <p class="text-success">.text-success</p>
+            <p class="text-warning">.text-warning</p>
+            <p class="text-info">.text-info</p>
           </div>
 
           <h3>Weight &amp; transform</h3>
@@ -3116,7 +2901,7 @@
           </div>
 
           <h3>Truncation</h3>
-          <p class="text-truncate" style="max-width: 20rem; margin: 0">
+          <p class="text-truncate demo-truncate-wrap">
             This is a very long sentence that will be truncated with an ellipsis
             when it overflows its container.
           </p>
@@ -3128,7 +2913,7 @@
           </p>
 
           <h3>Screen-reader only</h3>
-          <p style="margin: 0">
+          <p class="demo-truncate-wrap">
             The next element is visually hidden but available to assistive
             technology:
             <span class="sr-only">This text is only for screen readers.</span>
@@ -3141,14 +2926,7 @@
 
           <h3>
             Character count
-            <small
-              style="
-                font-weight: var(--font-weight-normal);
-                font-size: var(--font-size-sm);
-                color: var(--color-text-secondary);
-              "
-              >— textarea-ext-count.js</small
-            >
+            <small class="demo-aside">— textarea-ext-count.js</small>
           </h3>
           <div class="textarea-group">
             <label class="textarea-label" for="ta-bio">Bio</label>

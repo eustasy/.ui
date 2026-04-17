@@ -67,3 +67,24 @@
   border-radius: var(--radius-full);
   flex-shrink: 0;
 }
+.demo-dot-success {
+  background: var(--color-success);
+}
+.demo-dot-action {
+  background: var(--color-action);
+}
+.demo-dot-warning {
+  background: var(--color-warning);
+}
+.demo-dot-danger {
+  background: var(--color-danger);
+}
+.demo-stat-trend-down {
+  color: var(--flexoki-red-600);
+}
+.demo-activity-heading {
+  margin-block: var(--space-6) var(--space-3);
+}
+.demo-table-cell-fill {
+  flex: 1;
+}

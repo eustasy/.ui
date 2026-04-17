@@ -3,6 +3,23 @@ body {
   max-width: var(--width-wide);
   margin-inline: auto;
 }
+.demo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: var(--space-8);
+}
+.demo-actions {
+  margin-block-start: var(--space-6);
+  display: flex;
+  gap: var(--space-3);
+}
+.demo-dialog-actions {
+  margin-block-start: var(--space-4);
+  display: flex;
+  gap: var(--space-3);
+  justify-content: flex-end;
+}
 .swatch {
   padding: var(--space-4) var(--space-2);
   border-radius: var(--radius-md);
