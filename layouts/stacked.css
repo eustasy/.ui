@@ -1,28 +1,18 @@
 /* ==========================================================================
    Layout: Stacked — Sticky top navbar with scrollable content below.
+   Uses .navbar component classes for the topbar navigation.
 
    HTML structure:
      <div class="layout-stacked">
-       <header class="stacked-topbar">
-         <button class="stacked-toggle">...</button>
-         <a class="stacked-brand" href="/">Brand</a>
-         <ul class="stacked-nav" id="stacked-nav">
-           <li><a href="/" aria-current="page">Inbox</a></li>
-           ...
-         </ul>
-         <div class="stacked-actions">
-           <div class="stacked-search">...</div>
-           <div class="user-menu-wrap stacked-user-menu-wrap">
-             <div class="user-menu" id="user-menu">...</div>
-             <button id="user-menu-trigger" class="stacked-user-btn">...</button>
-           </div>
-         </div>
-       </header>
+       <nav class="navbar stacked-topbar" aria-label="Main navigation">
+         <button class="navbar-toggle" aria-controls="stacked-nav">…</button>
+         <a class="navbar-brand" href="/">Brand</a>
+         <ul class="navbar-nav" id="stacked-nav">…</ul>
+         <div class="navbar-actions">…</div>
+       </nav>
        <main class="stacked-main">
-         <div class="stacked-main-header">
-           <h1>Page Title</h1>
-         </div>
-         <div class="stacked-main-body">...</div>
+         <div class="stacked-main-header"><h1>Page Title</h1></div>
+         <div class="stacked-main-body">…</div>
        </main>
      </div>
    ========================================================================== */
@@ -39,171 +29,27 @@
 }
 
 /* --------------------------------------------------------------------------
-   Top navigation bar
+   Topbar — layout overrides on top of .navbar component
    -------------------------------------------------------------------------- */
 
 .stacked-topbar {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
   padding: 0 var(--space-6);
   height: 3.5rem;
   background-color: transparent;
+  border-block-end: none;
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
-/* Brand / logo */
-.stacked-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-lg);
-  color: var(--color-text);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-inline-end: var(--space-2);
-}
-
-.stacked-brand:hover {
-  color: var(--color-text);
-}
-
-.stacked-brand-mark {
-  width: 1.5rem;
-  height: 1.5rem;
-  flex-shrink: 0;
-}
-
-/* Navigation links */
-.stacked-nav {
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* Navbar-nav in stacked takes remaining space */
+.stacked-topbar .navbar-nav {
   flex: 1;
-  position: relative; /* anchor for .nav-indicator */
-}
-
-.stacked-nav a {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-1-5) var(--space-3);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
-  text-decoration: none;
-  border-radius: var(--radius-lg);
-  white-space: nowrap;
-  align-self: stretch;
-  position: relative;
-  transition:
-    background-color var(--duration-fast) var(--easing),
-    color var(--duration-fast) var(--easing);
-}
-
-.stacked-nav a:hover {
-  background-color: var(--color-bg-secondary);
-  color: var(--color-text);
-}
-
-.stacked-nav a[aria-current="page"],
-.stacked-nav a.is-active {
-  background-color: transparent;
-  color: var(--color-text);
-  font-weight: var(--font-weight-bold);
-}
-
-.stacked-nav a[aria-current="page"]::after,
-.stacked-nav a.is-active::after {
-  content: "";
-  position: absolute;
-  inset-block-end: 0;
-  inset-inline: var(--space-3);
-  height: 2px;
-  background-color: var(--color-action);
-}
-
-/* nav-indicator.js is active — use the animated span instead */
-.stacked-nav.has-nav-indicator a[aria-current="page"]::after,
-.stacked-nav.has-nav-indicator a.is-active::after {
-  display: none;
-}
-
-/* Animated sliding indicator (nav-indicator.js) */
-.stacked-nav .nav-indicator {
-  position: absolute;
-  inset-block-end: 0;
-  inset-inline-start: 0;
-  height: 2px;
-  background-color: var(--color-action);
-  pointer-events: none;
-  opacity: 0;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .stacked-nav .nav-indicator {
-    transition:
-      transform var(--duration-normal) cubic-bezier(0.34, 1.56, 0.64, 1),
-      width var(--duration-normal) cubic-bezier(0.34, 1.56, 0.64, 1),
-      opacity var(--duration-fast) var(--easing);
-  }
-}
-
-.stacked-nav-icon {
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
-  opacity: 0.6;
-}
-
-.stacked-nav a:hover .stacked-nav-icon,
-.stacked-nav a[aria-current="page"] .stacked-nav-icon,
-.stacked-nav a.is-active .stacked-nav-icon {
-  opacity: 1;
-}
-
-/* Right-side actions slot */
-.stacked-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  flex-shrink: 0;
-  margin-inline-start: auto;
 }
 
 /* Search — positional overrides only; appearance comes from input.css */
 .stacked-search {
   flex-shrink: 0;
-}
-
-/* Avatar / profile button */
-.stacked-avatar {
-  width: 2rem;
-  height: 2rem;
-  border-radius: var(--radius-full);
-  background-color: var(--color-bg-tertiary);
-  border: var(--border-width) solid var(--color-border);
-  cursor: pointer;
-  object-fit: cover;
-  flex-shrink: 0;
-  display: block;
-}
-
-/* User menu trigger button in topbar */
-.stacked-user-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  border-radius: var(--radius-full);
 }
 
 /* User menu positioning: opens downward from topbar */
@@ -217,49 +63,6 @@
   inset-inline-start: auto;
   inset-inline-end: 0;
   min-width: 14rem;
-}
-
-/* Icon button in actions (notifications, etc.) */
-.stacked-action-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: var(--radius-lg);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--color-text-secondary);
-  transition:
-    background-color var(--duration-fast) var(--easing),
-    color var(--duration-fast) var(--easing);
-}
-
-.stacked-action-btn:hover {
-  background-color: var(--color-bg-secondary);
-  color: var(--color-text);
-}
-
-.stacked-action-btn svg {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-/* Mobile toggle */
-.stacked-toggle {
-  display: none;
-  background: none;
-  border: none;
-  padding: var(--space-1);
-  cursor: pointer;
-  color: var(--color-text);
-  flex-shrink: 0;
-}
-
-.stacked-toggle svg {
-  width: 1.5rem;
-  height: 1.5rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -303,32 +106,14 @@
     background-color: var(--color-bg);
   }
 
-  .stacked-nav {
-    display: none;
-    flex-direction: column;
+  /* Navbar-nav mobile dropdown positioning for stacked layout */
+  .stacked-topbar .navbar-nav {
     position: absolute;
     top: 100%;
     inset-inline: 0;
     background-color: var(--color-bg);
-    padding: var(--space-2) var(--space-3);
     box-shadow: var(--shadow-md);
     z-index: 9;
-  }
-
-  .stacked-nav.is-open {
-    display: flex;
-  }
-
-  .stacked-nav a {
-    width: 100%;
-    padding: var(--space-2) var(--space-3);
-    align-self: auto;
-    border-block-end: none;
-    border-radius: var(--radius-lg);
-  }
-
-  .stacked-toggle {
-    display: block;
   }
 
   .stacked-search {

@@ -4,14 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", (e) => e.preventDefault())
   })
 
-  // Navbar toggles — event-delegated for all .navbar-toggle buttons
+  // Block bare # links so demos don't jump to top
   document.addEventListener("click", (e) => {
-    const toggle = e.target.closest(".navbar-toggle")
-    if (!toggle) return
-    const navId = toggle.getAttribute("aria-controls")
-    const nav = navId ? document.getElementById(navId) : null
-    if (!nav) return
-    const open = nav.classList.toggle("is-open")
-    toggle.setAttribute("aria-expanded", String(open))
+    const link = e.target.closest('a[href="#"]')
+    if (link) e.preventDefault()
   })
 })

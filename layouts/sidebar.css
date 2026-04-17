@@ -1,32 +1,35 @@
 /* ==========================================================================
    Layout: Sidebar — Sticky sidebar with scrollable main content area.
    Collapses to a slide-in drawer on mobile.
+   Uses .navbar component classes for brand, nav links, icons, badges,
+   indicators, and section labels. Sidebar-specific layout styles remain here.
 
    HTML structure:
      <div class="layout-sidebar">
-       <aside class="sidebar">
-         <a class="sidebar-brand" href="/">Brand</a>
+       <aside class="sidebar" aria-label="Main navigation">
+         <a class="navbar-brand sidebar-brand" href="/">Brand</a>
          <nav>
-           <ul class="sidebar-nav">
-             <li><a href="/" aria-current="page">Home</a></li>
-             ...
+           <ul class="navbar-nav sidebar-nav" data-nav-indicator="vertical">
+             <li><a href="/" aria-current="page">
+               <svg class="navbar-nav-icon" …>…</svg> Home
+             </a></li>
            </ul>
            <div class="sidebar-nav-group">
-             <p class="sidebar-nav-group-label">Section</p>
-             <ul class="sidebar-nav">...</ul>
+             <p class="navbar-section-label">Section</p>
+             <ul class="navbar-nav sidebar-nav">…</ul>
            </div>
          </nav>
          <div class="sidebar-footer">
-           <button class="sidebar-user">...</button>
+           <button class="sidebar-user">…</button>
          </div>
        </aside>
        <div class="sidebar-overlay" id="sidebar-overlay"></div>
        <main class="sidebar-main">
          <header class="sidebar-main-header">
-           <button class="sidebar-toggle">...</button>
+           <button class="sidebar-toggle">…</button>
            <h1>Page Title</h1>
          </header>
-         <div class="sidebar-main-body">...</div>
+         <div class="sidebar-main-body">…</div>
        </main>
      </div>
    ========================================================================== */
@@ -57,70 +60,38 @@
   overflow-y: auto;
 }
 
-/* Brand / logo */
+/* Brand size override — slightly larger than default navbar brand-mark */
 .sidebar-brand {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
   padding: var(--space-4) var(--space-5);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-lg);
-  color: var(--color-text);
-  text-decoration: none;
-  flex-shrink: 0;
-}
-
-.sidebar-brand:hover {
-  color: var(--color-text);
+  margin-inline-end: 0;
 }
 
 .sidebar-brand-mark {
   width: 1.75rem;
   height: 1.75rem;
-  flex-shrink: 0;
 }
 
-/* Navigation */
+/* Navigation — layout overrides on top of .navbar-nav */
 .sidebar-nav {
   border-block-end: var(--border-width) solid var(--color-border);
-  list-style: none;
-  margin: 0;
-  padding: var(--space-3) var(--space-3);
-  display: flex;
+  padding: var(--space-3);
   flex-direction: column;
+  align-items: stretch;
   gap: var(--space-0-5);
-  flex: 1;
   position: relative; /* anchor for .nav-indicator */
 }
 
 .sidebar-nav a {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-2) var(--space-3);
-  position: relative;
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
-  text-decoration: none;
   border-radius: var(--radius-lg);
-  transition:
-    background-color var(--duration-fast) var(--easing),
-    color var(--duration-fast) var(--easing);
+  padding: var(--space-2) var(--space-3);
+  gap: var(--space-3);
 }
 
 .sidebar-nav a:hover {
   background-color: var(--color-bg-tertiary);
-  color: var(--color-text);
 }
 
-.sidebar-nav a[aria-current="page"],
-.sidebar-nav a.is-active {
-  background-color: transparent;
-  color: var(--color-text);
-  font-weight: var(--font-weight-bold);
-}
-
+/* Vertical active indicator — left bar */
 .sidebar-nav a[aria-current="page"]::before,
 .sidebar-nav a.is-active::before {
   content: "";
@@ -133,13 +104,19 @@
   border-radius: var(--radius-full);
 }
 
-/* nav-indicator.js is active — use the animated span instead */
+/* Hide static fallback when nav-indicator.js active */
 .sidebar-nav.has-nav-indicator a[aria-current="page"]::before,
 .sidebar-nav.has-nav-indicator a.is-active::before {
   display: none;
 }
 
-/* Animated sliding indicator (nav-indicator.js) */
+/* Hide the horizontal ::after indicator from navbar base */
+.sidebar-nav a[aria-current="page"]::after,
+.sidebar-nav a.is-active::after {
+  display: none;
+}
+
+/* Animated sliding indicator (vertical) */
 .sidebar-nav .nav-indicator {
   position: absolute;
   inset-block-start: 0;
@@ -160,45 +137,14 @@
   }
 }
 
-.sidebar-nav-icon {
-  width: 1.125rem;
-  height: 1.125rem;
-  flex-shrink: 0;
-  opacity: 0.6;
-}
-
-.sidebar-nav a:hover .sidebar-nav-icon,
-.sidebar-nav a[aria-current="page"] .sidebar-nav-icon,
-.sidebar-nav a.is-active .sidebar-nav-icon {
-  opacity: 1;
-}
-
 /* Grouped nav section with a label */
 .sidebar-nav-group {
   margin-block-start: var(--space-4);
 }
 
-.sidebar-nav-group-label {
-  padding: var(--space-1) var(--space-3);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  letter-spacing: var(--letter-spacing-wide);
-  text-transform: uppercase;
-  color: var(--color-text-tertiary);
-  margin: 0 0 var(--space-1);
-}
-
-/* Trailing badge count on a nav item (e.g. inbox count) */
-.sidebar-nav-badge {
+/* Trailing badge — override margin for vertical layout */
+.sidebar-nav .navbar-nav-badge {
   margin-inline-start: auto;
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
-  background-color: var(--color-bg-tertiary);
-  border-radius: var(--radius-full);
-  padding: 0 var(--space-1-5);
-  min-width: 1.25rem;
-  text-align: center;
 }
 
 /* Sidebar footer — user account area */

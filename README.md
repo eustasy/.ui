@@ -84,12 +84,14 @@ js/
   listbox-ext-combobox.js     ← filterable combobox extending listbox.js
   textarea-ext-count.js       ← character count for .textarea-field[maxlength]
   navbar-ext-indicator.js     ← animated sliding tab for navbar navs
+  navbar.js                   ← mobile toggle for .navbar-toggle / .navbar-nav
   theme-ext-toggle.js         ← dark/light toggle with localStorage persistence
   user-menu.js                ← user menu open/close behaviour
 layouts/
   auth.html / auth.css        ← centred authentication layout
-  sidebar.html / sidebar.css  ← sidebar + main content layout (all sidebar classes)
-  stacked.html / stacked.css  ← stacked (app shell) layout
+  sidebar.html / sidebar.css  ← sidebar + main content layout (uses navbar classes)
+  sidebar.js                  ← mobile drawer toggle + overlay
+  stacked.html / stacked.css  ← stacked (app shell) layout (uses navbar classes)
 tests/
   elements.html               ← living reference of all styled HTML elements
   components.html             ← preview of all components

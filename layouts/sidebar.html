@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="sidebar.css" />
     <script src="../js/theme-ext-toggle.js"></script>
     <script src="../js/navbar-ext-indicator.js"></script>
+    <script src="../js/user-menu.js"></script>
   </head>
   <body>
     <!-- =====================================================================
@@ -20,9 +21,9 @@
       <!-- ------------------------------------------------------------------ -->
       <aside class="sidebar" id="sidebar" aria-label="Main navigation">
         <!-- Brand -->
-        <a class="sidebar-brand" href="#">
+        <a class="navbar-brand sidebar-brand" href="#">
           <svg
-            class="sidebar-brand-mark"
+            class="navbar-brand-mark sidebar-brand-mark"
             viewBox="0 0 28 28"
             fill="none"
             aria-hidden="true"
@@ -41,14 +42,14 @@
         <!-- Primary nav -->
         <nav style="flex: 1; overflow-y: auto">
           <ul
-            class="sidebar-nav"
+            class="navbar-nav sidebar-nav"
             style="flex: initial"
             data-nav-indicator="vertical"
           >
             <li>
               <a href="#" aria-current="page">
                 <svg
-                  class="sidebar-nav-icon"
+                  class="navbar-nav-icon"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   aria-hidden="true"
@@ -63,7 +64,7 @@
             <li>
               <a href="#">
                 <svg
-                  class="sidebar-nav-icon"
+                  class="navbar-nav-icon"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   aria-hidden="true"
@@ -75,13 +76,13 @@
                   />
                 </svg>
                 Inbox
-                <span class="sidebar-nav-badge">4</span>
+                <span class="navbar-nav-badge">4</span>
               </a>
             </li>
             <li>
               <a href="#">
                 <svg
-                  class="sidebar-nav-icon"
+                  class="navbar-nav-icon"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   aria-hidden="true"
@@ -96,7 +97,7 @@
             <li>
               <a href="#">
                 <svg
-                  class="sidebar-nav-icon"
+                  class="navbar-nav-icon"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   aria-hidden="true"
@@ -117,16 +118,16 @@
 
           <!-- Secondary nav group -->
           <div class="sidebar-nav-group">
-            <p class="sidebar-nav-group-label">Manage</p>
+            <p class="navbar-section-label">Manage</p>
             <ul
-              class="sidebar-nav"
+              class="navbar-nav sidebar-nav"
               style="flex: initial; padding-block-start: 0"
               data-nav-indicator="vertical"
             >
               <li>
                 <a href="#">
                   <svg
-                    class="sidebar-nav-icon"
+                    class="navbar-nav-icon"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     aria-hidden="true"
@@ -143,7 +144,7 @@
               <li>
                 <a href="#">
                   <svg
-                    class="sidebar-nav-icon"
+                    class="navbar-nav-icon"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     aria-hidden="true"
@@ -598,7 +599,6 @@
     </div>
     <!-- /.layout-sidebar -->
 
-    <script src="../js/user-menu.js"></script>
     <script src="sidebar.js"></script>
   </body>
 </html>
