@@ -3,12 +3,6 @@ body {
   max-width: var(--width-wide);
   margin-inline: auto;
 }
-.swatch-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: var(--space-2);
-  margin-block: var(--space-4);
-}
 .swatch {
   padding: var(--space-4) var(--space-2);
   border-radius: var(--radius-md);
@@ -18,14 +12,4 @@ body {
 }
 section {
   margin-block: var(--space-10);
-}
-.cols-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-6);
-}
-@media (max-width: 600px) {
-  .cols-2 {
-    grid-template-columns: 1fr;
-  }
 }

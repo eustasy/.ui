@@ -13,6 +13,7 @@
 @import url("../base/typography.css");
 @import url("../base/forms.css");
 @import url("../base/media.css");
+@import url("../base/grid.css");
 
 /* Components */
 @import url("../components/alert.css");

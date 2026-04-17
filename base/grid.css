@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Grid utilities
+   ========================================================================== */
+
+/* Fixed-column grids
+   All collapse to a single column below 600 px.
+   .cols-3 and .cols-4 also pass through a two-column step below 900 px. */
+.cols-2,
+.cols-3,
+.cols-4 {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 900px) {
+  .cols-3,
+  .cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cols-2,
+  .cols-3,
+  .cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Auto-fill responsive grid
+   Override custom properties inline to tune per-instance:
+     --grid-min   minimum column width  (default: 280px)
+     --grid-gap   gap between items     (default: var(--space-4))
+
+   Examples:
+     <div class="grid-auto">                                  280 px min, space-4 gap
+     <div class="grid-auto" style="--grid-min: 120px">        120 px min
+     <div class="grid-auto" style="--grid-gap: var(--space-2)">  tighter gap */
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min, 280px), 1fr));
+  gap: var(--grid-gap, var(--space-4));
+  margin-block: var(--space-4);
+}

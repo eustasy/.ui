@@ -48,6 +48,7 @@ base/
   typography.css              ← headings, prose, lists, code, links
   forms.css                   ← shared form styles, validation states
   media.css                   ← images, details, progress, dialog
+  grid.css                    ← reusable grid utilities (.cols-2/3/4, .grid-auto)
 components/
   alert.css                   ← info, success, warning, danger, dismissible
   avatar.css                  ← image and initials variants
