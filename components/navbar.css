@@ -1,28 +1,80 @@
 /* ==========================================================================
-   Navbar — Responsive navigation
-   Uses <details> for mobile menu to avoid JS where possible.
+   Navbar — Responsive navigation bar (horizontal or vertical).
+   Add data-nav-indicator="horizontal|vertical" to .navbar-nav for animated
+   active-state indicators (requires nav-indicator.js).
+
+   ARIA: Use <nav aria-label="…"> as the root element, or add aria-label to
+         .navbar when it is not the root. Active link uses aria-current="page".
+         Mobile toggle needs aria-expanded and aria-controls pointing to the
+         .navbar-nav id.
+
+   Example markup (horizontal):
+     <nav class="navbar" aria-label="Main navigation">
+       <a class="navbar-brand" href="/">
+         <svg class="navbar-brand-mark" aria-hidden="true">…</svg>
+         Brand
+       </a>
+       <button class="navbar-toggle" aria-expanded="false"
+               aria-controls="main-nav" aria-label="Toggle menu">
+         <svg …>…</svg>
+       </button>
+       <ul class="navbar-nav" id="main-nav" data-nav-indicator="horizontal">
+         <li><a href="/" aria-current="page">
+           <svg class="navbar-nav-icon" aria-hidden="true">…</svg> Home
+         </a></li>
+       </ul>
+       <div class="navbar-actions">
+         <button class="navbar-action-btn" aria-label="Notifications">…</button>
+       </div>
+     </nav>
+
+   Vertical — add .navbar-vertical:
+     <nav class="navbar navbar-vertical" aria-label="Sidebar">…</nav>
    ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Container
+   -------------------------------------------------------------------------- */
 
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: var(--space-1);
   padding: var(--space-3) var(--space-4);
   background-color: var(--color-surface);
   border-block-end: var(--border-width) solid var(--color-border);
   position: relative;
 }
 
+/* --------------------------------------------------------------------------
+   Brand / Logo
+   -------------------------------------------------------------------------- */
+
 .navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-lg);
   text-decoration: none;
   color: var(--color-text);
+  flex-shrink: 0;
+  margin-inline-end: var(--space-2);
 }
 
 .navbar-brand:hover {
   color: var(--color-text);
 }
+
+.navbar-brand-mark {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Navigation links
+   -------------------------------------------------------------------------- */
 
 .navbar-nav {
   display: flex;
@@ -31,15 +83,21 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  position: relative; /* anchor for .nav-indicator */
 }
 
 .navbar-nav a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   padding: var(--space-1-5) var(--space-3);
   font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
   text-decoration: none;
   border-radius: var(--radius-md);
+  white-space: nowrap;
+  position: relative;
   transition:
     background-color var(--duration-fast) var(--easing),
     color var(--duration-fast) var(--easing);
@@ -50,13 +108,156 @@
   color: var(--color-text);
 }
 
-.navbar-nav a[aria-current="page"] {
+.navbar-nav a[aria-current="page"],
+.navbar-nav a.is-active {
   color: var(--color-text);
-  font-weight: var(--font-weight-medium);
-  background-color: var(--color-bg-secondary);
+  font-weight: var(--font-weight-bold);
+  background-color: transparent;
 }
 
-/* Mobile toggle — hidden on desktop */
+/* Icon inside nav links */
+.navbar-nav-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.navbar-nav a:hover .navbar-nav-icon,
+.navbar-nav a[aria-current="page"] .navbar-nav-icon,
+.navbar-nav a.is-active .navbar-nav-icon {
+  opacity: 1;
+}
+
+/* Trailing badge count (e.g. notifications) */
+.navbar-nav-badge {
+  margin-inline-start: var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-tertiary);
+  border-radius: var(--radius-full);
+  padding: 0 var(--space-1-5);
+  min-width: 1.25rem;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Active indicator — static fallback (bottom bar on active link)
+   -------------------------------------------------------------------------- */
+
+.navbar-nav a[aria-current="page"]::after,
+.navbar-nav a.is-active::after {
+  content: "";
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline: var(--space-3);
+  height: 2px;
+  background-color: var(--color-action);
+}
+
+/* nav-indicator.js active — hide static pseudo-element */
+.navbar-nav.has-nav-indicator a[aria-current="page"]::after,
+.navbar-nav.has-nav-indicator a.is-active::after {
+  display: none;
+}
+
+/* Animated indicator span (created by nav-indicator.js) */
+.navbar-nav .nav-indicator {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  height: 2px;
+  background-color: var(--color-action);
+  pointer-events: none;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .navbar-nav .nav-indicator {
+    transition:
+      transform var(--duration-normal) cubic-bezier(0.34, 1.56, 0.64, 1),
+      width var(--duration-normal) cubic-bezier(0.34, 1.56, 0.64, 1),
+      opacity var(--duration-fast) var(--easing);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Spacer — flexible gap to push subsequent items to the end
+   -------------------------------------------------------------------------- */
+
+.navbar-spacer {
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Divider — vertical separator between groups
+   -------------------------------------------------------------------------- */
+
+.navbar-divider {
+  width: var(--border-width);
+  align-self: stretch;
+  background-color: var(--color-border);
+  margin-inline: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Actions — right-side slot for buttons, search, avatar
+   -------------------------------------------------------------------------- */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+  margin-inline-start: auto;
+}
+
+/* Icon-only action button (notifications, theme toggle, etc.) */
+.navbar-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-lg);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition:
+    background-color var(--duration-fast) var(--easing),
+    color var(--duration-fast) var(--easing);
+}
+
+.navbar-action-btn:hover {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+}
+
+.navbar-action-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Avatar — use inside a .dropdown or standalone */
+.navbar-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-tertiary);
+  border: var(--border-width) solid var(--color-border);
+  cursor: pointer;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile toggle — hidden on desktop
+   -------------------------------------------------------------------------- */
+
 .navbar-toggle {
   display: none;
   background: none;
@@ -64,6 +265,7 @@
   padding: var(--space-1);
   cursor: pointer;
   color: var(--color-text);
+  flex-shrink: 0;
 }
 
 .navbar-toggle svg {
@@ -71,7 +273,10 @@
   height: 1.5rem;
 }
 
-/* Mobile breakpoint */
+/* --------------------------------------------------------------------------
+   Mobile breakpoint
+   -------------------------------------------------------------------------- */
+
 @media (max-width: 768px) {
   .navbar {
     flex-wrap: wrap;
@@ -96,4 +301,119 @@
   .navbar-nav a {
     width: 100%;
   }
+
+  /* Hide horizontal indicator in mobile column layout */
+  .navbar-nav a[aria-current="page"]::after,
+  .navbar-nav a.is-active::after {
+    display: none;
+  }
+
+  .navbar-hide-mobile {
+    display: none !important;
+  }
+
+  .navbar-divider {
+    width: 100%;
+    height: var(--border-width);
+    margin-block: var(--space-2);
+    margin-inline: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Vertical orientation — sidebar-style stacked navigation
+   -------------------------------------------------------------------------- */
+
+.navbar-vertical {
+  flex-direction: column;
+  align-items: stretch;
+  padding: var(--space-4) var(--space-3);
+  border-block-end: none;
+  border-inline-end: var(--border-width) solid var(--color-border);
+  height: 100%;
+}
+
+.navbar-vertical .navbar-brand {
+  padding: var(--space-1) var(--space-3);
+  margin-block-end: var(--space-3);
+  margin-inline-end: 0;
+}
+
+.navbar-vertical .navbar-nav {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-0-5);
+}
+
+.navbar-vertical .navbar-nav a {
+  border-radius: var(--radius-lg);
+  padding: var(--space-2) var(--space-3);
+  gap: var(--space-3);
+}
+
+/* Vertical active indicator — left bar instead of bottom bar */
+.navbar-vertical .navbar-nav a[aria-current="page"]::after,
+.navbar-vertical .navbar-nav a.is-active::after {
+  inset-block-end: auto;
+  inset-inline: auto;
+  inset-inline-start: 0;
+  inset-block-start: 20%;
+  inset-block-end: 20%;
+  height: auto;
+  width: 2px;
+}
+
+/* nav-indicator.js active — still hide static fallback */
+.navbar-vertical .navbar-nav.has-nav-indicator a[aria-current="page"]::after,
+.navbar-vertical .navbar-nav.has-nav-indicator a.is-active::after {
+  display: none;
+}
+
+/* Animated indicator for vertical axis */
+.navbar-vertical .navbar-nav .nav-indicator {
+  inset-block-start: 0;
+  inset-block-end: auto;
+  inset-inline-start: 0;
+  width: 2px;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .navbar-vertical .navbar-nav .nav-indicator {
+    transition:
+      transform var(--duration-normal) cubic-bezier(0.34, 1.56, 0.64, 1),
+      height var(--duration-normal) cubic-bezier(0.34, 1.56, 0.64, 1),
+      opacity var(--duration-fast) var(--easing);
+  }
+}
+
+.navbar-vertical .navbar-nav-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.navbar-vertical .navbar-divider {
+  width: auto;
+  height: var(--border-width);
+  align-self: auto;
+  margin-block: var(--space-2);
+  margin-inline: var(--space-2);
+}
+
+.navbar-vertical .navbar-actions {
+  margin-inline-start: 0;
+  flex-direction: column;
+  align-items: stretch;
+  padding-block-start: var(--space-3);
+}
+
+/* Section label — vertical nav group heading */
+.navbar-section-label {
+  padding: var(--space-3) var(--space-3) var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  pointer-events: none;
 }

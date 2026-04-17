@@ -9,6 +9,8 @@
     <script src="../js/theme-ext-toggle.js"></script>
     <script src="../js/checkbox-ext-select-all.js"></script>
     <script src="../js/input-ext-search.js"></script>
+    <script src="../js/dropdown.js"></script>
+    <script src="../js/navbar-ext-indicator.js"></script>
   </head>
   <body>
     <header
@@ -1803,8 +1805,277 @@
     <section id="navbar" aria-labelledby="navbar-heading">
       <h2 id="navbar-heading">Navbar</h2>
 
-      <nav class="navbar" aria-label="Example navigation">
-        <a href="#" class="navbar-brand">eustasy/.ui</a>
+      <h3>With logo</h3>
+      <nav class="navbar" aria-label="Logo example">
+        <a href="#" class="navbar-brand">
+          <svg
+            class="navbar-brand-mark"
+            viewBox="0 0 28 28"
+            fill="none"
+            aria-hidden="true"
+          >
+            <rect width="28" height="28" rx="6" fill="var(--color-action)" />
+            <path
+              d="M8 14h12M14 8v12"
+              stroke="var(--color-action-text)"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          eustasy/.ui
+        </a>
+        <ul class="navbar-nav">
+          <li><a href="#" aria-current="page">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+      <h3>
+        With animated active state
+        <small
+          style="
+            font-weight: var(--font-weight-normal);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+          "
+          >— navbar-ext-indicator.js</small
+        >
+      </h3>
+      <nav class="navbar" aria-label="Animated indicator example">
+        <a href="#" class="navbar-brand">Brand</a>
+        <ul class="navbar-nav" data-nav-indicator="horizontal">
+          <li><a href="#" aria-current="page">Dashboard</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+
+      <h3>With icon links</h3>
+      <nav class="navbar" aria-label="Icon links example">
+        <a href="#" class="navbar-brand">Brand</a>
+        <ul class="navbar-nav">
+          <li>
+            <a href="#" aria-current="page">
+              <svg
+                class="navbar-nav-icon"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M10.707 2.293a1 1 0 0 0-1.414 0l-7 7A1 1 0 0 0 3 11h1v6a1 1 0 0 0 1 1h4v-4h2v4h4a1 1 0 0 0 1-1v-6h1a1 1 0 0 0 .707-1.707l-7-7z"
+                />
+              </svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg
+                class="navbar-nav-icon"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5zm3 1h10v1H5V6zm0 3h10v1H5V9zm0 3h6v1H5v-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Inbox
+              <span class="navbar-nav-badge">4</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg
+                class="navbar-nav-icon"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 0 1-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 0 1 .947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 0 1 2.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 0 1 2.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 0 1 .947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 0 1-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 0 1-2.287-.947zM10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Settings
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <h3>With space between items</h3>
+      <nav class="navbar" aria-label="Spacer example">
+        <a href="#" class="navbar-brand">Brand</a>
+        <ul class="navbar-nav">
+          <li><a href="#" aria-current="page">Home</a></li>
+          <li><a href="#">Docs</a></li>
+        </ul>
+        <div class="navbar-spacer"></div>
+        <div class="navbar-actions">
+          <a href="#" class="btn btn-sm btn-secondary">Log in</a>
+          <a href="#" class="btn btn-sm btn-primary">Sign up</a>
+        </div>
+      </nav>
+
+      <h3>With divider</h3>
+      <nav class="navbar" aria-label="Divider example">
+        <a href="#" class="navbar-brand">Brand</a>
+        <ul class="navbar-nav">
+          <li><a href="#" aria-current="page">Home</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+        <div class="navbar-divider" aria-hidden="true"></div>
+        <ul class="navbar-nav">
+          <li><a href="#">Help</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+      <h3>With dropdown</h3>
+      <nav class="navbar" aria-label="Dropdown example">
+        <a href="#" class="navbar-brand">Brand</a>
+        <ul class="navbar-nav">
+          <li><a href="#" aria-current="page">Home</a></li>
+          <li>
+            <div class="dropdown">
+              <button
+                class="btn btn-ghost btn-sm"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                aria-controls="navbar-dropdown-demo"
+                style="
+                  font-size: var(--font-size-sm);
+                  color: var(--color-text-secondary);
+                "
+              >
+                More ▾
+              </button>
+              <ul
+                class="dropdown-menu"
+                id="navbar-dropdown-demo"
+                role="menu"
+                hidden
+              >
+                <li role="none">
+                  <a class="dropdown-item" href="#" role="menuitem">Reports</a>
+                </li>
+                <li role="none">
+                  <a class="dropdown-item" href="#" role="menuitem"
+                    >Analytics</a
+                  >
+                </li>
+                <li
+                  class="dropdown-divider"
+                  role="none"
+                  aria-hidden="true"
+                ></li>
+                <li role="none">
+                  <a class="dropdown-item" href="#" role="menuitem">Export</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <h3>With avatar dropdown</h3>
+      <nav class="navbar" aria-label="Avatar dropdown example">
+        <a href="#" class="navbar-brand">Brand</a>
+        <ul class="navbar-nav">
+          <li><a href="#" aria-current="page">Home</a></li>
+          <li><a href="#">Projects</a></li>
+        </ul>
+        <div class="navbar-spacer"></div>
+        <div class="navbar-actions">
+          <button
+            class="navbar-action-btn"
+            type="button"
+            aria-label="Notifications"
+          >
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path
+                fill-rule="evenodd"
+                d="M10 2a6 6 0 0 0-6 6v3.586l-.707.707A1 1 0 0 0 4 14h12a1 1 0 0 0 .707-1.707L16 11.586V8a6 6 0 0 0-6-6zm0 16a2 2 0 0 1-2-2h4a2 2 0 0 1-2 2z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+          <div class="dropdown">
+            <button
+              class="navbar-action-btn"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-controls="navbar-avatar-menu"
+              aria-label="Open user menu"
+              style="padding: 0; border-radius: var(--radius-full)"
+            >
+              <img
+                class="navbar-avatar"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' rx='16' fill='%235E409D'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3EAB%3C/text%3E%3C/svg%3E"
+                alt="Alex Blake"
+              />
+            </button>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              id="navbar-avatar-menu"
+              role="menu"
+              hidden
+            >
+              <li role="none">
+                <a class="dropdown-item" href="#" role="menuitem">My profile</a>
+              </li>
+              <li role="none">
+                <a class="dropdown-item" href="#" role="menuitem">Settings</a>
+              </li>
+              <li class="dropdown-divider" role="none" aria-hidden="true"></li>
+              <li role="none">
+                <button
+                  class="dropdown-item dropdown-item-danger"
+                  role="menuitem"
+                >
+                  Sign out
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <h3>
+        With mobile menu &amp; hidden items
+        <small
+          style="
+            font-weight: var(--font-weight-normal);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+          "
+          >— resize to test</small
+        >
+      </h3>
+      <nav class="navbar" aria-label="Mobile menu example">
+        <a href="#" class="navbar-brand">
+          <svg
+            class="navbar-brand-mark"
+            viewBox="0 0 28 28"
+            fill="none"
+            aria-hidden="true"
+          >
+            <rect width="28" height="28" rx="6" fill="var(--color-action)" />
+            <path
+              d="M8 14h12M14 8v12"
+              stroke="var(--color-action-text)"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          eustasy/.ui
+        </a>
         <button
           class="navbar-toggle"
           aria-expanded="false"
@@ -1817,19 +2088,205 @@
             stroke="currentColor"
             stroke-width="2"
             stroke-linecap="round"
+            aria-hidden="true"
           >
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
         </button>
-        <ul id="nav-demo" class="navbar-nav">
+        <ul id="nav-demo" class="navbar-nav" data-nav-indicator="horizontal">
           <li><a href="#" aria-current="page">Home</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Components</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
+        <div class="navbar-spacer navbar-hide-mobile"></div>
+        <div class="navbar-actions navbar-hide-mobile">
+          <button
+            class="navbar-action-btn"
+            type="button"
+            aria-label="Notifications"
+          >
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path
+                fill-rule="evenodd"
+                d="M10 2a6 6 0 0 0-6 6v3.586l-.707.707A1 1 0 0 0 4 14h12a1 1 0 0 0 .707-1.707L16 11.586V8a6 6 0 0 0-6-6zm0 16a2 2 0 0 1-2-2h4a2 2 0 0 1-2 2z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+          <div class="dropdown">
+            <button
+              class="navbar-action-btn"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-controls="navbar-mobile-user-menu"
+              aria-label="Open user menu"
+              style="padding: 0; border-radius: var(--radius-full)"
+            >
+              <img
+                class="navbar-avatar"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' rx='16' fill='%235E409D'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3EAB%3C/text%3E%3C/svg%3E"
+                alt="Alex Blake"
+              />
+            </button>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              id="navbar-mobile-user-menu"
+              role="menu"
+              hidden
+            >
+              <li role="none">
+                <a class="dropdown-item" href="#" role="menuitem">My profile</a>
+              </li>
+              <li role="none">
+                <a class="dropdown-item" href="#" role="menuitem">Settings</a>
+              </li>
+              <li class="dropdown-divider" role="none" aria-hidden="true"></li>
+              <li role="none">
+                <button
+                  class="dropdown-item dropdown-item-danger"
+                  role="menuitem"
+                >
+                  Sign out
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
+
+      <h3>Vertical orientation</h3>
+      <div
+        style="
+          display: flex;
+          height: 22rem;
+          border: var(--border-width) solid var(--color-border);
+          border-radius: var(--radius-xl);
+          overflow: hidden;
+        "
+      >
+        <nav
+          class="navbar navbar-vertical"
+          aria-label="Vertical navbar example"
+        >
+          <a href="#" class="navbar-brand">
+            <svg
+              class="navbar-brand-mark"
+              viewBox="0 0 28 28"
+              fill="none"
+              aria-hidden="true"
+            >
+              <rect width="28" height="28" rx="6" fill="var(--color-action)" />
+              <path
+                d="M8 14h12M14 8v12"
+                stroke="var(--color-action-text)"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              />
+            </svg>
+            Brand
+          </a>
+          <ul class="navbar-nav" data-nav-indicator="vertical">
+            <li>
+              <a href="#" aria-current="page">
+                <svg
+                  class="navbar-nav-icon"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M10.707 2.293a1 1 0 0 0-1.414 0l-7 7A1 1 0 0 0 3 11h1v6a1 1 0 0 0 1 1h4v-4h2v4h4a1 1 0 0 0 1-1v-6h1a1 1 0 0 0 .707-1.707l-7-7z"
+                  />
+                </svg>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <svg
+                  class="navbar-nav-icon"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5zm3 1h10v1H5V6zm0 3h10v1H5V9zm0 3h6v1H5v-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Inbox
+                <span class="navbar-nav-badge">4</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <svg
+                  class="navbar-nav-icon"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM18 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM6 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M2 15c0-2.761 3.582-5 8-5s8 2.239 8 5H2z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Team
+              </a>
+            </li>
+          </ul>
+          <div class="navbar-divider" aria-hidden="true"></div>
+          <div class="navbar-section-label">Manage</div>
+          <ul class="navbar-nav" data-nav-indicator="vertical">
+            <li>
+              <a href="#">
+                <svg
+                  class="navbar-nav-icon"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 0 1-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 0 1 .947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 0 1 2.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 0 1 2.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 0 1 .947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 0 1-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 0 1-2.287-.947zM10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Settings
+              </a>
+            </li>
+          </ul>
+          <div class="navbar-spacer"></div>
+          <div class="navbar-actions">
+            <span class="avatar avatar-sm" aria-label="Logged in user">AZ</span>
+          </div>
+        </nav>
+        <main
+          style="
+            flex: 1;
+            padding: var(--space-5);
+            overflow-y: auto;
+            background-color: var(--color-bg-secondary);
+          "
+        >
+          <p
+            style="
+              color: var(--color-text-secondary);
+              font-size: var(--font-size-sm);
+            "
+          >
+            Main content area
+          </p>
+        </main>
+      </div>
     </section>
     <!-- ================================================================== -->
     <section id="pagination" aria-labelledby="pagination-heading">

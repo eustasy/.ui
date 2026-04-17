@@ -4,13 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", (e) => e.preventDefault())
   })
 
-  // Navbar toggle
-  const navbarToggle = document.querySelector('[aria-controls="nav-demo"]')
-  if (navbarToggle) {
-    navbarToggle.addEventListener("click", function () {
-      const nav = document.getElementById("nav-demo")
-      const open = nav.classList.toggle("is-open")
-      this.setAttribute("aria-expanded", open)
-    })
-  }
+  // Navbar toggles — event-delegated for all .navbar-toggle buttons
+  document.addEventListener("click", (e) => {
+    const toggle = e.target.closest(".navbar-toggle")
+    if (!toggle) return
+    const navId = toggle.getAttribute("aria-controls")
+    const nav = navId ? document.getElementById(navId) : null
+    if (!nav) return
+    const open = nav.classList.toggle("is-open")
+    toggle.setAttribute("aria-expanded", String(open))
+  })
 })

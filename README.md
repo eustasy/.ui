@@ -65,7 +65,7 @@ components/
   heading.css                 ← display and section headings
   input.css                   ← text, number, date, and other input types
   listbox.css                 ← inline/dropdown listbox with icons, avatars, flags
-  navbar.css                  ← responsive nav with mobile toggle
+  navbar.css                  ← responsive nav with logo, icons, indicators, dropdowns, vertical mode
   pagination.css              ← page navigation controls
   radio.css                   ← radio button group
   select.css                  ← native and custom select
@@ -83,11 +83,11 @@ js/
   listbox.js                  ← panel and dropdown listbox; keyboard nav, multi-select, live region
   listbox-ext-combobox.js     ← filterable combobox extending listbox.js
   textarea-ext-count.js       ← character count for .textarea-field[maxlength]
+  navbar-ext-indicator.js     ← animated sliding tab for navbar navs
   theme-ext-toggle.js         ← dark/light toggle with localStorage persistence
   user-menu.js                ← user menu open/close behaviour
 layouts/
   auth.html / auth.css        ← centred authentication layout
-  nav-indicator.js            ← animated sliding tab for sidebar/stacked navs
   sidebar.html / sidebar.css  ← sidebar + main content layout (all sidebar classes)
   stacked.html / stacked.css  ← stacked (app shell) layout
 tests/
