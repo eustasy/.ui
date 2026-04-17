@@ -82,6 +82,11 @@
   outline-offset: calc(-1 * var(--focus-ring-width));
 }
 
+/* Hidden option (filtered out by combobox search, etc.) */
+.listbox-option[hidden] {
+  display: none;
+}
+
 /* Disabled option */
 .listbox-option[aria-disabled="true"] {
   opacity: 0.5;
