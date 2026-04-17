@@ -66,7 +66,7 @@
 
       // Clear active state in sibling nav-indicator navs within the same navbar
       const navbar = nav.closest(
-        ".navbar, .sidebar, .layout-sidebar, .layout-stacked"
+        ".navbar, .navbar-drawer, .sidebar, .layout-sidebar, .layout-stacked"
       )
       if (navbar) {
         navbar.querySelectorAll("[data-nav-indicator]").forEach((sibling) => {

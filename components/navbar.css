@@ -304,15 +304,31 @@
   }
 
   .navbar-nav {
-    display: none;
     flex-direction: column;
-    width: 100%;
-    padding-block-start: var(--space-3);
     gap: var(--space-0-5);
+    position: fixed;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: 16rem;
+    background-color: var(--color-bg);
+    z-index: 50;
+    padding: var(--space-6) var(--space-4);
+    overflow-y: auto;
+    transform: translateX(-100%);
+  }
+
+  [dir="rtl"] .navbar-nav {
+    transform: translateX(100%);
   }
 
   .navbar-nav.is-open {
-    display: flex;
+    transform: translateX(0);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .navbar-nav {
+      transition: transform var(--duration-normal) var(--easing);
+    }
   }
 
   .navbar-nav a {
@@ -335,6 +351,226 @@
     margin-block: var(--space-2);
     margin-inline: 0;
   }
+}
+
+/* --------------------------------------------------------------------------
+   Drawer — off-canvas mobile navigation panel with header, sections & user
+   Hidden on desktop; slides in from the inline-start edge on mobile.
+
+   HTML skeleton:
+     <div class="navbar-drawer" id="drawer-id">
+       <a class="navbar-brand" href="/">Brand</a>
+       <nav class="navbar-drawer-body">
+         <ul class="navbar-nav" data-nav-indicator="vertical">…</ul>
+         <div class="navbar-drawer-section">
+           <p class="navbar-section-label">Section</p>
+           <ul class="navbar-nav" data-nav-indicator="vertical">…</ul>
+         </div>
+       </nav>
+       <div class="navbar-drawer-footer">
+         <button class="navbar-drawer-user">…</button>
+       </div>
+     </div>
+   -------------------------------------------------------------------------- */
+
+.navbar-drawer {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-drawer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: 16rem;
+    background-color: var(--color-bg);
+    z-index: 50;
+    overflow-y: auto;
+    transform: translateX(-100%);
+  }
+
+  [dir="rtl"] .navbar-drawer {
+    transform: translateX(100%);
+  }
+
+  .navbar-drawer.is-open {
+    transform: translateX(0);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .navbar-drawer {
+      transition: transform var(--duration-normal) var(--easing);
+    }
+  }
+}
+
+/* Brand inside drawer */
+.navbar-drawer .navbar-brand {
+  padding: var(--space-4) var(--space-5);
+  margin-inline-end: 0;
+}
+
+.navbar-drawer .navbar-brand .navbar-brand-mark {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+/* Scrollable body — fills remaining space between brand and footer */
+.navbar-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Nav inside drawer — always vertical, no fixed positioning */
+.navbar-drawer .navbar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-0-5);
+  padding: var(--space-3);
+  border-block-end: var(--border-width) solid var(--color-border);
+  position: relative;
+  transform: none;
+  width: auto;
+  inset: auto;
+  z-index: auto;
+  background-color: transparent;
+  overflow-y: visible;
+}
+
+.navbar-drawer .navbar-nav a {
+  border-radius: var(--radius-lg);
+  padding: var(--space-2) var(--space-3);
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.navbar-drawer .navbar-nav a:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
+/* Vertical active indicator — left bar (static fallback) */
+.navbar-drawer .navbar-nav a[aria-current="page"]::after,
+.navbar-drawer .navbar-nav a.is-active::after {
+  display: block;
+  inset-block-start: 20%;
+  inset-block-end: 20%;
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+  height: auto;
+  width: 2px;
+}
+
+/* Hide static fallback when JS indicator is active */
+.navbar-drawer .navbar-nav.has-nav-indicator a[aria-current="page"]::after,
+.navbar-drawer .navbar-nav.has-nav-indicator a.is-active::after {
+  display: none;
+}
+
+/* Animated sliding indicator (vertical) */
+.navbar-drawer .navbar-nav .nav-indicator {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 2px;
+  height: auto;
+  background-color: var(--color-action);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .navbar-drawer .navbar-nav .nav-indicator {
+    transition:
+      transform var(--duration-normal) cubic-bezier(0.34, 1.56, 0.64, 1),
+      height var(--duration-normal) cubic-bezier(0.34, 1.56, 0.64, 1),
+      opacity var(--duration-fast) var(--easing);
+  }
+}
+
+/* Icons and badges in drawer nav */
+.navbar-drawer .navbar-nav-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.navbar-drawer .navbar-nav-badge {
+  margin-inline-start: auto;
+}
+
+/* Grouped section with a label */
+.navbar-drawer-section {
+  margin-block-start: var(--space-4);
+}
+
+.navbar-drawer-section .navbar-nav {
+  padding-block-start: 0;
+}
+
+/* Footer — user account area, pushed to bottom */
+.navbar-drawer-footer {
+  margin-block-start: auto;
+  padding: var(--space-3);
+  flex-shrink: 0;
+}
+
+.navbar-drawer-user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  text-align: start;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .navbar-drawer-user {
+    transition: background-color var(--duration-fast) var(--easing);
+  }
+}
+
+.navbar-drawer-user:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
+.navbar-drawer-user-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-tertiary);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.navbar-drawer-user-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.navbar-drawer-user-name {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.navbar-drawer-user-meta {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* --------------------------------------------------------------------------

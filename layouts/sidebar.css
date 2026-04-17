@@ -79,7 +79,15 @@
   flex-direction: column;
   align-items: stretch;
   gap: var(--space-0-5);
+  /* Always visible in sidebar — the drawer handles show/hide */
+  display: flex;
   position: relative; /* anchor for .nav-indicator */
+  transform: none;
+  width: auto;
+  background-color: transparent;
+  overflow-y: visible;
+  inset: auto;
+  z-index: auto;
 }
 
 .sidebar-nav a {

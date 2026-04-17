@@ -69,3 +69,16 @@
 .sidebar-user[aria-expanded="true"] {
   background-color: var(--color-bg-tertiary);
 }
+
+.navbar-drawer-user[aria-expanded="true"] {
+  background-color: var(--color-bg-tertiary);
+}
+
+/* Chevron rotation when menu is open */
+.user-menu-chevron {
+  transition: transform var(--duration-fast) var(--easing);
+}
+
+[aria-expanded="true"] .user-menu-chevron {
+  transform: rotate(180deg);
+}

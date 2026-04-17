@@ -27,7 +27,8 @@
           class="navbar-toggle"
           type="button"
           aria-expanded="false"
-          aria-controls="stacked-nav"
+          aria-controls="stacked-drawer"
+          data-overlay="stacked-overlay"
           aria-label="Open menu"
         >
           <svg
@@ -65,7 +66,7 @@
 
         <!-- Primary nav -->
         <ul
-          class="navbar-nav"
+          class="navbar-nav navbar-hide-mobile"
           id="stacked-nav"
           role="list"
           data-nav-indicator="horizontal"
@@ -277,6 +278,239 @@
           </div>
         </div>
       </nav>
+
+      <!-- Mobile navigation drawer -->
+      <div class="navbar-drawer" id="stacked-drawer">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">
+          <svg
+            class="navbar-brand-mark"
+            viewBox="0 0 28 28"
+            fill="none"
+            aria-hidden="true"
+          >
+            <rect width="28" height="28" rx="6" fill="var(--color-action)" />
+            <path
+              d="M8 14h12M14 8v12"
+              stroke="var(--color-action-text)"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          eustasy/.ui
+        </a>
+
+        <!-- Nav body -->
+        <nav class="navbar-drawer-body">
+          <ul class="navbar-nav" role="list" data-nav-indicator="vertical">
+            <li>
+              <a href="#">
+                <svg
+                  class="navbar-nav-icon"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M10.707 2.293a1 1 0 0 0-1.414 0l-7 7A1 1 0 0 0 3 11h1v6a1 1 0 0 0 1 1h4v-4h2v4h4a1 1 0 0 0 1-1v-6h1a1 1 0 0 0 .707-1.707l-7-7z"
+                  />
+                </svg>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-current="page">
+                <svg
+                  class="navbar-nav-icon"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5zm3 1h10v1H5V6zm0 3h10v1H5V9zm0 3h6v1H5v-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Inbox
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <svg
+                  class="navbar-nav-icon"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M2 10a8 8 0 1 1 16 0 8 8 0 0 1-16 0zm8-3a1 1 0 0 0 0 2h2a1 1 0 1 0 0-2H10zm0 4a1 1 0 0 0 0 2h2a1 1 0 1 0 0-2H10z"
+                  />
+                </svg>
+                Reports
+              </a>
+            </li>
+          </ul>
+
+          <!-- Settings section -->
+          <div class="navbar-drawer-section">
+            <p class="navbar-section-label">Manage</p>
+            <ul class="navbar-nav" role="list" data-nav-indicator="vertical">
+              <li>
+                <a href="#">
+                  <svg
+                    class="navbar-nav-icon"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 0 1-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 0 1 .947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 0 1 2.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 0 1 2.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 0 1 .947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 0 1-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 0 1-2.287-.947zM10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  Settings
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- User account -->
+        <div class="navbar-drawer-footer">
+          <div class="user-menu-wrap">
+            <div
+              class="user-menu"
+              id="drawer-user-menu"
+              role="menu"
+              aria-label="User menu"
+            >
+              <ul>
+                <li role="none">
+                  <a href="#" role="menuitem">
+                    <svg
+                      class="user-menu-icon"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-7 9a7 7 0 1 1 14 0H3z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    My profile
+                  </a>
+                </li>
+                <li role="none">
+                  <a href="#" role="menuitem">
+                    <svg
+                      class="user-menu-icon"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 0 1-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 0 1 .947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 0 1 2.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 0 1 2.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 0 1 .947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 0 1-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 0 1-2.287-.947zM10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Settings
+                  </a>
+                </li>
+              </ul>
+              <hr class="user-menu-sep" />
+              <ul>
+                <li role="none">
+                  <button
+                    class="user-menu-item"
+                    role="menuitem"
+                    type="button"
+                    data-theme-toggle
+                  >
+                    <svg
+                      class="user-menu-icon"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586z"
+                      />
+                    </svg>
+                    Toggle dark mode
+                  </button>
+                </li>
+                <li role="none">
+                  <button
+                    class="user-menu-item user-menu-signout"
+                    role="menuitem"
+                    type="button"
+                  >
+                    <svg
+                      class="user-menu-icon"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3 3a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h6a1 1 0 1 0 0-2H4V5h5a1 1 0 1 0 0-2H3zm11.293 4.293a1 1 0 0 1 1.414 0l3 3a1 1 0 0 1 0 1.414l-3 3a1 1 0 0 1-1.414-1.414L15.586 11H9a1 1 0 1 1 0-2h6.586l-1.293-1.293a1 1 0 0 1 0-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Sign out
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <button
+              class="navbar-drawer-user"
+              type="button"
+              aria-haspopup="menu"
+              aria-controls="drawer-user-menu"
+              aria-expanded="false"
+            >
+              <img
+                class="navbar-drawer-user-avatar"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='32' height='32' rx='16' fill='%235E409D'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='14' font-family='sans-serif'%3EAB%3C/text%3E%3C/svg%3E"
+                alt="Alex Blake"
+              />
+              <span class="navbar-drawer-user-info">
+                <span class="navbar-drawer-user-name">Alex Blake</span>
+                <span class="navbar-drawer-user-meta">alex@example.com</span>
+              </span>
+              <!-- Chevron -->
+              <svg
+                class="user-menu-chevron"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+                style="
+                  width: 1rem;
+                  height: 1rem;
+                  flex-shrink: 0;
+                  margin-inline-start: auto;
+                  opacity: 0.5;
+                "
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M14.707 12.707a1 1 0 0 1-1.414 0L10 9.414l-3.293 3.293a1 1 0 0 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile backdrop -->
+      <div class="navbar-overlay" id="stacked-overlay" aria-hidden="true"></div>
 
       <!-- ------------------------------------------------------------------ -->
       <!-- Main content                                                         -->

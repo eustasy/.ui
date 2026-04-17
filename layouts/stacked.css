@@ -102,18 +102,7 @@
   .stacked-topbar {
     padding: 0 var(--space-4);
     gap: var(--space-2);
-    position: relative;
     background-color: var(--color-bg);
-  }
-
-  /* Navbar-nav mobile dropdown positioning for stacked layout */
-  .stacked-topbar .navbar-nav {
-    position: absolute;
-    top: 100%;
-    inset-inline: 0;
-    background-color: var(--color-bg);
-    box-shadow: var(--shadow-md);
-    z-index: 9;
   }
 
   .stacked-search {
