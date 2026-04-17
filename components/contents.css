@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Contents — Floating table of contents
+
+   A sticky sidebar navigation that lists page headings (h2 + h3).
+   Designed to sit alongside main content in a flex layout.
+
+   Markup:
+     <div class="contents-layout">
+       <nav class="contents" aria-label="Table of contents">
+         <p class="contents-title">Contents</p>
+         <ol class="contents-list">
+           <li class="contents-item">
+             <a class="contents-link" href="#section">Section</a>
+             <ol class="contents-sublist">
+               <li class="contents-item">
+                 <a class="contents-link" href="#sub">Sub-section</a>
+               </li>
+             </ol>
+           </li>
+         </ol>
+       </nav>
+       <main>…</main>
+     </div>
+
+   ARIA: Use aria-label="Table of contents" on the <nav>.
+   The .is-active class is applied by contents-ext-bookmark.js.
+   ========================================================================== */
+
+/* Layout helper — flex wrapper for contents + main content */
+.contents-layout {
+  display: flex;
+  gap: var(--space-8);
+  align-items: flex-start;
+}
+
+.contents-layout > :not(.contents) {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+/* Sticky sidebar container */
+.contents {
+  position: sticky;
+  inset-block-start: var(--space-6);
+  flex-shrink: 0;
+  inline-size: 14rem;
+  max-block-size: calc(100vh - var(--space-12));
+  overflow-y: auto;
+  font-size: var(--font-size-sm);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+/* Title label */
+.contents-title {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  margin: 0;
+  margin-block-end: var(--space-2);
+  padding-inline: var(--space-3);
+}
+
+/* Lists */
+.contents-list,
+.contents-sublist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contents-sublist {
+  padding-inline-start: var(--space-3);
+  border-inline-start: var(--border-width-2) solid var(--color-action);
+}
+
+/* Links */
+.contents-link {
+  display: block;
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-inline-start: var(--border-width-2) solid transparent;
+  line-height: var(--line-height-normal);
+}
+
+/* Sublist links don't need their own border — the sublist has one */
+.contents-sublist .contents-link {
+  border-inline-start: none;
+}
+
+.contents-link:hover {
+  color: var(--color-text);
+}
+
+.contents-link:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--radius-sm);
+}
+
+/* Active state — set by contents-ext-bookmark.js */
+.contents-link.is-active {
+  color: var(--color-text);
+  border-inline-start-color: var(--color-action);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Collapsed sublists — set by contents-ext-bookmark.js */
+.contents-sublist.is-collapsed {
+  display: none;
+}
+
+/* Transitions */
+@media (prefers-reduced-motion: no-preference) {
+  .contents-link {
+    transition:
+      color var(--duration-fast) var(--easing),
+      border-color var(--duration-fast) var(--easing);
+  }
+}
+
+/* Hide on small screens where there's no room for a sidebar */
+@media (max-width: 860px) {
+  .contents {
+    display: none;
+  }
+
+  .contents-layout {
+    display: block;
+  }
+}

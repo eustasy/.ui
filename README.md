@@ -55,6 +55,7 @@ components/
   button.css                  ← primary, secondary, outline, ghost, danger, sizes
   card.css                    ← header/body/footer, image variant, compact
   checkbox.css                ← styled checkbox with indeterminate state
+  contents.css                ← sticky sidebar table of contents
   combobox.css                ← searchable select extending listbox
   description-list.css        ← horizontal and vertical term/definition pairs
   dialog.css                  ← modal and non-modal dialog
@@ -76,6 +77,7 @@ components/
 js/
   alert-ext-dismiss.js        ← dismiss .alert on .alert-dismiss click
   checkbox-ext-select-all.js  ← select-all with indeterminate state
+  contents-ext-bookmark.js    ← scroll-spy, h3 injection, and section collapse for contents
   dialog.js                   ← open/close native <dialog> via data attributes
   dropdown.js                 ← toggle .dropdown menus; click-outside + Escape
   input-ext-search.js         ← expand-on-focus search with / shortcut

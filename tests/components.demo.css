@@ -1,6 +1,6 @@
 body {
   padding: var(--space-6) var(--space-4);
-  max-width: var(--width-wide);
+  max-width: 80rem;
   margin-inline: auto;
 }
 section {
