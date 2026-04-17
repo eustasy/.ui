@@ -22,6 +22,7 @@
 @import url("../components/button.css");
 @import url("../components/card.css");
 @import url("../components/checkbox.css");
+@import url("../components/listbox.css");
 @import url("../components/combobox.css");
 @import url("../components/description-list.css");
 @import url("../components/dialog.css");
@@ -30,7 +31,6 @@
 @import url("../components/fieldset.css");
 @import url("../components/heading.css");
 @import url("../components/input.css");
-@import url("../components/listbox.css");
 @import url("../components/navbar.css");
 @import url("../components/pagination.css");
 @import url("../components/radio.css");

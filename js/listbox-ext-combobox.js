@@ -1,19 +1,21 @@
 /**
  * Combobox — filterable listbox with full keyboard navigation.
+ * Extends the standalone listbox by adding a search input and filtering.
+ * Options use .listbox-option (from listbox.css / listbox.js).
  *
  * Usage:
- *   <script src="js/combobox.js"></script>
+ *   <script src="js/listbox-ext-combobox.js"></script>
  *
  *   <div class="combobox">
  *     <input type="text" role="combobox" aria-expanded="false"
  *            aria-haspopup="listbox" aria-controls="cb-list"
  *            aria-autocomplete="list" autocomplete="off" />
  *     <ul class="combobox-listbox" id="cb-list" role="listbox" hidden>
- *       <li class="combobox-option" role="option" aria-selected="false">Apple</li>
+ *       <li class="listbox-option" role="option" aria-selected="false">Apple</li>
  *     </ul>
  *   </div>
  *
- * Group labels (.combobox-group-label) are shown/hidden automatically
+ * Group labels (.listbox-group-label) are shown/hidden automatically
  * based on whether any sibling options match the current query.
  */
 document.addEventListener("DOMContentLoaded", () => {
@@ -30,11 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!list) return
 
     // Ensure each option has an id for aria-activedescendant
-    list.querySelectorAll(".combobox-option").forEach((opt) => {
+    list.querySelectorAll(".listbox-option").forEach((opt) => {
       if (!opt.id) opt.id = `combobox-opt-${++uid}`
       if (!opt.dataset.cbValue) opt.dataset.cbValue = opt.textContent.trim()
       // Build a searchable string from the primary value + any secondary text
-      const meta = opt.querySelector(".combobox-option-meta")
+      const meta = opt.querySelector(".listbox-option-meta")
       opt.dataset.cbSearch = meta
         ? `${opt.dataset.cbValue} ${meta.textContent.trim()}`
         : opt.dataset.cbValue
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function allOptions() {
-      return [...list.querySelectorAll(".combobox-option")]
+      return [...list.querySelectorAll(".listbox-option")]
     }
 
     function visibleOptions() {
@@ -59,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function activeOption() {
-      return list.querySelector(".combobox-option[data-active]")
+      return list.querySelector(".listbox-option[data-active]")
     }
 
     function setActive(opt) {
@@ -103,11 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
       })
 
       // Show group labels only when they have at least one visible option
-      list.querySelectorAll(".combobox-group-label").forEach((label) => {
+      list.querySelectorAll(".listbox-group-label").forEach((label) => {
         let sib = label.nextElementSibling
         let groupVisible = false
-        while (sib && !sib.classList.contains("combobox-group-label")) {
-          if (sib.classList.contains("combobox-option") && !sib.hidden) {
+        while (sib && !sib.classList.contains("listbox-group-label")) {
+          if (sib.classList.contains("listbox-option") && !sib.hidden) {
             groupVisible = true
             break
           }
@@ -174,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Click option to select
     list.addEventListener("click", (e) => {
-      const opt = e.target.closest(".combobox-option")
+      const opt = e.target.closest(".listbox-option")
       if (opt) select(opt)
     })
 

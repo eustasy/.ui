@@ -1,5 +1,10 @@
 /* ==========================================================================
    Combobox
+   Extends the listbox component with a search input. Option markup uses
+   .listbox-option (and related classes) from listbox.css — combobox adds
+   only the wrapper, popup positioning, filtering empty-state, and
+   selection-style overrides.
+
    WCAG: The input must have role="combobox", aria-expanded, aria-controls
          pointing to the listbox id, and aria-haspopup="listbox".
          The listbox popup must have role="listbox"; each option role="option"
@@ -12,7 +17,7 @@
               aria-haspopup="listbox" aria-controls="cb-list"
               aria-autocomplete="list" autocomplete="off" />
        <ul class="combobox-listbox" id="cb-list" role="listbox" hidden>
-         <li class="combobox-option" role="option" aria-selected="false">…</li>
+         <li class="listbox-option" role="option" aria-selected="false">…</li>
        </ul>
      </div>
    ========================================================================== */
@@ -49,23 +54,18 @@
   display: none;
 }
 
-/* Individual option */
-.combobox-option {
-  padding: var(--space-2) var(--space-3);
-  font-size: var(--font-size-sm);
-  color: var(--color-text);
-  cursor: pointer;
-  transition: background-color var(--duration-fast) var(--easing);
-}
+/* --- Overrides for listbox-option inside a combobox popup --- */
 
-.combobox-option:hover,
-.combobox-option[aria-selected="true"] {
+/* In combobox, selected just gets a subtle highlight (input shows value) */
+.combobox-listbox .listbox-option[aria-selected="true"] {
   background-color: var(--color-surface-raised);
+  color: var(--color-text);
+  font-weight: var(--font-weight-normal);
 }
 
-/* Active / keyboard-highlighted option */
-.combobox-option[data-active],
-.combobox-option:focus {
+/* Keyboard focus lives on the input, so suppress option outline */
+.combobox-listbox .listbox-option[data-active],
+.combobox-listbox .listbox-option:focus {
   background-color: var(--color-surface-overlay);
   outline: none;
 }
@@ -78,39 +78,9 @@
   text-align: center;
 }
 
-/* Optional group heading within listbox */
-.combobox-group-label {
-  padding: var(--space-1) var(--space-3);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-wide);
-}
-
-/* Rich option layout — icon/avatar + text stack */
-.combobox-option-body {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.combobox-option-label {
-  display: block;
-  font-size: var(--font-size-sm);
-  color: var(--color-text);
-}
-
-.combobox-option-meta {
-  display: block;
-  font-size: var(--font-size-xs);
-  color: var(--color-text-secondary);
-}
-
 /* Hint / error message below the combobox */
 .combobox-message {
   font-size: var(--font-size-sm);
-  margin-block-start: var(--space-1);
   margin: 0;
   margin-block-start: var(--space-1);
 }

@@ -56,7 +56,7 @@ components/
   button.css                  ← primary, secondary, outline, ghost, danger, sizes
   card.css                    ← header/body/footer, image variant, compact
   checkbox.css                ← styled checkbox with indeterminate state
-  combobox.css                ← searchable select with listbox
+  combobox.css                ← searchable select (extends listbox)
   description-list.css        ← horizontal and vertical term/definition pairs
   dialog.css                  ← modal and non-modal dialog
   divider.css                 ← horizontal and vertical separators
@@ -64,7 +64,7 @@ components/
   fieldset.css                ← grouped form controls with legend
   heading.css                 ← display and section headings
   input.css                   ← text, number, date, and other input types
-  listbox.css                 ← single and multi-select listbox
+  listbox.css                 ← single/multi-select listbox with icons, avatars, flags
   navbar.css                  ← responsive nav with mobile toggle
   pagination.css              ← page navigation controls
   radio.css                   ← radio button group
@@ -77,11 +77,11 @@ components/
 js/
   alert-ext-dismiss.js        ← dismiss .alert on .alert-dismiss click
   checkbox-ext-select-all.js  ← select-all with indeterminate state
-  combobox.js                 ← filter, keyboard nav, aria-activedescendant
   dialog.js                   ← open/close native <dialog> via data attributes
   dropdown.js                 ← toggle .dropdown menus; click-outside + Escape
   input-ext-search.js         ← expand-on-focus search with / shortcut
   listbox.js                  ← single and multi-select keyboard nav + live region
+  listbox-ext-combobox.js     ← filter, keyboard nav, extends listbox.js
   textarea-ext-count.js       ← character count for .textarea-field[maxlength]
   theme-ext-toggle.js         ← dark/light toggle with localStorage persistence
   user-menu.js                ← user menu open/close behaviour
