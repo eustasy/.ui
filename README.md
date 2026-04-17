@@ -56,6 +56,7 @@ components/
   button.css                  ← primary, secondary, outline, ghost, danger, sizes
   card.css                    ← header/body/footer, image variant, compact
   checkbox.css                ← styled checkbox with indeterminate state
+  combobox.css                ← searchable select extending listbox
   description-list.css        ← horizontal and vertical term/definition pairs
   dialog.css                  ← modal and non-modal dialog
   divider.css                 ← horizontal and vertical separators
@@ -64,7 +65,6 @@ components/
   heading.css                 ← display and section headings
   input.css                   ← text, number, date, and other input types
   listbox.css                 ← inline/dropdown listbox with icons, avatars, flags
-  combobox.css                ← searchable select extending listbox
   navbar.css                  ← responsive nav with mobile toggle
   pagination.css              ← page navigation controls
   radio.css                   ← radio button group

@@ -46,6 +46,7 @@
         <li><a href="#buttons">Button</a></li>
         <li><a href="#cards">Card</a></li>
         <li><a href="#checkboxes">Checkbox</a></li>
+        <li><a href="#combobox">Combobox</a></li>
         <li><a href="#description-list">Description list</a></li>
         <li><a href="#dialog">Dialog</a></li>
         <li><a href="#divider">Divider</a></li>
@@ -54,10 +55,10 @@
         <li><a href="#headings">Heading</a></li>
         <li><a href="#input">Input</a></li>
         <li><a href="#listbox">Listbox</a></li>
-        <li><a href="#combobox">Combobox</a></li>
         <li><a href="#navbar">Navbar</a></li>
         <li><a href="#pagination">Pagination</a></li>
         <li><a href="#radio">Radio button</a></li>
+        <li><a href="#search">Search</a></li>
         <li><a href="#select">Select</a></li>
         <li><a href="#sidebar">Sidebar</a></li>
         <li><a href="#switch">Switch</a></li>
@@ -66,7 +67,6 @@
         <li><a href="#textarea">Textarea</a></li>
       </ol>
     </nav>
-
     <!-- ================================================================== -->
     <section id="alerts" aria-labelledby="alerts-heading">
       <h2 id="alerts-heading">Alerts</h2>
@@ -99,7 +99,6 @@
         <button class="alert-dismiss" aria-label="Dismiss alert">×</button>
       </div>
     </section>
-
     <!-- ================================================================== -->
     <section id="avatars" aria-labelledby="avatars-heading">
       <h2 id="avatars-heading">Avatar</h2>
@@ -165,7 +164,6 @@
         </div>
       </div>
     </section>
-
     <!-- ================================================================== -->
     <section id="badges" aria-labelledby="badges-heading">
       <h2 id="badges-heading">Badges</h2>
@@ -182,7 +180,6 @@
         <span class="badge badge-magenta">Magenta</span>
       </div>
     </section>
-
     <!-- ================================================================== -->
     <section id="buttons" aria-labelledby="buttons-heading">
       <h2 id="buttons-heading">Buttons</h2>
@@ -245,7 +242,6 @@
         </button>
       </div>
     </section>
-
     <!-- ================================================================== -->
     <section id="cards" aria-labelledby="cards-heading">
       <h2 id="cards-heading">Cards</h2>
@@ -298,7 +294,6 @@
         </article>
       </div>
     </section>
-
     <!-- ================================================================== -->
     <section id="checkboxes" aria-labelledby="checkboxes-heading">
       <h2 id="checkboxes-heading">Checkbox</h2>
@@ -385,7 +380,285 @@
         </div>
       </div>
     </section>
+    <!-- ================================================================== -->
+    <section id="combobox" aria-labelledby="combobox-heading">
+      <h2 id="combobox-heading">Combobox</h2>
+      <p
+        style="
+          font-size: var(--font-size-sm);
+          color: var(--color-text-secondary);
+          margin-block-start: 0;
+        "
+      >
+        Extends <a href="#listbox">Listbox</a> with a search input —
+        <code>listbox-ext-combobox.js</code>
+      </p>
 
+      <h3>Basic</h3>
+      <div style="max-width: var(--width-input)">
+        <label class="input-label" for="cb-input">Search framework</label>
+        <div class="combobox">
+          <input
+            id="cb-input"
+            type="text"
+            role="combobox"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-controls="cb-popup"
+            aria-autocomplete="list"
+            autocomplete="off"
+            placeholder="Type to search…"
+          />
+          <ul
+            class="listbox listbox-popup"
+            id="cb-popup"
+            role="listbox"
+            aria-label="Frameworks"
+            hidden
+          >
+            <li class="listbox-group-label">Languages</li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              CSS
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              HTML
+            </li>
+            <li class="listbox-group-label">Frameworks</li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              React
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              Svelte
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              Vue
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>People</h3>
+      <div style="max-width: var(--width-input)">
+        <label class="input-label" for="cb-people">Assign to</label>
+        <div class="combobox">
+          <input
+            id="cb-people"
+            type="text"
+            role="combobox"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-controls="cb-people-popup"
+            aria-autocomplete="list"
+            autocomplete="off"
+            placeholder="Search people…"
+          />
+          <ul
+            class="listbox listbox-popup"
+            id="cb-people-popup"
+            role="listbox"
+            aria-label="People"
+            hidden
+          >
+            <li
+              class="listbox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="Alice Zhang"
+            >
+              <span class="listbox-option-body">
+                <span class="avatar avatar-sm" aria-hidden="true">AZ</span>
+                <span>
+                  <span class="listbox-option-label">Alice Zhang</span>
+                  <span class="listbox-option-meta">Product Designer</span>
+                </span>
+              </span>
+            </li>
+            <li
+              class="listbox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="Ben Okafor"
+            >
+              <span class="listbox-option-body">
+                <span class="avatar avatar-sm" aria-hidden="true">BO</span>
+                <span>
+                  <span class="listbox-option-label">Ben Okafor</span>
+                  <span class="listbox-option-meta">Engineering Lead</span>
+                </span>
+              </span>
+            </li>
+            <li
+              class="listbox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="Clara Morin"
+            >
+              <span class="listbox-option-body">
+                <span class="avatar avatar-sm" aria-hidden="true">CM</span>
+                <span>
+                  <span class="listbox-option-label">Clara Morin</span>
+                  <span class="listbox-option-meta">Product Manager</span>
+                </span>
+              </span>
+            </li>
+            <li
+              class="listbox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="David Lim"
+            >
+              <span class="listbox-option-body">
+                <span class="avatar avatar-sm" aria-hidden="true">DL</span>
+                <span>
+                  <span class="listbox-option-label">David Lim</span>
+                  <span class="listbox-option-meta">QA Engineer</span>
+                </span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Countries</h3>
+      <div style="max-width: var(--width-input)">
+        <label class="input-label" for="cb-country">Country</label>
+        <div class="combobox">
+          <input
+            id="cb-country"
+            type="text"
+            role="combobox"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-controls="cb-country-popup"
+            aria-autocomplete="list"
+            autocomplete="off"
+            placeholder="Search countries…"
+          />
+          <ul
+            class="listbox listbox-popup"
+            id="cb-country-popup"
+            role="listbox"
+            aria-label="Countries"
+            hidden
+          >
+            <li
+              class="listbox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="Germany"
+            >
+              <span class="listbox-option-body">
+                <span aria-hidden="true">🇩🇪</span> Germany
+              </span>
+            </li>
+            <li
+              class="listbox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="France"
+            >
+              <span class="listbox-option-body">
+                <span aria-hidden="true">🇫🇷</span> France
+              </span>
+            </li>
+            <li
+              class="listbox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="Japan"
+            >
+              <span class="listbox-option-body">
+                <span aria-hidden="true">🇯🇵</span> Japan
+              </span>
+            </li>
+            <li
+              class="listbox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="Nigeria"
+            >
+              <span class="listbox-option-body">
+                <span aria-hidden="true">🇳🇬</span> Nigeria
+              </span>
+            </li>
+            <li
+              class="listbox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="Brazil"
+            >
+              <span class="listbox-option-body">
+                <span aria-hidden="true">🇧🇷</span> Brazil
+              </span>
+            </li>
+            <li
+              class="listbox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="United Kingdom"
+            >
+              <span class="listbox-option-body">
+                <span aria-hidden="true">🇬🇧</span> United Kingdom
+              </span>
+            </li>
+            <li
+              class="listbox-option"
+              role="option"
+              aria-selected="false"
+              data-cb-value="United States"
+            >
+              <span class="listbox-option-body">
+                <span aria-hidden="true">🇺🇸</span> United States
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Error state</h3>
+      <div class="combobox-error" style="max-width: var(--width-input)">
+        <label class="input-label" for="cb-required">Team</label>
+        <div class="combobox">
+          <input
+            id="cb-required"
+            type="text"
+            role="combobox"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-controls="cb-required-popup"
+            aria-autocomplete="list"
+            aria-required="true"
+            aria-invalid="true"
+            aria-describedby="cb-required-err"
+            autocomplete="off"
+            placeholder="Select a team…"
+          />
+          <ul
+            class="listbox listbox-popup"
+            id="cb-required-popup"
+            role="listbox"
+            aria-label="Teams"
+            hidden
+          >
+            <li class="listbox-option" role="option" aria-selected="false">
+              Design
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              Engineering
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              Marketing
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              Product
+            </li>
+          </ul>
+        </div>
+        <p id="cb-required-err" class="combobox-message" role="alert">
+          A team is required.
+        </p>
+      </div>
+    </section>
     <!-- ================================================================== -->
     <section id="description-list" aria-labelledby="dl-heading">
       <h2 id="dl-heading">Description list</h2>
@@ -424,7 +697,6 @@
         </div>
       </dl>
     </section>
-
     <!-- ================================================================== -->
     <section id="dialog" aria-labelledby="dialog-heading">
       <h2 id="dialog-heading">Dialog</h2>
@@ -593,7 +865,6 @@
         </div>
       </dialog>
     </section>
-
     <!-- ================================================================== -->
     <section id="divider" aria-labelledby="divider-heading">
       <h2 id="divider-heading">Divider</h2>
@@ -624,7 +895,6 @@
         <span>Item three</span>
       </div>
     </section>
-
     <!-- ================================================================== -->
     <section id="dropdown" aria-labelledby="dropdown-heading">
       <h2 id="dropdown-heading">Dropdown</h2>
@@ -951,7 +1221,6 @@
         </div>
       </div>
     </section>
-
     <!-- ================================================================== -->
     <section id="fieldset" aria-labelledby="fieldset-heading">
       <h2 id="fieldset-heading">Fieldset</h2>
@@ -1106,7 +1375,6 @@
         </div>
       </fieldset>
     </section>
-
     <!-- ================================================================== -->
     <section id="headings" aria-labelledby="headings-section-heading">
       <h2 id="headings-section-heading">Heading</h2>
@@ -1126,7 +1394,6 @@
       <p class="h5">Heading level 5 style</p>
       <p class="h6">Heading level 6 style</p>
     </section>
-
     <!-- ================================================================== -->
     <section id="input" aria-labelledby="input-heading">
       <h2 id="input-heading">Input</h2>
@@ -1229,55 +1496,7 @@
           disabled
         />
       </div>
-
-      <h3>
-        Search
-        <small
-          style="
-            font-weight: var(--font-weight-normal);
-            font-size: var(--font-size-sm);
-            color: var(--color-text-secondary);
-          "
-          >— input-ext-search.js</small
-        >
-      </h3>
-      <p
-        style="
-          font-size: var(--font-size-sm);
-          color: var(--color-text-secondary);
-          margin-block-end: var(--space-3);
-        "
-      >
-        Press <kbd>/</kbd> to focus the search field from anywhere on the page.
-      </p>
-      <div class="input-search">
-        <span class="input-search-icon" aria-hidden="true">
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-        </span>
-        <input
-          class="input-search-field"
-          type="search"
-          aria-label="Search"
-          placeholder="Search…"
-          autocomplete="off"
-          spellcheck="false"
-        />
-        <kbd class="input-search-shortcut" aria-hidden="true">/</kbd>
-      </div>
     </section>
-
     <!-- ================================================================== -->
     <section id="listbox" aria-labelledby="listbox-heading">
       <h2 id="listbox-heading">Listbox</h2>
@@ -1580,287 +1799,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ================================================================== -->
-    <section id="combobox" aria-labelledby="combobox-heading">
-      <h2 id="combobox-heading">Combobox</h2>
-      <p
-        style="
-          font-size: var(--font-size-sm);
-          color: var(--color-text-secondary);
-          margin-block-start: 0;
-        "
-      >
-        Extends <a href="#listbox">Listbox</a> with a search input —
-        <code>listbox-ext-combobox.js</code>
-      </p>
-
-      <h3>Basic</h3>
-      <div style="max-width: var(--width-input)">
-        <label class="input-label" for="cb-input">Search framework</label>
-        <div class="combobox">
-          <input
-            id="cb-input"
-            type="text"
-            role="combobox"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-controls="cb-popup"
-            aria-autocomplete="list"
-            autocomplete="off"
-            placeholder="Type to search…"
-          />
-          <ul
-            class="listbox listbox-popup"
-            id="cb-popup"
-            role="listbox"
-            aria-label="Frameworks"
-            hidden
-          >
-            <li class="listbox-group-label">Languages</li>
-            <li class="listbox-option" role="option" aria-selected="false">
-              CSS
-            </li>
-            <li class="listbox-option" role="option" aria-selected="false">
-              HTML
-            </li>
-            <li class="listbox-group-label">Frameworks</li>
-            <li class="listbox-option" role="option" aria-selected="false">
-              React
-            </li>
-            <li class="listbox-option" role="option" aria-selected="false">
-              Svelte
-            </li>
-            <li class="listbox-option" role="option" aria-selected="false">
-              Vue
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <h3>People</h3>
-      <div style="max-width: var(--width-input)">
-        <label class="input-label" for="cb-people">Assign to</label>
-        <div class="combobox">
-          <input
-            id="cb-people"
-            type="text"
-            role="combobox"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-controls="cb-people-popup"
-            aria-autocomplete="list"
-            autocomplete="off"
-            placeholder="Search people…"
-          />
-          <ul
-            class="listbox listbox-popup"
-            id="cb-people-popup"
-            role="listbox"
-            aria-label="People"
-            hidden
-          >
-            <li
-              class="listbox-option"
-              role="option"
-              aria-selected="false"
-              data-cb-value="Alice Zhang"
-            >
-              <span class="listbox-option-body">
-                <span class="avatar avatar-sm" aria-hidden="true">AZ</span>
-                <span>
-                  <span class="listbox-option-label">Alice Zhang</span>
-                  <span class="listbox-option-meta">Product Designer</span>
-                </span>
-              </span>
-            </li>
-            <li
-              class="listbox-option"
-              role="option"
-              aria-selected="false"
-              data-cb-value="Ben Okafor"
-            >
-              <span class="listbox-option-body">
-                <span class="avatar avatar-sm" aria-hidden="true">BO</span>
-                <span>
-                  <span class="listbox-option-label">Ben Okafor</span>
-                  <span class="listbox-option-meta">Engineering Lead</span>
-                </span>
-              </span>
-            </li>
-            <li
-              class="listbox-option"
-              role="option"
-              aria-selected="false"
-              data-cb-value="Clara Morin"
-            >
-              <span class="listbox-option-body">
-                <span class="avatar avatar-sm" aria-hidden="true">CM</span>
-                <span>
-                  <span class="listbox-option-label">Clara Morin</span>
-                  <span class="listbox-option-meta">Product Manager</span>
-                </span>
-              </span>
-            </li>
-            <li
-              class="listbox-option"
-              role="option"
-              aria-selected="false"
-              data-cb-value="David Lim"
-            >
-              <span class="listbox-option-body">
-                <span class="avatar avatar-sm" aria-hidden="true">DL</span>
-                <span>
-                  <span class="listbox-option-label">David Lim</span>
-                  <span class="listbox-option-meta">QA Engineer</span>
-                </span>
-              </span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <h3>Countries</h3>
-      <div style="max-width: var(--width-input)">
-        <label class="input-label" for="cb-country">Country</label>
-        <div class="combobox">
-          <input
-            id="cb-country"
-            type="text"
-            role="combobox"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-controls="cb-country-popup"
-            aria-autocomplete="list"
-            autocomplete="off"
-            placeholder="Search countries…"
-          />
-          <ul
-            class="listbox listbox-popup"
-            id="cb-country-popup"
-            role="listbox"
-            aria-label="Countries"
-            hidden
-          >
-            <li
-              class="listbox-option"
-              role="option"
-              aria-selected="false"
-              data-cb-value="Germany"
-            >
-              <span class="listbox-option-body">
-                <span aria-hidden="true">🇩🇪</span> Germany
-              </span>
-            </li>
-            <li
-              class="listbox-option"
-              role="option"
-              aria-selected="false"
-              data-cb-value="France"
-            >
-              <span class="listbox-option-body">
-                <span aria-hidden="true">🇫🇷</span> France
-              </span>
-            </li>
-            <li
-              class="listbox-option"
-              role="option"
-              aria-selected="false"
-              data-cb-value="Japan"
-            >
-              <span class="listbox-option-body">
-                <span aria-hidden="true">🇯🇵</span> Japan
-              </span>
-            </li>
-            <li
-              class="listbox-option"
-              role="option"
-              aria-selected="false"
-              data-cb-value="Nigeria"
-            >
-              <span class="listbox-option-body">
-                <span aria-hidden="true">🇳🇬</span> Nigeria
-              </span>
-            </li>
-            <li
-              class="listbox-option"
-              role="option"
-              aria-selected="false"
-              data-cb-value="Brazil"
-            >
-              <span class="listbox-option-body">
-                <span aria-hidden="true">🇧🇷</span> Brazil
-              </span>
-            </li>
-            <li
-              class="listbox-option"
-              role="option"
-              aria-selected="false"
-              data-cb-value="United Kingdom"
-            >
-              <span class="listbox-option-body">
-                <span aria-hidden="true">🇬🇧</span> United Kingdom
-              </span>
-            </li>
-            <li
-              class="listbox-option"
-              role="option"
-              aria-selected="false"
-              data-cb-value="United States"
-            >
-              <span class="listbox-option-body">
-                <span aria-hidden="true">🇺🇸</span> United States
-              </span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <h3>Error state</h3>
-      <div class="combobox-error" style="max-width: var(--width-input)">
-        <label class="input-label" for="cb-required">Team</label>
-        <div class="combobox">
-          <input
-            id="cb-required"
-            type="text"
-            role="combobox"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-controls="cb-required-popup"
-            aria-autocomplete="list"
-            aria-required="true"
-            aria-invalid="true"
-            aria-describedby="cb-required-err"
-            autocomplete="off"
-            placeholder="Select a team…"
-          />
-          <ul
-            class="listbox listbox-popup"
-            id="cb-required-popup"
-            role="listbox"
-            aria-label="Teams"
-            hidden
-          >
-            <li class="listbox-option" role="option" aria-selected="false">
-              Design
-            </li>
-            <li class="listbox-option" role="option" aria-selected="false">
-              Engineering
-            </li>
-            <li class="listbox-option" role="option" aria-selected="false">
-              Marketing
-            </li>
-            <li class="listbox-option" role="option" aria-selected="false">
-              Product
-            </li>
-          </ul>
-        </div>
-        <p id="cb-required-err" class="combobox-message" role="alert">
-          A team is required.
-        </p>
-      </div>
-    </section>
-
     <!-- ================================================================== -->
     <section id="navbar" aria-labelledby="navbar-heading">
       <h2 id="navbar-heading">Navbar</h2>
@@ -1893,7 +1831,6 @@
         </ul>
       </nav>
     </section>
-
     <!-- ================================================================== -->
     <section id="pagination" aria-labelledby="pagination-heading">
       <h2 id="pagination-heading">Pagination</h2>
@@ -1928,7 +1865,6 @@
         <a class="pagination-item" href="#" aria-label="Next page">›</a>
       </nav>
     </section>
-
     <!-- ================================================================== -->
     <section id="radio" aria-labelledby="radio-heading">
       <h2 id="radio-heading">Radio button</h2>
@@ -1985,7 +1921,47 @@
         </div>
       </fieldset>
     </section>
-
+    <!-- ================================================================== -->
+    <section id="search" aria-labelledby="search-heading">
+      <h2 id="search-heading">Search</h2>
+      <p
+        style="
+          font-size: var(--font-size-sm);
+          color: var(--color-text-secondary);
+          margin-block-start: 0;
+        "
+      >
+        Extends <a href="#input">Input</a> with expand-on-focus and a
+        <kbd>/</kbd> shortcut &mdash;
+        <code>input-ext-search.js</code>
+      </p>
+      <div class="input-search">
+        <span class="input-search-icon" aria-hidden="true">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </span>
+        <input
+          class="input-search-field"
+          type="search"
+          aria-label="Search"
+          placeholder="Search…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <kbd class="input-search-shortcut" aria-hidden="true">/</kbd>
+      </div>
+    </section>
     <!-- ================================================================== -->
     <section id="select" aria-labelledby="select-heading">
       <h2 id="select-heading">Select</h2>
@@ -2040,7 +2016,6 @@
         </select>
       </div>
     </section>
-
     <!-- ================================================================== -->
     <section id="sidebar" aria-labelledby="sidebar-heading">
       <h2 id="sidebar-heading">Sidebar</h2>
@@ -2097,7 +2072,6 @@
         </main>
       </div>
     </section>
-
     <!-- ================================================================== -->
     <section id="switch" aria-labelledby="switch-heading">
       <h2 id="switch-heading">Switch</h2>
@@ -2136,7 +2110,6 @@
         </label>
       </div>
     </section>
-
     <!-- ================================================================== -->
     <section id="table" aria-labelledby="table-heading">
       <h2 id="table-heading">Table</h2>
@@ -2208,7 +2181,6 @@
         </table>
       </div>
     </section>
-
     <!-- ================================================================== -->
     <section id="text" aria-labelledby="text-heading">
       <h2 id="text-heading">Text</h2>
@@ -2266,7 +2238,6 @@
         <code>.sr-only</code> applied.
       </p>
     </section>
-
     <!-- ================================================================== -->
     <section id="textarea" aria-labelledby="textarea-heading">
       <h2 id="textarea-heading">Textarea</h2>
