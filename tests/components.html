@@ -467,7 +467,7 @@
             placeholder="Type to search…"
           />
           <ul
-            class="combobox-listbox"
+            class="listbox listbox-popup"
             id="cb-popup"
             role="listbox"
             aria-label="Frameworks"
@@ -510,7 +510,7 @@
             placeholder="Search people…"
           />
           <ul
-            class="combobox-listbox"
+            class="listbox listbox-popup"
             id="cb-people-popup"
             role="listbox"
             aria-label="People"
@@ -592,7 +592,7 @@
             placeholder="Search countries…"
           />
           <ul
-            class="combobox-listbox"
+            class="listbox listbox-popup"
             id="cb-country-popup"
             role="listbox"
             aria-label="Countries"
@@ -691,7 +691,7 @@
             placeholder="Select a team…"
           />
           <ul
-            class="combobox-listbox"
+            class="listbox listbox-popup"
             id="cb-required-popup"
             role="listbox"
             aria-label="Teams"
@@ -1616,39 +1616,52 @@
         >
           Choose a timezone
         </p>
-        <ul
-          class="listbox"
-          role="listbox"
-          aria-labelledby="lb-label"
-          tabindex="0"
-        >
-          <li class="listbox-group-label">Europe</li>
-          <li class="listbox-option" role="option" aria-selected="true">
-            Europe/London
-          </li>
-          <li class="listbox-option" role="option" aria-selected="false">
-            Europe/Paris
-          </li>
-          <li class="listbox-option" role="option" aria-selected="false">
-            Europe/Berlin
-          </li>
-          <li class="listbox-divider" role="none" aria-hidden="true"></li>
-          <li class="listbox-group-label">Americas</li>
-          <li class="listbox-option" role="option" aria-selected="false">
-            America/New_York
-          </li>
-          <li class="listbox-option" role="option" aria-selected="false">
-            America/Los_Angeles
-          </li>
-          <li
-            class="listbox-option"
-            role="option"
-            aria-selected="false"
-            aria-disabled="true"
+        <div class="listbox-dropdown">
+          <button
+            class="listbox-trigger"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-labelledby="lb-label"
+            aria-controls="lb-popup"
           >
-            America/Sao_Paulo (unavailable)
-          </li>
-        </ul>
+            Europe/London
+          </button>
+          <ul
+            class="listbox listbox-popup"
+            id="lb-popup"
+            role="listbox"
+            aria-labelledby="lb-label"
+            tabindex="0"
+            hidden
+          >
+            <li class="listbox-group-label">Europe</li>
+            <li class="listbox-option" role="option" aria-selected="true">
+              Europe/London
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              Europe/Paris
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              Europe/Berlin
+            </li>
+            <li class="listbox-divider" role="none" aria-hidden="true"></li>
+            <li class="listbox-group-label">Americas</li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              America/New_York
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              America/Los_Angeles
+            </li>
+            <li
+              class="listbox-option"
+              role="option"
+              aria-selected="false"
+              aria-disabled="true"
+            >
+              America/Sao_Paulo (unavailable)
+            </li>
+          </ul>
+        </div>
       </div>
 
       <h3>Multi select</h3>
@@ -1664,39 +1677,54 @@
         >
           Preferred technologies
         </p>
-        <ul
-          class="listbox"
-          role="listbox"
-          aria-multiselectable="true"
-          aria-labelledby="lb-multi-label"
-          aria-describedby="lb-multi-status"
-          tabindex="0"
-        >
-          <li class="listbox-option" role="option" aria-selected="true">CSS</li>
-          <li class="listbox-option" role="option" aria-selected="true">
-            HTML
-          </li>
-          <li class="listbox-option" role="option" aria-selected="false">
-            JavaScript
-          </li>
-          <li class="listbox-option" role="option" aria-selected="false">
-            TypeScript
-          </li>
-          <li class="listbox-option" role="option" aria-selected="false">
-            Python
-          </li>
-          <li class="listbox-option" role="option" aria-selected="false">
-            Rust
-          </li>
-          <li
-            class="listbox-option"
-            role="option"
-            aria-selected="false"
-            aria-disabled="true"
+        <div class="listbox-dropdown">
+          <button
+            class="listbox-trigger"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-labelledby="lb-multi-label"
+            aria-controls="lb-multi-popup"
           >
-            COBOL (unavailable)
-          </li>
-        </ul>
+            2 selected
+          </button>
+          <ul
+            class="listbox listbox-popup"
+            id="lb-multi-popup"
+            role="listbox"
+            aria-multiselectable="true"
+            aria-labelledby="lb-multi-label"
+            aria-describedby="lb-multi-status"
+            tabindex="0"
+            hidden
+          >
+            <li class="listbox-option" role="option" aria-selected="true">
+              CSS
+            </li>
+            <li class="listbox-option" role="option" aria-selected="true">
+              HTML
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              JavaScript
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              TypeScript
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              Python
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              Rust
+            </li>
+            <li
+              class="listbox-option"
+              role="option"
+              aria-selected="false"
+              aria-disabled="true"
+            >
+              COBOL (unavailable)
+            </li>
+          </ul>
+        </div>
         <p class="listbox-status" id="lb-multi-status" aria-live="polite"></p>
       </div>
 
@@ -1713,40 +1741,53 @@
         >
           Team members
         </p>
-        <ul
-          class="listbox"
-          role="listbox"
-          aria-labelledby="lb-people-label"
-          tabindex="0"
-        >
-          <li class="listbox-option" role="option" aria-selected="true">
-            <span class="listbox-option-body">
-              <span class="avatar avatar-sm" aria-hidden="true">AZ</span>
-              <span>
-                <span class="listbox-option-label">Alice Zhang</span>
-                <span class="listbox-option-meta">Product Designer</span>
+        <div class="listbox-dropdown">
+          <button
+            class="listbox-trigger"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-labelledby="lb-people-label"
+            aria-controls="lb-people-popup"
+          >
+            Alice Zhang
+          </button>
+          <ul
+            class="listbox listbox-popup"
+            id="lb-people-popup"
+            role="listbox"
+            aria-labelledby="lb-people-label"
+            tabindex="0"
+            hidden
+          >
+            <li class="listbox-option" role="option" aria-selected="true">
+              <span class="listbox-option-body">
+                <span class="avatar avatar-sm" aria-hidden="true">AZ</span>
+                <span>
+                  <span class="listbox-option-label">Alice Zhang</span>
+                  <span class="listbox-option-meta">Product Designer</span>
+                </span>
               </span>
-            </span>
-          </li>
-          <li class="listbox-option" role="option" aria-selected="false">
-            <span class="listbox-option-body">
-              <span class="avatar avatar-sm" aria-hidden="true">BO</span>
-              <span>
-                <span class="listbox-option-label">Ben Okafor</span>
-                <span class="listbox-option-meta">Engineering Lead</span>
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              <span class="listbox-option-body">
+                <span class="avatar avatar-sm" aria-hidden="true">BO</span>
+                <span>
+                  <span class="listbox-option-label">Ben Okafor</span>
+                  <span class="listbox-option-meta">Engineering Lead</span>
+                </span>
               </span>
-            </span>
-          </li>
-          <li class="listbox-option" role="option" aria-selected="false">
-            <span class="listbox-option-body">
-              <span class="avatar avatar-sm" aria-hidden="true">CM</span>
-              <span>
-                <span class="listbox-option-label">Clara Morin</span>
-                <span class="listbox-option-meta">Product Manager</span>
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              <span class="listbox-option-body">
+                <span class="avatar avatar-sm" aria-hidden="true">CM</span>
+                <span>
+                  <span class="listbox-option-label">Clara Morin</span>
+                  <span class="listbox-option-meta">Product Manager</span>
+                </span>
               </span>
-            </span>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <h3>With flags</h3>
@@ -1762,49 +1803,62 @@
         >
           Country
         </p>
-        <ul
-          class="listbox"
-          role="listbox"
-          aria-labelledby="lb-country-label"
-          tabindex="0"
-        >
-          <li class="listbox-option" role="option" aria-selected="false">
-            <span class="listbox-option-body">
-              <span aria-hidden="true">🇩🇪</span>
-              <span>
-                <span class="listbox-option-label">Germany</span>
-                <span class="listbox-option-meta">+49</span>
+        <div class="listbox-dropdown">
+          <button
+            class="listbox-trigger"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-labelledby="lb-country-label"
+            aria-controls="lb-country-popup"
+          >
+            United Kingdom
+          </button>
+          <ul
+            class="listbox listbox-popup"
+            id="lb-country-popup"
+            role="listbox"
+            aria-labelledby="lb-country-label"
+            tabindex="0"
+            hidden
+          >
+            <li class="listbox-option" role="option" aria-selected="false">
+              <span class="listbox-option-body">
+                <span aria-hidden="true">🇩🇪</span>
+                <span>
+                  <span class="listbox-option-label">Germany</span>
+                  <span class="listbox-option-meta">+49</span>
+                </span>
               </span>
-            </span>
-          </li>
-          <li class="listbox-option" role="option" aria-selected="true">
-            <span class="listbox-option-body">
-              <span aria-hidden="true">🇬🇧</span>
-              <span>
-                <span class="listbox-option-label">United Kingdom</span>
-                <span class="listbox-option-meta">+44</span>
+            </li>
+            <li class="listbox-option" role="option" aria-selected="true">
+              <span class="listbox-option-body">
+                <span aria-hidden="true">🇬🇧</span>
+                <span>
+                  <span class="listbox-option-label">United Kingdom</span>
+                  <span class="listbox-option-meta">+44</span>
+                </span>
               </span>
-            </span>
-          </li>
-          <li class="listbox-option" role="option" aria-selected="false">
-            <span class="listbox-option-body">
-              <span aria-hidden="true">🇺🇸</span>
-              <span>
-                <span class="listbox-option-label">United States</span>
-                <span class="listbox-option-meta">+1</span>
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              <span class="listbox-option-body">
+                <span aria-hidden="true">🇺🇸</span>
+                <span>
+                  <span class="listbox-option-label">United States</span>
+                  <span class="listbox-option-meta">+1</span>
+                </span>
               </span>
-            </span>
-          </li>
-          <li class="listbox-option" role="option" aria-selected="false">
-            <span class="listbox-option-body">
-              <span aria-hidden="true">🇯🇵</span>
-              <span>
-                <span class="listbox-option-label">Japan</span>
-                <span class="listbox-option-meta">+81</span>
+            </li>
+            <li class="listbox-option" role="option" aria-selected="false">
+              <span class="listbox-option-body">
+                <span aria-hidden="true">🇯🇵</span>
+                <span>
+                  <span class="listbox-option-label">Japan</span>
+                  <span class="listbox-option-meta">+81</span>
+                </span>
               </span>
-            </span>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 

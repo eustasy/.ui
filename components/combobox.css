@@ -1,9 +1,9 @@
 /* ==========================================================================
    Combobox
    Extends the listbox component with a search input. Option markup uses
-   .listbox-option (and related classes) from listbox.css — combobox adds
-   only the wrapper, popup positioning, filtering empty-state, and
-   selection-style overrides.
+   .listbox-option (and related classes) from listbox.css. The popup uses
+   .listbox-popup for positioning. Combobox adds only the wrapper, filtering
+   empty-state, and selection-style overrides.
 
    WCAG: The input must have role="combobox", aria-expanded, aria-controls
          pointing to the listbox id, and aria-haspopup="listbox".
@@ -16,7 +16,7 @@
        <input type="text" role="combobox" aria-expanded="false"
               aria-haspopup="listbox" aria-controls="cb-list"
               aria-autocomplete="list" autocomplete="off" />
-       <ul class="combobox-listbox" id="cb-list" role="listbox" hidden>
+       <ul class="listbox listbox-popup" id="cb-list" role="listbox" hidden>
          <li class="listbox-option" role="option" aria-selected="false">…</li>
        </ul>
      </div>
@@ -29,43 +29,23 @@
   max-width: var(--width-input);
 }
 
-/* The listbox popup */
-.combobox-listbox {
-  position: absolute;
-  inset-block-start: calc(100% + var(--space-1));
-  inset-inline-start: 0;
-  inset-inline-end: 0;
-  z-index: 100;
-  margin: 0;
-  padding: var(--space-1) 0;
-  list-style: none;
-  background-color: var(--color-surface);
-  border: var(--border-width) solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  max-height: 16rem;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-}
-
-/* Hide when collapsed — toggled via aria-expanded or hidden attribute */
-.combobox-listbox[hidden],
-[aria-expanded="false"] ~ .combobox-listbox {
+/* Hide popup when input indicates collapsed */
+[aria-expanded="false"] ~ .listbox-popup {
   display: none;
 }
 
 /* --- Overrides for listbox-option inside a combobox popup --- */
 
 /* In combobox, selected just gets a subtle highlight (input shows value) */
-.combobox-listbox .listbox-option[aria-selected="true"] {
+.combobox .listbox-option[aria-selected="true"] {
   background-color: var(--color-surface-raised);
   color: var(--color-text);
   font-weight: var(--font-weight-normal);
 }
 
 /* Keyboard focus lives on the input, so suppress option outline */
-.combobox-listbox .listbox-option[data-active],
-.combobox-listbox .listbox-option:focus {
+.combobox .listbox-option[data-active],
+.combobox .listbox-option:focus {
   background-color: var(--color-surface-overlay);
   outline: none;
 }

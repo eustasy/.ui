@@ -64,7 +64,7 @@ components/
   fieldset.css                ← grouped form controls with legend
   heading.css                 ← display and section headings
   input.css                   ← text, number, date, and other input types
-  listbox.css                 ← single/multi-select listbox with icons, avatars, flags
+  listbox.css                 ← inline/dropdown listbox with icons, avatars, flags
   navbar.css                  ← responsive nav with mobile toggle
   pagination.css              ← page navigation controls
   radio.css                   ← radio button group

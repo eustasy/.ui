@@ -10,7 +10,7 @@
  *     <input type="text" role="combobox" aria-expanded="false"
  *            aria-haspopup="listbox" aria-controls="cb-list"
  *            aria-autocomplete="list" autocomplete="off" />
- *     <ul class="combobox-listbox" id="cb-list" role="listbox" hidden>
+ *     <ul class="listbox listbox-popup" id="cb-list" role="listbox" hidden>
  *       <li class="listbox-option" role="option" aria-selected="false">Apple</li>
  *     </ul>
  *   </div>

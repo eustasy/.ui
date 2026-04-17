@@ -1,6 +1,14 @@
 /**
- * Listbox — keyboard navigation and selection.
- * Targets .listbox[role="listbox"] elements (not combobox popups).
+ * Listbox — keyboard navigation, selection, and dropdown behaviour.
+ *
+ * Inline mode (default):
+ *   Targets .listbox[role="listbox"] elements. The list is always visible.
+ *
+ * Dropdown mode:
+ *   Targets .listbox-dropdown wrappers. A trigger button opens/closes a
+ *   .listbox-popup list. Click-outside and Escape close the popup.
+ *   On single-select, choosing an option closes the popup and updates
+ *   the trigger text.
  *
  * Single-select:
  *   Arrow keys / Home / End → move and immediately select
@@ -18,7 +26,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   let uid = 0
 
-  document.querySelectorAll(".listbox[role='listbox']").forEach((listbox) => {
+  /* ------------------------------------------------------------------ */
+  /*  Shared listbox behaviour — works for inline and popup listboxes   */
+  /* ------------------------------------------------------------------ */
+
+  function initListbox(listbox, { onSelect } = {}) {
     const isMulti = listbox.getAttribute("aria-multiselectable") === "true"
 
     function allOpts() {
@@ -48,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function selectSingle(opt) {
       allOpts().forEach((o) => o.setAttribute("aria-selected", "false"))
       opt.setAttribute("aria-selected", "true")
+      if (onSelect) onSelect(opt)
     }
 
     function toggleSelect(opt) {
@@ -82,7 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
           : `${count} selected: ${selected.map((o) => o.textContent.trim()).join(", ")}`
     }
 
-    // Anchor for shift-range operations
     let anchor = null
 
     listbox.addEventListener("click", (e) => {
@@ -142,6 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
               anchor = active
             }
             announce()
+          } else if (active && !isMulti) {
+            selectSingle(active)
           }
           return
         default:
@@ -170,5 +184,113 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (isMulti) announce()
+  }
+
+  /* ------------------------------------------------------------------ */
+  /*  Inline listboxes — always-visible, no wrapper                     */
+  /* ------------------------------------------------------------------ */
+
+  document
+    .querySelectorAll(".listbox[role='listbox']:not(.listbox-popup)")
+    .forEach((listbox) => {
+      initListbox(listbox)
+    })
+
+  /* ------------------------------------------------------------------ */
+  /*  Dropdown listboxes — .listbox-dropdown wrapper                    */
+  /* ------------------------------------------------------------------ */
+
+  function closeAllDropdowns(except) {
+    document.querySelectorAll(".listbox-dropdown").forEach((wrapper) => {
+      if (wrapper === except) return
+      const trigger = wrapper.querySelector(".listbox-trigger")
+      const popup = wrapper.querySelector(".listbox-popup")
+      if (trigger) trigger.setAttribute("aria-expanded", "false")
+      if (popup) popup.hidden = true
+    })
+  }
+
+  document.querySelectorAll(".listbox-dropdown").forEach((wrapper) => {
+    const trigger = wrapper.querySelector(".listbox-trigger")
+    const popup = wrapper.querySelector(".listbox-popup")
+    if (!trigger || !popup) return
+
+    function open() {
+      closeAllDropdowns(wrapper)
+      trigger.setAttribute("aria-expanded", "true")
+      popup.hidden = false
+      popup.focus()
+    }
+
+    function close() {
+      trigger.setAttribute("aria-expanded", "false")
+      popup.hidden = true
+    }
+
+    function isOpen() {
+      return trigger.getAttribute("aria-expanded") === "true"
+    }
+
+    function updateTriggerText(opt) {
+      // Use .listbox-option-label text if available, otherwise full text
+      const label = opt.querySelector(".listbox-option-label")
+      trigger.textContent = label
+        ? label.textContent.trim()
+        : opt.textContent.trim()
+    }
+
+    // Set initial trigger text from the selected option
+    const selected = popup.querySelector(
+      "[role='option'][aria-selected='true']"
+    )
+    if (selected) updateTriggerText(selected)
+
+    // Init listbox behaviour with an onSelect callback
+    initListbox(popup, {
+      onSelect(opt) {
+        updateTriggerText(opt)
+        close()
+        trigger.focus()
+      },
+    })
+
+    // Trigger click toggles the popup
+    trigger.addEventListener("click", (e) => {
+      e.stopPropagation()
+      if (isOpen()) {
+        close()
+      } else {
+        open()
+      }
+    })
+
+    // Keyboard on trigger
+    trigger.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        e.preventDefault()
+        if (!isOpen()) open()
+      }
+    })
+
+    // Escape inside popup
+    popup.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        e.preventDefault()
+        close()
+        trigger.focus()
+      }
+    })
+
+    // Prevent blur when clicking inside the popup
+    popup.addEventListener("mousedown", (e) => {
+      e.preventDefault()
+    })
+  })
+
+  // Click outside closes all dropdowns
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".listbox-dropdown")) {
+      closeAllDropdowns()
+    }
   })
 })

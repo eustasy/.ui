@@ -1,7 +1,7 @@
 /* ==========================================================================
    Listbox
-   A scrollable list of selectable options. Use for single or multiple
-   selection in settings panels, transfer lists, etc.
+   A scrollable list of selectable options. Use inline for settings panels
+   and transfer lists, or as a dropdown for single/multi-select pickers.
 
    WCAG: The container must have role="listbox" and aria-label or
          aria-labelledby. Each option must have role="option" and
@@ -9,7 +9,7 @@
          Keyboard: Arrow keys move focus; Space/Enter select; Home/End jump.
          Communicate selection changes via aria-live="polite" on a status region.
 
-   Example markup:
+   Inline example:
      <ul class="listbox" role="listbox" aria-label="Choose a timezone"
          tabindex="0">
        <li class="listbox-option" role="option" aria-selected="false">UTC</li>
@@ -17,6 +17,20 @@
          Europe/London
        </li>
      </ul>
+
+   Dropdown example:
+     <div class="listbox-dropdown">
+       <button class="listbox-trigger" aria-haspopup="listbox"
+               aria-expanded="false" aria-controls="lb-popup">
+         Europe/London
+       </button>
+       <ul class="listbox listbox-popup" id="lb-popup" role="listbox"
+           aria-label="Choose a timezone" tabindex="0" hidden>
+         <li class="listbox-option" role="option" aria-selected="true">
+           Europe/London
+         </li>
+       </ul>
+     </div>
    ========================================================================== */
 
 .listbox {
@@ -146,4 +160,66 @@
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   margin-block-start: var(--space-1);
+}
+
+/* ==========================================================================
+   Listbox dropdown — collapsible trigger + popup
+   ========================================================================== */
+
+/* Wrapper — positions the popup relative to the trigger */
+.listbox-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: var(--width-input);
+}
+
+/* Trigger button — styled like a native select */
+.listbox-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  user-select: none;
+  text-align: start;
+}
+
+.listbox-trigger:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Chevron indicator */
+.listbox-trigger::after {
+  content: "";
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-inline-end: 2px solid var(--color-text-secondary);
+  border-block-end: 2px solid var(--color-text-secondary);
+  transform: rotate(45deg);
+  margin-block-start: -0.125rem;
+}
+
+/* Popup modifier — floats the listbox below its trigger/input */
+.listbox-popup {
+  position: absolute;
+  inset-block-start: calc(100% + var(--space-1));
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-md);
+}
+
+/* Hide when collapsed */
+.listbox-popup[hidden] {
+  display: none;
 }
