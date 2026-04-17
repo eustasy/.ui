@@ -28,11 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Escape closes all open navs
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return
-    document.querySelectorAll(".navbar-toggle[aria-expanded='true']").forEach((toggle) => {
-      const navId = toggle.getAttribute("aria-controls")
-      const nav = navId ? document.getElementById(navId) : null
-      if (nav) nav.classList.remove("is-open")
-      toggle.setAttribute("aria-expanded", "false")
-    })
+    document
+      .querySelectorAll(".navbar-toggle[aria-expanded='true']")
+      .forEach((toggle) => {
+        const navId = toggle.getAttribute("aria-controls")
+        const nav = navId ? document.getElementById(navId) : null
+        if (nav) nav.classList.remove("is-open")
+        toggle.setAttribute("aria-expanded", "false")
+      })
   })
 })

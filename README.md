@@ -83,7 +83,7 @@ js/
   listbox.js                  ← panel and dropdown listbox; keyboard nav, multi-select, live region
   listbox-ext-combobox.js     ← filterable combobox extending listbox.js
   textarea-ext-count.js       ← character count for .textarea-field[maxlength]
-  navbar-ext-indicator.js     ← animated sliding tab for navbar navs
+  navbar-ext-indicator.js     ← animated sliding tab indicator, one active per navbar
   navbar.js                   ← mobile toggle for .navbar-toggle / .navbar-nav
   theme-ext-toggle.js         ← dark/light toggle with localStorage persistence
   user-menu.js                ← user menu open/close behaviour

@@ -64,6 +64,25 @@
       const link = e.target.closest("a")
       if (!link || !nav.contains(link)) return
 
+      // Clear active state in sibling nav-indicator navs within the same navbar
+      const navbar = nav.closest(
+        ".navbar, .sidebar, .layout-sidebar, .layout-stacked"
+      )
+      if (navbar) {
+        navbar.querySelectorAll("[data-nav-indicator]").forEach((sibling) => {
+          if (sibling === nav) return
+          const siblingActive = sibling.querySelector(
+            "a[aria-current], a.is-active"
+          )
+          if (siblingActive) {
+            siblingActive.removeAttribute("aria-current")
+            siblingActive.classList.remove("is-active")
+          }
+          const siblingIndicator = sibling.querySelector(".nav-indicator")
+          if (siblingIndicator) siblingIndicator.style.opacity = "0"
+        })
+      }
+
       const prev = activeLink()
       if (prev && prev !== link) {
         prev.removeAttribute("aria-current")
