@@ -1,52 +1,128 @@
 /* ==========================================================================
-   Table (Component)
-   Adds class-based variant modifiers on top of base/tables.css which styles
-   the <table> element universally.
+   Table
+   Base element styles + utility modifier classes.
+
+   Width
+     .table-wrap        — Responsive scroll container; tables fill their
+                          container width (width: 100%) regardless.
+
+   Spacing modifiers (on <table>)
+     Default            — var(--space-2) block / var(--space-3) inline padding.
+     .table-condensed   — Tighter: var(--space-1) / var(--space-2).
+     .table-wide        — Roomier: var(--space-4) / var(--space-5).
+
+   Style modifiers (on <table>)
+     Default            — Horizontal row-separator lines only (no stripes).
+     .table-striped     — Alternating row backgrounds; no row borders in tbody.
+     .table-grid        — Full grid: horizontal + vertical borders on all cells.
+
+   Column helpers (on <th> or <td>)
+     .table-col-numeric  — Right-align + tabular nums.
+     .table-col-center   — Centre-align.
+
+   Other
+     .table-sticky-head  — Sticky column headers.
 
    WCAG: Use <caption> to describe the table. Use <th scope="col"> for
          column headers and <th scope="row"> for row headers.
          For complex tables, use id/headers attributes.
-
-   Example markup:
-     <div class="table-wrap">
-       <table class="table table-bordered">
-         <caption>Monthly sales figures</caption>
-         <thead>
-           <tr><th scope="col">Month</th><th scope="col">Revenue</th></tr>
-         </thead>
-         <tbody>
-           <tr><td>January</td><td>£12,000</td></tr>
-         </tbody>
-       </table>
-     </div>
    ========================================================================== */
 
-/* Bordered — all-sides borders on every cell */
-.table-bordered th,
-.table-bordered td {
-  border: var(--border-width) solid var(--color-border);
+/* --------------------------------------------------------------------------
+   Base element styles
+   -------------------------------------------------------------------------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+  font-variant-numeric: tabular-nums;
+  margin-block: var(--space-4);
 }
 
-.table-bordered thead th {
-  border-block-end-width: var(--border-width-2);
+/* Responsive wrapper — wrap <table> in <div class="table-wrap"> */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-block: var(--space-4);
 }
 
-/* Compact — tighter cell padding */
-.table-compact th,
-.table-compact td {
+.table-wrap table {
+  margin-block: 0;
+}
+
+th,
+td {
+  padding: var(--space-2) var(--space-3);
+  text-align: start;
+  border-block-end: var(--border-width) solid var(--color-border);
+}
+
+th {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+td {
+  color: var(--color-text-secondary);
+}
+
+tbody tr:hover {
+  background-color: var(--color-surface-raised);
+}
+
+/* Caption */
+caption {
+  caption-side: bottom;
+  padding-block: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-align: start;
+}
+
+/* --------------------------------------------------------------------------
+   Spacing modifiers
+   -------------------------------------------------------------------------- */
+
+/* Condensed — tighter cell padding */
+.table-condensed th,
+.table-condensed td {
   padding: var(--space-1) var(--space-2);
 }
 
-/* Plain — no stripes, no hover */
-.table-plain tbody tr:nth-child(even) {
-  background-color: transparent;
+/* Wide — roomier cell padding */
+.table-wide th,
+.table-wide td {
+  padding: var(--space-4) var(--space-5);
 }
 
-.table-plain tbody tr:hover {
-  background-color: transparent;
+/* --------------------------------------------------------------------------
+   Style modifiers
+   -------------------------------------------------------------------------- */
+
+/* Striped — alternating row backgrounds; remove row borders from body rows */
+.table-striped tbody tr:nth-child(even) {
+  background-color: var(--color-bg-secondary);
 }
 
-/* Align helpers for <th> or <td> */
+.table-striped tbody td {
+  border-block-end: none;
+}
+
+/* Grid — full column + row borders on every cell */
+.table-grid th,
+.table-grid td {
+  border: var(--border-width) solid var(--color-border);
+}
+
+.table-grid thead th {
+  border-block-end-width: var(--border-width-2);
+}
+
+/* --------------------------------------------------------------------------
+   Column alignment helpers
+   -------------------------------------------------------------------------- */
+
 .table-col-numeric {
   text-align: end;
   font-variant-numeric: tabular-nums;
@@ -56,10 +132,12 @@
   text-align: center;
 }
 
-/* Sticky header */
+/* --------------------------------------------------------------------------
+   Sticky header
+   -------------------------------------------------------------------------- */
+
 .table-sticky-head thead th {
   position: sticky;
   inset-block-start: 0;
   z-index: 1;
-  background-color: var(--color-bg-secondary);
 }

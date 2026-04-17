@@ -2548,62 +2548,6 @@
       </div>
     </section>
     <!-- ================================================================== -->
-    <section id="sidebar" aria-labelledby="sidebar-heading">
-      <h2 id="sidebar-heading">Sidebar</h2>
-
-      <div
-        style="
-          display: flex;
-          height: 20rem;
-          border: var(--border-width) solid var(--color-border);
-          border-radius: var(--radius-xl);
-          overflow: hidden;
-        "
-      >
-        <aside class="sidebar" aria-label="Demo sidebar navigation">
-          <div class="sidebar-header">
-            <a class="sidebar-brand" href="#">Brand</a>
-          </div>
-          <nav class="sidebar-nav">
-            <a class="sidebar-item" href="#" aria-current="page">Dashboard</a>
-            <a class="sidebar-item" href="#">Projects</a>
-            <a class="sidebar-item" href="#">Team</a>
-            <div class="sidebar-divider" aria-hidden="true"></div>
-            <div class="sidebar-section-label">Settings</div>
-            <a class="sidebar-item" href="#">Account</a>
-            <a class="sidebar-item" href="#">Billing</a>
-            <a
-              class="sidebar-item"
-              href="#"
-              aria-disabled="true"
-              style="opacity: 0.5; pointer-events: none"
-              >Integrations</a
-            >
-          </nav>
-          <div class="sidebar-footer">
-            <span class="avatar avatar-sm" aria-label="Logged in user">AZ</span>
-          </div>
-        </aside>
-        <main
-          style="
-            flex: 1;
-            padding: var(--space-5);
-            overflow-y: auto;
-            background-color: var(--color-bg-secondary);
-          "
-        >
-          <p
-            style="
-              color: var(--color-text-secondary);
-              font-size: var(--font-size-sm);
-            "
-          >
-            Main content area
-          </p>
-        </main>
-      </div>
-    </section>
-    <!-- ================================================================== -->
     <section id="switch" aria-labelledby="switch-heading">
       <h2 id="switch-heading">Switch</h2>
 
@@ -2648,12 +2592,46 @@
     <section id="table" aria-labelledby="table-heading">
       <h2 id="table-heading">Table</h2>
 
-      <h3>Default</h3>
+      <h3>Default (row lines)</h3>
       <div class="table-wrap">
         <table>
           <caption>
             Quarterly revenue
           </caption>
+          <thead>
+            <tr>
+              <th scope="col">Quarter</th>
+              <th scope="col" class="table-col-numeric">Revenue</th>
+              <th scope="col" class="table-col-numeric">Growth</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Q1 2026</td>
+              <td class="table-col-numeric">£48,200</td>
+              <td class="table-col-numeric">+12%</td>
+              <td><span class="badge badge-green">On track</span></td>
+            </tr>
+            <tr>
+              <td>Q2 2026</td>
+              <td class="table-col-numeric">£51,800</td>
+              <td class="table-col-numeric">+7%</td>
+              <td><span class="badge badge-yellow">At risk</span></td>
+            </tr>
+            <tr>
+              <td>Q3 2026</td>
+              <td class="table-col-numeric">—</td>
+              <td class="table-col-numeric">—</td>
+              <td><span class="badge">Pending</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Striped rows</h3>
+      <div class="table-wrap">
+        <table class="table-striped">
           <thead>
             <tr>
               <th scope="col">Quarter</th>
@@ -2685,9 +2663,9 @@
         </table>
       </div>
 
-      <h3>Bordered + compact</h3>
+      <h3>Full grid</h3>
       <div class="table-wrap">
-        <table class="table-bordered table-compact">
+        <table class="table-grid">
           <thead>
             <tr>
               <th scope="col">Name</th>
@@ -2710,6 +2688,221 @@
               <td>Carol Smith</td>
               <td>Viewer</td>
               <td>Jul 2024</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Condensed</h3>
+      <div class="table-wrap">
+        <table class="table-condensed table-grid">
+          <thead>
+            <tr>
+              <th scope="col">Rank</th>
+              <th scope="col">Player</th>
+              <th scope="col" class="table-col-numeric">GP</th>
+              <th scope="col" class="table-col-numeric">G</th>
+              <th scope="col" class="table-col-numeric">A</th>
+              <th scope="col" class="table-col-numeric">Pts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="table-col-numeric">1</td>
+              <td>Mitchell Marner</td>
+              <td class="table-col-numeric">80</td>
+              <td class="table-col-numeric">30</td>
+              <td class="table-col-numeric">69</td>
+              <td class="table-col-numeric">99</td>
+            </tr>
+            <tr>
+              <td class="table-col-numeric">2</td>
+              <td>William Nylander</td>
+              <td class="table-col-numeric">82</td>
+              <td class="table-col-numeric">40</td>
+              <td class="table-col-numeric">47</td>
+              <td class="table-col-numeric">87</td>
+            </tr>
+            <tr>
+              <td class="table-col-numeric">3</td>
+              <td>Auston Matthews</td>
+              <td class="table-col-numeric">74</td>
+              <td class="table-col-numeric">40</td>
+              <td class="table-col-numeric">45</td>
+              <td class="table-col-numeric">85</td>
+            </tr>
+            <tr>
+              <td class="table-col-numeric">4</td>
+              <td>John Tavares</td>
+              <td class="table-col-numeric">80</td>
+              <td class="table-col-numeric">36</td>
+              <td class="table-col-numeric">44</td>
+              <td class="table-col-numeric">80</td>
+            </tr>
+            <tr>
+              <td class="table-col-numeric">5</td>
+              <td>Michael Bunting</td>
+              <td class="table-col-numeric">82</td>
+              <td class="table-col-numeric">23</td>
+              <td class="table-col-numeric">26</td>
+              <td class="table-col-numeric">49</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Wide</h3>
+      <div class="table-wrap">
+        <table class="table-wide table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Role</th>
+              <th scope="col">Joined</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Alice Zhang</td>
+              <td>Admin</td>
+              <td>Jan 2024</td>
+            </tr>
+            <tr>
+              <td>Bob Okafor</td>
+              <td>Editor</td>
+              <td>Mar 2024</td>
+            </tr>
+            <tr>
+              <td>Carol Smith</td>
+              <td>Viewer</td>
+              <td>Jul 2024</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Complex content</h3>
+      <div class="table-wrap">
+        <table class="table-striped">
+          <thead>
+            <tr>
+              <th scope="col">User</th>
+              <th scope="col">Role</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                  "
+                >
+                  <div class="avatar avatar-sm" aria-hidden="true">LA</div>
+                  <div>
+                    <div
+                      style="
+                        font-weight: var(--font-weight-medium);
+                        color: var(--color-text);
+                      "
+                    >
+                      Leslie Alexander
+                    </div>
+                    <div style="color: var(--color-text-secondary)">
+                      leslie.alexander@example.com
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>Admin</td>
+              <td><span class="badge badge-green">Online</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                  "
+                >
+                  <div class="avatar avatar-sm" aria-hidden="true">MF</div>
+                  <div>
+                    <div
+                      style="
+                        font-weight: var(--font-weight-medium);
+                        color: var(--color-text);
+                      "
+                    >
+                      Michael Foster
+                    </div>
+                    <div style="color: var(--color-text-secondary)">
+                      michael.foster@example.com
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>Owner</td>
+              <td><span class="badge badge-green">Online</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                  "
+                >
+                  <div class="avatar avatar-sm" aria-hidden="true">DV</div>
+                  <div>
+                    <div
+                      style="
+                        font-weight: var(--font-weight-medium);
+                        color: var(--color-text);
+                      "
+                    >
+                      Dries Vincent
+                    </div>
+                    <div style="color: var(--color-text-secondary)">
+                      dries.vincent@example.com
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>Member</td>
+              <td><span class="badge">Offline</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                  "
+                >
+                  <div class="avatar avatar-sm" aria-hidden="true">LW</div>
+                  <div>
+                    <div
+                      style="
+                        font-weight: var(--font-weight-medium);
+                        color: var(--color-text);
+                      "
+                    >
+                      Lindsay Walton
+                    </div>
+                    <div style="color: var(--color-text-secondary)">
+                      lindsay.walton@example.com
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>Member</td>
+              <td><span class="badge badge-green">Online</span></td>
             </tr>
           </tbody>
         </table>

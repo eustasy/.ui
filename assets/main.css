@@ -12,7 +12,6 @@
 /* Base element styles */
 @import url("../base/typography.css");
 @import url("../base/forms.css");
-@import url("../base/tables.css");
 @import url("../base/media.css");
 
 /* Components */

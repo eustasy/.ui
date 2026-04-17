@@ -47,7 +47,6 @@ base/
   reset.css                   ← modern CSS reset
   typography.css              ← headings, prose, lists, code, links
   forms.css                   ← shared form styles, validation states
-  tables.css                  ← striped rows, responsive wrapper
   media.css                   ← images, details, progress, dialog
 components/
   alert.css                   ← info, success, warning, danger, dismissible
@@ -70,7 +69,7 @@ components/
   radio.css                   ← radio button group
   select.css                  ← native and custom select
   switch.css                  ← toggle switch (checkbox variant)
-  table.css                   ← striped, bordered, and compact variants
+  table.css                   ← base styles, responsive wrapper, striped/grid/condensed/wide variants
   text.css                    ← inline text elements
   textarea.css                ← auto-resizing textarea
   user-menu.css               ← avatar dropdown for user account actions
