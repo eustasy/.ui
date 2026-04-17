@@ -339,6 +339,38 @@
         </label>
       </fieldset>
 
+      <h3>With title and description (Fieldset)</h3>
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend">Accessibility settings</legend>
+        <p class="fieldset-hint">
+          Choose which accessibility features you want enabled.
+        </p>
+        <div class="checkbox-group">
+          <label class="checkbox">
+            <input type="checkbox" name="a11y" value="motion" checked />
+            <span class="checkbox-label">
+              Reduce motion
+              <span class="checkbox-description"
+                >Minimise animations and transitions</span
+              >
+            </span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="a11y" value="contrast" />
+            <span class="checkbox-label">
+              High contrast
+              <span class="checkbox-description"
+                >Increase colour contrast throughout the UI</span
+              >
+            </span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="a11y" value="focus" />
+            <span class="checkbox-label">Always show focus rings</span>
+          </label>
+        </div>
+      </fieldset>
+
       <h3>
         Select all
         <small
@@ -350,7 +382,8 @@
           >— checkbox-ext-select-all.js</small
         >
       </h3>
-      <div class="checkbox-group" data-checkbox-group>
+      <fieldset class="checkbox-group" data-checkbox-group>
+        <legend class="checkbox-group-label">Items</legend>
         <label class="checkbox">
           <input type="checkbox" data-select-all />
           <span
@@ -379,7 +412,7 @@
             <span class="checkbox-label">Item three</span>
           </label>
         </div>
-      </div>
+      </fieldset>
     </section>
     <!-- ================================================================== -->
     <section id="combobox" aria-labelledby="combobox-heading">
@@ -2574,39 +2607,42 @@
     <section id="switch" aria-labelledby="switch-heading">
       <h2 id="switch-heading">Switch</h2>
 
-      <div style="display: flex; flex-direction: column; gap: var(--space-3)">
-        <label class="switch">
-          <input type="checkbox" role="switch" checked />
-          <span class="switch-track" aria-hidden="true"
-            ><span class="switch-thumb"></span
-          ></span>
-          <span class="switch-label">Email notifications (on)</span>
-        </label>
+      <fieldset class="fieldset fieldset-flush">
+        <legend class="fieldset-legend">Notification channels</legend>
+        <div style="display: flex; flex-direction: column; gap: var(--space-3)">
+          <label class="switch">
+            <input type="checkbox" role="switch" checked />
+            <span class="switch-track" aria-hidden="true"
+              ><span class="switch-thumb"></span
+            ></span>
+            <span class="switch-label">Email notifications (on)</span>
+          </label>
 
-        <label class="switch">
-          <input type="checkbox" role="switch" />
-          <span class="switch-track" aria-hidden="true"
-            ><span class="switch-thumb"></span
-          ></span>
-          <span class="switch-label">SMS notifications (off)</span>
-        </label>
+          <label class="switch">
+            <input type="checkbox" role="switch" />
+            <span class="switch-track" aria-hidden="true"
+              ><span class="switch-thumb"></span
+            ></span>
+            <span class="switch-label">SMS notifications (off)</span>
+          </label>
 
-        <label class="switch">
-          <input type="checkbox" role="switch" disabled />
-          <span class="switch-track" aria-hidden="true"
-            ><span class="switch-thumb"></span
-          ></span>
-          <span class="switch-label">Push notifications (disabled)</span>
-        </label>
+          <label class="switch">
+            <input type="checkbox" role="switch" disabled />
+            <span class="switch-track" aria-hidden="true"
+              ><span class="switch-thumb"></span
+            ></span>
+            <span class="switch-label">Push notifications (disabled)</span>
+          </label>
 
-        <label class="switch">
-          <input type="checkbox" role="switch" disabled checked />
-          <span class="switch-track" aria-hidden="true"
-            ><span class="switch-thumb"></span
-          ></span>
-          <span class="switch-label">Beta features (disabled, on)</span>
-        </label>
-      </div>
+          <label class="switch">
+            <input type="checkbox" role="switch" disabled checked />
+            <span class="switch-track" aria-hidden="true"
+              ><span class="switch-thumb"></span
+            ></span>
+            <span class="switch-label">Beta features (disabled, on)</span>
+          </label>
+        </div>
+      </fieldset>
     </section>
     <!-- ================================================================== -->
     <section id="table" aria-labelledby="table-heading">
