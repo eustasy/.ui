@@ -8,12 +8,13 @@
     "url": "https://github.com/eustasy/.ui.git"
   },
   "scripts": {
-    "build": "npm run build:js && npm run build:css",
+    "build": "npm run format &&npm run build:js && npm run build:css",
     "build:js": "esbuild js/*.js --bundle --minify --outdir=dist --out-extension:.js=.min.js",
     "build:js-bundle": "esbuild js/*.js --bundle --minify --outfile=dist/ui.min.js",
     "build:css": "lightningcss --minify --bundle --targets '>= 0.25%' base/main.css -o dist/ui.min.css",
     "dev": "lightningcss --bundle --targets '>= 0.25%' base/main.css -o dist/ui.min.css --watch",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "format": "prettier --write ."
   },
   "devDependencies": {
     "esbuild": "^0.28.0",
