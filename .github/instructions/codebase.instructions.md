@@ -19,10 +19,10 @@ applyTo: "*" # when provided, instructions will automatically be added to the re
 - Component optional enhancements → `js/<name>-ext-<feature>.js` (non-essential add-ons, e.g. `checkbox-ext-select-all.js`)
 - Layout styles → `layouts/<name>.css`, layout behaviour → `layouts/<name>.js`
 - Base/reset styles → `base/`
-- Theme tokens → `assets/themes/`
+- Theme tokens → `themes/`
 - Demo scaffolding only → `*.demo.css` and `tests/*.js` / `layouts/*.js`
 
-New components added to `components/` must also be imported in `assets/main.css`.
+New components added to `components/` must also be imported in `base/main.css`.
 
 ## Accessibility Requirements
 

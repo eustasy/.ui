@@ -16,7 +16,7 @@ Open, accessible, themable web components — vanilla HTML, CSS, and minimal Jav
 <link rel="stylesheet" href="dist/ui.min.css" />
 
 <!-- Option B: Link the source entry (uses @import, fine for dev) -->
-<link rel="stylesheet" href="assets/main.css" />
+<link rel="stylesheet" href="base/main.css" />
 ```
 
 For dark/light mode toggling, add the script and a toggle button:
@@ -28,22 +28,21 @@ For dark/light mode toggling, add the script and a toggle button:
 
 ## Building
 
-Lightning CSS is the sole build dependency — it bundles `@import`s, applies CSS nesting, and minifies.
+Lightning CSS bundles and minifies CSS; esbuild bundles and minifies JS.
 
 ```bash
 npm install
-npm run build    # → dist/ui.min.css (bundled + minified)
-npm run dev      # → watch mode
+npm run build    # → dist/ui.min.css + dist/*.min.js (bundled + minified)
+npm run dev      # → CSS watch mode
 ```
 
 ## Structure
 
 ```
-assets/
-  main.css                    ← source entry point (imports everything)
-  themes/
-    flexoki.css               ← Flexoki 2.0 palette + semantic tokens + light/dark
+themes/
+  flexoki.css                 ← Flexoki 2.0 palette + semantic tokens + light/dark
 base/
+  main.css                    ← CSS source entry point (imports everything)
   reset.css                   ← modern CSS reset
   typography.css              ← headings, prose, lists, code, links
   forms.css                   ← shared form styles, validation states
@@ -97,7 +96,8 @@ tests/
   elements.html               ← living reference of all styled HTML elements
   components.html             ← preview of all components
 dist/
-  ui.min.css                      ← built output (gitignored)
+  ui.min.css                  ← built CSS output (gitignored)
+  *.min.js                    ← built JS output (gitignored)
 ```
 
 ## Theming
