@@ -18,6 +18,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    allow:
+      - dependency-type: "all"
     groups:
       npm-patching:
         update-types:
