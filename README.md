@@ -96,8 +96,8 @@ tests/
   elements.html               ← living reference of all styled HTML elements
   components.html             ← preview of all components
 dist/
-  ui.min.css                  ← built CSS output (gitignored)
-  *.min.js                    ← built JS output (gitignored)
+  ui.min.css                  ← built CSS output, committed so it can be linked directly
+  *.min.js                    ← built JS output, committed so it can be linked directly
 ```
 
 ## Theming
